@@ -3,7 +3,7 @@ node_js:
 - "8"
 - "10"
 script:
-- npm test
+- npm run test -- --coverage
 after_success:
 - npm run-script coveralls
 cache:
