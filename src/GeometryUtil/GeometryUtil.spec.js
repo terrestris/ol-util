@@ -10,9 +10,7 @@ import OlGeomMultiPoint from 'ol/geom/multipoint';
 import OlGeomLineString from 'ol/geom/linestring';
 import OlGeomMultiLineString from 'ol/geom/multilinestring';
 
-import {
-  GeometryUtil,
-} from '../index';
+import GeometryUtil from './GeometryUtil';
 
 import {
   pointCoords,

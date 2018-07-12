@@ -14,9 +14,7 @@ import OlView from 'ol/view';
 import TestUtil from '../TestUtil';
 
 import { Logger } from '@terrestris/base-util';
-import {
-  MapUtil,
-} from '../index';
+import MapUtil from './MapUtil';
 
 describe('MapUtil', () => {
   const testResolutions = {

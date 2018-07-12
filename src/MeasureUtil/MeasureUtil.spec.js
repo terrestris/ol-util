@@ -3,9 +3,7 @@
 import OlGeomLineString from 'ol/geom/linestring';
 import OlGeomPolygon from 'ol/geom/polygon';
 
-import {
-  MeasureUtil,
-} from '../index';
+import MeasureUtil from './MeasureUtil';
 
 import TestUtil from '../TestUtil';
 

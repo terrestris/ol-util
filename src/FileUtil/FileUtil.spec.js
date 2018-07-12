@@ -3,9 +3,7 @@
 import geoJson from '../../assets/federal-states-ger.json';
 
 import TestUtil from '../TestUtil';
-import {
-  FileUtil
-} from '../index';
+import FileUtil from './FileUtil';
 
 describe('FileUtil', () => {
   const geoJsonFile = new File([JSON.stringify(geoJson)], 'geo.json', {

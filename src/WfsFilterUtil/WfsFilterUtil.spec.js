@@ -1,8 +1,6 @@
 /*eslint-env jest*/
 
-import {
-  WfsFilterUtil,
-} from '../index';
+import WfsFilterUtil from './WfsFilterUtil';
 
 describe('WfsFilterUtil', () => {
 
