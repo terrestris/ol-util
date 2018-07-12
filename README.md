@@ -1,8 +1,14 @@
 # ol-util
 
-## A set of helper classes for working with openLayers
+A set of helper classes for working with openLayers
 
-## API
+## Installation
+
+```javascript static
+npm i @terrestris/ol-util
+```
+
+## API Documentation
 
 ### AnimateUtil
 
