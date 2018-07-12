@@ -1,0 +1,59 @@
+{
+  "name": "@terrestris/ol-util",
+  "version": "0.0.1",
+  "description": "A set of helper classes for working with openLayers",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest --maxWorkers=4",
+    "test:watch": "jest --watchAll",
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "release": "np --no-yarn"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrestris/ol-util.git"
+  },
+  "keywords": [
+    "openlayers",
+    "mapping",
+    "geo",
+    "ol"
+  ],
+  "author": "terrestris GmbH & Co. KG <info@terrestris.de>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/terrestris/ol-util/issues"
+  },
+  "homepage": "https://github.com/terrestris/ol-util#readme",
+  "dependencies": {
+    "@terrestris/base-util": "0.0.1",
+    "@turf/turf": "5.1.6",
+    "lodash": "4.17.10",
+    "proj4": "2.4.4",
+    "shpjs": "3.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
+    "babel-eslint": "8.2.5",
+    "babel-jest": "23.0.1",
+    "babel-loader": "7.1.5",
+    "babel-plugin-dynamic-import-node": "2.0.0",
+    "babel-plugin-import": "1.8.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
+    "babel-plugin-transform-import-extension-jsx-to-js": "0.1.0",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "canvas-prebuilt": "1.6.5-prerelease.1",
+    "coveralls": "3.0.2",
+    "jest": "23.4.0",
+    "np": "3.0.4",
+    "ol": "4.6.5",
+    "whatwg-fetch": "2.0.4"
+  },
+  "peerDependencies": {
+    "ol": "~4.0"
+  }
+}
