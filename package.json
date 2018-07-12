@@ -49,6 +49,7 @@
     "canvas-prebuilt": "1.6.5-prerelease.1",
     "coveralls": "3.0.2",
     "jest": "23.4.0",
+    "node-pre-gyp": "0.10.3",
     "np": "3.0.4",
     "ol": "4.6.5",
     "whatwg-fetch": "2.0.4"
