@@ -1,5 +1,7 @@
 # ol-util
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/terrestris/ol-util.svg)](https://greenkeeper.io/)
+
 A set of helper classes for working with openLayers
 
 ## Installation
