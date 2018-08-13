@@ -7,7 +7,7 @@ module.exports = {
     'node_modules'
   ],
   transformIgnorePatterns: [
-     'node_modules/(?!(ol)/)'
+     'node_modules/(?!(ol|@terrestris)/)'
   ],
   setupFiles: [
     '<rootDir>/jest/__mocks__/shim.js',
