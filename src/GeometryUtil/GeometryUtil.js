@@ -1,8 +1,8 @@
-import OlFeature from 'ol/feature';
-import OlGeomMultiPolygon from 'ol/geom/multipolygon';
-import OlGeomMultiPoint from 'ol/geom/multipoint';
-import OlGeomMultiLineString from 'ol/geom/multilinestring';
-import OlFormatGeoJSON from 'ol/format/geojson';
+import OlFeature from 'ol/Feature';
+import OlGeomMultiPolygon from 'ol/geom/MultiPolygon';
+import OlGeomMultiPoint from 'ol/geom/MultiPoint';
+import OlGeomMultiLineString from 'ol/geom/MultiLineString';
+import OlFormatGeoJSON from 'ol/format/GeoJSON';
 
 import buffer from '@turf/buffer';
 import difference from '@turf/difference';
@@ -61,7 +61,7 @@ class GeometryUtil {
     const turfLine = geoJsonFormat.writeFeatureObject(lineFeat);
     // This lists all the polygons in the feature and splits the Multi polygons into an array of polygons.
     const geometries = GeometryUtil.separateGeometries(polygonFeat.getGeometry());
-    // the array containing all the split features 
+    // the array containing all the split features
     let allSplitedPolygons = [];
     // iterates over each polygon and splits it
     geometries.forEach(geometry => {
@@ -78,7 +78,7 @@ class GeometryUtil {
       turfPolygonCoordinates.slice(1, turfPolygonCoordinates.length).forEach(function (coord) {
         inners.push(lineString(coord));
       });
-      // Polygonize the holes in the polygon 
+      // Polygonize the holes in the polygon
       const innerPolygon = polygonize(featureCollection(inners));
       // make a lineString from the spliting line and the outer of the polygon
       let unionGeom = union(outer, turfLine);
@@ -86,10 +86,10 @@ class GeometryUtil {
       const polygonizedUnionGeom = polygonize(unionGeom);
       // Array of the split polygons within the geometry
       const splitedPolygons = [];
-      // Iterate over each feature in the combined feature and remove sections that are outside the initial polygon and 
+      // Iterate over each feature in the combined feature and remove sections that are outside the initial polygon and
       // remove the parts from the cutted polygons that are in polygon holes.
       featureEach(polygonizedUnionGeom, cuttedSection => {
-        // checks to see if segment is in polygon 
+        // checks to see if segment is in polygon
         const segmentInPolygon = intersect(cuttedSection, outerPolygon);
         if (segmentInPolygon && segmentInPolygon.geometry.type === 'Polygon') {
           let polygonWithoutHoles = [];
@@ -194,15 +194,15 @@ class GeometryUtil {
     let append;
     switch (geomType) {
       case 'Polygon':
-        multiGeom = new OlGeomMultiPolygon();
+        multiGeom = new OlGeomMultiPolygon([]);
         append = multiGeom.appendPolygon.bind(multiGeom);
         break;
       case 'Point':
-        multiGeom = new OlGeomMultiPoint();
+        multiGeom = new OlGeomMultiPoint([]);
         append = multiGeom.appendPoint.bind(multiGeom);
         break;
       case 'LineString':
-        multiGeom = new OlGeomMultiLineString();
+        multiGeom = new OlGeomMultiLineString([]);
         append = multiGeom.appendLineString.bind(multiGeom);
         break;
       default:

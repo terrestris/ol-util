@@ -1,11 +1,11 @@
-import OlView from 'ol/view';
-import OlMap from 'ol/map';
-import OlSourceVector from 'ol/source/vector';
-import OlLayerVector from 'ol/layer/vector';
-import OlFeature from 'ol/feature';
-import OlGeomPoint from 'ol/geom/point';
-import OlPointerPointerEvent from 'ol/pointer/pointerevent';
-import OlMapBrowserPointerEvent from 'ol/mapbrowserpointerevent';
+import OlView from 'ol/View';
+import OlMap from 'ol/Map';
+import OlSourceVector from 'ol/source/Vector';
+import OlLayerVector from 'ol/layer/Vector';
+import OlFeature from 'ol/Feature';
+import OlGeomPoint from 'ol/geom/Point';
+import OlPointerPointerEvent from 'ol/pointer/PointerEvent';
+import OlMapBrowserPointerEvent from 'ol/MapBrowserPointerEvent';
 
 /**
  * A set of some useful static helper methods.

@@ -1,4 +1,8 @@
-import OlFormatFilter from 'ol/format/filter';
+import {
+  equalTo,
+  like,
+  or
+} from 'ol/format/filter';
 
 /**
  * Helper Class for building filters to be used with WFS GetFeature requests.
@@ -39,17 +43,17 @@ class WfsFilterUtil {
           return undefined;
         }
         if (details[attribute].exactSearch) {
-          return OlFormatFilter.equalTo(attribute, searchTerm, details[attribute].exactSearch);
+          return equalTo(attribute, searchTerm, details[attribute].exactSearch);
         } else {
-          return OlFormatFilter.like(attribute, `*${searchTerm}*`, '*', '.', '!', details[attribute].matchCase || false);
+          return like(attribute, `*${searchTerm}*`, '*', '.', '!', details[attribute].matchCase || false);
         }
       } else {
-        return OlFormatFilter.like(attribute, `*${searchTerm}*`, '*', '.', '!', false);
+        return like(attribute, `*${searchTerm}*`, '*', '.', '!', false);
       }
     })
       .filter(filter => filter !== undefined);
     if (attributes.length > 1 && Object.keys(propertyFilters).length > 1) {
-      return OlFormatFilter.or(...propertyFilters);
+      return or(...propertyFilters);
     } else {
       return propertyFilters[0];
     }
