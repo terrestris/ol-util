@@ -58,6 +58,6 @@
     "whatwg-fetch": "2.0.4"
   },
   "peerDependencies": {
-    "ol": "~4.0"
+    "ol": "~5.0"
   }
 }
