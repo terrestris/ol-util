@@ -1,6 +1,7 @@
 # ol-util
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/terrestris/ol-util.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/terrestris/ol-util.svg?branch=master)](https://travis-ci.org/terrestris/ol-util)
 
 A set of helper classes for working with openLayers
 
