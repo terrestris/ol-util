@@ -38,8 +38,8 @@ describe('MeasureUtil', () => {
         const expectedShortLength = MeasureUtil.getLength(shortLine, map);
         const expectedLongLength = MeasureUtil.getLength(longLine, map);
 
-        expect(expectedShortLength).toEqual(99.88824008937313);
-        expect(expectedLongLength).toEqual(100433.46540039503);
+        expect(expectedShortLength).toBeCloseTo(99.88824008937313, 4);
+        expect(expectedLongLength).toBeCloseTo(100433.46540039503, 4);
 
         TestUtil.removeMap(map);
       });
