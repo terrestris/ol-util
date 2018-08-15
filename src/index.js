@@ -9,13 +9,13 @@ import ProjectionUtil from './ProjectionUtil/ProjectionUtil';
 import WfsFilterUtil from './WfsFilterUtil/WfsFilterUtil';
 
 export {
-    AnimateUtil,
-    CapabilitiesUtil,
-    FeatureUtil,
-    FileUtil,
-    GeometryUtil,
-    MapUtil,
-    MeasureUtil,
-    ProjectionUtil,
-    WfsFilterUtil
+  AnimateUtil,
+  CapabilitiesUtil,
+  FeatureUtil,
+  FileUtil,
+  GeometryUtil,
+  MapUtil,
+  MeasureUtil,
+  ProjectionUtil,
+  WfsFilterUtil
 };

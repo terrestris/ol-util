@@ -1,14 +1,14 @@
 /*eslint-env jest*/
 
-import OlFormatGeoJSON from 'ol/format/geojson';
-import OlFeature from 'ol/feature';
-import OlGeomGeometry from 'ol/geom/geometry';
-import OlGeomPolygon from 'ol/geom/polygon';
-import OlGeomMultiPolygon from 'ol/geom/multipolygon';
-import OlGeomPoint from 'ol/geom/point';
-import OlGeomMultiPoint from 'ol/geom/multipoint';
-import OlGeomLineString from 'ol/geom/linestring';
-import OlGeomMultiLineString from 'ol/geom/multilinestring';
+import OlFormatGeoJSON from 'ol/format/GeoJSON';
+import OlFeature from 'ol/Feature';
+import OlGeomGeometry from 'ol/geom/Geometry';
+import OlGeomPolygon from 'ol/geom/Polygon';
+import OlGeomMultiPolygon from 'ol/geom/MultiPolygon';
+import OlGeomPoint from 'ol/geom/Point';
+import OlGeomMultiPoint from 'ol/geom/MultiPoint';
+import OlGeomLineString from 'ol/geom/LineString';
+import OlGeomMultiLineString from 'ol/geom/MultiLineString';
 
 import {
   GeometryUtil,
@@ -168,7 +168,7 @@ describe('GeometryUtil', () => {
           ];
           expect(format.writeFeatures(got)).toEqual(format.writeFeatures(exp));
         });
-     
+
         /**
          *          +-------------------+
          *          |                   |
@@ -212,7 +212,7 @@ describe('GeometryUtil', () => {
             });
           });
         });
-      }); 
+      });
       describe('with ol.geom.Geometry as params', () => {
         /**
          *          +
@@ -357,6 +357,7 @@ describe('GeometryUtil', () => {
       it('can split a single ol.geom.MultiPoint into an array of ol.geom.Points', () => {
         const testPoint1 = new OlGeomPoint(pointCoords);
         const testPoint2 = new OlGeomPoint(pointCoords2);
+
         const mergedPoint = GeometryUtil.mergeGeometries([testPoint1, testPoint2]);
         const separatedPoints = GeometryUtil.separateGeometries(mergedPoint);
         expect(Array.isArray(separatedPoints)).toBe(true);
