@@ -54,7 +54,7 @@
     "jest": "23.5.0",
     "node-pre-gyp": "0.11.0",
     "np": "3.0.4",
-    "ol": "5.1.3",
+    "ol": "5.2.0",
     "whatwg-fetch": "2.0.4"
   },
   "peerDependencies": {
