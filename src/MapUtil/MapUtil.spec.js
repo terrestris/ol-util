@@ -3,7 +3,9 @@
 import OlInteractionDragRotateAndZoom from 'ol/interaction/DragRotateAndZoom';
 import OlInteractionDraw from 'ol/interaction/Draw';
 import OlLayerTile from 'ol/layer/Tile';
+import OlLayerImage from 'ol/layer/Image';
 import OlSourceTileWMS from 'ol/source/TileWMS';
+import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileJson from 'ol/source/TileJSON';
 import OlFeature from 'ol/Feature';
 import OlGeomPoint from 'ol/geom/Point';
@@ -466,6 +468,7 @@ describe('MapUtil', () => {
 
     let layer1;
     let layer2;
+    let layer3;
 
     beforeEach(() => {
       layer1 = new OlLayerTile({
@@ -476,7 +479,15 @@ describe('MapUtil', () => {
           serverType: 'geoserver'
         })
       });
-      layer2 = new OlLayerTile({
+      layer2 = new OlLayerImage({
+        name: 'OSM-WMS',
+        source: new OlSourceImageWMS({
+          url: 'https://ows.terrestris.de/osm-gray/service',
+          params: {'LAYERS': 'OSM-WMS', 'TILED': true},
+          serverType: 'geoserver'
+        })
+      });
+      layer3 = new OlLayerTile({
         name: 'Food insecurity',
         source: new OlSourceTileJson({
           url: 'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
@@ -490,7 +501,7 @@ describe('MapUtil', () => {
       const legendUrl = MapUtil.getLegendGraphicUrl();
       expect(legendUrl).toBeUndefined();
       expect(logSpy).toHaveBeenCalled();
-      expect(logSpy).toHaveBeenCalledWith('Invalid input parameter for MapUtil.getLegendGraphicUrl.');
+      expect(logSpy).toHaveBeenCalledWith('No layer passed to MapUtil.getLegendGraphicUrl.');
 
       logSpy.mockReset();
       logSpy.mockRestore();
@@ -498,28 +509,46 @@ describe('MapUtil', () => {
 
     it('logs a warning if called with an unsupported layersource', () => {
       const logSpy = jest.spyOn(Logger, 'warn');
-      const legendUrl = MapUtil.getLegendGraphicUrl(layer2);
+      const legendUrl = MapUtil.getLegendGraphicUrl(layer3);
       expect(legendUrl).toBeUndefined();
       expect(logSpy).toHaveBeenCalledWith('Source of "Food insecurity" is currently not supported by MapUtil.getLegendGraphicUrl.');
       logSpy.mockReset();
       logSpy.mockRestore();
     });
 
-    it('returns a getLegendGraphicUrl from a given layer', () => {
-      const legendUrl = MapUtil.getLegendGraphicUrl(layer1);
-      const url = 'https://ows.terrestris.de/osm-gray/service?';
-      const layerParam = 'LAYER=OSM-WMS';
-      const versionParam = 'VERSION=1.3.0';
-      const serviceParam = 'SERVICE=WMS';
-      const requestParam = 'REQUEST=getLegendGraphic';
-      const formatParam = 'FORMAT=image%2Fpng';
+    describe('returns a getLegendGraphicUrl from a given layer', () => {
+      it('… for a tiled Layer', () => {
+        const legendUrl = MapUtil.getLegendGraphicUrl(layer1);
+        const url = 'https://ows.terrestris.de/osm-gray/service?';
+        const layerParam = 'LAYER=OSM-WMS';
+        const versionParam = 'VERSION=1.3.0';
+        const serviceParam = 'SERVICE=WMS';
+        const requestParam = 'REQUEST=getLegendGraphic';
+        const formatParam = 'FORMAT=image%2Fpng';
 
-      expect(legendUrl).toContain(url);
-      expect(legendUrl).toContain(layerParam);
-      expect(legendUrl).toContain(versionParam);
-      expect(legendUrl).toContain(serviceParam);
-      expect(legendUrl).toContain(requestParam);
-      expect(legendUrl).toContain(formatParam);
+        expect(legendUrl).toContain(url);
+        expect(legendUrl).toContain(layerParam);
+        expect(legendUrl).toContain(versionParam);
+        expect(legendUrl).toContain(serviceParam);
+        expect(legendUrl).toContain(requestParam);
+        expect(legendUrl).toContain(formatParam);
+      });
+      it('… for an image Layer', () => {
+        const legendUrl = MapUtil.getLegendGraphicUrl(layer2);
+        const url = 'https://ows.terrestris.de/osm-gray/service?';
+        const layerParam = 'LAYER=OSM-WMS';
+        const versionParam = 'VERSION=1.3.0';
+        const serviceParam = 'SERVICE=WMS';
+        const requestParam = 'REQUEST=getLegendGraphic';
+        const formatParam = 'FORMAT=image%2Fpng';
+
+        expect(legendUrl).toContain(url);
+        expect(legendUrl).toContain(layerParam);
+        expect(legendUrl).toContain(versionParam);
+        expect(legendUrl).toContain(serviceParam);
+        expect(legendUrl).toContain(requestParam);
+        expect(legendUrl).toContain(formatParam);
+      });
     });
 
     it('accepts extraParams for the request', () => {
