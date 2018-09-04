@@ -1,6 +1,6 @@
 import OlMap from 'ol/Map';
 import OlSourceTileWMS from 'ol/source/TileWMS';
-import OlLayerTile from 'ol/layer/Tile';
+import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlLayerGroup from 'ol/layer/Group';
 import OlLayerBase from 'ol/layer/Base';
 import { METERS_PER_UNIT } from 'ol/proj/Units';
@@ -300,15 +300,25 @@ export class MapUtil {
    * @return {String|undefined} The getLegendGraphicUrl.
    */
   static getLegendGraphicUrl(layer, extraParams) {
-    if (!(layer instanceof OlLayerBase)) {
-      Logger.error('Invalid input parameter for MapUtil.getLegendGraphicUrl.');
+    if (!layer) {
+      Logger.error('No layer passed to MapUtil.getLegendGraphicUrl.');
       return;
     }
 
-    if (layer instanceof OlLayerTile
-        && layer.getSource() instanceof OlSourceTileWMS) {
+    const source = layer.getSource();
+    if (!(layer instanceof OlLayerBase) || !source) {
+      Logger.error('Invalid layer passed to MapUtil.getLegendGraphicUrl.');
+      return;
+    }
+
+    const isTiledWMS = source instanceof OlSourceTileWMS;
+    const isImageWMS = source instanceof OlSourceImageWMS;
+
+    if (isTiledWMS || isImageWMS) {
       const source = layer.getSource();
-      const url = source.getUrls() ? source.getUrls()[0] : '';
+      const url = isTiledWMS ?
+        source.getUrls() ? source.getUrls()[0] : ''
+        : source.getUrl();
       const params = {
         LAYER: source.getParams().LAYERS,
         VERSION: '1.3.0',
