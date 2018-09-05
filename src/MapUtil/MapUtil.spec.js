@@ -474,7 +474,7 @@ describe('MapUtil', () => {
       layer1 = new OlLayerTile({
         name: 'OSM-WMS',
         source: new OlSourceTileWMS({
-          url: 'https://ows.terrestris.de/osm-gray/service',
+          url: 'https://ows.terrestris.de/osm-gray/service?',
           params: {'LAYERS': 'OSM-WMS', 'TILED': true},
           serverType: 'geoserver'
         })
@@ -549,6 +549,12 @@ describe('MapUtil', () => {
         expect(legendUrl).toContain(requestParam);
         expect(legendUrl).toContain(formatParam);
       });
+    });
+
+    it('Does not append multiple questionmarks in URL', () => {
+      const legendUrl = MapUtil.getLegendGraphicUrl(layer1);
+      expect(legendUrl).toEqual(expect.stringContaining('?'));
+      expect(legendUrl).toEqual(expect.not.stringContaining('??'));
     });
 
     it('accepts extraParams for the request', () => {
