@@ -295,6 +295,7 @@ export class MapUtil {
    * Get the getlegendGraphic url of a layer. Designed for geoserver.
    * Currently supported Sources:
    *  - ol.source.TileWms (with url configured)
+   *  - ol.source.ImageWms (with url configured)
    *
    * @param {ol.layer.Layer} layer The layer that you want to have a legendUrlfor.
    * @return {String|undefined} The getLegendGraphicUrl.
@@ -330,7 +331,7 @@ export class MapUtil {
       const queryString = UrlUtil.objectToRequestString(
         Object.assign(params, extraParams));
 
-      return `${url}?${queryString}`;
+      return url.endsWith('?') ? `${url}${queryString}` : `${url}?${queryString}`;
     } else {
       Logger.warn(`Source of "${layer.get('name')}" is currently not supported `
         + `by MapUtil.getLegendGraphicUrl.`);
