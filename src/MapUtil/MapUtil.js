@@ -331,7 +331,7 @@ export class MapUtil {
       const queryString = UrlUtil.objectToRequestString(
         Object.assign(params, extraParams));
 
-      return url.endsWith('?') ? `${url}${queryString}` : `${url}?${queryString}`;
+      return /\?/.test(url) ? `${url}&${queryString}` : `${url}?${queryString}`;
     } else {
       Logger.warn(`Source of "${layer.get('name')}" is currently not supported `
         + `by MapUtil.getLegendGraphicUrl.`);

@@ -469,6 +469,7 @@ describe('MapUtil', () => {
     let layer1;
     let layer2;
     let layer3;
+    let layer4;
 
     beforeEach(() => {
       layer1 = new OlLayerTile({
@@ -492,6 +493,17 @@ describe('MapUtil', () => {
         source: new OlSourceTileJson({
           url: 'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
           crossOrigin: 'anonymous'
+        })
+      });
+      layer4 = new OlLayerTile({
+        name: 'OSM-WMS',
+        source: new OlSourceTileWMS({
+          urls: [
+            'https://a.example.com/service?humpty=dumpty',
+            'https://b.example.com/service?foo=bar'
+          ],
+          params: {'LAYERS': 'OSM-WMS', 'TILED': true},
+          serverType: 'geoserver'
         })
       });
     });
@@ -551,10 +563,20 @@ describe('MapUtil', () => {
       });
     });
 
-    it('Does not append multiple questionmarks in URL', () => {
+    it('does not append multiple questionmarks in URL', () => {
       const legendUrl = MapUtil.getLegendGraphicUrl(layer1);
+      const numQuestionMarks = (legendUrl.match(/\?/g) || []).length;
       expect(legendUrl).toEqual(expect.stringContaining('?'));
       expect(legendUrl).toEqual(expect.not.stringContaining('??'));
+      expect(numQuestionMarks).toEqual(1);
+    });
+
+    it('works as expected when layer URL contains params', () => {
+      const legendUrl = MapUtil.getLegendGraphicUrl(layer4);
+      const numQuestionMarks = (legendUrl.match(/\?/g) || []).length;
+      const containsParams = /humpty=dumpty/.test(legendUrl);
+      expect(numQuestionMarks).toEqual(1);
+      expect(containsParams).toBe(true);
     });
 
     it('accepts extraParams for the request', () => {
