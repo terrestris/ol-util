@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --ext js src/",
     "pretest": "npm run lint",
-    "test": "jest --maxWorkers=4",
+    "test": "jest --maxWorkers=4 --silent",
     "test:watch": "jest --watchAll",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "release": "np --no-yarn"
