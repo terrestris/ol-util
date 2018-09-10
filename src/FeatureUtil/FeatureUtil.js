@@ -33,11 +33,17 @@ class FeatureUtil {
    *
    * @param {ol.Feature} feature The feature to get the attributes from.
    * @param {String} template The template string to resolve.
-   * @param {String} noValueFoundText The text to apply, if the templated value
-   *                                  could not be found, default is to 'n.v.'.
+   * @param {String} [noValueFoundText] The text to apply, if the templated value
+   *   could not be found, default is to 'n.v.'.
+   * @param {Function} [valueAdjust] A method that will be called with each
+   *   key/value match, we'll use what this function returns for the actual
+   *   replacement. Optional, defaults to a function which will return the raw
+   *   value it received. This can be used for last minute adjustments before
+   *   replacing happens, e.g. to filter out falsy values or to do number
+   *   formatting and such.
    * @return {String} The resolved template string.
    */
-  static resolveAttributeTemplate(feature, template, noValueFoundText = 'n.v.') {
+  static resolveAttributeTemplate(feature, template, noValueFoundText = 'n.v.', valueAdjust = (key, val) => val) {
     let attributeTemplatePrefix = '\\{\\{';
     let attributeTemplateSuffix = '\\}\\}';
     let resolved = '';
@@ -63,7 +69,7 @@ class FeatureUtil {
           let attributeName = res.slice(2, res.length - 2);
 
           if (attributeName.toLowerCase() === key.toLowerCase()) {
-            template = template.replace(res, value);
+            template = template.replace(res, valueAdjust(key, value));
             break;
           } else {
             noMatchCnt++;

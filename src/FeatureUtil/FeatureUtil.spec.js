@@ -24,7 +24,9 @@ describe('FeatureUtil', () => {
       name: 'Shinji Kagawa',
       address: 'Borsigplatz 9',
       city: 'Dortmund',
-      homepage: 'https://www.bvb.de/'
+      homepage: 'https://www.bvb.de/',
+      'exists-and-is-undefined': undefined,
+      'exists-and-is-null': null
     };
     feat = new OlFeature({
       geometry: geom
@@ -78,6 +80,22 @@ describe('FeatureUtil', () => {
         template = 'No attribute template';
         got = FeatureUtil.resolveAttributeTemplate(feat, template);
         expect(got).toBe(template);
+      });
+
+      it('can be configured wrt handling inexistant / falsy values', () => {
+        let template = '{{exists-and-is-undefined}}|{{exists-and-is-null}}|{{key-does-not-exist}}';
+        let got = FeatureUtil.resolveAttributeTemplate(feat, template);
+        expect(got).toBe('undefined|null|n.v.');
+        got = FeatureUtil.resolveAttributeTemplate(feat, template, '', (key, val) => {return val ? val : '';});
+        expect(got).toBe('||');
+        const mockFn = jest.fn(() => {return 'FOO';});
+        got = FeatureUtil.resolveAttributeTemplate(feat, template, '', mockFn);
+        expect(mockFn.mock.calls.length).toBe(2);
+        expect(mockFn.mock.calls[0][0]).toBe('exists-and-is-undefined');
+        expect(mockFn.mock.calls[0][1]).toBe(undefined);
+        expect(mockFn.mock.calls[1][0]).toBe('exists-and-is-null');
+        expect(mockFn.mock.calls[1][1]).toBe(null);
+        expect(got).toBe('FOO|FOO|');
       });
 
       it('wraps an URL occurence with an <a> tag', () => {
