@@ -132,6 +132,7 @@ class GeometryUtil {
 
   /**
    * Adds a buffer to a given geometry.
+   *
    * If the target is of type ol.Feature it will return an ol.Feature.
    * If the target is of type ol.geom.Geometry it will return ol.geom.Geometry.
    *
@@ -291,13 +292,14 @@ class GeometryUtil {
   /**
    * Finds the difference between two polygons by clipping the second polygon from the first.
    *
-   * @param {ol.geom.Geometry | ol.Feature} feature An ol.geom.Geoemtry or ol.Feature
-   * @param {ol.geom.Geometry | ol.Feature} feature An ol.geom.Geoemtry or ol.Feature
+   * @param {ol.geom.Geometry | ol.Feature} polygon1 An ol.geom.Geometry or ol.Feature
+   * @param {ol.geom.Geometry | ol.Feature} polygon2 An ol.geom.Geometry or ol.Feature
    * @param {String} projection The projection of the input polygons as EPSG code.
    *  Default is to EPSG:3857.
    *
    * @returns {ol.geom.Geometry | ol.Feature} A Feature or Geometry with the area
-   *  of polygon1 excluding the area of polygon2.
+   *  of polygon1 excluding the area of polygon2. The type of the first polygon
+   *  (geometry or feature) determines the return type.
    */
   static difference(polygon1, polygon2, projection = 'EPSG:3857') {
     const geoJsonFormat = new OlFormatGeoJSON({
@@ -325,11 +327,12 @@ class GeometryUtil {
 
   /**
    * Takes two polygons and finds their intersection.
+   *
    * If the polygons are of type ol.Feature it will return an ol.Feature.
    * If the polygons are of type ol.geom.Geometry it will return an ol.geom.Geometry.
    *
-   * @param {ol.geom.Geometry | ol.Feature} polygon1 An ol.geom.Geoemtry or ol.Feature
-   * @param {ol.geom.Geometry | ol.Feature} polygon2 An ol.geom.Geoemtry or ol.Feature
+   * @param {ol.geom.Geometry | ol.Feature} polygon1 An ol.geom.Geometry or ol.Feature
+   * @param {ol.geom.Geometry | ol.Feature} polygon2 An ol.geom.Geometry or ol.Feature
    * @param {String} projection The projection of the input polygons as EPSG code.
    *  Default is to EPSG:3857.
    *
