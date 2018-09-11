@@ -167,7 +167,7 @@ class GeometryUtil {
    * Merges multiple geometries into one MultiGeometry.
    *
    * @param {ol.geom.Geometry[]} geometries An array of ol.geom.geometries;
-   * @returns {ol.geom.Multipoint|ol.geom.MultiPolygon|ol.geom.MultiLinestring} A Multigeometry.
+   * @returns {ol.geom.MultiPoint|ol.geom.MultiPolygon|ol.geom.MultiLineString} A Multigeometry.
    */
   static mergeGeometries(geometries) {
     const multiPrefix = GeometryUtil.MULTI_GEOM_PREFIX;
