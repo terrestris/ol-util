@@ -44,7 +44,7 @@ export class MapUtil {
   }
 
   /**
-   * Returns all interactions by the given name of a map.
+   * Returns all interactions of the given class of the passed map.
    *
    * @param {ol.Map} map The map to use for lookup.
    * @param {ol.interaction} clazz The class of the interaction to look for.
@@ -112,7 +112,7 @@ export class MapUtil {
    *
    * @param {ol.Map|ol.layer.Group} collection The collection to get the layers
    *                                           from. This can be an ol.layer.Group
-   *                                           or and ol.Map.
+   *                                           or an ol.Map.
    * @param {function} [filter] A filter function that receives the layer.
    *                            If it returns true it will be included in the
    *                            returned layers.
