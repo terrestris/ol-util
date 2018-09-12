@@ -168,13 +168,14 @@ class GeometryUtil {
    * Merges multiple geometries into one MultiGeometry.
    *
    * @param {ol.geom.Geometry[]} geometries An array of ol.geom.geometries;
-   * @returns {ol.geom.Multipoint|ol.geom.MultiPolygon|ol.geom.MultiLinestring} A Multigeometry.
+   * @returns {ol.geom.MultiPoint|ol.geom.MultiPolygon|ol.geom.MultiLineString} A Multigeometry.
    */
   static mergeGeometries(geometries) {
+    const multiPrefix = GeometryUtil.MULTI_GEOM_PREFIX;
     let geomType = geometries[0].getType();
     let mixedGeometryTypes = false;
     geometries.forEach(geometry => {
-      if (geomType.replace('Multi', '') !== geometry.getType().replace('Multi', '')) {
+      if (geomType.replace(multiPrefix, '') !== geometry.getType().replace(multiPrefix, '')) {
         mixedGeometryTypes = true;
       }
     });
@@ -185,8 +186,8 @@ class GeometryUtil {
 
     // split all multi-geometries to simple ones if passed geometries are
     // multigeometries
-    if (geomType.startsWith(GeometryUtil.MULTI_GEOM_PREFIX)) {
-      const multiGeomPartType = geomType.substring(GeometryUtil.MULTI_GEOM_PREFIX.length);
+    if (geomType.startsWith(multiPrefix)) {
+      const multiGeomPartType = geomType.substring(multiPrefix.length);
       geometries = GeometryUtil.separateGeometries(geometries);
       geomType = multiGeomPartType;
     }
