@@ -42,16 +42,16 @@ describe('WfsFilterUtil', () => {
 
   describe('Static methods', () => {
 
-    afterEach(() => {
-      searchAttributes = {
-        'featureType': []
-      };
-      Object.keys(attributeDetails[featureType]).forEach(prop => {
-        delete attributeDetails[featureType][prop];
-      });
-    });
-
     describe('#createWfsFilter', () => {
+
+      afterEach(() => {
+        searchAttributes = {
+          'featureType': []
+        };
+        Object.keys(attributeDetails[featureType]).forEach(prop => {
+          delete attributeDetails[featureType][prop];
+        });
+      });
 
       it('is defined', () => {
         expect(WfsFilterUtil.createWfsFilter).toBeDefined();
@@ -115,6 +115,47 @@ describe('WfsFilterUtil', () => {
 
         expect(got.getTagName()).toBe('Or');
         expect(got.conditions.length).toEqual(searchAttributes[featureType].length);
+      });
+    });
+
+    describe('#getCombinedRequests', () => {
+
+      const searchOpts = {
+        featureTypes: [
+          'someNs:someFeatureType',
+          'someAnotherNs:someAnotherFeatureType'
+        ],
+        'searchAttributes': {
+          'someNs:someFeatureType': [
+            'name'
+          ],
+          'someAnotherNs:someAnotherFeatureType': [
+            'anotherName'
+          ]
+        }
+      };
+      const searchTerm = 'findMe';
+
+      it('is defined', () => {
+        expect(WfsFilterUtil.getCombinedRequests).toBeDefined();
+      });
+
+      it('creates WFS filter for each feature type', () => {
+        const filterSpy = jest.spyOn(WfsFilterUtil, 'createWfsFilter');
+        WfsFilterUtil.getCombinedRequests(searchOpts, searchTerm);
+        expect(filterSpy).toHaveBeenCalledTimes(searchOpts.featureTypes.length);
+        filterSpy.mockReset();
+        filterSpy.mockRestore();
+      });
+
+      it('creates WFS GetFeature request body containing queries and filter for each feature type', () => {
+        const got = WfsFilterUtil.getCombinedRequests(searchOpts, searchTerm);
+        expect(got.tagName).toBe('GetFeature');
+        expect(got.querySelectorAll('Query').length).toBe(searchOpts.featureTypes.length);
+        got.querySelectorAll('Query').forEach(query => {
+          expect(query.children[0].tagName).toBe('Filter');
+          expect(query.children[0].getElementsByTagName('Literal')[0].innerHTML).toBe(`*${searchTerm}*`);
+        });
       });
     });
   });
