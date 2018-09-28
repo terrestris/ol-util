@@ -24,6 +24,7 @@ class GeometryUtil {
 
   /**
    * The prefix used to detect multi geometries.
+   * @ignore
    */
   static MULTI_GEOM_PREFIX = 'Multi';
 
@@ -34,8 +35,8 @@ class GeometryUtil {
    * array with ol.Feature. If the target polygon (first param) is of type
    * ol.geom.Geometry it will return an array with ol.geom.Geometry.
    *
-   * @param {ol.feature | ol.geom.Polygon} polygon The polygon geometry to split.
-   * @param {ol.feature | ol.geom.LineString} lineFeat The line geometry to split the polygon
+   * @param {ol.Feature | ol.geom.Polygon} polygon The polygon geometry to split.
+   * @param {ol.Feature | ol.geom.LineString} line The line geometry to split the polygon
    *  geometry with.
    * @param {ol.ProjectionLike} projection The EPSG code of the input features.
    *  Default is to EPSG:3857.
@@ -137,7 +138,7 @@ class GeometryUtil {
    * If the target is of type ol.geom.Geometry it will return ol.geom.Geometry.
    *
    * @param {ol.geom.Geometry | ol.Feature} geometry The geometry.
-   * @param {Number} buffer The buffer to add in meters.
+   * @param {Number} radius The buffer to add in meters.
    * @param {String} projection The projection of the input geometry as EPSG code.
    *  Default is to EPSG:3857.
    *
