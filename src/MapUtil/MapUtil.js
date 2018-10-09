@@ -10,6 +10,8 @@ import { Logger } from '@terrestris/base-util';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 
+import findIndex from 'lodash/findIndex';
+
 /**
  * Helper Class for the ol3 map.
  *
@@ -392,6 +394,38 @@ export class MapUtil {
     return roundScale;
   }
 
+  /**
+   * Returns the appropriate zoom level for the given scale and units.
+
+   * @method
+   * @param {Number} scale Map scale to get the zoom for.
+   * @param {Array} resolutions Resolutions array.
+   * @param {String} units The units the resolutions are based on, typically
+   *                       either 'm' or 'degrees'. Default is 'm'.
+   *
+   * @return {Number} Determined zoom level for the given scale.
+   */
+  static getZoomForScale(scale, resolutions, units = 'm') {
+    if (Number.isNaN(Number(scale))) {
+      return 0;
+    }
+
+    if (scale < 0) {
+      return 0;
+    }
+
+    let calculatedResolution = MapUtil.getResolutionForScale(scale, units);
+    let closestVal = resolutions.reduce((prev, curr) => {
+      let res = Math.abs(curr - calculatedResolution) < Math.abs(prev - calculatedResolution)
+        ? curr
+        : prev;
+      return res;
+    });
+    let zoom = findIndex(resolutions, function(o) {
+      return Math.abs(o - closestVal) <= 1e-10;
+    });
+    return zoom;
+  }
 }
 
 export default MapUtil;
