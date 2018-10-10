@@ -6,15 +6,6 @@ import ProjectionUtil from './ProjectionUtil.js';
 
 describe('ProjectionUtil', () => {
 
-  const testCrsDefinition = {
-    'EPSG:25832': '+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs'
-  };
-
-  const testCrsMappings = {
-    'urn:ogc:def:crs:EPSG::3857': 'EPSG:3857',
-    'urn:ogc:def:crs:EPSG::25832': 'EPSG:25832'
-  };
-
   describe('Basic test', () => {
     it('is defined', () => {
       expect(ProjectionUtil).not.toBeUndefined();
@@ -29,9 +20,10 @@ describe('ProjectionUtil', () => {
       it('it registers the given CRS definitions in proj4 and ol', () => {
         OlProj4.register = jest.fn();
         const proj4Spy = jest.spyOn(proj4, 'defs');
+        const length = Object.keys(ProjectionUtil.defaultProj4CrsDefinitions).length;
 
-        ProjectionUtil.initProj4Definitions(testCrsDefinition);
-        expect(proj4Spy).toHaveBeenCalled();
+        ProjectionUtil.initProj4Definitions();
+        expect(proj4Spy).toHaveBeenCalledTimes(length);
         expect(OlProj4.register).toHaveBeenCalled();
 
         proj4Spy.mockReset();
@@ -45,14 +37,14 @@ describe('ProjectionUtil', () => {
       });
       it('it registers the given CRS mappings in proj4', () => {
         const proj4Spy = jest.spyOn(proj4, 'defs');
+        const length = Object.keys(ProjectionUtil.defaultProj4CrsMappings).length;
 
-        ProjectionUtil.initProj4DefinitionMappings(testCrsMappings);
-        expect(proj4Spy).toHaveBeenCalledTimes(4);
+        ProjectionUtil.initProj4DefinitionMappings(ProjectionUtil.defaultProj4CrsMappings);
+        expect(proj4Spy).toHaveBeenCalledTimes(length * 2);
 
         proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
     });
   });
-
 });
