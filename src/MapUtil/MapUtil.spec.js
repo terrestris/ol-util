@@ -767,4 +767,46 @@ describe('MapUtil', () => {
       expect(got).toBeUndefined();
     });
   });
+
+  describe('#getZoomForScale', () => {
+    it('is defined', () => {
+      expect(MapUtil.getZoomForScale).toBeDefined();
+    });
+
+    it('returns 0 if non numeric scale is provided', () => {
+      const got = MapUtil.getZoomForScale('scale', [1, 2]);
+      expect(got).toBe(0);
+    });
+
+    it('returns 0 if negative scale is provided', () => {
+      const got = MapUtil.getZoomForScale(-1, [1, 2]);
+      expect(got).toBe(0);
+    });
+
+    it('calls getResolutionForScale method', () => {
+      const spy = jest.spyOn(MapUtil, 'getResolutionForScale');
+      MapUtil.getZoomForScale(2000, [1, 2, 3]);
+
+      expect(spy).toHaveBeenCalledTimes(1);
+
+      spy.mockReset();
+      spy.mockRestore();
+    });
+
+    it('returns zoom level for provided resolution', () => {
+      const mercatorResolutions = [
+        1.19432856696, // 4265
+        0.597164283478, // 2132
+        0.298582141739, // 1066
+        0.149291070869 // 533
+      ];
+      const testScales = [5000, 2500, 1000, 500];
+      let index = 0;
+
+      testScales.forEach(scale => {
+        expect(MapUtil.getZoomForScale(scale, mercatorResolutions)).toBe(index);
+        index++;
+      });
+    });
+  });
 });
