@@ -39,15 +39,16 @@ class WfsFilterUtil {
 
     const details = attributeDetails && attributeDetails[featureType];
     const propertyFilters = attributes.map(attribute => {
-      if (details && details[attribute]) {
-        const type = details[attribute].type;
+      const filterDetails = details && details[attribute];
+      if (filterDetails) {
+        const type = filterDetails.type;
         if (type && (type === 'int' || type === 'number') && searchTerm.match(/[^.\d]/)) {
           return undefined;
         }
-        if (details[attribute].exactSearch) {
-          return equalTo(attribute, searchTerm, details[attribute].exactSearch);
+        if (filterDetails.exactSearch) {
+          return equalTo(attribute, searchTerm, filterDetails.exactSearch);
         } else {
-          return like(attribute, `*${searchTerm}*`, '*', '.', '!', details[attribute].matchCase || false);
+          return like(attribute, `*${searchTerm}*`, '*', '.', '!', filterDetails.matchCase || false);
         }
       } else {
         return like(attribute, `*${searchTerm}*`, '*', '.', '!', false);
