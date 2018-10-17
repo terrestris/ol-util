@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dnlkoch/ol-util.git"
+    "url": "git+https://github.com/terrestris/ol-util.git"
   },
   "keywords": [
     "openlayers",
