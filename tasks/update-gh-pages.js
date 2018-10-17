@@ -1,16 +1,20 @@
-var ghpages = require('gh-pages');
-var packageDef = require('../package.json');
+const ghpages = require('gh-pages');
+const url = require('url');
 
-var version = packageDef.version;
-var repo = packageDef.repository.url;
+const packageDef = require('../package.json');
 
-var message = 'Update resources on gh-pages branch';
+const version = packageDef.version;
+const repoUrl = packageDef.repository.url;
+const parsedRepoUrl = url.parse(repoUrl);
+const httpsRepoUrl = `https://${parsedRepoUrl.host}${parsedRepoUrl.path}`;
+
+const message = 'Update resources on gh-pages branch';
 
 // Publish the current version in the versioned directory.
 ghpages.publish('build/docs', {
   dest: `${version}`,
   message: message,
-  repo: repo,
+  repo: httpsRepoUrl,
   add: true
 }, function(err) {
   if (err) {
@@ -22,7 +26,7 @@ ghpages.publish('build/docs', {
     ghpages.publish('build/docs', {
       dest: `latest`,
       message: message,
-      repo: repo,
+      repo: httpsRepoUrl,
       add: false
     }, function(err) {
       if (err) {
