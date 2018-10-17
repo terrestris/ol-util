@@ -2,7 +2,11 @@
 import proj4 from 'proj4';
 import * as OlProj4 from 'ol/proj/proj4';
 
-import ProjectionUtil from './ProjectionUtil.js';
+import {
+  defaultProj4CrsDefinitions,
+  defaultProj4CrsMappings,
+  ProjectionUtil
+} from './ProjectionUtil.js';
 
 describe('ProjectionUtil', () => {
 
@@ -20,7 +24,7 @@ describe('ProjectionUtil', () => {
       it('it registers the given CRS definitions in proj4 and ol', () => {
         OlProj4.register = jest.fn();
         const proj4Spy = jest.spyOn(proj4, 'defs');
-        const length = Object.keys(ProjectionUtil.defaultProj4CrsDefinitions).length;
+        const length = Object.keys(defaultProj4CrsDefinitions).length;
 
         ProjectionUtil.initProj4Definitions();
         expect(proj4Spy).toHaveBeenCalledTimes(length);
@@ -37,9 +41,9 @@ describe('ProjectionUtil', () => {
       });
       it('it registers the given CRS mappings in proj4', () => {
         const proj4Spy = jest.spyOn(proj4, 'defs');
-        const length = Object.keys(ProjectionUtil.defaultProj4CrsMappings).length;
+        const length = Object.keys(defaultProj4CrsMappings).length;
 
-        ProjectionUtil.initProj4DefinitionMappings(ProjectionUtil.defaultProj4CrsMappings);
+        ProjectionUtil.initProj4DefinitionMappings(defaultProj4CrsMappings);
         expect(proj4Spy).toHaveBeenCalledTimes(length * 2);
 
         proj4Spy.mockReset();
