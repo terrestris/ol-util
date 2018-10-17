@@ -16,11 +16,11 @@ class AnimateUtil {
    *
    * @param {ol.Map} map An OlMap.
    * @param {ol.Feature} featureToMove The feature to move.
-   * @param {Number} duration The duration in ms for the moving to complete.
-   * @param {Array<Number>} pixel Delta of pixels to move the feature.
+   * @param {number} duration The duration in ms for the moving to complete.
+   * @param {Array<number>} pixel Delta of pixels to move the feature.
    * @param {ol.style.Style} style The style to use when moving the feature.
    *
-   * @return {String} A listener key from a postcompose event.
+   * @return {string} A listener key from a postcompose event.
    */
   static moveFeature(map, featureToMove, duration, pixel, style) {
     return new Promise(resolve => {

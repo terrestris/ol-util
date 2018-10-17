@@ -15,7 +15,7 @@ class FeatureUtil {
    *
    * @param {ol.Feature} feature The feature to obtain the featureType
    *                             name from.
-   * @return {String} The (unqualified) name of the featureType or undefined if
+   * @return {string} The (unqualified) name of the featureType or undefined if
    *                  the name could not be picked.
    */
   static getFeatureTypeName(feature) {
@@ -32,8 +32,8 @@ class FeatureUtil {
    * really exists).
    *
    * @param {ol.Feature} feature The feature to get the attributes from.
-   * @param {String} template The template string to resolve.
-   * @param {String} [noValueFoundText] The text to apply, if the templated value
+   * @param {string} template The template string to resolve.
+   * @param {string} [noValueFoundText] The text to apply, if the templated value
    *   could not be found, default is to 'n.v.'.
    * @param {Function} [valueAdjust] A method that will be called with each
    *   key/value match, we'll use what this function returns for the actual
@@ -41,7 +41,7 @@ class FeatureUtil {
    *   value it received. This can be used for last minute adjustments before
    *   replacing happens, e.g. to filter out falsy values or to do number
    *   formatting and such.
-   * @return {String} The resolved template string.
+   * @return {string} The resolved template string.
    */
   static resolveAttributeTemplate(feature, template, noValueFoundText = 'n.v.', valueAdjust = (key, val) => val) {
     let attributeTemplatePrefix = '\\{\\{';

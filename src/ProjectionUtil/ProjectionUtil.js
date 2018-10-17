@@ -6,7 +6,7 @@ import isEmpty from 'lodash/isEmpty';
 /**
  * Helper class for ol/proj4 projection handling.
  *
- * @class
+ * @class ProjectionUtil
  */
 export class ProjectionUtil {
 
@@ -37,7 +37,7 @@ export class ProjectionUtil {
    *   `defaultProj4CrsDefinitions` above) as well.
    *   Further CRS definitions in proj4 format can be checked under
    *   http://epsg.io (e.g. http://epsg.io/3426.proj4).
-   * @param {Boolean} registerDefaults Whether the default CRS should be
+   * @param {boolean} registerDefaults Whether the default CRS should be
    *   registered or not. Default is true.
    */
   static initProj4Definitions(customCrsDefs, registerDefaults = true) {
@@ -73,7 +73,7 @@ export class ProjectionUtil {
    * @param {Object} customCrsMappings The custom CRS mappings which will be
    *   added additionally to the by default avaliable (s. `defaultProj4CrsMappings`
    *   above).
-   * @param {Boolean} useDefaultMappings Whether the default CRS should be mapped
+   * @param {boolean} useDefaultMappings Whether the default CRS should be mapped
    *   as well or not. Default is true.
    */
   static initProj4DefinitionMappings(customCrsMappings, useDefaultMappings = true) {

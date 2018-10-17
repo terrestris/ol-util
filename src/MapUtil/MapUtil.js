@@ -23,7 +23,7 @@ export class MapUtil {
    * Returns all interactions by the given name of a map.
    *
    * @param {ol.Map} map The map to use for lookup.
-   * @param {String} name The name of the interaction to look for.
+   * @param {string} name The name of the interaction to look for.
    * @return {ol.interaction[]} The list of result interactions.
    */
   static getInteractionsByName(map, name) {
@@ -79,10 +79,10 @@ export class MapUtil {
    * how-to-get-current-scale-in-openlayers-3
    *
    * @method
-   * @param {Number} scale The input scale to calculate the appropriate
+   * @param {number} scale The input scale to calculate the appropriate
    *                       resolution for.
-   * @param {String} units The units to use for calculation (m or degrees).
-   * @return {Number} The calculated resolution.
+   * @param {string} units The units to use for calculation (m or degrees).
+   * @return {number} The calculated resolution.
    */
   static getResolutionForScale (scale, units) {
     let dpi = 25.4 / 0.28;
@@ -96,10 +96,10 @@ export class MapUtil {
    * Returns the appropriate scale for the given resolution and units.
    *
    * @method
-   * @param {Number} resolution The resolutions to calculate the scale for.
-   * @param {String} units The units the resolution is based on, typically
+   * @param {number} resolution The resolutions to calculate the scale for.
+   * @param {string} units The units the resolution is based on, typically
    *                       either 'm' or 'degrees'.
-   * @return {Number} The appropriate scale.
+   * @return {number} The appropriate scale.
    */
   static getScaleForResolution (resolution, units) {
     var dpi = 25.4 / 0.28;
@@ -115,7 +115,7 @@ export class MapUtil {
    * @param {ol.Map|ol.layer.Group} collection The collection to get the layers
    *                                           from. This can be an ol.layer.Group
    *                                           or an ol.Map.
-   * @param {function} [filter] A filter function that receives the layer.
+   * @param {Function} [filter] A filter function that receives the layer.
    *                            If it returns true it will be included in the
    *                            returned layers.
    * @return {Array} An array of all Layers.
@@ -149,7 +149,7 @@ export class MapUtil {
    * Get a layer by its key (ol_uid).
    *
    * @param {ol.Map} map The map to use for lookup.
-   * @param {String} ol_uid The ol_uid of a layer.
+   * @param {string} ol_uid The ol_uid of a layer.
    * @return {ol.layer.Layer} The layer.
    */
   static getLayerByOlUid = (map, ol_uid) => {
@@ -164,7 +164,7 @@ export class MapUtil {
    * Returns the layer from the provided map by the given name.
    *
    * @param {ol.Map} map The map to use for lookup.
-   * @param {String} name The name to get the layer by.
+   * @param {string} name The name to get the layer by.
    * @return {ol.Layer} The result layer or undefined if the layer could not
    *                    be found.
    */
@@ -180,7 +180,7 @@ export class MapUtil {
    * (parameter LAYERS).
    *
    * @param {ol.Map} map The map to use for lookup.
-   * @param {String} name The name to get the layer by.
+   * @param {string} name The name to get the layer by.
    * @return {ol.Layer} The result layer or undefined if the layer could not
    *                    be found.
    */
@@ -250,7 +250,7 @@ export class MapUtil {
    * Returns the list of layers matching the given pair of properties.
    *
    * @param {ol.Map} map The map to use for lookup.
-   * @param {String} key The property key.
+   * @param {string} key The property key.
    * @param {Object} value The property value.
    *
    * @return {ol.layer.Base[]} The array of matching layers.
@@ -300,7 +300,7 @@ export class MapUtil {
    *  - ol.source.ImageWms (with url configured)
    *
    * @param {ol.layer.Layer} layer The layer that you want to have a legendUrlfor.
-   * @return {String|undefined} The getLegendGraphicUrl.
+   * @return {string|undefined} The getLegendGraphicUrl.
    */
   static getLegendGraphicUrl(layer, extraParams) {
     if (!layer) {
@@ -349,7 +349,7 @@ export class MapUtil {
    * @param {ol.layer.Layer} layer The layer to check.
    * @param {ol.Map} map The map to get the view resolution for comparison
    *     from.
-   * @return {Boolean} Whether the resolution of the passed map's view lies
+   * @return {boolean} Whether the resolution of the passed map's view lies
    *     inside of the min- and max-resolution of the passed layer, e.g. whether
    *     the layer should be displayed at the current map view resolution. Will
    *     be `false` when no `layer` or no `map` is passed or if the view of the
@@ -374,8 +374,8 @@ export class MapUtil {
   /**
    * Rounds a scalenumber in dependency to its size.
    *
-   * @param  {Number} scale The exact scale
-   * @return {Number} The roundedScale
+   * @param  {number} scale The exact scale
+   * @return {number} The roundedScale
    */
   static roundScale(scale) {
     let roundScale;
@@ -398,12 +398,12 @@ export class MapUtil {
    * Returns the appropriate zoom level for the given scale and units.
 
    * @method
-   * @param {Number} scale Map scale to get the zoom for.
+   * @param {number} scale Map scale to get the zoom for.
    * @param {Array} resolutions Resolutions array.
-   * @param {String} units The units the resolutions are based on, typically
+   * @param {string} units The units the resolutions are based on, typically
    *                       either 'm' or 'degrees'. Default is 'm'.
    *
-   * @return {Number} Determined zoom level for the given scale.
+   * @return {number} Determined zoom level for the given scale.
    */
   static getZoomForScale(scale, resolutions, units = 'm') {
     if (Number.isNaN(Number(scale))) {
