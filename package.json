@@ -4,16 +4,17 @@
   "description": "A set of helper classes for working with openLayers",
   "main": "src/index.js",
   "scripts": {
+    "clean:docs": "rimraf build/docs",
     "lint:src": "eslint --ext js src/",
     "lint:docs": "documentation lint src/index.js",
     "pretest": "npm run lint:src",
     "test": "jest --maxWorkers=4",
     "test:watch": "jest --watchAll",
     "start:docs": "documentation serve -w -g src/index.js",
-    "build:docs": "documentation build -g -f html -o build/docs src/index.js",
+    "build:docs": "npm run clean:docs && documentation build -g -f html -o build/docs src/index.js",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "deploy": "NODE_DEBUG=gh-pages node tasks/update-gh-pages.js",
-    "release": "np --no-yarn && npm run deploy"
+    "release": "np --no-yarn && git push https://github.com/terrestris/ol-util.git master --tags && npm run build:docs && npm run deploy"
   },
   "repository": {
     "type": "git",
@@ -61,6 +62,7 @@
     "node-pre-gyp": "0.11.0",
     "np": "3.0.4",
     "ol": "5.2.0",
+    "rimraf": "2.6.2",
     "whatwg-fetch": "3.0.0",
     "xmldom": "0.1.27"
   },
