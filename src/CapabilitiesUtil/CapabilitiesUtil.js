@@ -12,10 +12,9 @@ import get from 'lodash/get.js';
 class CapabilitiesUtil {
 
   /**
-   * @static parseWmsCapabilities - function
+   * Parses the given WMS Capabilities string.
    *
-   * @param {String} capabilitiesUrl Url to WMS capabilities document
-   *
+   * @param {string} capabilitiesUrl Url to WMS capabilities document
    * @return {Object} An object representing the WMS capabilities.
    */
   static parseWmsCapabilities(capabilitiesUrl) {
@@ -28,10 +27,10 @@ class CapabilitiesUtil {
   }
 
   /**
-   * @static getLayersFromCapabilties - parse {OlLayerTile} from capabilities object
+   * Returns the layers from a parsed WMS GetCapabilities object.
    *
    * @param {Object} capabilities A capabilities object.
-   * @param {String} nameField Configure the field which should be set as the
+   * @param {string} nameField Configure the field which should be set as the
    *                           'name' property in the openlayers layer.
    * @return {OlLayerTile[]} Array of OlLayerTile
    */

@@ -14,11 +14,11 @@ class MeasureUtil {
    *
    * @param {OlGeomLineString} line The drawn line.
    * @param {OlMap} map An OlMap.
-   * @param {Boolean} geodesic Is the measurement geodesic (default is true).
-   * @param {Number} radius Sphere radius. By default, the radius of the earth
+   * @param {boolean} geodesic Is the measurement geodesic (default is true).
+   * @param {number} radius Sphere radius. By default, the radius of the earth
    *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
    *
-   * @return {Number} The length of line in meters.
+   * @return {number} The length of line in meters.
    */
   static getLength(line, map, geodesic = true, radius = 6371008.8) {
     if (geodesic) {
@@ -37,11 +37,11 @@ class MeasureUtil {
    *
    * @param {OlGeomLineString} line The drawn line.
    * @param {OlMap} map An OlMap.
-   * @param {Number} decimalPlacesInToolTips How many decimal places will be
+   * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips
-   * @param {Boolean} geodesic Is the measurement geodesic (default is true).
+   * @param {boolean} geodesic Is the measurement geodesic (default is true).
    *
-   * @return {String} The formatted length of the line.
+   * @return {string} The formatted length of the line.
    */
   static formatLength(line, map, decimalPlacesInToolTips, geodesic = true) {
     const decimalHelper = Math.pow(10, decimalPlacesInToolTips);
@@ -62,11 +62,11 @@ class MeasureUtil {
    *
    * @param {OlGeomPolygon} polygon The drawn polygon.
    * @param {OlMap} map An OlMap.
-   * @param {Boolean} geodesic Is the measurement geodesic (default is true).
-   * @param {Number} radius Sphere radius. By default, the radius of the earth
+   * @param {boolean} geodesic Is the measurement geodesic (default is true).
+   * @param {number} radius Sphere radius. By default, the radius of the earth
    *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
    *
-   * @return {Number} The area of the polygon in square meter.
+   * @return {number} The area of the polygon in square meter.
    */
   static getArea(polygon, map, geodesic = true, radius = 6371008.8) {
     if (geodesic) {
@@ -85,11 +85,11 @@ class MeasureUtil {
    *
    * @param {OlGeomPolygon} polygon The drawn polygon.
    * @param {OlMap} map An OlMap.
-   * @param {Number} decimalPlacesInToolTips How many decimal places will be
+   * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips.
-   * @param {Boolean} geodesic Is the measurement geodesic.
+   * @param {boolean} geodesic Is the measurement geodesic.
    *
-   * @return {String} The formatted area of the polygon.
+   * @return {string} The formatted area of the polygon.
    */
   static formatArea(polygon, map, decimalPlacesInToolTips, geodesic = true) {
     const decimalHelper = Math.pow(10, decimalPlacesInToolTips);
@@ -112,12 +112,12 @@ class MeasureUtil {
    *
    * Inspired by https://stackoverflow.com/a/31136507
    *
-   * @param {Array<Number>} start The start coordinates of the line with the
+   * @param {Array<number>} start The start coordinates of the line with the
    *     x-coordinate being at index `0` and y-coordinate being at index `1`.
-   * @param {Array<Number>} end The end coordinates of the line with the
+   * @param {Array<number>} end The end coordinates of the line with the
    *     x-coordinate being at index `0` and y-coordinate being at index `1`.
    *
-   * @return {Number} the angle in degreees, ranging from -180° to 180°.
+   * @return {number} the angle in degreees, ranging from -180° to 180°.
    */
   static angle(start, end) {
     const dx = start[0] - end[0];
@@ -136,12 +136,12 @@ class MeasureUtil {
    *
    * Inspired by https://stackoverflow.com/a/31136507
    *
-   * @param {Array<Number>} start The start coordinates of the line with the
+   * @param {Array<number>} start The start coordinates of the line with the
    *     x-coordinate being at index `0` and y-coordinate being at index `1`.
-   * @param {Array<Number>} end The end coordinates of the line with the
+   * @param {Array<number>} end The end coordinates of the line with the
    *     x-coordinate being at index `0` and y-coordinate being at index `1`.
    *
-   * @return {Number} the angle in degrees, ranging from 0° and 360°.
+   * @return {number} the angle in degrees, ranging from 0° and 360°.
    */
   static angle360(start, end) {
     // range (-180, 180]
@@ -158,9 +158,9 @@ class MeasureUtil {
    * of the angle, e.g. for 90° you'll get back 270°. This effectively turns
    * the direction of the angle from counter-clockwise to clockwise.
    *
-   * @param {Number} angle360 The input angle obtained counter-clockwise.
+   * @param {number} angle360 The input angle obtained counter-clockwise.
    *
-   * @return {Number} The clockwise angle.
+   * @return {number} The clockwise angle.
    */
   static makeClockwise(angle360) {
     return 360 - angle360;
@@ -170,10 +170,10 @@ class MeasureUtil {
    * This methods adds an offset of 90° to an counter-clockwise increasing
    * angle of a line so that the origin (0°) lies at the top (in the north).
    *
-   * @param {Number} angle360 The input angle obtained counter-clockwise, with
+   * @param {number} angle360 The input angle obtained counter-clockwise, with
    *     0° degrees being in the east.
    *
-   * @return {Number} The adjusted angle, with 0° being in the north.
+   * @return {number} The adjusted angle, with 0° being in the north.
    */
   static makeZeroDegreesAtNorth(angle360) {
     let corrected = angle360 + 90;
@@ -190,10 +190,10 @@ class MeasureUtil {
    * @param {OlGeomLineString} line The linestring to get the
    *   angle from. As this line is comming from our internal draw
    *   interaction, we know that it will only consist of two points.
-   * @param {Number} decimalPlacesInToolTips How many decimal places will be
+   * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips.
    *
-   * @return {String} The formatted angle of the line.
+   * @return {string} The formatted angle of the line.
    */
   static formatAngle(line, decimalPlacesInToolTips = 2) {
     const coords = line.getCoordinates();

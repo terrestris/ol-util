@@ -20,8 +20,8 @@ class WfsFilterUtil {
    * Currently supports EQUALTO and LIKE filters only, which can be combined with
    * OR filter if searchAttributes array contains multiple values though.
    *
-   * @param {String} featureType Name of feature type to be used in filter.
-   * @param {String} searchTerm Search value.
+   * @param {string} featureType Name of feature type to be used in filter.
+   * @param {string} searchTerm Search value.
    * @param {Object} searchAttributes An object mapping feature types to an array of
    *   attributes that should be searched through.
    * @param {Object} attributeDetails An object mapping feature types to an
@@ -67,7 +67,7 @@ class WfsFilterUtil {
    * Creates GetFeature request body for all provided featureTypes and
    * applies related filter encoding on it.
    *
-   * @param {Object} searchOpts. Search options object which has the following
+   * @param {Object} searchOpts Search options object which has the following
    * keys (see also https://github.com/terrestris/react-geo/blob/master/src/Field/WfsSearch/
    * for further options explanations and examples):
    *   * featureNS        {String}   The namespace URI used for features
@@ -85,7 +85,7 @@ class WfsFilterUtil {
    *   * attributeDetails {Object}   A nested object mapping feature types to an
    *                                 object of attribute details, which are also
    *                                 mapped by search attribute name.
-   * @param {String} searchTerm Search string to be used with filter.
+   * @param {string} searchTerm Search string to be used with filter.
    */
   static getCombinedRequests(searchOpts, searchTerm) {
 
