@@ -3,7 +3,7 @@ import isString from 'lodash/isString.js';
 import { StringUtil } from '@terrestris/base-util';
 
 /**
- * Helper Class for the ol features.
+ * Helper class for working with OpenLayers features.
  *
  * @class FeatureUtil
  */

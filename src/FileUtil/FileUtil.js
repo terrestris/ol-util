@@ -4,7 +4,7 @@ import OlSourceVector from 'ol/source/Vector';
 import shp from 'shpjs';
 
 /**
- * Helper Class for adding layers from various file formats.
+ * Helper class for adding layers from various file formats.
  *
  * @class
  */

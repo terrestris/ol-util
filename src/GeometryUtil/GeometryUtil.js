@@ -16,7 +16,8 @@ import lineToPolygon from '@turf/line-to-polygon';
 import { polygon as makePolygon } from '@turf/helpers';
 
 /**
- * Helper Class for the geospatial analysis.
+ * Helper class for the geospatial analysis. Makes use of
+ * [Turf.js](http://turfjs.org/).
  *
  * @class GeometryUtil
  */
