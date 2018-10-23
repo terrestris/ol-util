@@ -5,8 +5,8 @@ import OlLayerGroup from 'ol/layer/Group';
 import OlLayerBase from 'ol/layer/Base';
 import { METERS_PER_UNIT } from 'ol/proj/Units';
 
-import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
-import Logger from '@terrestris/base-util/dist/Logger';
+import { UrlUtil } from '@terrestris/base-util';
+import { Logger } from '@terrestris/base-util';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 

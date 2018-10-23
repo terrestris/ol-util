@@ -1,6 +1,6 @@
 import isString from 'lodash/isString.js';
 
-import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
+import { StringUtil } from '@terrestris/base-util';
 
 /**
  * Helper class for working with OpenLayers features.
