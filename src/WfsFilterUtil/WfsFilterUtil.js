@@ -7,7 +7,7 @@ import {
 import OlFormatWFS from 'ol/format/WFS';
 
 /**
- * Helper Class for building filters to be used with WFS GetFeature requests.
+ * Helper class for building filters to be used with WFS GetFeature requests.
  *
  * @class WfsFilterUtil
  */

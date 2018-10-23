@@ -71,7 +71,7 @@ class AnimateUtil {
           unByKey(listenerKey);
           resolve(featureToMove);
         }
-        // tell OL3 to continue postcompose animation
+        // tell OpenLayers to continue postcompose animation
         frameState.animate = true;
 
         actualFrames++;

@@ -55,7 +55,7 @@ export class TestUtil {
   };
 
   /**
-   * Creates an ol map.
+   * Creates an OpenLayers map.
    *
    * @param {Object} mapOpts Additional options for the map to create.
    * @return {ol.Map} The ol map.

@@ -13,7 +13,7 @@ import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import findIndex from 'lodash/findIndex';
 
 /**
- * Helper Class for the ol3 map.
+ * Helper class for the OpenLayers map.
  *
  * @class
  */

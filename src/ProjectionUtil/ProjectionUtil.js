@@ -23,7 +23,8 @@ export const defaultProj4CrsMappings = {
 };
 
 /**
- * Helper class for ol/proj4 projection handling.
+ * Helper class for projection handling. Makes use of
+ * [Proj4js](http://proj4js.org/).
  *
  * @class ProjectionUtil
  */

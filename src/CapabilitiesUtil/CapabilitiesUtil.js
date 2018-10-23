@@ -5,7 +5,7 @@ import OlLayerImage from 'ol/layer/Image';
 import get from 'lodash/get.js';
 
 /**
- * Helper Class to parse capabilities of WMS layers
+ * Helper class to parse capabilities of WMS layers
  *
  * @class CapabilitiesUtil
  */
