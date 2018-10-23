@@ -1,13 +1,13 @@
 {
   "presets": [
     "env",
-    "stage-0",
-    "react"
+    "stage-0"
   ],
   "env": {
-    "test": {
-      "plugins": [
-        "transform-es2015-modules-commonjs"
+    "production": {
+      "presets": [
+        "env",
+        "stage-0"
       ]
     }
   }
