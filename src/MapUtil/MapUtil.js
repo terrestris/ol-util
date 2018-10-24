@@ -1,9 +1,9 @@
-import OlMap from 'ol/Map';
-import OlSourceTileWMS from 'ol/source/TileWMS';
-import OlSourceImageWMS from 'ol/source/ImageWMS';
-import OlLayerGroup from 'ol/layer/Group';
-import OlLayerBase from 'ol/layer/Base';
-import { METERS_PER_UNIT } from 'ol/proj/Units';
+import OlMap from 'ol/map';
+import OlSourceTileWMS from 'ol/source/tilewms';
+import OlSourceImageWMS from 'ol/source/imagewms';
+import OlLayerGroup from 'ol/layer/group';
+import OlLayerBase from 'ol/layer/base';
+import OlProjection from 'ol/proj';
 
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 import Logger from '@terrestris/base-util/dist/Logger';
@@ -86,7 +86,7 @@ export class MapUtil {
    */
   static getResolutionForScale (scale, units) {
     let dpi = 25.4 / 0.28;
-    let mpu = METERS_PER_UNIT[units];
+    let mpu = OlProjection.METERS_PER_UNIT[units];
     let inchesPerMeter = 39.37;
 
     return parseFloat(scale) / (mpu * inchesPerMeter * dpi);
@@ -103,7 +103,7 @@ export class MapUtil {
    */
   static getScaleForResolution (resolution, units) {
     var dpi = 25.4 / 0.28;
-    var mpu = METERS_PER_UNIT[units];
+    var mpu = OlProjection.METERS_PER_UNIT[units];
     var inchesPerMeter = 39.37;
 
     return parseFloat(resolution) * mpu * inchesPerMeter * dpi;

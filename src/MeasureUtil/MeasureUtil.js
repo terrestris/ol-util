@@ -1,5 +1,6 @@
 
-import { getLength, getArea } from 'ol/sphere';
+import OlSphere from 'ol/sphere';
+import OlProj from 'ol/proj';
 
 /**
  * This class provides some static methods which might be helpful when working
@@ -15,21 +16,27 @@ class MeasureUtil {
    * @param {OlGeomLineString} line The drawn line.
    * @param {OlMap} map An OlMap.
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
-   * @param {number} radius Sphere radius. By default, the radius of the earth
-   *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
    *
    * @return {number} The length of line in meters.
    */
-  static getLength(line, map, geodesic = true, radius = 6371008.8) {
+  static getLength(line, map, geodesic = true) {
+    let length;
     if (geodesic) {
-      const opts = {
-        projection: map.getView().getProjection().getCode(),
-        radius
-      };
-      return getLength(line, opts);
+      const wgs84Sphere = new OlSphere(6378137);
+      const coordinates = line.getCoordinates();
+      length = 0;
+      const sourceProj = map.getView().getProjection();
+      for (let i = 0, ii = coordinates.length - 1; i < ii; ++i) {
+        const c1 = OlProj.transform(
+          coordinates[i], sourceProj, 'EPSG:4326');
+        const c2 = OlProj.transform(
+          coordinates[i + 1], sourceProj, 'EPSG:4326');
+        length += wgs84Sphere.haversineDistance(c1, c2);
+      }
     } else {
-      return Math.round(line.getLength() * 100) / 100;
+      length = Math.round(line.getLength() * 100) / 100;
     }
+    return length;
   }
 
   /**
@@ -63,21 +70,22 @@ class MeasureUtil {
    * @param {OlGeomPolygon} polygon The drawn polygon.
    * @param {OlMap} map An OlMap.
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
-   * @param {number} radius Sphere radius. By default, the radius of the earth
-   *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
    *
    * @return {number} The area of the polygon in square meter.
    */
-  static getArea(polygon, map, geodesic = true, radius = 6371008.8) {
+  static getArea(polygon, map, geodesic = true) {
+    let area;
     if (geodesic) {
-      const opts = {
-        projection: map.getView().getProjection().getCode(),
-        radius
-      };
-      return getArea(polygon, opts);
+      const wgs84Sphere = new OlSphere(6378137);
+      const sourceProj = map.getView().getProjection();
+      const geom = (polygon.clone().transform(
+        sourceProj, 'EPSG:4326'));
+      const coordinates = geom.getLinearRing(0).getCoordinates();
+      area = Math.abs(wgs84Sphere.geodesicArea(coordinates));
     } else {
-      return polygon.getArea();
+      area = polygon.getArea();
     }
+    return area;
   }
 
   /**

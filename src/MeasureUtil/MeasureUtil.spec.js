@@ -1,7 +1,7 @@
 /*eslint-env jest*/
 
-import OlGeomLineString from 'ol/geom/LineString';
-import OlGeomPolygon from 'ol/geom/Polygon';
+import OlGeomLineString from 'ol/geom/linestring';
+import OlGeomPolygon from 'ol/geom/polygon';
 
 import {
   MeasureUtil,
@@ -38,8 +38,8 @@ describe('MeasureUtil', () => {
         const expectedShortLength = MeasureUtil.getLength(shortLine, map);
         const expectedLongLength = MeasureUtil.getLength(longLine, map);
 
-        expect(expectedShortLength).toBeCloseTo(99.88824008937313, 4);
-        expect(expectedLongLength).toBeCloseTo(100433.46540039503, 4);
+        expect(expectedShortLength).toBeCloseTo(99.99999999669033, 4);
+        expect(expectedLongLength).toBeCloseTo(100545.83533277796, 4);
 
         TestUtil.removeMap(map);
       });
@@ -62,8 +62,8 @@ describe('MeasureUtil', () => {
         const expectedShortLength = MeasureUtil.formatLength(shortLine, map, 2);
         const expectedLongLength = MeasureUtil.formatLength(longLine, map, 2);
 
-        expect(expectedShortLength).toBe('99.89 m');
-        expect(expectedLongLength).toBe('100.43 km');
+        expect(expectedShortLength).toBe('100 m');
+        expect(expectedLongLength).toBe('100.55 km');
 
         TestUtil.removeMap(map);
       });
@@ -91,8 +91,8 @@ describe('MeasureUtil', () => {
         const expectedSmallArea = MeasureUtil.getArea(smallPoly, map);
         const expectedBigArea = MeasureUtil.getArea(bigPoly, map);
 
-        expect(expectedSmallArea).toBe(99.7766050826797);
-        expect(expectedBigArea).toBe(997766.042705488);
+        expect(expectedSmallArea).toBe(99.99999999454045);
+        expect(expectedBigArea).toBe(999999.9918059125);
 
         TestUtil.removeMap(map);
       });
@@ -120,7 +120,7 @@ describe('MeasureUtil', () => {
         const expectedSmallArea = MeasureUtil.formatArea(smallPoly, map, 2);
         const expectedBigArea = MeasureUtil.formatArea(bigPoly, map, 2);
 
-        expect(expectedSmallArea).toBe('99.78 m<sup>2</sup>');
+        expect(expectedSmallArea).toBe('100 m<sup>2</sup>');
         expect(expectedBigArea).toBe('1 km<sup>2</sup>');
 
         TestUtil.removeMap(map);

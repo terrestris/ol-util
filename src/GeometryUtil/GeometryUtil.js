@@ -1,8 +1,8 @@
-import OlFeature from 'ol/Feature';
-import OlGeomMultiPolygon from 'ol/geom/MultiPolygon';
-import OlGeomMultiPoint from 'ol/geom/MultiPoint';
-import OlGeomMultiLineString from 'ol/geom/MultiLineString';
-import OlFormatGeoJSON from 'ol/format/GeoJSON';
+import OlFeature from 'ol/feature';
+import OlGeomMultiPolygon from 'ol/geom/multipolygon';
+import OlGeomMultiPoint from 'ol/geom/multipoint';
+import OlGeomMultiLineString from 'ol/geom/multilinestring';
+import OlFormatGeoJSON from 'ol/format/geojson';
 
 import buffer from '@turf/buffer';
 import difference from '@turf/difference';
@@ -198,15 +198,15 @@ class GeometryUtil {
     let append;
     switch (geomType) {
       case 'Polygon':
-        multiGeom = new OlGeomMultiPolygon([]);
+        multiGeom = new OlGeomMultiPolygon();
         append = multiGeom.appendPolygon.bind(multiGeom);
         break;
       case 'Point':
-        multiGeom = new OlGeomMultiPoint([]);
+        multiGeom = new OlGeomMultiPoint();
         append = multiGeom.appendPoint.bind(multiGeom);
         break;
       case 'LineString':
-        multiGeom = new OlGeomMultiLineString([]);
+        multiGeom = new OlGeomMultiLineString();
         append = multiGeom.appendLineString.bind(multiGeom);
         break;
       default:

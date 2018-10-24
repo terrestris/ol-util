@@ -1,17 +1,17 @@
 /*eslint-env jest*/
 
-import OlInteractionDragRotateAndZoom from 'ol/interaction/DragRotateAndZoom';
-import OlInteractionDraw from 'ol/interaction/Draw';
-import OlLayerTile from 'ol/layer/Tile';
-import OlLayerImage from 'ol/layer/Image';
-import OlSourceTileWMS from 'ol/source/TileWMS';
-import OlSourceImageWMS from 'ol/source/ImageWMS';
-import OlSourceTileJson from 'ol/source/TileJSON';
-import OlFeature from 'ol/Feature';
-import OlGeomPoint from 'ol/geom/Point';
-import OlLayerGroup from 'ol/layer/Group';
-import OlMap from 'ol/Map';
-import OlView from 'ol/View';
+import OlInteractionDragRotateAndZoom from 'ol/interaction/dragrotateandzoom';
+import OlInteractionDraw from 'ol/interaction/draw';
+import OlLayerTile from 'ol/layer/tile';
+import OlLayerImage from 'ol/layer/image';
+import OlSourceTileWMS from 'ol/source/tilewms';
+import OlSourceImageWMS from 'ol/source/imagewms';
+import OlSourceTileJson from 'ol/source/tilejson';
+import OlFeature from 'ol/feature';
+import OlGeomPoint from 'ol/geom/point';
+import OlLayerGroup from 'ol/layer/group';
+import OlMap from 'ol/map';
+import OlView from 'ol/view';
 
 import Logger from '@terrestris/base-util/dist/Logger';
 

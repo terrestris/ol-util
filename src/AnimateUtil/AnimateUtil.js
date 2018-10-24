@@ -1,6 +1,6 @@
-import OlGeomPoint from 'ol/geom/Point';
-import OlGeomLineString from 'ol/geom/LineString';
-import { unByKey } from 'ol/Observable';
+import OlGeomPoint from 'ol/geom/point';
+import OlGeomLineString from 'ol/geom/linestring';
+import OlObservable from 'ol/observable';
 
 /**
  * This class provides some static methods which might be helpful when working
@@ -68,7 +68,7 @@ class AnimateUtil {
         }
 
         if (elapsed > duration || actualFrames >= expectedFrames) {
-          unByKey(listenerKey);
+          OlObservable.unByKey(listenerKey);
           resolve(featureToMove);
         }
         // tell OpenLayers to continue postcompose animation

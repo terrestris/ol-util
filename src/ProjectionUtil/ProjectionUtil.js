@@ -1,5 +1,5 @@
 import proj4 from 'proj4';
-import { register } from 'ol/proj/proj4';
+import OlProjection from 'ol/proj';
 
 import isEmpty from 'lodash/isEmpty';
 
@@ -60,7 +60,7 @@ export class ProjectionUtil {
       for (let [projCode, projDefinition] of Object.entries(proj4CrsDefinitions)) {
         proj4.defs(projCode, projDefinition);
       }
-      register(proj4);
+      OlProjection.setProj4(proj4);
     }
   }
 
