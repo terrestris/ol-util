@@ -24,7 +24,7 @@
     "coveralls": "cat coverage/lcov.info | coveralls",
     "prepublishOnly": "npm run build:dist",
     "deploy": "NODE_DEBUG=gh-pages node tasks/update-gh-pages.js",
-    "release": "np --no-yarn && git push https://github.com/terrestris/ol-util.git master --tags && npm run build:docs && npm run deploy"
+    "release": "np --no-yarn && git push https://github.com/terrestris/ol-util.git ol4 --tags && npm run build:docs && npm run deploy"
   },
   "repository": {
     "type": "git",
