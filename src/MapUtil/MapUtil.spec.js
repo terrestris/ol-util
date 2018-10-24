@@ -13,7 +13,7 @@ import OlLayerGroup from 'ol/layer/Group';
 import OlMap from 'ol/Map';
 import OlView from 'ol/View';
 
-import { Logger } from '@terrestris/base-util';
+import Logger from '@terrestris/base-util/dist/Logger';
 
 import TestUtil from '../TestUtil';
 
