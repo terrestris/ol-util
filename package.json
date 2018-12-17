@@ -59,7 +59,7 @@
     "babel-preset-stage-0": "6.24.1",
     "canvas-prebuilt": "1.6.5-prerelease.1",
     "coveralls": "3.0.2",
-    "documentation": "9.0.0",
+    "documentation": "9.1.0",
     "eslint": "5.7.0",
     "gh-pages": "2.0.1",
     "jest": "23.6.0",
