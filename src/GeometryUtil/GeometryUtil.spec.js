@@ -215,54 +215,83 @@ describe('GeometryUtil', () => {
         });
 
         it('splits an even more complex polygon geometry (including hole) with a line string', () => {
-          const wktStr = 'MULTIPOLYGON (((220 170, 600 170, 600 300, 350 300, 350 370, 440 370, 440 430, 350 430, 300 430, 300 360, 260 360, 260 470, 480 470, 470 350, 410 350, 400 320, 412 317, 550 330, 540 500, 210 490, 210 290, 300 310, 300 260, 313 256, 530 250, 510 220, 290 230, 220 230, 220 170), (320 410, 400 420, 395 386, 320 390, 320 410), (330 290, 570 290, 568 265, 330 270, 330 290)), ((350 400, 390 400, 390 410, 352 405, 350 400)))';
-
+          const wktStrPolygon = 'MULTIPOLYGON (((220 170, 600 170, 600 300, 350 300, 350 370, 440 370, 440 430, 350 430, 300 430, 300 360, 260 360, 260 470, 480 470, 470 350, 410 350, 400 320, 412 317, 550 330, 540 500, 210 490, 210 290, 300 310, 300 260, 313 256, 530 250, 510 220, 290 230, 220 230, 220 170), (320 410, 400 420, 395 386, 320 390, 320 410), (330 290, 570 290, 568 265, 330 270, 330 290)), ((350 400, 390 400, 390 410, 352 405, 350 400)))';
+          const wktStrLine = 'LINESTRING (321 512.5, 299 506, 267 520, 273 509, 310 130, 440 110, 344 532)';
           const wktFormat = new OlFormatWkt();
-          const poly = wktFormat.readFeature(wktStr);
-          const lineStringCoordsNew = [
-            [
-              95, 561
-            ],
-            [
-              230,130
-            ],
-            [
-              520, 660
-            ],
-            [
-              490, 90
-            ]
-          ];
-          const line = new OlFeature({
-            geometry: new OlGeomLineString(lineStringCoordsNew)
-          });
-          const got = GeometryUtil.splitByLine(poly, line, 'EPSG:25832');
-          // const exp = [
-          //   new OlFeature({
-          //     geometry: new OlGeomPolygon(holeCoords2ExpPoly1)
-          //   }),
-          //   new OlFeature({
-          //     geometry: new OlGeomPolygon(holeCoords2ExpPoly2)
-          //   }),
-          //   new OlFeature({
-          //     geometry: new OlGeomPolygon(holeCoords2ExpPoly3)
-          //   })
-          // ];
+          const poly = wktFormat.readFeature(wktStrPolygon);
+          const line = wktFormat.readFeature(wktStrLine);
+          const got = GeometryUtil.splitByLine(poly, line, 'EPSG:0');
 
-          expect(got.length).toBe(12);
-          got.forEach((polygon, i) => {
-            // polygon.getGeometry().getCoordinates()[0].sort().forEach(coord=>{
-            //   coord.forEach(()=>{
-            //     expect(exp[i].getGeometry().getCoordinates()[0].sort()).toContainEqual(coord);
-            //   });
-            // });
+          const expected = {
+            'type': 'FeatureCollection',
+            'features': [{
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[292.58823529, 308.35294118], [210, 290], [210, 490], [274.66358418, 491.95950255], [276.80738786, 470], [260, 470], [260, 360], [287.54617414, 360], [292.58823529, 308.35294118]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[306.09498681, 170], [220, 170], [220, 230], [290, 230], [300.28309842, 229.53258644], [306.09498681, 170]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[352.57167309, 494.32035373], [358.1042654, 470], [276.80738786, 470], [274.66358418, 491.95950255], [352.57167309, 494.32035373]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[330, 290], [330, 270], [403.95534035, 268.44631638], [407.38038199, 253.39040418], [313, 256], [300, 260], [300, 310], [292.58823529, 308.35294118], [287.54617414, 360], [300, 360], [300, 430], [350, 430], [367.20379147, 430], [370.32258065, 416.29032258], [320, 410], [320, 390], [376.99481865, 386.96027634], [380.85308057, 370], [350, 370], [350, 300], [396.77725118, 300], [399.0521327, 290], [330, 290]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[413.98345668, 224.36438833], [426.3507109, 170], [306.09498681, 170], [300.28309842, 229.53258644], [413.98345668, 224.36438833]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[372.28384597, 407.6689271], [374.02843602, 400], [350, 400], [352, 405], [372.28384597, 407.6689271]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[352.57167309, 494.32035373], [540, 500], [550, 330], [412, 317], [400, 320], [410, 350], [470, 350], [480, 470], [358.1042654, 470], [352.57167309, 494.32035373]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[380.85308057, 370], [376.99481865, 386.96027634], [395, 386], [400, 420], [370.32258065, 416.29032258], [367.20379147, 430], [440, 430], [440, 370], [380.85308057, 370]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[374.02843602, 400], [372.28384597, 407.6689271], [390, 410], [390, 400], [374.02843602, 400]]]
+              }
+            }, {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Polygon',
+                'coordinates': [[[396.77725118, 300], [600, 300], [600, 170], [426.3507109, 170], [413.98345668, 224.36438833], [510, 220], [530, 250], [407.38038199, 253.39040418], [403.95534035, 268.44631638], [568, 265], [570, 290], [399.0521327, 290], [396.77725118, 300]]]
+              }
+            }]
+          };
 
-            expect(i).toBeDefined();
-            expect(polygon).toBeDefined();
-          });
+          const format = new OlFormatGeoJSON();
+          const exp = format.readFeatures(expected);
 
+          expect(got.length).toBe(exp.length);
         });
-
 
       });
       describe('with ol.geom.Geometry as params', () => {
