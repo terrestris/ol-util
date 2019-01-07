@@ -9,6 +9,7 @@ import OlGeomPoint from 'ol/geom/Point';
 import OlGeomMultiPoint from 'ol/geom/MultiPoint';
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomMultiLineString from 'ol/geom/MultiLineString';
+import OlFormatWkt from 'ol/format/WKT';
 
 import {
   GeometryUtil,
@@ -212,6 +213,57 @@ describe('GeometryUtil', () => {
             });
           });
         });
+
+        it('splits an even more complex polygon geometry (including hole) with a line string', () => {
+          const wktStr = 'MULTIPOLYGON (((220 170, 600 170, 600 300, 350 300, 350 370, 440 370, 440 430, 350 430, 300 430, 300 360, 260 360, 260 470, 480 470, 470 350, 410 350, 400 320, 412 317, 550 330, 540 500, 210 490, 210 290, 300 310, 300 260, 313 256, 530 250, 510 220, 290 230, 220 230, 220 170), (320 410, 400 420, 395 386, 320 390, 320 410), (330 290, 570 290, 568 265, 330 270, 330 290)), ((350 400, 390 400, 390 410, 352 405, 350 400)))';
+
+          const wktFormat = new OlFormatWkt();
+          const poly = wktFormat.readFeature(wktStr);
+          const lineStringCoordsNew = [
+            [
+              95, 561
+            ],
+            [
+              230,130
+            ],
+            [
+              520, 660
+            ],
+            [
+              490, 90
+            ]
+          ];
+          const line = new OlFeature({
+            geometry: new OlGeomLineString(lineStringCoordsNew)
+          });
+          const got = GeometryUtil.splitByLine(poly, line, 'EPSG:25832');
+          // const exp = [
+          //   new OlFeature({
+          //     geometry: new OlGeomPolygon(holeCoords2ExpPoly1)
+          //   }),
+          //   new OlFeature({
+          //     geometry: new OlGeomPolygon(holeCoords2ExpPoly2)
+          //   }),
+          //   new OlFeature({
+          //     geometry: new OlGeomPolygon(holeCoords2ExpPoly3)
+          //   })
+          // ];
+
+          expect(got.length).toBe(12);
+          got.forEach((polygon, i) => {
+            // polygon.getGeometry().getCoordinates()[0].sort().forEach(coord=>{
+            //   coord.forEach(()=>{
+            //     expect(exp[i].getGeometry().getCoordinates()[0].sort()).toContainEqual(coord);
+            //   });
+            // });
+
+            expect(i).toBeDefined();
+            expect(polygon).toBeDefined();
+          });
+
+        });
+
+
       });
       describe('with ol.geom.Geometry as params', () => {
         /**
