@@ -152,7 +152,7 @@ export class MapUtil {
    * @param {string} ol_uid The ol_uid of a layer.
    * @return {ol.layer.Layer} The layer.
    */
-  static getLayerByOlUid = (map, ol_uid) => {
+  static getLayerByOlUid (map, ol_uid) {
     const layers = MapUtil.getAllLayers(map);
     const layer = layers.find((l) => {
       return ol_uid === l.ol_uid.toString();
