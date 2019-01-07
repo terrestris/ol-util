@@ -6,6 +6,7 @@ import OlFormatGeoJSON from 'ol/format/GeoJSON';
 
 import buffer from '@turf/buffer';
 import difference from '@turf/difference';
+import lineIntersect from '@turf/line-intersect';
 import intersect from '@turf/intersect';
 import polygonize from '@turf/polygonize';
 import union from '@turf/union';
@@ -27,7 +28,9 @@ class GeometryUtil {
    * The prefix used to detect multi geometries.
    * @ignore
    */
-  static MULTI_GEOM_PREFIX = 'Multi';
+  static MULTI_GEOM_PREFIX() {
+    return 'Multi';
+  }
 
   /**
    * Splits an ol.feature with/or ol.geom.Polygon by an ol.feature with/or ol.geom.LineString
@@ -66,6 +69,18 @@ class GeometryUtil {
     // the array containing all the split features
     let allSplitedPolygons = [];
     // iterates over each polygon and splits it
+
+    const intersectionPoints = lineIntersect(geoJsonFormat.writeGeometryObject(polygonFeat.getGeometry()),
+      geoJsonFormat.writeGeometryObject(lineFeat.getGeometry()));
+
+    if (!intersectionPoints.features || intersectionPoints.features.length === 0) {
+      if (polygon instanceof OlFeature) {
+        return [polygon];
+      } else {
+        return [polygon.getGeometry()];
+      }
+    }
+
     geometries.forEach(geometry => {
       // Convert the polygon to turf.js/GeoJSON geometry while
       // reprojecting them to the internal turf.js projection 'EPSG:4326'.
@@ -81,9 +96,9 @@ class GeometryUtil {
         inners.push(lineString(coord));
       });
       // Polygonize the holes in the polygon
-      const innerPolygon = polygonize(featureCollection(inners));
+      const innerPolygon = inners.length > 0 ? polygonize(featureCollection(inners)) : null;
       // make a lineString from the spliting line and the outer of the polygon
-      let unionGeom = union(outer, turfLine);
+      const unionGeom = union(outer, turfLine);
       // Polygonize the combined lines.
       const polygonizedUnionGeom = polygonize(unionGeom);
       // Array of the split polygons within the geometry
@@ -95,7 +110,7 @@ class GeometryUtil {
         const segmentInPolygon = intersect(cuttedSection, outerPolygon);
         if (segmentInPolygon && segmentInPolygon.geometry.type === 'Polygon') {
           let polygonWithoutHoles = [];
-          if (innerPolygon.features.length > 0) {
+          if (innerPolygon && innerPolygon.features.length > 0) {
             // iterates over all the holes and removes their intersection with the cutted polygon
             innerPolygon.features.forEach(holes => {
               const toCut = polygonWithoutHoles.length > 0 ? polygonWithoutHoles : [segmentInPolygon];
@@ -173,7 +188,7 @@ class GeometryUtil {
    * @returns {ol.geom.MultiPoint|ol.geom.MultiPolygon|ol.geom.MultiLineString} A Multigeometry.
    */
   static mergeGeometries(geometries) {
-    const multiPrefix = GeometryUtil.MULTI_GEOM_PREFIX;
+    const multiPrefix = GeometryUtil.MULTI_GEOM_PREFIX();
     let geomType = geometries[0].getType();
     let mixedGeometryTypes = false;
     geometries.forEach(geometry => {
@@ -232,8 +247,8 @@ class GeometryUtil {
 
     geometries.forEach(geometry => {
       const geomType = geometry.getType();
-      if (geomType.startsWith(GeometryUtil.MULTI_GEOM_PREFIX)) {
-        const multiGeomPartType = geomType.substring(GeometryUtil.MULTI_GEOM_PREFIX.length);
+      if (geomType.startsWith(GeometryUtil.MULTI_GEOM_PREFIX())) {
+        const multiGeomPartType = geomType.substring(GeometryUtil.MULTI_GEOM_PREFIX().length);
         switch (multiGeomPartType) {
           case 'Polygon':
             separatedGeometries.push(...geometry.getPolygons());
