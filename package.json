@@ -48,7 +48,7 @@
     "@turf/turf": "5.1.6",
     "lodash": "4.17.11",
     "proj4": "2.5.0",
-    "shpjs": "3.4.2"
+    "shpjs": "3.4.3"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
