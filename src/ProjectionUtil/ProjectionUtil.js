@@ -42,7 +42,7 @@ export class ProjectionUtil {
    *   registered or not. Default is true.
    */
   static initProj4Definitions(customCrsDefs, registerDefaults = true) {
-    let proj4CrsDefinitions;
+    let proj4CrsDefinitions = {};
 
     if (registerDefaults) {
       proj4CrsDefinitions = defaultProj4CrsDefinitions;
@@ -78,7 +78,7 @@ export class ProjectionUtil {
    *   as well or not. Default is true.
    */
   static initProj4DefinitionMappings(customCrsMappings, useDefaultMappings = true) {
-    let proj4CrsMappings;
+    let proj4CrsMappings = {};
 
     if (useDefaultMappings) {
       proj4CrsMappings = defaultProj4CrsMappings;
