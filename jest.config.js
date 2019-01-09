@@ -15,7 +15,8 @@ module.exports = {
   ],
   collectCoverage: false,
   collectCoverageFrom: [
-    'src/**/*.js'
+    'src/**/*.js',
+    '!src/TestUtil.js'
   ],
   coverageDirectory: '<rootDir>/coverage'
 };
