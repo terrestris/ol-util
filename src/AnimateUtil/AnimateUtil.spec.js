@@ -21,7 +21,8 @@ describe('AnimateUtil', () => {
         expect(AnimateUtil.moveFeature).toBeDefined();
       });
       it('moves feature to the new position', () => {
-
+        // the next line show this test isn't testing anything
+        // expect.assertions(1);
         const coords = [0, 0];
         const geom = new OlGeomPoint(coords);
         const featToMove = new OlFeature(geom);

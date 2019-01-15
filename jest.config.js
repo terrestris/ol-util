@@ -1,4 +1,3 @@
-const path = require('path');
 module.exports = {
   moduleFileExtensions: [
     'js'
@@ -7,7 +6,7 @@ module.exports = {
     'node_modules'
   ],
   transformIgnorePatterns: [
-     'node_modules/(?!(ol)/)'
+    'node_modules/(?!(ol)/)'
   ],
   setupFiles: [
     '<rootDir>/jest/__mocks__/shim.js',
