@@ -42,6 +42,7 @@ class CapabilitiesUtil {
     const wmsGetFeatureInfoConfig = get(capabilities, 'Capability.Request.GetFeatureInfo');
     const getMapUrl = get(wmsGetMapConfig,'DCPType[0].HTTP.Get.OnlineResource');
     const getFeatureInfoUrl = get(wmsGetFeatureInfoConfig,'DCPType[0].HTTP.Get.OnlineResource');
+    const legendUrl = layersInCapabilities.length > 0 ? get(layersInCapabilities[0], 'Style[0].LegendURL[0].OnlineResource') : null;
 
     return layersInCapabilities.map((layerObj) => new OlLayerImage({
       opacity: 1,
@@ -50,6 +51,7 @@ class CapabilitiesUtil {
       abstract: get(layerObj, 'Abstract'),
       getFeatureInfoUrl: getFeatureInfoUrl,
       getFeatureInfoFormats: get(wmsGetFeatureInfoConfig, 'Format'),
+      legendUrl: legendUrl,
       queryable: get(layerObj, 'queryable'),
       source: new OlSourceImageWMS({
         url: getMapUrl,
