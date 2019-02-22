@@ -1,15 +1,29 @@
 /*eslint-env jest*/
 import OlLayerImage from 'ol/layer/Image';
+import OlSourceImageWMS from 'ol/source/ImageWMS';
 import { CapabilitiesUtil } from '../index';
 
 const layerTitle =  'OpenStreetMap WMS - by terrestris';
+const layerName = 'OSM-WMS';
+const abstract = 'OpenStreetMap WMS, bereitgestellt durch terrestris GmbH und Co. KG. Beschleunigt mit MapProxy (http://mapproxy.org/)';
+const gfiOnlineResource = 'http://ows.terrestris.de/osm/service?';
+const getMapUrl = gfiOnlineResource;
+const gfiFormats = [
+  'text/plain',
+  'text/html',
+  'application/vnd.ogc.gml'
+];
+const glgOnlineResource = 'http://ows.terrestris.de/osm/service?styles=&layer=OSM-WMS&service=WMS&format=image%2Fpng&sld_version=1.1.0&request=GetLegendGraphic&version=1.1.1';
+const queryable = true;
+const attributions = '(c) OpenStreetMap contributors (http://www.openstreetmap.org/copyright) (c) OpenStreetMap Data (http://openstreetmapdata.com)';
+const capVersion = '1.3.0';
+
 const capabilitiesObj = {
-  version: '1.3.0',
+  version: capVersion,
   Service: {
     Name: 'OGC:WMS',
     Title: 'OpenStreetMap WMS',
-    Abstract: 'OpenStreetMap WMS, bereitgestellt durch terrestris GmbH und Co. KG. Beschleunigt mit MapProxy (http://mapproxy.org/)',
-    AccessConstraints: '(c) OpenStreetMap contributors (http://www.openstreetmap.org/copyright) (c) OpenStreetMap Data (http://openstreetmapdata.com) (c) Natural Earth Data (http://www.naturalearthdata.com) (c) ASTER GDEM 30m (https://asterweb.jpl.nasa.gov/gdem.asp) (c) SRTM 450m by ViewfinderPanoramas (http://viewfinderpanoramas.org/) (c) Great Lakes Bathymetry by NGDC (http://www.ngdc.noaa.gov/mgg/greatlakes/) (c) SRTM 30m by NASA EOSDIS Land Processes Distributed Active Archive Center (LP DAAC, https://lpdaac.usgs.gov/)'
+    AccessConstraints: attributions
   },
   Capability: {
     Request: {
@@ -33,21 +47,17 @@ const capabilitiesObj = {
         DCPType: [{
           HTTP: {
             Get: {
-              OnlineResource: 'http://ows.terrestris.de/osm/service?'
+              OnlineResource: getMapUrl
             }
           }
         }]
       },
       GetFeatureInfo: {
-        Format: [
-          'text/plain',
-          'text/html',
-          'application/vnd.ogc.gml'
-        ],
+        Format: gfiFormats,
         DCPType: [{
           HTTP: {
             Get: {
-              OnlineResource: 'http://ows.terrestris.de/osm/service?'
+              OnlineResource: gfiOnlineResource
             }
           }
         }]
@@ -60,8 +70,9 @@ const capabilitiesObj = {
     ],
     Layer: {
       Layer: [{
-        Name: 'OSM-WMS',
+        Name: layerName,
         Title: layerTitle,
+        Abstract: abstract,
         BoundingBox: [{
           crs: null,
           extent: [-20037508.3428, -25819498.5135,
@@ -101,14 +112,14 @@ const capabilitiesObj = {
           Title: 'default',
           LegendURL: [{
             Format: 'image/png',
-            OnlineResource: 'http://ows.terrestris.de/osm/service?styles=&layer=OSM-WMS&service=WMS&format=image%2Fpng&sld_version=1.1.0&request=GetLegendGraphic&version=1.1.1',
+            OnlineResource: glgOnlineResource,
             size: [
               155,
               344
             ]
           }]
         }],
-        queryable: true,
+        queryable: queryable,
         opaque: false,
         noSubsets: false
       }]
@@ -146,7 +157,24 @@ describe('CapabilitiesUtil', () => {
         expect(parsedLayers).toHaveLength(1);
         const layer = parsedLayers[0];
         expect(layer).toBeInstanceOf(OlLayerImage);
+        expect(layer.getSource()).toBeInstanceOf(OlSourceImageWMS);
+      });
+
+      it('sets layer attributes accordingly', () => {
+        const parsedLayers = CapabilitiesUtil.getLayersFromWmsCapabilties(capabilitiesObj);
+        const layer = parsedLayers[0];
+        const layerSource = layer.getSource();
         expect(layer.get('title')).toBe(layerTitle);
+        expect(layer.get('name')).toBe(layerName);
+        expect(layer.get('abstract')).toBe(abstract);
+        expect(layer.get('getFeatureInfoUrl')).toBe(gfiOnlineResource);
+        expect(layer.get('getFeatureInfoFormats')).toEqual(gfiFormats);
+        expect(layer.get('legendUrl')).toEqual(glgOnlineResource);
+        expect(layer.get('queryable')).toBe(queryable);
+        expect(layerSource.getUrl()).toBe(getMapUrl);
+        expect(layerSource.getAttributions().call()).toEqual([attributions]);
+        expect(layerSource.getParams()['LAYERS']).toBe(layerName);
+        expect(layerSource.getParams()['VERSION']).toBe(capVersion);
       });
     });
   });
