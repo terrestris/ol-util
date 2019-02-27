@@ -60,7 +60,7 @@
     "babel-jest": "24.0.0",
     "canvas-prebuilt": "1.6.5-prerelease.1",
     "coveralls": "3.0.3",
-    "documentation": "9.2.1",
+    "documentation": "9.3.0",
     "eslint": "5.14.1",
     "gh-pages": "2.0.1",
     "jest": "24.0.0",
