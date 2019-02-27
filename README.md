@@ -159,6 +159,9 @@ Returns the layers from a parsed WMS GetCapabilities object.
 -   `capabilities` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** A capabilities object.
 -   `nameField` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Configure the field which should be set as the
                               'name' property in the openlayers layer. (optional, default `'Name'`)
+-   `proxyFn` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Optional proxy function which can be applied to
+                              `GetMap`, `GetFeatureInfo` and `GetLegendGraphic`
+                              requests to avoid CORS issues.
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;OlLayerTile>** Array of OlLayerTile
 

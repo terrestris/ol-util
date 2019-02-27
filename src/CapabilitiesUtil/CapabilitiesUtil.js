@@ -3,6 +3,7 @@ import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlLayerImage from 'ol/layer/Image';
 
 import get from 'lodash/get.js';
+import isFunction from 'lodash/isFunction';
 
 /**
  * Helper class to parse capabilities of WMS layers
@@ -32,9 +33,12 @@ class CapabilitiesUtil {
    * @param {Object} capabilities A capabilities object.
    * @param {string} nameField Configure the field which should be set as the
    *                           'name' property in the openlayers layer.
+   * @param {Function} proxyFn Optional proxy function which can be applied to
+   *                           `GetMap`, `GetFeatureInfo` and `GetLegendGraphic`
+   *                           requests to avoid CORS issues.
    * @return {OlLayerTile[]} Array of OlLayerTile
    */
-  static getLayersFromWmsCapabilties(capabilities, nameField = 'Name') {
+  static getLayersFromWmsCapabilties(capabilities, nameField = 'Name', proxyFn) {
     const wmsVersion = get(capabilities,'version');
     const wmsAttribution = get(capabilities,'Service.AccessConstraints');
     const layersInCapabilities = get(capabilities,'Capability.Layer.Layer');
@@ -49,12 +53,12 @@ class CapabilitiesUtil {
       title: get(layerObj, 'Title'),
       name: get(layerObj, nameField),
       abstract: get(layerObj, 'Abstract'),
-      getFeatureInfoUrl: getFeatureInfoUrl,
+      getFeatureInfoUrl: isFunction(proxyFn) ? proxyFn(getFeatureInfoUrl) : getFeatureInfoUrl,
       getFeatureInfoFormats: get(wmsGetFeatureInfoConfig, 'Format'),
-      legendUrl: legendUrl,
+      legendUrl: isFunction(proxyFn) ? proxyFn(legendUrl) : legendUrl,
       queryable: get(layerObj, 'queryable'),
       source: new OlSourceImageWMS({
-        url: getMapUrl,
+        url: isFunction(proxyFn) ? proxyFn(getMapUrl) : getMapUrl,
         attributions: wmsAttribution,
         params: {
           'LAYERS': get(layerObj, 'Name'),

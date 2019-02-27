@@ -176,6 +176,13 @@ describe('CapabilitiesUtil', () => {
         expect(layerSource.getParams()['LAYERS']).toBe(layerName);
         expect(layerSource.getParams()['VERSION']).toBe(capVersion);
       });
+
+      it('applies proxy function if provided', () => {
+        const proxyFn = jest.fn();
+        CapabilitiesUtil.getLayersFromWmsCapabilties(capabilitiesObj, 'name', proxyFn);
+        expect.assertions(1);
+        expect(proxyFn).toBeCalledTimes(3);
+      });
     });
   });
 });
