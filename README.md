@@ -24,7 +24,7 @@ npm i @terrestris/ol-util
 -   [CapabilitiesUtil](#capabilitiesutil)
     -   [parseWmsCapabilities](#parsewmscapabilities)
         -   [Parameters](#parameters-1)
-    -   [getLayersFromWmsCapabilties](#getlayersfromwmscapabilties)
+    -   [getLayersFromWmsCapabilities](#getlayersfromwmscapabilities)
         -   [Parameters](#parameters-2)
 -   [FeatureUtil](#featureutil)
     -   [getFeatureTypeName](#getfeaturetypename)
@@ -150,7 +150,7 @@ Parses the given WMS Capabilities string.
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** An object representing the WMS capabilities.
 
-#### getLayersFromWmsCapabilties
+#### getLayersFromWmsCapabilities
 
 Returns the layers from a parsed WMS GetCapabilities object.
 
@@ -510,7 +510,7 @@ Currently supported Sources:
 ##### Parameters
 
 -   `layer` **ol.layer.Layer** The layer that you want to have a legendUrlfor.
--   `extraParams`  
+-   `extraParams`
 
 Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** The getLegendGraphicUrl.
 
