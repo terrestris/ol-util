@@ -147,13 +147,13 @@ describe('CapabilitiesUtil', () => {
       });
     });
 
-    describe('getLayersFromWmsCapabilties', () => {
+    describe('getLayersFromWmsCapabilities', () => {
       it('isDefined', () => {
-        expect(CapabilitiesUtil.getLayersFromWmsCapabilties).not.toBeUndefined();
+        expect(CapabilitiesUtil.getLayersFromWmsCapabilities).not.toBeUndefined();
       });
 
       it('creates layer objects from parsed WMS capabilities', () => {
-        const parsedLayers = CapabilitiesUtil.getLayersFromWmsCapabilties(capabilitiesObj);
+        const parsedLayers = CapabilitiesUtil.getLayersFromWmsCapabilities(capabilitiesObj);
         expect(parsedLayers).toHaveLength(1);
         const layer = parsedLayers[0];
         expect(layer).toBeInstanceOf(OlLayerImage);
@@ -161,7 +161,7 @@ describe('CapabilitiesUtil', () => {
       });
 
       it('sets layer attributes accordingly', () => {
-        const parsedLayers = CapabilitiesUtil.getLayersFromWmsCapabilties(capabilitiesObj);
+        const parsedLayers = CapabilitiesUtil.getLayersFromWmsCapabilities(capabilitiesObj);
         const layer = parsedLayers[0];
         const layerSource = layer.getSource();
         expect(layer.get('title')).toBe(layerTitle);
@@ -179,7 +179,7 @@ describe('CapabilitiesUtil', () => {
 
       it('applies proxy function if provided', () => {
         const proxyFn = jest.fn();
-        CapabilitiesUtil.getLayersFromWmsCapabilties(capabilitiesObj, 'name', proxyFn);
+        CapabilitiesUtil.getLayersFromWmsCapabilities(capabilitiesObj, 'name', proxyFn);
         expect.assertions(1);
         expect(proxyFn).toBeCalledTimes(3);
       });

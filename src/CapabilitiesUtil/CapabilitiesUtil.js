@@ -38,7 +38,7 @@ class CapabilitiesUtil {
    *                           requests to avoid CORS issues.
    * @return {OlLayerTile[]} Array of OlLayerTile
    */
-  static getLayersFromWmsCapabilties(capabilities, nameField = 'Name', proxyFn) {
+  static getLayersFromWmsCapabilities(capabilities, nameField = 'Name', proxyFn) {
     const wmsVersion = get(capabilities,'version');
     const wmsAttribution = get(capabilities,'Service.AccessConstraints');
     const layersInCapabilities = get(capabilities,'Capability.Layer.Layer');
