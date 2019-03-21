@@ -809,4 +809,66 @@ describe('MapUtil', () => {
       });
     });
   });
+
+  describe('#zoomToFeatures', () => {
+    const features = [
+      new OlFeature({
+        geometry: new OlGeomPoint([0, 0])
+      }),
+      new OlFeature({
+        geometry: new OlGeomPoint([1, 1])
+      }),
+      new OlFeature({
+        geometry: new OlGeomPoint([2, 2])
+      })
+    ];
+
+    it('is defined', () => {
+      expect(MapUtil.zoomToFeatures).toBeDefined();
+    });
+
+    it('returns undefined if no map is given', () => {
+      const got = MapUtil.zoomToFeatures(null, features);
+      expect(got).toBe(undefined);
+    });
+
+    it('fits the view extent to the extent of the given features', () => {
+      const view = new OlView({
+        zoom: 19
+      });
+      const map = new OlMap({view: view});
+
+      MapUtil.zoomToFeatures(map, features);
+      const extent = view.calculateExtent();
+
+      expect(extent[0]).toBeCloseTo(-0.866138385868561);
+      expect(extent[1]).toBeCloseTo(-0.866138385868561);
+      expect(extent[2]).toBeCloseTo(2.866138385868561);
+      expect(extent[3]).toBeCloseTo(2.866138385868561);
+    });
+  });
+
+  describe('#isInScaleRange', () => {
+    it('is defined', () => {
+      expect(MapUtil.isInScaleRange).toBeDefined();
+    });
+
+    it('returns the visibility of a given layer', () => {
+      const layer = TestUtil.createVectorLayer();
+
+      let inScaleRange = MapUtil.isInScaleRange(layer, 5);
+      expect(inScaleRange).toBe(true);
+
+      layer.setProperties({
+        minResolution: 0,
+        maxResolution: 10
+      });
+
+      inScaleRange = MapUtil.isInScaleRange(layer, 5);
+      expect(inScaleRange).toBe(true);
+
+      inScaleRange = MapUtil.isInScaleRange(layer, 15);
+      expect(inScaleRange).toBe(false);
+    });
+  });
 });

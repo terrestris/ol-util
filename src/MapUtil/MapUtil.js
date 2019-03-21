@@ -3,6 +3,7 @@ import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlLayerGroup from 'ol/layer/Group';
 import OlLayerBase from 'ol/layer/Base';
+import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
 import { METERS_PER_UNIT } from 'ol/proj/Units';
 
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
@@ -425,6 +426,41 @@ export class MapUtil {
       return Math.abs(o - closestVal) <= 1e-10;
     });
     return zoom;
+  }
+
+  /**
+   * Fits the map's view to the extent of the passed features.
+   *
+   * @param {ol.Map} map The map to get the view from.
+   * @param {ol.Feature[]} features The features to zoom to.
+   */
+  static zoomToFeatures(map, features) {
+    if (!(map instanceof OlMap)) {
+      return;
+    }
+
+    let featGeometries = [];
+    features.forEach(feature => {
+      if (feature.getGeometry() !== null) {
+        featGeometries.push(feature.getGeometry());
+      }
+    });
+
+    if (featGeometries.length > 0) {
+      const geomCollection = new OlGeomGeometryCollection(featGeometries);
+      map.getView().fit(geomCollection.getExtent());
+    }
+  }
+
+  /**
+   * Checks if the given layer is visible for the given resolution.
+   *
+   * @param {ol.layer.Base} layer The layer.
+   * @param {number} resolution The resolution of the map
+   */
+  static isInScaleRange(layer, resolution) {
+    return resolution >= layer.get('minResolution')
+      && resolution < layer.get('maxResolution');
   }
 }
 
