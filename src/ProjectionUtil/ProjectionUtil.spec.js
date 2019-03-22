@@ -165,27 +165,27 @@ describe('ProjectionUtil', () => {
 
     });
 
-    describe('#dToDms', () => {
+    describe('#toDms', () => {
       it('is defined', () => {
-        expect(ProjectionUtil.dToDms).not.toBeUndefined();
+        expect(ProjectionUtil.toDms).not.toBeUndefined();
       });
 
       it('converts geographic coordinates to degree, minutes, decimal seconds (DMS) format', () => {
         const degreeVal = 19.0909090909;
         const convertedVal = '19° 05\' 27.27\'\'';
-        expect(ProjectionUtil.dToDms(degreeVal)).toBe(convertedVal);
+        expect(ProjectionUtil.toDms(degreeVal)).toBe(convertedVal);
       });
     });
 
-    describe('#dToDmm', () => {
+    describe('#toDmm', () => {
       it('is defined', () => {
-        expect(ProjectionUtil.dToDmm).not.toBeUndefined();
+        expect(ProjectionUtil.toDmm).not.toBeUndefined();
       });
 
       it('converts geographic coordinates to degree, decimal minutes (DMM) format', () => {
         const degreeVal = 19.0909090909;
         const convertedVal = '19° 05.4545\'';
-        expect(ProjectionUtil.dToDmm(degreeVal)).toBe(convertedVal);
+        expect(ProjectionUtil.toDmm(degreeVal)).toBe(convertedVal);
       });
     });
 

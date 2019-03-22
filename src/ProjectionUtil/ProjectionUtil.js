@@ -108,7 +108,7 @@ export class ProjectionUtil {
    *
    * @return {string} Converted value.
    */
-  static dToDms(value) {
+  static toDms(value) {
     const deg = parseInt(value, 10);
     const min = parseInt((value - deg) * 60, 10);
     const sec = ((value - deg - min / 60) * 3600);
@@ -123,7 +123,7 @@ export class ProjectionUtil {
    *
    * @return {string} Converted value.
    */
-  static dToDmm(value) {
+  static toDmm(value) {
     const deg = parseInt(value, 10);
     const min = ((value - deg) * 60);
     return `${deg}° ${ProjectionUtil.zerofill(min.toFixed(4))}'`;
