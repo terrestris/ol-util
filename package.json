@@ -61,7 +61,7 @@
     "canvas-prebuilt": "1.6.5-prerelease.1",
     "coveralls": "3.0.3",
     "documentation": "9.3.1",
-    "eslint": "5.15.3",
+    "eslint": "5.16.0",
     "gh-pages": "2.0.1",
     "jest": "24.0.0",
     "node-pre-gyp": "0.12.0",
