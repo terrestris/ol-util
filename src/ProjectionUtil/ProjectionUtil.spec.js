@@ -165,6 +165,44 @@ describe('ProjectionUtil', () => {
 
     });
 
+    describe('#toDms', () => {
+      it('is defined', () => {
+        expect(ProjectionUtil.toDms).not.toBeUndefined();
+      });
+
+      it('converts geographic coordinates to degree, minutes, decimal seconds (DMS) format', () => {
+        const degreeVal = 19.0909090909;
+        const convertedVal = '19° 05\' 27.27\'\'';
+        expect(ProjectionUtil.toDms(degreeVal)).toBe(convertedVal);
+      });
+    });
+
+    describe('#toDmm', () => {
+      it('is defined', () => {
+        expect(ProjectionUtil.toDmm).not.toBeUndefined();
+      });
+
+      it('converts geographic coordinates to degree, decimal minutes (DMM) format', () => {
+        const degreeVal = 19.0909090909;
+        const convertedVal = '19° 05.4545\'';
+        expect(ProjectionUtil.toDmm(degreeVal)).toBe(convertedVal);
+      });
+    });
+
+    describe('#zerofill', () => {
+      it('is defined', () => {
+        expect(ProjectionUtil.zerofill).not.toBeUndefined();
+      });
+
+      it ('adds leading zero to values less than 10', () => {
+        const smallValue = 9.123;
+        const bigValue = 15.456;
+        const expectedSmallValue = '09.123';
+        expect(ProjectionUtil.zerofill(smallValue)).toBe(expectedSmallValue);
+        expect(ProjectionUtil.zerofill(bigValue)).toBe(bigValue);
+      });
+    });
+
   });
 
 });

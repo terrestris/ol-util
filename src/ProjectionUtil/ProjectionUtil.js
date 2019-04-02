@@ -98,6 +98,49 @@ export class ProjectionUtil {
       }
     }
   }
+
+  /**
+   * Converts geographic coordinates given in DDD format like `DD.DDDD°` to
+   * the degree, minutes, decimal seconds (DMS) format like
+   * `DDD° MM' SS.SSS"`.
+   *
+   * @param {number} value Value to be converted.
+   *
+   * @return {string} Converted value.
+   */
+  static toDms(value) {
+    const deg = parseInt(value, 10);
+    const min = parseInt((value - deg) * 60, 10);
+    const sec = ((value - deg - min / 60) * 3600);
+    return `${deg}° ${ProjectionUtil.zerofill(min)}' ${ProjectionUtil.zerofill(sec.toFixed(2))}''`;
+  }
+
+  /**
+   * Converts geographic coordinates given in DDD format like `DD.DDDD°` to
+   * the degree, decimal minutes (DMM) format like `DDD° MM.MMMM`.
+   *
+   * @param {number} value Value to be converted.
+   *
+   * @return {string} Converted value.
+   */
+  static toDmm(value) {
+    const deg = parseInt(value, 10);
+    const min = ((value - deg) * 60);
+    return `${deg}° ${ProjectionUtil.zerofill(min.toFixed(4))}'`;
+  }
+
+  /**
+   * Adds leading zero to all values less than 10 and returns this new
+   * zerofilled value as String. Values which are greater than 10 are not
+   * affected.
+   *
+   * @param {number} value Value to be zerofilled.
+   *
+   * @return {string} converted value with leading zero if necessary.
+   */
+  static zerofill(value) {
+    return value < 10 ? `0${value}` : value;
+  }
 }
 
 export default ProjectionUtil;
