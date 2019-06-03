@@ -60,6 +60,30 @@ describe('FeatureUtil', () => {
       });
     });
 
+    describe('#getFeatureTypeNameFromGetFeatureInfoUrl', () => {
+
+      it('extacts layer name from provided GetFeatureInfo request URL', () => {
+
+        const layerName = 'testLayerName';
+        const mockUrlUnqualified = `http://mock.de?&REQUEST=GetFeatureInfo&QUERY_LAYERS=${layerName}&TILED=true`;
+        const mockUrlQualified = `http://mock.de?&REQUEST=GetFeatureInfo&QUERY_LAYERS=Namespace:${layerName}&TILED=true`;
+
+        const got = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlUnqualified);
+        const got2 = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlQualified);
+
+        expect(got).toBe(layerName);
+        expect(got2).toBe(layerName);
+      });
+
+      it('returns undefined if no match was found', () => {
+
+        const notMatchingUrl = `http://mock.de?&REQUEST=GetFeatureInfo&SOME_PARAMS=some_values`;
+        const got = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(notMatchingUrl);
+        expect(got).toBeUndefined();
+      });
+    });
+
+
     describe('#resolveAttributeTemplate', () => {
       it('resolves the given template string with the feature attributes', () => {
         let template = '{{name}}';
