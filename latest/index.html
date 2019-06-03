@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>@terrestris/ol-util 2.2.0 | Documentation</title>
+  <title>@terrestris/ol-util 2.3.0 | Documentation</title>
   <meta name='description' content='A set of helper classes for working with openLayers'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet' />
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@terrestris/ol-util</h3>
-          <div class='mb1'><code>2.2.0</code></div>
+          <div class='mb1'><code>2.3.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -72,9 +72,9 @@
                       </a></li>
                     
                       <li><a
-                        href='#capabilitiesutilgetlayersfromwmscapabilties'
+                        href='#capabilitiesutilgetlayersfromwmscapabilities'
                         class='regular pre-open'>
-                        .getLayersFromWmsCapabilties
+                        .getLayersFromWmsCapabilities
                       </a></li>
                     
                     </ul>
@@ -103,6 +103,12 @@
                         href='#featureutilgetfeaturetypename'
                         class='regular pre-open'>
                         .getFeatureTypeName
+                      </a></li>
+                    
+                      <li><a
+                        href='#featureutilgetfeaturetypenamefromgetfeatureinfourl'
+                        class='regular pre-open'>
+                        .getFeatureTypeNameFromGetFeatureInfoUrl
                       </a></li>
                     
                       <li><a
@@ -333,6 +339,18 @@
                         .getZoomForScale
                       </a></li>
                     
+                      <li><a
+                        href='#maputilzoomtofeatures'
+                        class='regular pre-open'>
+                        .zoomToFeatures
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilisinscalerange'
+                        class='regular pre-open'>
+                        .isInScaleRange
+                      </a></li>
+                    
                     </ul>
                   
                   
@@ -463,6 +481,24 @@
                         .initProj4DefinitionMappings
                       </a></li>
                     
+                      <li><a
+                        href='#projectionutiltodms'
+                        class='regular pre-open'>
+                        .toDms
+                      </a></li>
+                    
+                      <li><a
+                        href='#projectionutiltodmm'
+                        class='regular pre-open'>
+                        .toDmm
+                      </a></li>
+                    
+                      <li><a
+                        href='#projectionutilzerofill'
+                        class='regular pre-open'>
+                        .zerofill
+                      </a></li>
+                    
                     </ul>
                   
                   
@@ -520,7 +556,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/AnimateUtil/AnimateUtil.js#L11-L84'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/AnimateUtil/AnimateUtil.js#L11-L84'>
       <span>src/AnimateUtil/AnimateUtil.js</span>
       </a>
     
@@ -569,7 +605,7 @@ with digitize functions to animate features.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/AnimateUtil/AnimateUtil.js#L25-L83'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/AnimateUtil/AnimateUtil.js#L25-L83'>
       <span>src/AnimateUtil/AnimateUtil.js</span>
       </a>
     
@@ -663,12 +699,16 @@ in the end with given <code>duration</code> in ms, using the given style.</p>
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
@@ -690,7 +730,7 @@ in the end with given <code>duration</code> in ms, using the given style.</p>
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/CapabilitiesUtil/CapabilitiesUtil.js#L13-L70'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/CapabilitiesUtil/CapabilitiesUtil.js#L13-L70'>
       <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
       </a>
     
@@ -738,7 +778,7 @@ in the end with given <code>duration</code> in ms, using the given style.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/CapabilitiesUtil/CapabilitiesUtil.js#L21-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/CapabilitiesUtil/CapabilitiesUtil.js#L21-L28'>
       <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
       </a>
     
@@ -795,16 +835,18 @@ in the end with given <code>duration</code> in ms, using the given style.</p>
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
-    <div class='border-bottom' id='capabilitiesutilgetlayersfromwmscapabilties'>
+    <div class='border-bottom' id='capabilitiesutilgetlayersfromwmscapabilities'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getLayersFromWmsCapabilties(capabilities, nameField, proxyFn)</span>
+            <span class='code strong strong truncate'>getLayersFromWmsCapabilities(capabilities, nameField, proxyFn)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -814,7 +856,7 @@ in the end with given <code>duration</code> in ms, using the given style.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/CapabilitiesUtil/CapabilitiesUtil.js#L41-L69'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/CapabilitiesUtil/CapabilitiesUtil.js#L41-L69'>
       <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
       </a>
     
@@ -823,7 +865,7 @@ in the end with given <code>duration</code> in ms, using the given style.</p>
 
   <p>Returns the layers from a parsed WMS GetCapabilities object.</p>
 
-    <div class='pre p1 fill-light mt0'>getLayersFromWmsCapabilties(capabilities: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, nameField: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, proxyFn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;OlLayerTile></div>
+    <div class='pre p1 fill-light mt0'>getLayersFromWmsCapabilities(capabilities: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, nameField: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, proxyFn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;OlLayerTile></div>
   
   
 
@@ -899,12 +941,16 @@ requests to avoid CORS issues.
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
@@ -926,7 +972,7 @@ requests to avoid CORS issues.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/FeatureUtil/FeatureUtil.js#L10-L102'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/FeatureUtil/FeatureUtil.js#L11-L125'>
       <span>src/FeatureUtil/FeatureUtil.js</span>
       </a>
     
@@ -974,7 +1020,7 @@ requests to avoid CORS issues.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/FeatureUtil/FeatureUtil.js#L21-L26'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/FeatureUtil/FeatureUtil.js#L22-L27'>
       <span>src/FeatureUtil/FeatureUtil.js</span>
       </a>
     
@@ -1034,6 +1080,88 @@ the name could not be picked.
   
 
   
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='featureutilgetfeaturetypenamefromgetfeatureinfourl'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getFeatureTypeNameFromGetFeatureInfoUrl(url)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/FeatureUtil/FeatureUtil.js#L38-L49'>
+      <span>src/FeatureUtil/FeatureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Extracts the featureType name from given GetFeatureInfo URL.
+This method is mostly useful for raster layers which features could have
+no ID set.</p>
+
+    <div class='pre p1 fill-light mt0'>getFeatureTypeNameFromGetFeatureInfoUrl(url: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>url</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    GetFeatureInfo URL possibly containing featureType name.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Obtained featureType name as string.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </section>
 
       </div>
@@ -1053,7 +1181,7 @@ the name could not be picked.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/FeatureUtil/FeatureUtil.js#L46-L101'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/FeatureUtil/FeatureUtil.js#L69-L124'>
       <span>src/FeatureUtil/FeatureUtil.js</span>
       </a>
     
@@ -1148,12 +1276,16 @@ formatting and such.
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
@@ -1175,7 +1307,7 @@ formatting and such.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/FileUtil/FileUtil.js#L11-L59'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/FileUtil/FileUtil.js#L11-L59'>
       <span>src/FileUtil/FileUtil.js</span>
       </a>
     
@@ -1223,7 +1355,7 @@ formatting and such.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/FileUtil/FileUtil.js#L18-L25'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/FileUtil/FileUtil.js#L18-L25'>
       <span>src/FileUtil/FileUtil.js</span>
       </a>
     
@@ -1281,6 +1413,8 @@ formatting and such.
   
 
   
+
+  
 </section>
 
       </div>
@@ -1300,7 +1434,7 @@ formatting and such.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/FileUtil/FileUtil.js#L32-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/FileUtil/FileUtil.js#L32-L41'>
       <span>src/FileUtil/FileUtil.js</span>
       </a>
     
@@ -1358,6 +1492,8 @@ formatting and such.
   
 
   
+
+  
 </section>
 
       </div>
@@ -1377,7 +1513,7 @@ formatting and such.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/FileUtil/FileUtil.js#L48-L57'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/FileUtil/FileUtil.js#L48-L57'>
       <span>src/FileUtil/FileUtil.js</span>
       </a>
     
@@ -1435,12 +1571,16 @@ formatting and such.
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
@@ -1462,7 +1602,7 @@ formatting and such.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/GeometryUtil/GeometryUtil.js#L24-L372'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/GeometryUtil/GeometryUtil.js#L24-L372'>
       <span>src/GeometryUtil/GeometryUtil.js</span>
       </a>
     
@@ -1511,7 +1651,7 @@ formatting and such.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/GeometryUtil/GeometryUtil.js#L47-L133'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/GeometryUtil/GeometryUtil.js#L47-L133'>
       <span>src/GeometryUtil/GeometryUtil.js</span>
       </a>
     
@@ -1594,6 +1734,8 @@ with/or ol.geom.Polygon
   
 
   
+
+  
 </section>
 
       </div>
@@ -1613,7 +1755,7 @@ with/or ol.geom.Polygon
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/GeometryUtil/GeometryUtil.js#L148-L167'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/GeometryUtil/GeometryUtil.js#L148-L167'>
       <span>src/GeometryUtil/GeometryUtil.js</span>
       </a>
     
@@ -1693,6 +1835,8 @@ Default is to EPSG:3857.
   
 
   
+
+  
 </section>
 
       </div>
@@ -1712,7 +1856,7 @@ Default is to EPSG:3857.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/GeometryUtil/GeometryUtil.js#L175-L217'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/GeometryUtil/GeometryUtil.js#L175-L217'>
       <span>src/GeometryUtil/GeometryUtil.js</span>
       </a>
     
@@ -1769,6 +1913,8 @@ Default is to EPSG:3857.
   
 
   
+
+  
 </section>
 
       </div>
@@ -1788,7 +1934,7 @@ Default is to EPSG:3857.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/GeometryUtil/GeometryUtil.js#L228-L255'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/GeometryUtil/GeometryUtil.js#L228-L255'>
       <span>src/GeometryUtil/GeometryUtil.js</span>
       </a>
     
@@ -1847,6 +1993,8 @@ into an array of single geometries.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -1866,7 +2014,7 @@ into an array of single geometries.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/GeometryUtil/GeometryUtil.js#L267-L293'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/GeometryUtil/GeometryUtil.js#L267-L293'>
       <span>src/GeometryUtil/GeometryUtil.js</span>
       </a>
     
@@ -1936,6 +2084,8 @@ combined area of the (Multi-)polygons.
   
 
   
+
+  
 </section>
 
       </div>
@@ -1955,7 +2105,7 @@ combined area of the (Multi-)polygons.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/GeometryUtil/GeometryUtil.js#L307-L329'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/GeometryUtil/GeometryUtil.js#L307-L329'>
       <span>src/GeometryUtil/GeometryUtil.js</span>
       </a>
     
@@ -2034,6 +2184,8 @@ of polygon1 excluding the area of polygon2. The type of the first polygon
   
 
   
+
+  
 </section>
 
       </div>
@@ -2053,7 +2205,7 @@ of polygon1 excluding the area of polygon2. The type of the first polygon
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/GeometryUtil/GeometryUtil.js#L345-L370'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/GeometryUtil/GeometryUtil.js#L345-L370'>
       <span>src/GeometryUtil/GeometryUtil.js</span>
       </a>
     
@@ -2133,12 +2285,16 @@ shared area of the two polygons or null if the polygons don't intersect.
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
@@ -2160,7 +2316,7 @@ shared area of the two polygons or null if the polygons don't intersect.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L20-L429'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L21-L465'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2208,7 +2364,7 @@ shared area of the two polygons or null if the polygons don't intersect.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L29-L46'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L30-L47'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2274,6 +2430,8 @@ shared area of the two polygons or null if the polygons don't intersect.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2293,7 +2451,7 @@ shared area of the two polygons or null if the polygons don't intersect.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L55-L72'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L56-L73'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2359,6 +2517,8 @@ shared area of the two polygons or null if the polygons don't intersect.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2378,7 +2538,7 @@ shared area of the two polygons or null if the polygons don't intersect.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L87-L93'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L88-L94'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2448,6 +2608,8 @@ resolution for.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2467,7 +2629,7 @@ resolution for.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L104-L110'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L105-L111'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2534,6 +2696,8 @@ either 'm' or 'degrees'.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2553,7 +2717,7 @@ either 'm' or 'degrees'.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L123-L146'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L124-L147'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2624,6 +2788,8 @@ returned layers.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2643,7 +2809,7 @@ returned layers.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L155-L161'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L156-L162'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2709,6 +2875,8 @@ returned layers.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2728,7 +2896,7 @@ returned layers.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L171-L176'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L172-L177'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2795,6 +2963,8 @@ be found.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2814,7 +2984,7 @@ be found.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L187-L201'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L188-L202'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2882,6 +3052,8 @@ be found.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2901,7 +3073,7 @@ be found.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L212-L226'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L213-L227'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -2977,6 +3149,8 @@ be found.
   
 
   
+
+  
 </section>
 
       </div>
@@ -2996,7 +3170,7 @@ be found.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L235-L247'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L236-L248'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -3062,6 +3236,8 @@ be found.
   
 
   
+
+  
 </section>
 
       </div>
@@ -3081,7 +3257,7 @@ be found.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L258-L264'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L259-L265'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -3156,6 +3332,8 @@ be found.
   
 
   
+
+  
 </section>
 
       </div>
@@ -3175,7 +3353,7 @@ be found.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L276-L294'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L277-L295'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -3244,6 +3422,8 @@ containing the layer.
   
 
   
+
+  
 </section>
 
       </div>
@@ -3263,7 +3443,7 @@ containing the layer.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L305-L342'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L306-L343'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -3333,6 +3513,8 @@ Currently supported Sources:</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3352,7 +3534,7 @@ Currently supported Sources:</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L358-L371'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L359-L372'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -3431,6 +3613,8 @@ map is falsy or does not have a resolution (yet).
   
 
   
+
+  
 </section>
 
       </div>
@@ -3450,7 +3634,7 @@ map is falsy or does not have a resolution (yet).
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L380-L395'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L381-L396'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -3507,6 +3691,8 @@ map is falsy or does not have a resolution (yet).
   
 
   
+
+  
 </section>
 
       </div>
@@ -3526,7 +3712,7 @@ map is falsy or does not have a resolution (yet).
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MapUtil/MapUtil.js#L408-L428'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L409-L429'>
       <span>src/MapUtil/MapUtil.js</span>
       </a>
     
@@ -3603,12 +3789,174 @@ either 'm' or 'degrees'. Default is 'm'.
   
 
   
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilzoomtofeatures'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>zoomToFeatures(map, features)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L437-L453'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Fits the map's view to the extent of the passed features.</p>
+
+    <div class='pre p1 fill-light mt0'>zoomToFeatures(map: ol.Map, features: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.Feature>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to get the view from.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.Feature>)</code>
+	    The features to zoom to.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilisinscalerange'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isInScaleRange(layer, resolution)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MapUtil/MapUtil.js#L461-L464'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if the given layer is visible for the given resolution.</p>
+
+    <div class='pre p1 fill-light mt0'>isInScaleRange(layer: ol.layer.Base, resolution: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Base)</code>
+	    The layer.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>resolution</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The resolution of the map
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
@@ -3630,7 +3978,7 @@ either 'm' or 'degrees'. Default is 'm'.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L10-L216'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L10-L216'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -3679,7 +4027,7 @@ with measurements.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L23-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L23-L33'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -3766,6 +4114,8 @@ is used (Clarke 1866 Authalic Sphere, 6371008.8).
   
 
   
+
+  
 </section>
 
       </div>
@@ -3785,7 +4135,7 @@ is used (Clarke 1866 Authalic Sphere, 6371008.8).
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L46-L58'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L46-L58'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -3871,6 +4221,8 @@ allowed for the measure tooltips
   
 
   
+
+  
 </section>
 
       </div>
@@ -3890,7 +4242,7 @@ allowed for the measure tooltips
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L71-L81'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L71-L81'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -3977,6 +4329,8 @@ is used (Clarke 1866 Authalic Sphere, 6371008.8).
   
 
   
+
+  
 </section>
 
       </div>
@@ -3996,7 +4350,7 @@ is used (Clarke 1866 Authalic Sphere, 6371008.8).
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L94-L106'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L94-L106'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -4082,6 +4436,8 @@ allowed for the measure tooltips.
   
 
   
+
+  
 </section>
 
       </div>
@@ -4101,7 +4457,7 @@ allowed for the measure tooltips.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L122-L130'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L122-L130'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -4180,6 +4536,8 @@ x-coordinate being at index
   
 
   
+
+  
 </section>
 
       </div>
@@ -4199,7 +4557,7 @@ x-coordinate being at index
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L146-L154'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L146-L154'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -4278,6 +4636,8 @@ x-coordinate being at index
   
 
   
+
+  
 </section>
 
       </div>
@@ -4297,7 +4657,7 @@ x-coordinate being at index
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L165-L167'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L165-L167'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -4356,6 +4716,8 @@ the direction of the angle from counter-clockwise to clockwise.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4375,7 +4737,7 @@ the direction of the angle from counter-clockwise to clockwise.</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L178-L184'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L178-L184'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -4434,6 +4796,8 @@ angle of a line so that the origin (0°) lies at the top (in the north).</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4453,7 +4817,7 @@ angle of a line so that the origin (0°) lies at the top (in the north).</p>
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/MeasureUtil/MeasureUtil.js#L198-L214'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/MeasureUtil/MeasureUtil.js#L198-L214'>
       <span>src/MeasureUtil/MeasureUtil.js</span>
       </a>
     
@@ -4524,12 +4888,16 @@ allowed for the measure tooltips.
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
@@ -4551,7 +4919,7 @@ allowed for the measure tooltips.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/ProjectionUtil/ProjectionUtil.js#L9-L13'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/ProjectionUtil/ProjectionUtil.js#L9-L13'>
       <span>src/ProjectionUtil/ProjectionUtil.js</span>
       </a>
     
@@ -4586,6 +4954,8 @@ allowed for the measure tooltips.
   
 
   
+
+  
 </section>
 
           
@@ -4601,7 +4971,7 @@ allowed for the measure tooltips.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/ProjectionUtil/ProjectionUtil.js#L18-L23'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/ProjectionUtil/ProjectionUtil.js#L18-L23'>
       <span>src/ProjectionUtil/ProjectionUtil.js</span>
       </a>
     
@@ -4636,6 +5006,8 @@ allowed for the measure tooltips.
   
 
   
+
+  
 </section>
 
           
@@ -4651,7 +5023,7 @@ allowed for the measure tooltips.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/ProjectionUtil/ProjectionUtil.js#L31-L101'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/ProjectionUtil/ProjectionUtil.js#L31-L144'>
       <span>src/ProjectionUtil/ProjectionUtil.js</span>
       </a>
     
@@ -4700,7 +5072,7 @@ allowed for the measure tooltips.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/ProjectionUtil/ProjectionUtil.js#L44-L65'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/ProjectionUtil/ProjectionUtil.js#L44-L65'>
       <span>src/ProjectionUtil/ProjectionUtil.js</span>
       </a>
     
@@ -4772,6 +5144,8 @@ registered or not. Default is true.
   
 
   
+
+  
 </section>
 
       </div>
@@ -4791,7 +5165,7 @@ registered or not. Default is true.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/ProjectionUtil/ProjectionUtil.js#L80-L100'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/ProjectionUtil/ProjectionUtil.js#L80-L100'>
       <span>src/ProjectionUtil/ProjectionUtil.js</span>
       </a>
     
@@ -4859,12 +5233,255 @@ as well or not. Default is true.
   
 
   
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='projectionutiltodms'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>toDms(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/ProjectionUtil/ProjectionUtil.js#L111-L116'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Converts geographic coordinates given in DDD format like <code>DD.DDDD°</code> to
+the degree, minutes, decimal seconds (DMS) format like
+<code>DDD° MM' SS.SSS"</code>.</p>
+
+    <div class='pre p1 fill-light mt0'>toDms(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Value to be converted.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Converted value.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='projectionutiltodmm'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>toDmm(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/ProjectionUtil/ProjectionUtil.js#L126-L130'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Converts geographic coordinates given in DDD format like <code>DD.DDDD°</code> to
+the degree, decimal minutes (DMM) format like <code>DDD° MM.MMMM</code>.</p>
+
+    <div class='pre p1 fill-light mt0'>toDmm(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Value to be converted.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Converted value.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='projectionutilzerofill'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>zerofill(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/ProjectionUtil/ProjectionUtil.js#L141-L143'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds leading zero to all values less than 10 and returns this new
+zerofilled value as String. Values which are greater than 10 are not
+affected.</p>
+
+    <div class='pre p1 fill-light mt0'>zerofill(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Value to be zerofilled.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        converted value with leading zero if necessary.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
@@ -4886,7 +5503,7 @@ as well or not. Default is true.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/WfsFilterUtil/WfsFilterUtil.js#L14-L138'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/WfsFilterUtil/WfsFilterUtil.js#L14-L138'>
       <span>src/WfsFilterUtil/WfsFilterUtil.js</span>
       </a>
     
@@ -4934,7 +5551,7 @@ as well or not. Default is true.
   <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/d431f303ef6376c5d5d6d06ec612e04a8f04ca54/src/WfsFilterUtil/WfsFilterUtil.js#L90-L137'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:annarieger/ol-util/blob/6aed59101c6c7ddc0499c9a0a2ee1fb708df26a6/src/WfsFilterUtil/WfsFilterUtil.js#L90-L137'>
       <span>src/WfsFilterUtil/WfsFilterUtil.js</span>
       </a>
     
@@ -5014,12 +5631,16 @@ mapped by search attribute name.</li>
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
