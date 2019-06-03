@@ -32,16 +32,18 @@ class FeatureUtil {
    * no ID set.
    *
    * @param {string} url GetFeatureInfo URL possibly containing featureType name.
+   * @param {boolean} qualified Whether the qualified featureType name should be
+   *   returned or not. Default is true.
    *
    * @return {string} Obtained featureType name as string.
    */
-  static getFeatureTypeNameFromGetFeatureInfoUrl(url) {
-    const regex = /query_layers=(.*?)&/i;
+  static getFeatureTypeNameFromGetFeatureInfoUrl(url, qualified = true) {
+    const regex = /query_layers=(.*?)(&|$)/i;
     let match = url.match(regex);
     let featureTypeName;
-    if (isArray(match) && match[1]) {
+    if (match && match[1]) {
       featureTypeName = decodeURIComponent(match[1]);
-      if (featureTypeName.indexOf(':') > 0) {
+      if (!qualified && featureTypeName.indexOf(':') > 0) {
         featureTypeName = featureTypeName.split(':')[1];
       }
     }

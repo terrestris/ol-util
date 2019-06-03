@@ -62,17 +62,25 @@ describe('FeatureUtil', () => {
 
     describe('#getFeatureTypeNameFromGetFeatureInfoUrl', () => {
 
-      it('extacts layer name from provided GetFeatureInfo request URL', () => {
+      it('extracts layer name from provided GetFeatureInfo request URL', () => {
 
         const layerName = 'testLayerName';
+        const ns = 'ns';
         const mockUrlUnqualified = `http://mock.de?&REQUEST=GetFeatureInfo&QUERY_LAYERS=${layerName}&TILED=true`;
-        const mockUrlQualified = `http://mock.de?&REQUEST=GetFeatureInfo&QUERY_LAYERS=Namespace:${layerName}&TILED=true`;
+        const mockUrlQualified = `http://mock.de?&REQUEST=GetFeatureInfo&QUERY_LAYERS=${ns}:${layerName}&TILED=true`;
+        const mockUrlQualified2 = `http://mock.de?&REQUEST=GetFeatureInfo&QUERY_LAYERS=${ns}:${layerName}`;
 
-        const got = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlUnqualified);
-        const got2 = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlQualified);
+        const gotUnqualified = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlUnqualified);
+        const gotQualified = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlQualified);
+        const gotQualified2 = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlQualified2);
+        const gotQualifiedSplitted = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlQualified, false);
+        const gotQualifiedSplitted2 = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(mockUrlQualified2, false);
 
-        expect(got).toBe(layerName);
-        expect(got2).toBe(layerName);
+        expect(gotUnqualified).toBe(layerName);
+        expect(gotQualified).toBe(`${ns}:${layerName}`);
+        expect(gotQualified2).toBe(`${ns}:${layerName}`);
+        expect(gotQualifiedSplitted).toBe(layerName);
+        expect(gotQualifiedSplitted2).toBe(layerName);
       });
 
       it('returns undefined if no match was found', () => {
