@@ -1,4 +1,5 @@
 import isString from 'lodash/isString.js';
+import isArray from 'lodash/isArray';
 
 import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
 
@@ -22,7 +23,29 @@ class FeatureUtil {
     let featureId = feature.getId();
     let featureIdParts = featureId ? featureId.split('.') : featureId;
 
-    return Array.isArray(featureIdParts) ? featureIdParts[0] : undefined;
+    return isArray(featureIdParts) ? featureIdParts[0] : undefined;
+  }
+
+  /**
+   * Extracts the featureType name from given GetFeatureInfo URL.
+   * This method is mostly useful for raster layers which features could have
+   * no ID set.
+   *
+   * @param {string} url GetFeatureInfo URL possibly containing featureType name.
+   *
+   * @return {string} Obtained featureType name as string.
+   */
+  static getFeatureTypeNameFromGetFeatureInfoUrl(url) {
+    const regex = /query_layers=(.*?)&/i;
+    let match = url.match(regex);
+    let featureTypeName;
+    if (isArray(match) && match[1]) {
+      featureTypeName = decodeURIComponent(match[1]);
+      if (featureTypeName.indexOf(':') > 0) {
+        featureTypeName = featureTypeName.split(':')[1];
+      }
+    }
+    return featureTypeName;
   }
 
   /**
