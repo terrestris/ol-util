@@ -47,7 +47,7 @@
   "dependencies": {
     "@terrestris/base-util": "0.2.0",
     "@turf/turf": "5.1.6",
-    "lodash": "4.17.11",
+    "lodash": "4.17.13",
     "proj4": "2.5.0",
     "shpjs": "3.4.3"
   },
