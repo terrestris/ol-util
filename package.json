@@ -62,7 +62,7 @@
     "coveralls": "3.0.5",
     "documentation": "12.0.3",
     "eslint": "6.1.0",
-    "gh-pages": "2.0.1",
+    "gh-pages": "2.1.0",
     "jest": "24.0.0",
     "node-pre-gyp": "0.13.0",
     "np": "5.0.3",
