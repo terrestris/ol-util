@@ -67,7 +67,7 @@
     "node-pre-gyp": "0.13.0",
     "np": "5.0.3",
     "ol": "5.3.3",
-    "rimraf": "2.6.3",
+    "rimraf": "3.0.0",
     "shp-write": "0.3.2",
     "whatwg-fetch": "3.0.0",
     "xmldom": "0.1.27"
