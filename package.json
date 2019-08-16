@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/terrestris/ol-util#readme",
   "dependencies": {
-    "@terrestris/base-util": "0.2.0",
+    "@terrestris/base-util": "0.2.1",
     "@turf/turf": "5.1.6",
     "lodash": "4.17.15",
     "proj4": "2.5.0",
