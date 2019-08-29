@@ -58,7 +58,6 @@ describe('MapUtil', () => {
       expect(logSpy).toHaveBeenCalled();
       expect(returnedInteractions).toHaveLength(0);
 
-      logSpy.mockReset();
       logSpy.mockRestore();
     });
 
@@ -109,7 +108,6 @@ describe('MapUtil', () => {
       expect(logSpy).toHaveBeenCalled();
       expect(returnedInteractions).toHaveLength(0);
 
-      logSpy.mockReset();
       logSpy.mockRestore();
     });
 
@@ -369,7 +367,6 @@ describe('MapUtil', () => {
       expect(got).toHaveLength(0);
       expect(logSpy).toHaveBeenCalled();
 
-      logSpy.mockReset();
       logSpy.mockRestore();
     });
 
@@ -515,7 +512,6 @@ describe('MapUtil', () => {
       expect(logSpy).toHaveBeenCalled();
       expect(logSpy).toHaveBeenCalledWith('No layer passed to MapUtil.getLegendGraphicUrl.');
 
-      logSpy.mockReset();
       logSpy.mockRestore();
     });
 
@@ -524,7 +520,6 @@ describe('MapUtil', () => {
       const legendUrl = MapUtil.getLegendGraphicUrl(layer3);
       expect(legendUrl).toBeUndefined();
       expect(logSpy).toHaveBeenCalledWith('Source of "Food insecurity" is currently not supported by MapUtil.getLegendGraphicUrl.');
-      logSpy.mockReset();
       logSpy.mockRestore();
     });
 
@@ -789,7 +784,6 @@ describe('MapUtil', () => {
 
       expect(spy).toHaveBeenCalledTimes(1);
 
-      spy.mockReset();
       spy.mockRestore();
     });
 
