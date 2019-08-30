@@ -47,7 +47,6 @@ describe('ProjectionUtil', () => {
         expect(proj4Spy).toHaveBeenCalledTimes(length);
         expect(OlProj4.register).toHaveBeenCalled();
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 
@@ -67,7 +66,6 @@ describe('ProjectionUtil', () => {
         expect(OlProj4.register).toHaveBeenCalled();
         expect(hasCustomProj).not.toThrow();
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 
@@ -80,7 +78,6 @@ describe('ProjectionUtil', () => {
         expect(proj4Spy).toHaveBeenCalledTimes(length);
         expect(OlProj4.register).toHaveBeenCalled();
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 
@@ -92,7 +89,6 @@ describe('ProjectionUtil', () => {
         expect(proj4Spy).toHaveBeenCalledTimes(1);
         expect(OlProj4.register).toHaveBeenCalled();
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 
@@ -104,7 +100,6 @@ describe('ProjectionUtil', () => {
         expect(proj4Spy).toHaveBeenCalledTimes(0);
         expect(OlProj4.register).not.toHaveBeenCalled();
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 
@@ -123,7 +118,6 @@ describe('ProjectionUtil', () => {
         ProjectionUtil.initProj4DefinitionMappings(defaultProj4CrsMappings);
         expect(proj4Spy).toHaveBeenCalledTimes(length * 2);
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 
@@ -137,7 +131,6 @@ describe('ProjectionUtil', () => {
         });
         expect(proj4Spy).toHaveBeenCalledTimes((length + 1) * 2);
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 
@@ -149,7 +142,6 @@ describe('ProjectionUtil', () => {
         }, false);
         expect(proj4Spy).toHaveBeenCalledTimes(2);
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 
@@ -159,7 +151,6 @@ describe('ProjectionUtil', () => {
         ProjectionUtil.initProj4DefinitionMappings({}, false);
         expect(proj4Spy).toHaveBeenCalledTimes(0);
 
-        proj4Spy.mockReset();
         proj4Spy.mockRestore();
       });
 

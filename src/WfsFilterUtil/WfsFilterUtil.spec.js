@@ -144,7 +144,6 @@ describe('WfsFilterUtil', () => {
         const filterSpy = jest.spyOn(WfsFilterUtil, 'createWfsFilter');
         WfsFilterUtil.getCombinedRequests(searchOpts, searchTerm);
         expect(filterSpy).toHaveBeenCalledTimes(searchOpts.featureTypes.length);
-        filterSpy.mockReset();
         filterSpy.mockRestore();
       });
 
