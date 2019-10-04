@@ -828,7 +828,8 @@ describe('MapUtil', () => {
 
     it('fits the view extent to the extent of the given features', () => {
       const view = new OlView({
-        zoom: 19
+        zoom: 19,
+        constrainResolution: true
       });
       const map = new OlMap({view: view});
 
