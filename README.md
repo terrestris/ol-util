@@ -29,92 +29,104 @@ npm i @terrestris/ol-util
 -   [FeatureUtil](#featureutil)
     -   [getFeatureTypeName](#getfeaturetypename)
         -   [Parameters](#parameters-3)
-    -   [resolveAttributeTemplate](#resolveattributetemplate)
+    -   [getFeatureTypeNameFromGetFeatureInfoUrl](#getfeaturetypenamefromgetfeatureinfourl)
         -   [Parameters](#parameters-4)
+    -   [resolveAttributeTemplate](#resolveattributetemplate)
+        -   [Parameters](#parameters-5)
 -   [FileUtil](#fileutil)
     -   [addGeojsonLayerFromFile](#addgeojsonlayerfromfile)
-        -   [Parameters](#parameters-5)
-    -   [addShpLayerFromFile](#addshplayerfromfile)
         -   [Parameters](#parameters-6)
-    -   [addGeojsonLayer](#addgeojsonlayer)
+    -   [addShpLayerFromFile](#addshplayerfromfile)
         -   [Parameters](#parameters-7)
+    -   [addGeojsonLayer](#addgeojsonlayer)
+        -   [Parameters](#parameters-8)
 -   [GeometryUtil](#geometryutil)
     -   [splitByLine](#splitbyline)
-        -   [Parameters](#parameters-8)
-    -   [addBuffer](#addbuffer)
         -   [Parameters](#parameters-9)
-    -   [mergeGeometries](#mergegeometries)
+    -   [addBuffer](#addbuffer)
         -   [Parameters](#parameters-10)
-    -   [separateGeometries](#separategeometries)
+    -   [mergeGeometries](#mergegeometries)
         -   [Parameters](#parameters-11)
-    -   [union](#union)
+    -   [separateGeometries](#separategeometries)
         -   [Parameters](#parameters-12)
-    -   [difference](#difference)
+    -   [union](#union)
         -   [Parameters](#parameters-13)
-    -   [intersection](#intersection)
+    -   [difference](#difference)
         -   [Parameters](#parameters-14)
+    -   [intersection](#intersection)
+        -   [Parameters](#parameters-15)
 -   [MapUtil](#maputil)
     -   [getInteractionsByName](#getinteractionsbyname)
-        -   [Parameters](#parameters-15)
-    -   [getInteractionsByClass](#getinteractionsbyclass)
         -   [Parameters](#parameters-16)
-    -   [getResolutionForScale](#getresolutionforscale)
+    -   [getInteractionsByClass](#getinteractionsbyclass)
         -   [Parameters](#parameters-17)
-    -   [getScaleForResolution](#getscaleforresolution)
+    -   [getResolutionForScale](#getresolutionforscale)
         -   [Parameters](#parameters-18)
-    -   [getAllLayers](#getalllayers)
+    -   [getScaleForResolution](#getscaleforresolution)
         -   [Parameters](#parameters-19)
-    -   [getLayerByOlUid](#getlayerbyoluid)
+    -   [getAllLayers](#getalllayers)
         -   [Parameters](#parameters-20)
-    -   [getLayerByName](#getlayerbyname)
+    -   [getLayerByOlUid](#getlayerbyoluid)
         -   [Parameters](#parameters-21)
-    -   [getLayerByNameParam](#getlayerbynameparam)
+    -   [getLayerByName](#getlayerbyname)
         -   [Parameters](#parameters-22)
-    -   [getLayerByFeature](#getlayerbyfeature)
+    -   [getLayerByNameParam](#getlayerbynameparam)
         -   [Parameters](#parameters-23)
-    -   [getLayersByGroup](#getlayersbygroup)
+    -   [getLayerByFeature](#getlayerbyfeature)
         -   [Parameters](#parameters-24)
-    -   [getLayersByProperty](#getlayersbyproperty)
+    -   [getLayersByGroup](#getlayersbygroup)
         -   [Parameters](#parameters-25)
-    -   [getLayerPositionInfo](#getlayerpositioninfo)
+    -   [getLayersByProperty](#getlayersbyproperty)
         -   [Parameters](#parameters-26)
-    -   [getLegendGraphicUrl](#getlegendgraphicurl)
+    -   [getLayerPositionInfo](#getlayerpositioninfo)
         -   [Parameters](#parameters-27)
-    -   [layerInResolutionRange](#layerinresolutionrange)
+    -   [getLegendGraphicUrl](#getlegendgraphicurl)
         -   [Parameters](#parameters-28)
-    -   [roundScale](#roundscale)
+    -   [layerInResolutionRange](#layerinresolutionrange)
         -   [Parameters](#parameters-29)
-    -   [getZoomForScale](#getzoomforscale)
+    -   [roundScale](#roundscale)
         -   [Parameters](#parameters-30)
+    -   [getZoomForScale](#getzoomforscale)
+        -   [Parameters](#parameters-31)
+    -   [zoomToFeatures](#zoomtofeatures)
+        -   [Parameters](#parameters-32)
+    -   [isInScaleRange](#isinscalerange)
+        -   [Parameters](#parameters-33)
 -   [MeasureUtil](#measureutil)
     -   [getLength](#getlength)
-        -   [Parameters](#parameters-31)
-    -   [formatLength](#formatlength)
-        -   [Parameters](#parameters-32)
-    -   [getArea](#getarea)
-        -   [Parameters](#parameters-33)
-    -   [formatArea](#formatarea)
         -   [Parameters](#parameters-34)
-    -   [angle](#angle)
+    -   [formatLength](#formatlength)
         -   [Parameters](#parameters-35)
-    -   [angle360](#angle360)
+    -   [getArea](#getarea)
         -   [Parameters](#parameters-36)
-    -   [makeClockwise](#makeclockwise)
+    -   [formatArea](#formatarea)
         -   [Parameters](#parameters-37)
-    -   [makeZeroDegreesAtNorth](#makezerodegreesatnorth)
+    -   [angle](#angle)
         -   [Parameters](#parameters-38)
-    -   [formatAngle](#formatangle)
+    -   [angle360](#angle360)
         -   [Parameters](#parameters-39)
+    -   [makeClockwise](#makeclockwise)
+        -   [Parameters](#parameters-40)
+    -   [makeZeroDegreesAtNorth](#makezerodegreesatnorth)
+        -   [Parameters](#parameters-41)
+    -   [formatAngle](#formatangle)
+        -   [Parameters](#parameters-42)
 -   [defaultProj4CrsDefinitions](#defaultproj4crsdefinitions)
 -   [defaultProj4CrsMappings](#defaultproj4crsmappings)
 -   [ProjectionUtil](#projectionutil)
     -   [initProj4Definitions](#initproj4definitions)
-        -   [Parameters](#parameters-40)
+        -   [Parameters](#parameters-43)
     -   [initProj4DefinitionMappings](#initproj4definitionmappings)
-        -   [Parameters](#parameters-41)
+        -   [Parameters](#parameters-44)
+    -   [toDms](#todms)
+        -   [Parameters](#parameters-45)
+    -   [toDmm](#todmm)
+        -   [Parameters](#parameters-46)
+    -   [zerofill](#zerofill)
+        -   [Parameters](#parameters-47)
 -   [WfsFilterUtil](#wfsfilterutil)
     -   [getCombinedRequests](#getcombinedrequests)
-        -   [Parameters](#parameters-42)
+        -   [Parameters](#parameters-48)
 
 ### AnimateUtil
 
@@ -129,12 +141,13 @@ in the end with given `duration` in ms, using the given style.
 ##### Parameters
 
 -   `map` **ol.Map** An OlMap.
+-   `layer` **ol.layer.Vector** A vector layer which feature should be moved.
 -   `featureToMove` **ol.Feature** The feature to move.
 -   `duration` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** The duration in ms for the moving to complete.
 -   `pixel` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)>** Delta of pixels to move the feature.
 -   `style` **ol.style.Style** The style to use when moving the feature.
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** A listener key from a postcompose event.
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** A listener key from a postrender event.
 
 ### CapabilitiesUtil
 
@@ -181,6 +194,20 @@ the feature has an ID in the following structure FEATURETYPE.FEATUREID.
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The (unqualified) name of the featureType or undefined if
                  the name could not be picked.
+
+#### getFeatureTypeNameFromGetFeatureInfoUrl
+
+Extracts the featureType name from given GetFeatureInfo URL.
+This method is mostly useful for raster layers which features could have
+no ID set.
+
+##### Parameters
+
+-   `url` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** GetFeatureInfo URL possibly containing featureType name.
+-   `qualified` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Whether the qualified featureType name should be
+      returned or not. Default is true. (optional, default `true`)
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Obtained featureType name as string.
 
 #### resolveAttributeTemplate
 
@@ -510,7 +537,7 @@ Currently supported Sources:
 ##### Parameters
 
 -   `layer` **ol.layer.Layer** The layer that you want to have a legendUrlfor.
--   `extraParams`
+-   `extraParams`  
 
 Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** The getLegendGraphicUrl.
 
@@ -554,6 +581,24 @@ Returns the appropriate zoom level for the given scale and units.
                           either 'm' or 'degrees'. Default is 'm'. (optional, default `'m'`)
 
 Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Determined zoom level for the given scale.
+
+#### zoomToFeatures
+
+Fits the map's view to the extent of the passed features.
+
+##### Parameters
+
+-   `map` **ol.Map** The map to get the view from.
+-   `features` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;ol.Feature>** The features to zoom to.
+
+#### isInScaleRange
+
+Checks if the given layer is visible for the given resolution.
+
+##### Parameters
+
+-   `layer` **ol.layer.Base** The layer.
+-   `resolution` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** The resolution of the map
 
 ### MeasureUtil
 
@@ -731,6 +776,41 @@ mappings to allow automatic CRS detection by `OpenLayers` here.
       above).
 -   `useDefaultMappings` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Whether the default CRS should be mapped
       as well or not. Default is true. (optional, default `true`)
+
+#### toDms
+
+Converts geographic coordinates given in DDD format like `DD.DDDD°` to
+the degree, minutes, decimal seconds (DMS) format like
+`DDD° MM' SS.SSS"`.
+
+##### Parameters
+
+-   `value` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Value to be converted.
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Converted value.
+
+#### toDmm
+
+Converts geographic coordinates given in DDD format like `DD.DDDD°` to
+the degree, decimal minutes (DMM) format like `DDD° MM.MMMM`.
+
+##### Parameters
+
+-   `value` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Value to be converted.
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Converted value.
+
+#### zerofill
+
+Adds leading zero to all values less than 10 and returns this new
+zerofilled value as String. Values which are greater than 10 are not
+affected.
+
+##### Parameters
+
+-   `value` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Value to be zerofilled.
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** converted value with leading zero if necessary.
 
 ### WfsFilterUtil
 
