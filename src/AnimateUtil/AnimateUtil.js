@@ -1,5 +1,4 @@
-import OlGeomPoint from 'ol/geom/Point';
-import OlGeomLineString from 'ol/geom/LineString';
+import {getVectorContext} from 'ol/render';
 import { unByKey } from 'ol/Observable';
 
 /**
@@ -15,17 +14,17 @@ class AnimateUtil {
    * in the end with given `duration` in ms, using the given style.
    *
    * @param {ol.Map} map An OlMap.
+   * @param {ol.layer.Vector} layer A vector layer which feature should be moved.
    * @param {ol.Feature} featureToMove The feature to move.
    * @param {number} duration The duration in ms for the moving to complete.
    * @param {Array<number>} pixel Delta of pixels to move the feature.
    * @param {ol.style.Style} style The style to use when moving the feature.
    *
-   * @return {string} A listener key from a postcompose event.
+   * @return {string} A listener key from a postrender event.
    */
-  static moveFeature(map, featureToMove, duration, pixel, style) {
+  static moveFeature(map, layer, featureToMove, duration, pixel, style) {
     return new Promise(resolve => {
       let listenerKey;
-
       const geometry = featureToMove.getGeometry();
       const start = new Date().getTime();
       const resolution = map.getView().getResolution();
@@ -40,45 +39,28 @@ class AnimateUtil {
        * @ignore
        */
       const animate = (event) => {
-        const vectorContext = event.vectorContext;
+        const vectorContext = getVectorContext(event);
         const frameState = event.frameState;
         const elapsed = frameState.time - start;
 
         geometry.translate(deltaX, deltaY);
 
-        if (vectorContext.setFillStrokeStyle && vectorContext.setImageStyle &&
-            vectorContext.drawPointGeometry) {
-          if (style) {
-            vectorContext.setFillStrokeStyle(
-              style.getFill(), style.getStroke());
-            vectorContext.setImageStyle(style.getImage());
-          }
-          if (geometry instanceof OlGeomPoint) {
-            vectorContext.drawPointGeometry(geometry, null);
-          } else if (geometry instanceof OlGeomLineString) {
-            vectorContext.drawLineStringGeometry(geometry, null);
-          } else {
-            vectorContext.drawPolygonGeometry(geometry, null);
-          }
-        } else {
-          if (style) {
-            vectorContext.setStyle(style);
-          }
-          vectorContext.drawGeometry(geometry);
+        if (style) {
+          vectorContext.setStyle(style);
         }
+        vectorContext.drawGeometry(geometry);
 
         if (elapsed > duration || actualFrames >= expectedFrames) {
           unByKey(listenerKey);
           resolve(featureToMove);
         }
-        // tell OpenLayers to continue postcompose animation
+        // tell OpenLayers to continue postrender animation
         frameState.animate = true;
 
         actualFrames++;
+        map.render();
       };
-
-      listenerKey = map.on('postcompose', animate);
-      map.render();
+      listenerKey = layer.on('postrender', animate);
     });
   }
 }
