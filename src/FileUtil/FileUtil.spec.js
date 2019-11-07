@@ -48,6 +48,11 @@ describe('FileUtil', () => {
       map = TestUtil.createMap();
     });
 
+    // TODO investigate why removing of map leads to test failing
+    // afterEach(() => {
+    //   TestUtil.removeMap(map);
+    // });
+
     describe('#addGeojsonLayer', () => {
       it('adds a layer from a geojson string', () => {
         expect.assertions(2);
