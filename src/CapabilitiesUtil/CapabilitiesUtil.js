@@ -49,7 +49,7 @@ class CapabilitiesUtil {
       ? get(layersInCapabilities[0], 'Style[0].LegendURL[0].OnlineResource')
       : null;
 
-    return layersInCapabilities.map((layerObj) => {
+    return layersInCapabilities.map(layerObj => {
       const title = get(layerObj, 'Attribution.Title');
       const onlineResource = get(layerObj, 'Attribution.OnlineResource');
       const attributions = [onlineResource ? `<a target="_blank" href="${onlineResource}">${title}</a>` : title];
