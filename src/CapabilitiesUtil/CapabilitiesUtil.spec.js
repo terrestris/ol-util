@@ -15,15 +15,13 @@ const gfiFormats = [
 ];
 const glgOnlineResource = 'http://ows.terrestris.de/osm/service?styles=&layer=OSM-WMS&service=WMS&format=image%2Fpng&sld_version=1.1.0&request=GetLegendGraphic&version=1.1.1';
 const queryable = true;
-const attributions = '(c) OpenStreetMap contributors (http://www.openstreetmap.org/copyright) (c) OpenStreetMap Data (http://openstreetmapdata.com)';
 const capVersion = '1.3.0';
 
 const capabilitiesObj = {
   version: capVersion,
   Service: {
     Name: 'OGC:WMS',
-    Title: 'OpenStreetMap WMS',
-    AccessConstraints: attributions
+    Title: 'OpenStreetMap WMS'
   },
   Capability: {
     Request: {
@@ -73,6 +71,10 @@ const capabilitiesObj = {
         Name: layerName,
         Title: layerTitle,
         Abstract: abstract,
+        Attribution: {
+          Title: '(c) OpenStreetMap contributors',
+          OnlineResource: 'http://www.openstreetmap.org/copyright'
+        },
         BoundingBox: [{
           crs: null,
           extent: [-20037508.3428, -25819498.5135,
@@ -172,7 +174,7 @@ describe('CapabilitiesUtil', () => {
         expect(layer.get('legendUrl')).toEqual(glgOnlineResource);
         expect(layer.get('queryable')).toBe(queryable);
         expect(layerSource.getUrl()).toBe(getMapUrl);
-        expect(layerSource.getAttributions().call()).toEqual([attributions]);
+        expect(layerSource.getAttributions().call()).toEqual(['<a target="_blank" href="http://www.openstreetmap.org/copyright">(c) OpenStreetMap contributors</a>']);
         expect(layerSource.getParams()['LAYERS']).toBe(layerName);
         expect(layerSource.getParams()['VERSION']).toBe(capVersion);
       });

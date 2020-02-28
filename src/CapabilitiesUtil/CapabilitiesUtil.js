@@ -39,33 +39,40 @@ class CapabilitiesUtil {
    * @return {OlLayerTile[]} Array of OlLayerTile
    */
   static getLayersFromWmsCapabilities(capabilities, nameField = 'Name', proxyFn) {
-    const wmsVersion = get(capabilities,'version');
-    const wmsAttribution = get(capabilities,'Service.AccessConstraints');
-    const layersInCapabilities = get(capabilities,'Capability.Layer.Layer');
+    const wmsVersion = get(capabilities, 'version');
+    const layersInCapabilities = get(capabilities, 'Capability.Layer.Layer');
     const wmsGetMapConfig = get(capabilities, 'Capability.Request.GetMap');
     const wmsGetFeatureInfoConfig = get(capabilities, 'Capability.Request.GetFeatureInfo');
-    const getMapUrl = get(wmsGetMapConfig,'DCPType[0].HTTP.Get.OnlineResource');
-    const getFeatureInfoUrl = get(wmsGetFeatureInfoConfig,'DCPType[0].HTTP.Get.OnlineResource');
-    const legendUrl = layersInCapabilities.length > 0 ? get(layersInCapabilities[0], 'Style[0].LegendURL[0].OnlineResource') : null;
+    const getMapUrl = get(wmsGetMapConfig, 'DCPType[0].HTTP.Get.OnlineResource');
+    const getFeatureInfoUrl = get(wmsGetFeatureInfoConfig, 'DCPType[0].HTTP.Get.OnlineResource');
+    const legendUrl = layersInCapabilities.length > 0
+      ? get(layersInCapabilities[0], 'Style[0].LegendURL[0].OnlineResource')
+      : null;
 
-    return layersInCapabilities.map((layerObj) => new OlLayerImage({
-      opacity: 1,
-      title: get(layerObj, 'Title'),
-      name: get(layerObj, nameField),
-      abstract: get(layerObj, 'Abstract'),
-      getFeatureInfoUrl: isFunction(proxyFn) ? proxyFn(getFeatureInfoUrl) : getFeatureInfoUrl,
-      getFeatureInfoFormats: get(wmsGetFeatureInfoConfig, 'Format'),
-      legendUrl: isFunction(proxyFn) ? proxyFn(legendUrl) : legendUrl,
-      queryable: get(layerObj, 'queryable'),
-      source: new OlSourceImageWMS({
-        url: isFunction(proxyFn) ? proxyFn(getMapUrl) : getMapUrl,
-        attributions: wmsAttribution,
-        params: {
-          'LAYERS': get(layerObj, 'Name'),
-          'VERSION': wmsVersion
-        }
-      })
-    }));
+    return layersInCapabilities.map(layerObj => {
+      const title = get(layerObj, 'Attribution.Title');
+      const onlineResource = get(layerObj, 'Attribution.OnlineResource');
+      const attributions = [onlineResource ? `<a target="_blank" href="${onlineResource}">${title}</a>` : title];
+
+      return new OlLayerImage({
+        opacity: 1,
+        title: get(layerObj, 'Title'),
+        name: get(layerObj, nameField),
+        abstract: get(layerObj, 'Abstract'),
+        getFeatureInfoUrl: isFunction(proxyFn) ? proxyFn(getFeatureInfoUrl) : getFeatureInfoUrl,
+        getFeatureInfoFormats: get(wmsGetFeatureInfoConfig, 'Format'),
+        legendUrl: isFunction(proxyFn) ? proxyFn(legendUrl) : legendUrl,
+        queryable: get(layerObj, 'queryable'),
+        source: new OlSourceImageWMS({
+          url: isFunction(proxyFn) ? proxyFn(getMapUrl) : getMapUrl,
+          attributions: attributions,
+          params: {
+            'LAYERS': get(layerObj, 'Name'),
+            'VERSION': wmsVersion
+          }
+        })
+      });
+    });
   }
 }
 
