@@ -61,7 +61,7 @@
     "canvas": "^2.6.1",
     "coveralls": "^3.0.9",
     "documentation": "^12.1.4",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "gh-pages": "^2.2.0",
     "jest": "^25.1.0",
     "jest-canvas-mock": "^2.2.0",
