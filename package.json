@@ -65,7 +65,7 @@
     "gh-pages": "^2.2.0",
     "jest": "^25.1.0",
     "jest-canvas-mock": "^2.2.0",
-    "node-pre-gyp": "^0.14.0",
+    "node-pre-gyp": "^0.15.0",
     "np": "^6.2.0",
     "ol": "^6.1.1",
     "rimraf": "^3.0.0",
