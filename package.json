@@ -66,7 +66,7 @@
     "documentation": "^13.0.2",
     "eslint": "^6.8.0",
     "gh-pages": "^3.1.0",
-    "jest": "^25.1.0",
+    "jest": "^26.4.2",
     "jest-canvas-mock": "^2.2.0",
     "node-pre-gyp": "^0.15.0",
     "np": "^6.2.0",
