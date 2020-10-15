@@ -8,6 +8,17 @@ import {
   ProjectionUtil
 } from './ProjectionUtil.js';
 
+let registerSpy;
+let defsSpy;
+beforeEach(() => {
+  registerSpy = jest.spyOn(OlProj4, 'register').mockImplementation( jest.fn );
+  defsSpy = jest.spyOn(proj4, 'defs');
+});
+afterEach(() => {
+  registerSpy.mockRestore();
+  defsSpy.mockRestore();
+});
+
 describe('ProjectionUtil', () => {
 
   const custom = {
@@ -39,20 +50,14 @@ describe('ProjectionUtil', () => {
       });
 
       it('it registers the given CRS definitions in proj4 and ol', () => {
-        OlProj4.register = jest.fn();
-        const proj4Spy = jest.spyOn(proj4, 'defs');
         const length = Object.keys(defaultProj4CrsDefinitions).length;
 
         ProjectionUtil.initProj4Definitions();
-        expect(proj4Spy).toHaveBeenCalledTimes(length);
+        expect(defsSpy).toHaveBeenCalledTimes(length);
         expect(OlProj4.register).toHaveBeenCalled();
-
-        proj4Spy.mockRestore();
       });
 
       it('additionally registers a custom projection', () => {
-        OlProj4.register = jest.fn();
-        const proj4Spy = jest.spyOn(proj4, 'defs');
         const length = Object.keys(defaultProj4CrsDefinitions).length;
 
         // eslint-disable-next-line require-jsdoc
@@ -62,45 +67,29 @@ describe('ProjectionUtil', () => {
 
         expect(hasCustomProj).toThrow();
         ProjectionUtil.initProj4Definitions(custom);
-        expect(proj4Spy).toHaveBeenCalledTimes(length + 1);
+        expect(defsSpy).toHaveBeenCalledTimes(length + 1);
         expect(OlProj4.register).toHaveBeenCalled();
         expect(hasCustomProj).not.toThrow();
-
-        proj4Spy.mockRestore();
       });
 
       it('does not register a custom projection which is already registered', () => {
-        OlProj4.register = jest.fn();
-        const proj4Spy = jest.spyOn(proj4, 'defs');
         const length = Object.keys(defaultProj4CrsDefinitions).length;
 
         ProjectionUtil.initProj4Definitions(alreadyThere);
-        expect(proj4Spy).toHaveBeenCalledTimes(length);
+        expect(defsSpy).toHaveBeenCalledTimes(length);
         expect(OlProj4.register).toHaveBeenCalled();
-
-        proj4Spy.mockRestore();
       });
 
       it('only registers a custom projection, if told so', () => {
-        OlProj4.register = jest.fn();
-        const proj4Spy = jest.spyOn(proj4, 'defs');
-
         ProjectionUtil.initProj4Definitions(custom, false);
-        expect(proj4Spy).toHaveBeenCalledTimes(1);
+        expect(defsSpy).toHaveBeenCalledTimes(1);
         expect(OlProj4.register).toHaveBeenCalled();
-
-        proj4Spy.mockRestore();
       });
 
       it('does not fail when neither custom projections nor defaults', () => {
-        OlProj4.register = jest.fn();
-        const proj4Spy = jest.spyOn(proj4, 'defs');
-
         ProjectionUtil.initProj4Definitions({}, false);
-        expect(proj4Spy).toHaveBeenCalledTimes(0);
+        expect(defsSpy).toHaveBeenCalledTimes(0);
         expect(OlProj4.register).not.toHaveBeenCalled();
-
-        proj4Spy.mockRestore();
       });
 
     });
@@ -112,46 +101,32 @@ describe('ProjectionUtil', () => {
       });
 
       it('registers the given CRS mappings in proj4', () => {
-        const proj4Spy = jest.spyOn(proj4, 'defs');
         const length = Object.keys(defaultProj4CrsMappings).length;
 
         ProjectionUtil.initProj4DefinitionMappings(defaultProj4CrsMappings);
-        expect(proj4Spy).toHaveBeenCalledTimes(length * 2);
-
-        proj4Spy.mockRestore();
+        expect(defsSpy).toHaveBeenCalledTimes(length * 2);
       });
 
       it('additionally registers given CRS mappings in proj4', () => {
-        const proj4Spy = jest.spyOn(proj4, 'defs');
         const length = Object.keys(defaultProj4CrsMappings).length;
 
         // first register custom:
         ProjectionUtil.initProj4DefinitionMappings({
           'foo': 'EPSG:31467'
         });
-        expect(proj4Spy).toHaveBeenCalledTimes((length + 1) * 2);
-
-        proj4Spy.mockRestore();
+        expect(defsSpy).toHaveBeenCalledTimes((length + 1) * 2);
       });
 
       it('registers only given CRS mappings in proj4, if told so', () => {
-        const proj4Spy = jest.spyOn(proj4, 'defs');
-
         ProjectionUtil.initProj4DefinitionMappings({
           'foo': 'EPSG:31467'
         }, false);
-        expect(proj4Spy).toHaveBeenCalledTimes(2);
-
-        proj4Spy.mockRestore();
+        expect(defsSpy).toHaveBeenCalledTimes(2);
       });
 
       it('does not fail when neither custom mappings nor defaults', () => {
-        const proj4Spy = jest.spyOn(proj4, 'defs');
-
         ProjectionUtil.initProj4DefinitionMappings({}, false);
-        expect(proj4Spy).toHaveBeenCalledTimes(0);
-
-        proj4Spy.mockRestore();
+        expect(defsSpy).toHaveBeenCalledTimes(0);
       });
 
     });
