@@ -4,7 +4,7 @@ import OlSourceVector from 'ol/source/Vector';
 import OlLayerVector from 'ol/layer/Vector';
 import OlFeature from 'ol/Feature';
 import OlGeomPoint from 'ol/geom/Point';
-import OlMapBrowserPointerEvent from 'ol/MapBrowserPointerEvent';
+import OlMapBrowserEvent from 'ol/MapBrowserEvent';
 
 /**
  * A set of some useful static helper methods.
@@ -113,7 +113,7 @@ export class TestUtil {
     event.clientX = position.left + x + TestUtil.mapDivWidth / 2;
     event.clientY = position.top + y + TestUtil.mapDivHeight / 2;
     event.shiftKey = shiftKey;
-    map.handleMapBrowserEvent(new OlMapBrowserPointerEvent(type, map, event, dragging));
+    map.handleMapBrowserEvent(new OlMapBrowserEvent(type, map, event, dragging));
   }
 
   /**
