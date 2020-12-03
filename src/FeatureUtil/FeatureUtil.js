@@ -66,9 +66,12 @@ class FeatureUtil {
    *   value it received. This can be used for last minute adjustments before
    *   replacing happens, e.g. to filter out falsy values or to do number
    *   formatting and such.
+   * @param {boolean} leaveAsUrl If set to true, template won't be wrapped into
+   *   <a>-tag and will be returned as URL. Default is false.
    * @return {string} The resolved template string.
    */
-  static resolveAttributeTemplate(feature, template, noValueFoundText = 'n.v.', valueAdjust = (key, val) => val) {
+  static resolveAttributeTemplate(feature, template, noValueFoundText = 'n.v.',
+    valueAdjust = (key, val) => val, leaveAsUrl = false) {
     let attributeTemplatePrefix = '\\{\\{';
     let attributeTemplateSuffix = '\\}\\}';
     let resolved = '';
@@ -116,11 +119,13 @@ class FeatureUtil {
       resolved = feature.getId();
     }
 
-    // Replace any HTTP url with an <a> element.
-    resolved = StringUtil.urlify(resolved);
+    if (!leaveAsUrl) {
+      // Replace any HTTP url with an <a> element.
+      resolved = StringUtil.urlify(resolved);
 
-    // Replace all newline breaks with a html <br> tag.
-    resolved = resolved.replace(/\n/g, '<br>');
+      // Replace all newline breaks with a html <br> tag.
+      resolved = resolved.replace(/\n/g, '<br>');
+    }
 
     return resolved;
   }
