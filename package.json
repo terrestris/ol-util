@@ -20,7 +20,7 @@
     "lint:docs": "documentation lint src/index.js",
     "lint": "npm run lint:src && npm run lint:docs",
     "pretest": "npm run lint",
-    "test": "jest --maxWorkers=4",
+    "test": "jest --maxWorkers=4 --coverage",
     "test:watch": "jest --watchAll",
     "start:docs": "documentation serve -w -g src/index.js",
     "build:docs": "npm run clean:docs && documentation build -g -f html -o build/docs src/index.js",
