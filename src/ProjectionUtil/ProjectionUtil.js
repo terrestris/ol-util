@@ -34,7 +34,7 @@ export class ProjectionUtil {
    * Registers custom CRS definitions to the application.
    *
    * @param {Object} customCrsDefs The custom `proj4` definition strings
-   *   which should be registered additionally to default avaliable CRS (s.
+   *   which should be registered additionally to default available CRS (s.
    *   `defaultProj4CrsDefinitions` above) as well.
    *   Further CRS definitions in proj4 format can be checked under
    *   http://epsg.io (e.g. http://epsg.io/3426.proj4).
@@ -72,7 +72,7 @@ export class ProjectionUtil {
    * mappings to allow automatic CRS detection by `OpenLayers` here.
    *
    * @param {Object} customCrsMappings The custom CRS mappings which will be
-   *   added additionally to the by default avaliable (s. `defaultProj4CrsMappings`
+   *   added additionally to the by default available (s. `defaultProj4CrsMappings`
    *   above).
    * @param {boolean} useDefaultMappings Whether the default CRS should be mapped
    *   as well or not. Default is true.
