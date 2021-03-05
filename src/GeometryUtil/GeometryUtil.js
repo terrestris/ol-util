@@ -82,21 +82,21 @@ class GeometryUtil {
       });
       // Polygonize the holes in the polygon
       const innerPolygon = polygonize(featureCollection(inners));
-      // make a lineString from the spliting line and the outer of the polygon
+      // make a lineString from the splitting line and the outer of the polygon
       let unionGeom = union(outer, turfLine);
       // Polygonize the combined lines.
       const polygonizedUnionGeom = polygonize(unionGeom);
       // Array of the split polygons within the geometry
       const splitedPolygons = [];
       // Iterate over each feature in the combined feature and remove sections that are outside the initial polygon and
-      // remove the parts from the cutted polygons that are in polygon holes.
+      // remove the parts from the cut polygons that are in polygon holes.
       featureEach(polygonizedUnionGeom, cuttedSection => {
         // checks to see if segment is in polygon
         const segmentInPolygon = intersect(cuttedSection, outerPolygon);
         if (segmentInPolygon && segmentInPolygon.geometry.type === 'Polygon') {
           let polygonWithoutHoles = [];
           if (innerPolygon.features.length > 0) {
-            // iterates over all the holes and removes their intersection with the cutted polygon
+            // iterates over all the holes and removes their intersection with the cut polygon
             innerPolygon.features.forEach(holes => {
               const toCut = polygonWithoutHoles.length > 0 ? polygonWithoutHoles : [segmentInPolygon];
               toCut.forEach((tocutPart, i) => {

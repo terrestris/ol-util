@@ -114,7 +114,7 @@ describe('FeatureUtil', () => {
         expect(got).toBe(template);
       });
 
-      it('can be configured wrt handling inexistant / falsy values', () => {
+      it('can be configured wrt handling inexistent / falsy values', () => {
         let template = '{{exists-and-is-undefined}}|{{exists-and-is-null}}|{{key-does-not-exist}}';
         let got = FeatureUtil.resolveAttributeTemplate(feat, template);
         expect(got).toBe('undefined|null|n.v.');
@@ -130,7 +130,7 @@ describe('FeatureUtil', () => {
         expect(got).toBe('FOO|FOO|');
       });
 
-      it('wraps an URL occurence with an <a> tag', () => {
+      it('wraps an URL occurrence with an <a> tag', () => {
         let template = '{{homepage}}';
         let got = FeatureUtil.resolveAttributeTemplate(feat, template);
         expect(got).toBe(`<a href="${props.homepage}" target="_blank">${props.homepage}</a>`);

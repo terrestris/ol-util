@@ -117,7 +117,7 @@ class MeasureUtil {
    * @param {Array<number>} end The end coordinates of the line with the
    *     x-coordinate being at index `0` and y-coordinate being at index `1`.
    *
-   * @return {number} the angle in degreees, ranging from -180° to 180°.
+   * @return {number} the angle in degrees, ranging from -180° to 180°.
    */
   static angle(start, end) {
     const dx = start[0] - end[0];
@@ -188,7 +188,7 @@ class MeasureUtil {
    * 0°-line and the angle increases in clockwise direction.
    *
    * @param {OlGeomLineString} line The linestring to get the
-   *   angle from. As this line is comming from our internal draw
+   *   angle from. As this line is coming from our internal draw
    *   interaction, we know that it will only consist of two points.
    * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips.

@@ -331,7 +331,7 @@ describe('GeometryUtil', () => {
           expect(bufferedPolygon.getGeometry().getCoordinates()).toEqual(bufferedHoleCoords);
         });
       });
-      describe('with ol.geom.Geomtry as params', () => {
+      describe('with ol.geom.Geometry as params', () => {
         it('adds a buffer to an ol.geom.Point', () => {
           const testPoint = new OlGeomPoint(pointCoords);
           const bufferedPoint = GeometryUtil.addBuffer(testPoint, 200, 'EPSG:4326');
