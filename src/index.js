@@ -5,6 +5,7 @@ import FileUtil from './FileUtil/FileUtil';
 import GeometryUtil from './GeometryUtil/GeometryUtil';
 import MapUtil from './MapUtil/MapUtil';
 import MeasureUtil from './MeasureUtil/MeasureUtil';
+import PermalinkUtil from './PermalinkUtil/PermalinkUtil';
 import ProjectionUtil from './ProjectionUtil/ProjectionUtil';
 import WfsFilterUtil from './WfsFilterUtil/WfsFilterUtil';
 
@@ -16,6 +17,7 @@ export {
   GeometryUtil,
   MapUtil,
   MeasureUtil,
+  PermalinkUtil,
   ProjectionUtil,
   WfsFilterUtil
 };
