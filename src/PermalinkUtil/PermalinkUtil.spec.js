@@ -1,6 +1,7 @@
 /*eslint-env jest*/
 import OlSourceTile from 'ol/source/Tile';
 import OlLayerTile from 'ol/layer/Tile';
+import OlLayerGroup from 'ol/layer/Group';
 
 import {
   PermalinkUtil
@@ -174,7 +175,8 @@ describe('PermalinkUtil', () => {
         Object.defineProperty(window, 'location', {
           value: {
             href: link
-          }
+          },
+          configurable: true
         });
         PermalinkUtil.applyLink(map, '|');
 
@@ -183,6 +185,51 @@ describe('PermalinkUtil', () => {
           .filter(l => l.getVisible())
           .map(l => l.get('name'));
         expect(visibles).toEqual(['peter', 'pan']);
+      });
+
+      it('applies visible state to parenting groups', () => {
+        map.getLayers().clear();
+        map.addLayer(new OlLayerGroup({
+          name: 'peter',
+          visible: false,
+          layers: [
+            new OlLayerTile({
+              name: 'paul',
+              visible: false,
+              source: new OlSourceTile({
+                attributions: ''
+              })
+            }),
+            new OlLayerTile({
+              name: 'pan',
+              visible: false,
+              source: new OlSourceTile({
+                attributions: ''
+              })
+            })
+          ]
+        }));
+
+        const link = 'http://fake?zoom=3&center=10|20&layers=pan';
+        delete global.window.location;
+        global.window = Object.create(window);
+        Object.defineProperty(window, 'location', {
+          value: {
+            href: link
+          },
+          configurable: true
+        });
+        PermalinkUtil.applyLink(map, '|');
+
+        const firstLevelVisibles = map.getLayers().getArray()
+          .filter(l => l.getVisible())
+          .map(l => l.get('name'));
+        expect(firstLevelVisibles).toEqual(['peter']);
+
+        const secondLevelVisibles = map.getLayers().getArray()[0]
+          .getLayers().getArray().filter(l => l.getVisible())
+          .map(l => l.get('name'));
+        expect(secondLevelVisibles).toEqual(['pan']);
       });
     });
   });

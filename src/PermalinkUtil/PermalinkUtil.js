@@ -1,4 +1,5 @@
 import TileLayer from 'ol/layer/Tile';
+import OlLayerGroup from 'ol/layer/Group';
 import MapUtil from '../MapUtil/MapUtil';
 
 /**
@@ -48,7 +49,16 @@ export class PermalinkUtil {
     if (layers) {
       allLayers.filter((l) => l instanceof TileLayer)
         .forEach((l) => {
-          l.setVisible(layers.includes(l.get('name')));
+          const visible = layers.includes(l.get('name'));
+          l.setVisible(visible);
+          // also make all parent folders / groups visible so
+          // that the layer becomes visible in map
+          if (visible) {
+            PermalinkUtil.setParentsVisible(
+              map,
+              map.getLayerGroup().getLayers(),
+              l.ol_uid);
+          }
         });
     }
 
@@ -63,6 +73,25 @@ export class PermalinkUtil {
       map.getView().setZoom(parseInt(zoom, 10));
     }
   };
+
+  /**
+   * Search through the given Ol-Collection for the given id and
+   * set all parenting groups visible.
+   * @param {Object} map The openlayers map
+   * @param {Object} coll The Openlayers Collection
+   * @param {string} id Ther layer ol uid to search for
+   */
+   static setParentsVisible = (map, coll, id) => {
+     coll.forEach(el => {
+       if (el instanceof OlLayerGroup) {
+         const layers = MapUtil.getLayersByGroup(map, el);
+         if (layers.map(layer => layer.ol_uid).includes(id)) {
+           el.setVisible(true);
+         }
+         PermalinkUtil.setParentsVisible(map, el.getLayers(), id);
+       }
+     });
+   };
 }
 
 export default PermalinkUtil;
