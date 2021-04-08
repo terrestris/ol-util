@@ -24,7 +24,6 @@ const geoJson2 = {
   }]
 };
 
-
 describe('FileUtil', () => {
   const geoJsonFile = new File([JSON.stringify(geoJson)], 'geo.json', {
     type: 'application/json',

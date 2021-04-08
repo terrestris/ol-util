@@ -3,6 +3,7 @@ import CapabilitiesUtil from './CapabilitiesUtil/CapabilitiesUtil';
 import FeatureUtil from './FeatureUtil/FeatureUtil';
 import FileUtil from './FileUtil/FileUtil';
 import GeometryUtil from './GeometryUtil/GeometryUtil';
+import LayerUtil from './LayerUtil/LayerUtil';
 import MapUtil from './MapUtil/MapUtil';
 import MeasureUtil from './MeasureUtil/MeasureUtil';
 import PermalinkUtil from './PermalinkUtil/PermalinkUtil';
@@ -15,6 +16,7 @@ export {
   FeatureUtil,
   FileUtil,
   GeometryUtil,
+  LayerUtil,
   MapUtil,
   MeasureUtil,
   PermalinkUtil,
