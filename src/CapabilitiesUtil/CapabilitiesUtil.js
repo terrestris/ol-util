@@ -2,8 +2,13 @@ import OlWMSCapabilities from 'ol/format/WMSCapabilities';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlLayerImage from 'ol/layer/Image';
 
-import get from 'lodash/get.js';
+import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
+
+import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
+import Logger from '@terrestris/base-util/dist/Logger';
+
+import LayerUtil from '../LayerUtil/LayerUtil';
 
 /**
  * Helper class to parse capabilities of WMS layers
@@ -13,18 +18,68 @@ import isFunction from 'lodash/isFunction';
 class CapabilitiesUtil {
 
   /**
-   * Parses the given WMS Capabilities string.
+   * Fetches and parses the WMS Capabilities document for the given URL.
    *
-   * @param {string} capabilitiesUrl Url to WMS capabilities document
+   * @param {string} capabilitiesUrl Url to WMS capabilities document.
    * @return {Object} An object representing the WMS capabilities.
    */
-  static parseWmsCapabilities(capabilitiesUrl) {
-    return fetch(capabilitiesUrl)
-      .then((response) => response.text())
-      .then((data) => {
-        const wmsCapabilitiesParser = new OlWMSCapabilities();
-        return wmsCapabilitiesParser.read(data);
-      });
+  static async getWmsCapabilities(capabilitiesUrl) {
+    try {
+      const capabilitiesResponse = await fetch(capabilitiesUrl);
+
+      if (!capabilitiesResponse.ok) {
+        Logger.error('Could not get Capabilities');
+        return;
+      }
+
+      const wmsCapabilitiesParser = new OlWMSCapabilities();
+
+      const capabilitiesText = await capabilitiesResponse.text();
+
+      const capabilities = wmsCapabilitiesParser.read(capabilitiesText);
+
+      return capabilities;
+    } catch (error) {
+      Logger.error(`Error while reading Capabilities: ${error}`);
+    }
+  }
+
+  /**
+   * Fetches and parses the WMS Capabilities document for the given layer.
+   *
+   * @param {ol.layer.Layer} layer The layer to the get the Capabilites for.
+   * @return {Object} An object representing the WMS capabilities.
+   */
+  static async getWmsCapabilitiesByLayer(layer) {
+    const capabilitiesUrl = this.getCapabilitiesUrl(layer);
+
+    return await this.getWmsCapabilities(capabilitiesUrl);
+  }
+
+  /**
+   * @param {string} capabilitiesUrl Url to WMS capabilities document
+   * @return {Object} An object representing the WMS capabilities.
+   * @deprecated Please make use of #getWmsCapabilities
+   */
+  static async parseWmsCapabilities(capabilitiesUrl) {
+    return await this.getWmsCapabilities(capabilitiesUrl);
+  }
+
+  /**
+   * Returns the Capabilities URL for the given layer.
+   *
+   * @param {ol.layer.Layer} layer The layer to the get the Capabilities URL for.
+   * @return {string} The Capabilities URL.
+   */
+  static getCapabilitiesUrl(layer) {
+    const layerSource = layer.getSource();
+    const layerBaseUrl = LayerUtil.getLayerUrl(layer);
+    const wmsVersion = layerSource.getParams().VERSION || '1.3.0';
+
+    const getCapabilitiesUrl = UrlUtil.createValidGetCapabilitiesRequest(
+      layerBaseUrl, 'WMS', wmsVersion);
+
+    return getCapabilitiesUrl;
   }
 
   /**
@@ -74,6 +129,7 @@ class CapabilitiesUtil {
       });
     });
   }
+
 }
 
 export default CapabilitiesUtil;
