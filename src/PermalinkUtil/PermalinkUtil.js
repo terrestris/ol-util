@@ -18,13 +18,14 @@ export class PermalinkUtil {
    * @return {string} The permalink.
    */
   static getLink = (map, separator) => {
-    const center = map.getView().getCenter().join(separator ? separator : ';');
+    const sep = PermalinkUtil.getSeparator(separator);
+    const center = map.getView().getCenter().join(sep);
     const zoom = map.getView().getZoom();
     const layers = MapUtil.getAllLayers(map);
     const visibles = layers
       .filter((l) => l instanceof TileLayer && l.getVisible())
       .map((l) => l.get('name'))
-      .join(separator ? separator : ';');
+      .join(sep);
     const link = new URL(window.location.href);
 
     link.searchParams.set('center', center);
@@ -40,13 +41,15 @@ export class PermalinkUtil {
    * @param {string} separator Optional string used as separator
    */
   static applyLink = (map, separator) => {
+    const sep = PermalinkUtil.getSeparator(separator);
     const url = new URL(window.location.href);
     const center = url.searchParams.get('center');
     const zoom = url.searchParams.get('zoom');
-    const layers = url.searchParams.get('layers');
+    let layers = url.searchParams.get('layers');
     const allLayers = MapUtil.getAllLayers(map);
 
     if (layers) {
+      layers = layers.split(sep);
       allLayers.filter((l) => l instanceof TileLayer)
         .forEach((l) => {
           const visible = layers.includes(l.get('name'));
@@ -64,8 +67,8 @@ export class PermalinkUtil {
 
     if (center) {
       map.getView().setCenter([
-        parseFloat(center.split(separator ? separator : ';')[0]),
-        parseFloat(center.split(separator ? separator : ';')[1])
+        parseFloat(center.split(sep)[0]),
+        parseFloat(center.split(sep)[1])
       ]);
     }
 
@@ -92,6 +95,16 @@ export class PermalinkUtil {
        }
      });
    };
+
+   /**
+    * Determines field separator. If not defined, semicolon as default separator
+    * will be returned.
+    * @param {string} separator
+    * @returns {string}
+    */
+   static getSeparator = (separator) => {
+     return separator ? separator : ';';
+   }
 }
 
 export default PermalinkUtil;
