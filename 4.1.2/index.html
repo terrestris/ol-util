@@ -1,0 +1,6777 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <title>@terrestris/ol-util 4.1.2 | Documentation</title>
+  <meta name='description' content='A set of helper classes for working with openLayers'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>@terrestris/ol-util</h3>
+          <div class='mb1'><code>4.1.2</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            spellcheck='false'
+            autocapitalize='off'
+            autocorrect='off'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#animateutil'
+                  class=" toggle-sibling">
+                  AnimateUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#animateutilmovefeature'
+                        class='regular pre-open'>
+                        .moveFeature
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#capabilitiesutil'
+                  class=" toggle-sibling">
+                  CapabilitiesUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#capabilitiesutilgetwmscapabilities'
+                        class='regular pre-open'>
+                        .getWmsCapabilities
+                      </a></li>
+                    
+                      <li><a
+                        href='#capabilitiesutilgetwmscapabilitiesbylayer'
+                        class='regular pre-open'>
+                        .getWmsCapabilitiesByLayer
+                      </a></li>
+                    
+                      <li><a
+                        href='#capabilitiesutilparsewmscapabilities'
+                        class='regular pre-open'>
+                        .parseWmsCapabilities
+                      </a></li>
+                    
+                      <li><a
+                        href='#capabilitiesutilgetcapabilitiesurl'
+                        class='regular pre-open'>
+                        .getCapabilitiesUrl
+                      </a></li>
+                    
+                      <li><a
+                        href='#capabilitiesutilgetlayersfromwmscapabilities'
+                        class='regular pre-open'>
+                        .getLayersFromWmsCapabilities
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#featureutil'
+                  class=" toggle-sibling">
+                  FeatureUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#featureutilgetfeaturetypename'
+                        class='regular pre-open'>
+                        .getFeatureTypeName
+                      </a></li>
+                    
+                      <li><a
+                        href='#featureutilgetfeaturetypenamefromgetfeatureinfourl'
+                        class='regular pre-open'>
+                        .getFeatureTypeNameFromGetFeatureInfoUrl
+                      </a></li>
+                    
+                      <li><a
+                        href='#featureutilresolveattributetemplate'
+                        class='regular pre-open'>
+                        .resolveAttributeTemplate
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#fileutil'
+                  class=" toggle-sibling">
+                  FileUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#fileutiladdgeojsonlayerfromfile'
+                        class='regular pre-open'>
+                        .addGeojsonLayerFromFile
+                      </a></li>
+                    
+                      <li><a
+                        href='#fileutiladdshplayerfromfile'
+                        class='regular pre-open'>
+                        .addShpLayerFromFile
+                      </a></li>
+                    
+                      <li><a
+                        href='#fileutiladdgeojsonlayer'
+                        class='regular pre-open'>
+                        .addGeojsonLayer
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#geometryutil'
+                  class=" toggle-sibling">
+                  GeometryUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#geometryutilsplitbyline'
+                        class='regular pre-open'>
+                        .splitByLine
+                      </a></li>
+                    
+                      <li><a
+                        href='#geometryutiladdbuffer'
+                        class='regular pre-open'>
+                        .addBuffer
+                      </a></li>
+                    
+                      <li><a
+                        href='#geometryutilmergegeometries'
+                        class='regular pre-open'>
+                        .mergeGeometries
+                      </a></li>
+                    
+                      <li><a
+                        href='#geometryutilseparategeometries'
+                        class='regular pre-open'>
+                        .separateGeometries
+                      </a></li>
+                    
+                      <li><a
+                        href='#geometryutilunion'
+                        class='regular pre-open'>
+                        .union
+                      </a></li>
+                    
+                      <li><a
+                        href='#geometryutildifference'
+                        class='regular pre-open'>
+                        .difference
+                      </a></li>
+                    
+                      <li><a
+                        href='#geometryutilintersection'
+                        class='regular pre-open'>
+                        .intersection
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#layerutil'
+                  class=" toggle-sibling">
+                  LayerUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#layerutilgetlayerurl'
+                        class='regular pre-open'>
+                        .getLayerUrl
+                      </a></li>
+                    
+                      <li><a
+                        href='#layerutilgetextentforlayer'
+                        class='regular pre-open'>
+                        .getExtentForLayer
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#maputil'
+                  class=" toggle-sibling">
+                  MapUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#maputilgetinteractionsbyname'
+                        class='regular pre-open'>
+                        .getInteractionsByName
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetinteractionsbyclass'
+                        class='regular pre-open'>
+                        .getInteractionsByClass
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetresolutionforscale'
+                        class='regular pre-open'>
+                        .getResolutionForScale
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetscaleforresolution'
+                        class='regular pre-open'>
+                        .getScaleForResolution
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetalllayers'
+                        class='regular pre-open'>
+                        .getAllLayers
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetlayerbyoluid'
+                        class='regular pre-open'>
+                        .getLayerByOlUid
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetlayerbyname'
+                        class='regular pre-open'>
+                        .getLayerByName
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetlayerbynameparam'
+                        class='regular pre-open'>
+                        .getLayerByNameParam
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetlayerbyfeature'
+                        class='regular pre-open'>
+                        .getLayerByFeature
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetlayersbygroup'
+                        class='regular pre-open'>
+                        .getLayersByGroup
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetlayersbyproperty'
+                        class='regular pre-open'>
+                        .getLayersByProperty
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetlayerpositioninfo'
+                        class='regular pre-open'>
+                        .getLayerPositionInfo
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetlegendgraphicurl'
+                        class='regular pre-open'>
+                        .getLegendGraphicUrl
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputillayerinresolutionrange'
+                        class='regular pre-open'>
+                        .layerInResolutionRange
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilroundscale'
+                        class='regular pre-open'>
+                        .roundScale
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilgetzoomforscale'
+                        class='regular pre-open'>
+                        .getZoomForScale
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilzoomtofeatures'
+                        class='regular pre-open'>
+                        .zoomToFeatures
+                      </a></li>
+                    
+                      <li><a
+                        href='#maputilisinscalerange'
+                        class='regular pre-open'>
+                        .isInScaleRange
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#measureutil'
+                  class=" toggle-sibling">
+                  MeasureUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#measureutilgetlength'
+                        class='regular pre-open'>
+                        .getLength
+                      </a></li>
+                    
+                      <li><a
+                        href='#measureutilformatlength'
+                        class='regular pre-open'>
+                        .formatLength
+                      </a></li>
+                    
+                      <li><a
+                        href='#measureutilgetarea'
+                        class='regular pre-open'>
+                        .getArea
+                      </a></li>
+                    
+                      <li><a
+                        href='#measureutilformatarea'
+                        class='regular pre-open'>
+                        .formatArea
+                      </a></li>
+                    
+                      <li><a
+                        href='#measureutilangle'
+                        class='regular pre-open'>
+                        .angle
+                      </a></li>
+                    
+                      <li><a
+                        href='#measureutilangle360'
+                        class='regular pre-open'>
+                        .angle360
+                      </a></li>
+                    
+                      <li><a
+                        href='#measureutilmakeclockwise'
+                        class='regular pre-open'>
+                        .makeClockwise
+                      </a></li>
+                    
+                      <li><a
+                        href='#measureutilmakezerodegreesatnorth'
+                        class='regular pre-open'>
+                        .makeZeroDegreesAtNorth
+                      </a></li>
+                    
+                      <li><a
+                        href='#measureutilformatangle'
+                        class='regular pre-open'>
+                        .formatAngle
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#permalinkutil'
+                  class=" toggle-sibling">
+                  PermalinkUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#permalinkutilgetlink'
+                        class='regular pre-open'>
+                        .getLink
+                      </a></li>
+                    
+                      <li><a
+                        href='#permalinkutilapplylink'
+                        class='regular pre-open'>
+                        .applyLink
+                      </a></li>
+                    
+                      <li><a
+                        href='#permalinkutilsetparentsvisible'
+                        class='regular pre-open'>
+                        .setParentsVisible
+                      </a></li>
+                    
+                      <li><a
+                        href='#permalinkutilgetseparator'
+                        class='regular pre-open'>
+                        .getSeparator
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#defaultproj4crsdefinitions'
+                  class="">
+                  defaultProj4CrsDefinitions
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#defaultproj4crsmappings'
+                  class="">
+                  defaultProj4CrsMappings
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#projectionutil'
+                  class=" toggle-sibling">
+                  ProjectionUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#projectionutilinitproj4definitions'
+                        class='regular pre-open'>
+                        .initProj4Definitions
+                      </a></li>
+                    
+                      <li><a
+                        href='#projectionutilinitproj4definitionmappings'
+                        class='regular pre-open'>
+                        .initProj4DefinitionMappings
+                      </a></li>
+                    
+                      <li><a
+                        href='#projectionutiltodms'
+                        class='regular pre-open'>
+                        .toDms
+                      </a></li>
+                    
+                      <li><a
+                        href='#projectionutiltodmm'
+                        class='regular pre-open'>
+                        .toDmm
+                      </a></li>
+                    
+                      <li><a
+                        href='#projectionutilzerofill'
+                        class='regular pre-open'>
+                        .zerofill
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#wfsfilterutil'
+                  class=" toggle-sibling">
+                  WfsFilterUtil
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#wfsfilterutilgetcombinedrequests'
+                        class='regular pre-open'>
+                        .getCombinedRequests
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='animateutil'>
+      AnimateUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/AnimateUtil/AnimateUtil.js#L10-L66'>
+      <span>src/AnimateUtil/AnimateUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This class provides some static methods which might be helpful when working
+with digitize functions to animate features.</p>
+
+    <div class='pre p1 fill-light mt0'>new AnimateUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='animateutilmovefeature'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>moveFeature(map, layer, featureToMove, duration, pixel, style)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/AnimateUtil/AnimateUtil.js#L25-L65'>
+      <span>src/AnimateUtil/AnimateUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Moves / translates an <code>OlFeature</code> to the given <code>pixel</code> delta in
+in the end with given <code>duration</code> in ms, using the given style.</p>
+
+    <div class='pre p1 fill-light mt0'>moveFeature(map: ol.Map, layer: ol.layer.Vector, featureToMove: ol.Feature, duration: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, pixel: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, style: ol.style.Style): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    An OlMap.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Vector)</code>
+	    A vector layer which feature should be moved.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>featureToMove</span> <code class='quiet'>(ol.Feature)</code>
+	    The feature to move.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>duration</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The duration in ms for the moving to complete.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pixel</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+	    Delta of pixels to move the feature.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>style</span> <code class='quiet'>(ol.style.Style)</code>
+	    The style to use when moving the feature.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        A listener key from a postrender event.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='capabilitiesutil'>
+      CapabilitiesUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/CapabilitiesUtil/CapabilitiesUtil.js#L18-L133'>
+      <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class to parse capabilities of WMS layers</p>
+
+    <div class='pre p1 fill-light mt0'>new CapabilitiesUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='capabilitiesutilgetwmscapabilities'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getWmsCapabilities(capabilitiesUrl)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/CapabilitiesUtil/CapabilitiesUtil.js#L26-L45'>
+      <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Fetches and parses the WMS Capabilities document for the given URL.</p>
+
+    <div class='pre p1 fill-light mt0'>getWmsCapabilities(capabilitiesUrl: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>capabilitiesUrl</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Url to WMS capabilities document.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        An object representing the WMS capabilities.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='capabilitiesutilgetwmscapabilitiesbylayer'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getWmsCapabilitiesByLayer(layer)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/CapabilitiesUtil/CapabilitiesUtil.js#L53-L57'>
+      <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Fetches and parses the WMS Capabilities document for the given layer.</p>
+
+    <div class='pre p1 fill-light mt0'>getWmsCapabilitiesByLayer(layer: ol.layer.Layer): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Layer)</code>
+	    The layer to the get the Capabilites for.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        An object representing the WMS capabilities.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='capabilitiesutilparsewmscapabilities'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>parseWmsCapabilities(capabilitiesUrl)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/CapabilitiesUtil/CapabilitiesUtil.js#L64-L66'>
+      <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>parseWmsCapabilities(capabilitiesUrl: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  <div>Deprecated: Please make use of #getWmsCapabilities
+</div>
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>capabilitiesUrl</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Url to WMS capabilities document
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        An object representing the WMS capabilities.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='capabilitiesutilgetcapabilitiesurl'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getCapabilitiesUrl(layer)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/CapabilitiesUtil/CapabilitiesUtil.js#L74-L83'>
+      <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the Capabilities URL for the given layer.</p>
+
+    <div class='pre p1 fill-light mt0'>getCapabilitiesUrl(layer: ol.layer.Layer): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Layer)</code>
+	    The layer to the get the Capabilities URL for.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The Capabilities URL.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='capabilitiesutilgetlayersfromwmscapabilities'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayersFromWmsCapabilities(capabilities, nameField, proxyFn)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/CapabilitiesUtil/CapabilitiesUtil.js#L96-L131'>
+      <span>src/CapabilitiesUtil/CapabilitiesUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the layers from a parsed WMS GetCapabilities object.</p>
+
+    <div class='pre p1 fill-light mt0'>getLayersFromWmsCapabilities(capabilities: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, nameField: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, proxyFn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;OlLayerTile></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>capabilities</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    A capabilities object.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>nameField</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;Name&#39;</code>)</code>
+	    Configure the field which should be set as the
+'name' property in the openlayers layer.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>proxyFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    Optional proxy function which can be applied to
+
+<code>GetMap</code>
+, 
+<code>GetFeatureInfo</code>
+ and 
+<code>GetLegendGraphic</code>
+
+requests to avoid CORS issues.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;OlLayerTile></code>:
+        Array of OlLayerTile
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='featureutil'>
+      FeatureUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/FeatureUtil/FeatureUtil.js#L11-L132'>
+      <span>src/FeatureUtil/FeatureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class for working with OpenLayers features.</p>
+
+    <div class='pre p1 fill-light mt0'>new FeatureUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='featureutilgetfeaturetypename'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getFeatureTypeName(feature)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/FeatureUtil/FeatureUtil.js#L22-L27'>
+      <span>src/FeatureUtil/FeatureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the featureType name out of a given feature. It assumes that
+the feature has an ID in the following structure FEATURETYPE.FEATUREID.</p>
+
+    <div class='pre p1 fill-light mt0'>getFeatureTypeName(feature: ol.Feature): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>feature</span> <code class='quiet'>(ol.Feature)</code>
+	    The feature to obtain the featureType
+name from.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The (unqualified) name of the featureType or undefined if
+the name could not be picked.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='featureutilgetfeaturetypenamefromgetfeatureinfourl'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getFeatureTypeNameFromGetFeatureInfoUrl(url, qualified)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/FeatureUtil/FeatureUtil.js#L40-L51'>
+      <span>src/FeatureUtil/FeatureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Extracts the featureType name from given GetFeatureInfo URL.
+This method is mostly useful for raster layers which features could have
+no ID set.</p>
+
+    <div class='pre p1 fill-light mt0'>getFeatureTypeNameFromGetFeatureInfoUrl(url: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, qualified: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>url</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    GetFeatureInfo URL possibly containing featureType name.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>qualified</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>true</code>)</code>
+	    Whether the qualified featureType name should be
+returned or not. Default is true.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Obtained featureType name as string.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='featureutilresolveattributetemplate'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>resolveAttributeTemplate(feature, template, noValueFoundText = 'n.v.', valueAdjust = (key,val)=>val, leaveAsUrl)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/FeatureUtil/FeatureUtil.js#L73-L131'>
+      <span>src/FeatureUtil/FeatureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Resolves the given template string with the given feature attributes, e.g.
+the template "Size of area is {{AREA_SIZE}} km²" would be to resolved
+to "Size of area is 1909 km²" (assuming the feature's attribute AREA_SIZE
+really exists).</p>
+
+    <div class='pre p1 fill-light mt0'>resolveAttributeTemplate(feature: ol.Feature, template: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, noValueFoundText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, valueAdjust: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>?, leaveAsUrl: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>feature</span> <code class='quiet'>(ol.Feature)</code>
+	    The feature to get the attributes from.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>template</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The template string to resolve.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>noValueFoundText</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?
+            = <code>&#39;n.v.&#39;</code>)</code>
+	    The text to apply, if the templated value
+could not be found, default is to 'n.v.'.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>valueAdjust</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>?
+            = <code>(key,val)=&gt;val</code>)</code>
+	    A method that will be called with each
+key/value match, we'll use what this function returns for the actual
+replacement. Optional, defaults to a function which will return the raw
+value it received. This can be used for last minute adjustments before
+replacing happens, e.g. to filter out falsy values or to do number
+formatting and such.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>leaveAsUrl</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>false</code>)</code>
+	    If set to true, template won't be wrapped into
+
+<a>
+-tag and will be returned as URL. Default is false.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The resolved template string.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='fileutil'>
+      FileUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/FileUtil/FileUtil.js#L11-L59'>
+      <span>src/FileUtil/FileUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class for adding layers from various file formats.</p>
+
+    <div class='pre p1 fill-light mt0'>new FileUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='fileutiladdgeojsonlayerfromfile'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addGeojsonLayerFromFile(file, map)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/FileUtil/FileUtil.js#L18-L25'>
+      <span>src/FileUtil/FileUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds a new vector layer from a geojson file.</p>
+
+    <div class='pre p1 fill-light mt0'>addGeojsonLayerFromFile(file: File, map: ol.Map)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>file</span> <code class='quiet'>(File)</code>
+	    the file to read the geojson from
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    the map to add the layer to
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='fileutiladdshplayerfromfile'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addShpLayerFromFile(file, map)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/FileUtil/FileUtil.js#L32-L41'>
+      <span>src/FileUtil/FileUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds a new vector layer from a shape file (zip).</p>
+
+    <div class='pre p1 fill-light mt0'>addShpLayerFromFile(file: File, map: ol.Map)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>file</span> <code class='quiet'>(File)</code>
+	    the file to read the geojson from
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    the map to add the layer to
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='fileutiladdgeojsonlayer'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addGeojsonLayer(json, map)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/FileUtil/FileUtil.js#L48-L57'>
+      <span>src/FileUtil/FileUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds a new vector layer from a geojson string.</p>
+
+    <div class='pre p1 fill-light mt0'>addGeojsonLayer(json: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, map: ol.Map)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>json</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    the geojson string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    the map to add the layer to
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='geometryutil'>
+      GeometryUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/GeometryUtil/GeometryUtil.js#L24-L372'>
+      <span>src/GeometryUtil/GeometryUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class for the geospatial analysis. Makes use of
+<a href="http://turfjs.org/">Turf.js</a>.</p>
+
+    <div class='pre p1 fill-light mt0'>new GeometryUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='geometryutilsplitbyline'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>splitByLine(polygon, line, projection)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/GeometryUtil/GeometryUtil.js#L47-L133'>
+      <span>src/GeometryUtil/GeometryUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Splits an ol.feature with/or ol.geom.Polygon by an ol.feature with/or ol.geom.LineString
+into an array of instances of ol.feature with/or ol.geom.Polygon.
+If the target polygon (first param) is of type ol.Feature it will return an
+array with ol.Feature. If the target polygon (first param) is of type
+ol.geom.Geometry it will return an array with ol.geom.Geometry.</p>
+
+    <div class='pre p1 fill-light mt0'>splitByLine(polygon: (ol.Feature | ol.geom.Polygon), line: (ol.Feature | ol.geom.LineString), projection: ol.ProjectionLike): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.Feature> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Polygon>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>polygon</span> <code class='quiet'>((ol.Feature | ol.geom.Polygon))</code>
+	    The polygon geometry to split.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>line</span> <code class='quiet'>((ol.Feature | ol.geom.LineString))</code>
+	    The line geometry to split the polygon
+geometry with.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>projection</span> <code class='quiet'>(ol.ProjectionLike
+            = <code>&#39;EPSG:3857&#39;</code>)</code>
+	    The EPSG code of the input features.
+Default is to EPSG:3857.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.Feature> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Polygon>)</code>:
+        An array of instances of ol.feature
+with/or ol.geom.Polygon
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='geometryutiladdbuffer'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addBuffer(geometry, radius, projection)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/GeometryUtil/GeometryUtil.js#L148-L167'>
+      <span>src/GeometryUtil/GeometryUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds a buffer to a given geometry.</p>
+<p>If the target is of type ol.Feature it will return an ol.Feature.
+If the target is of type ol.geom.Geometry it will return ol.geom.Geometry.</p>
+
+    <div class='pre p1 fill-light mt0'>addBuffer(geometry: (ol.geom.Geometry | ol.Feature), radius: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, projection: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (ol.geom.Geometry | ol.Feature)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>geometry</span> <code class='quiet'>((ol.geom.Geometry | ol.Feature))</code>
+	    The geometry.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>radius</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+            = <code>0</code>)</code>
+	    The buffer to add in meters.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>projection</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;EPSG:3857&#39;</code>)</code>
+	    The projection of the input geometry as EPSG code.
+Default is to EPSG:3857.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(ol.geom.Geometry | ol.Feature)</code>:
+        The geometry or feature with the added buffer.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='geometryutilmergegeometries'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>mergeGeometries(geometries)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/GeometryUtil/GeometryUtil.js#L175-L217'>
+      <span>src/GeometryUtil/GeometryUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Merges multiple geometries into one MultiGeometry.</p>
+
+    <div class='pre p1 fill-light mt0'>mergeGeometries(geometries: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Geometry>): (ol.geom.MultiPoint | ol.geom.MultiPolygon | ol.geom.MultiLineString)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>geometries</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Geometry>)</code>
+	    An array of ol.geom.geometries;
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(ol.geom.MultiPoint | ol.geom.MultiPolygon | ol.geom.MultiLineString)</code>:
+        A Multigeometry.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='geometryutilseparategeometries'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>separateGeometries(geometries)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/GeometryUtil/GeometryUtil.js#L228-L255'>
+      <span>src/GeometryUtil/GeometryUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Splits an array of geometries (and multi geometries) or a single MultiGeom
+into an array of single geometries.</p>
+<p>Attention: ol.geom.Circle and ol.geom.LinearRing are not supported.</p>
+
+    <div class='pre p1 fill-light mt0'>separateGeometries(geometries: (ol.geom.SimpleGeometry | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.SimpleGeometry>)): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Point> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Polygon> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.LineString>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>geometries</span> <code class='quiet'>((ol.geom.SimpleGeometry | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.SimpleGeometry>))</code>
+	    An (array of) ol.geom.geometries;
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Point> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Polygon> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.LineString>)</code>:
+        An array of geometries.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='geometryutilunion'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>union(polygons, projection)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/GeometryUtil/GeometryUtil.js#L267-L293'>
+      <span>src/GeometryUtil/GeometryUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Takes two or more polygons and returns a combined (Multi-)polygon.</p>
+
+    <div class='pre p1 fill-light mt0'>union(polygons: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Geometry> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.Feature>), projection: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (ol.geom.Geometry | ol.Feature)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>polygons</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.geom.Geometry> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.Feature>))</code>
+	    An array of ol.Feature
+or ol.geom.Geometry instances of type (Multi-)polygon.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>projection</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;EPSG:3857&#39;</code>)</code>
+	    The projection of the input polygons as EPSG code.
+Default is to EPSG:3857.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(ol.geom.Geometry | ol.Feature)</code>:
+        A Feature or Geometry with the
+combined area of the (Multi-)polygons.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='geometryutildifference'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>difference(polygon1, polygon2, projection)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/GeometryUtil/GeometryUtil.js#L307-L329'>
+      <span>src/GeometryUtil/GeometryUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Finds the difference between two polygons by clipping the second polygon from the first.</p>
+
+    <div class='pre p1 fill-light mt0'>difference(polygon1: (ol.geom.Geometry | ol.Feature), polygon2: (ol.geom.Geometry | ol.Feature), projection: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (ol.geom.Geometry | ol.Feature)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>polygon1</span> <code class='quiet'>((ol.geom.Geometry | ol.Feature))</code>
+	    An ol.geom.Geometry or ol.Feature
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>polygon2</span> <code class='quiet'>((ol.geom.Geometry | ol.Feature))</code>
+	    An ol.geom.Geometry or ol.Feature
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>projection</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;EPSG:3857&#39;</code>)</code>
+	    The projection of the input polygons as EPSG code.
+Default is to EPSG:3857.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(ol.geom.Geometry | ol.Feature)</code>:
+        A Feature or Geometry with the area
+of polygon1 excluding the area of polygon2. The type of the first polygon
+(geometry or feature) determines the return type.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='geometryutilintersection'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>intersection(polygon1, polygon2, projection)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/GeometryUtil/GeometryUtil.js#L345-L370'>
+      <span>src/GeometryUtil/GeometryUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Takes two polygons and finds their intersection.</p>
+<p>If the polygons are of type ol.Feature it will return an ol.Feature.
+If the polygons are of type ol.geom.Geometry it will return an ol.geom.Geometry.</p>
+
+    <div class='pre p1 fill-light mt0'>intersection(polygon1: (ol.geom.Geometry | ol.Feature), polygon2: (ol.geom.Geometry | ol.Feature), projection: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (ol.geom.Geometry | ol.Feature)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>polygon1</span> <code class='quiet'>((ol.geom.Geometry | ol.Feature))</code>
+	    An ol.geom.Geometry or ol.Feature
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>polygon2</span> <code class='quiet'>((ol.geom.Geometry | ol.Feature))</code>
+	    An ol.geom.Geometry or ol.Feature
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>projection</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;EPSG:3857&#39;</code>)</code>
+	    The projection of the input polygons as EPSG code.
+Default is to EPSG:3857.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(ol.geom.Geometry | ol.Feature)</code>:
+        A Feature or Geometry with the
+shared area of the two polygons or null if the polygons don't intersect.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='layerutil'>
+      LayerUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/LayerUtil/LayerUtil.js#L14-L76'>
+      <span>src/LayerUtil/LayerUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class for layer interaction.</p>
+
+    <div class='pre p1 fill-light mt0'>new LayerUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='layerutilgetlayerurl'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayerUrl</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/LayerUtil/LayerUtil.js#L22-L37'>
+      <span>src/LayerUtil/LayerUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the configured URL of the given layer.</p>
+
+    <div class='pre p1 fill-light mt0'>getLayerUrl</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Layer)</code>
+	    The layer to get the URL from.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        The layer URL.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='layerutilgetextentforlayer'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getExtentForLayer(layer)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/LayerUtil/LayerUtil.js#L46-L74'>
+      <span>src/LayerUtil/LayerUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the extent of the given layer as defined in the
+appropriate Capabilities document.</p>
+
+    <div class='pre p1 fill-light mt0'>getExtentForLayer(layer: ol.layer.Layer): any</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Layer)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        The extent of the layer.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='maputil'>
+      MapUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L21-L465'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class for the OpenLayers map.</p>
+
+    <div class='pre p1 fill-light mt0'>new MapUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='maputilgetinteractionsbyname'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getInteractionsByName(map, name)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L30-L47'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns all interactions by the given name of a map.</p>
+
+    <div class='pre p1 fill-light mt0'>getInteractionsByName(map: ol.Map, name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.interaction></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to use for lookup.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The name of the interaction to look for.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.interaction></code>:
+        The list of result interactions.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetinteractionsbyclass'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getInteractionsByClass(map, clazz)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L56-L73'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns all interactions of the given class of the passed map.</p>
+
+    <div class='pre p1 fill-light mt0'>getInteractionsByClass(map: ol.Map, clazz: ol.interaction): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.interaction></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to use for lookup.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>clazz</span> <code class='quiet'>(ol.interaction)</code>
+	    The class of the interaction to look for.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.interaction></code>:
+        The list of result interactions.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetresolutionforscale'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getResolutionForScale(scale, units)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L88-L94'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Calculates the appropriate map resolution for a given scale in the given
+units.</p>
+<p>See: <a href="https://gis.stackexchange.com/questions/158435/">https://gis.stackexchange.com/questions/158435/</a>
+how-to-get-current-scale-in-openlayers-3</p>
+
+    <div class='pre p1 fill-light mt0'>getResolutionForScale(scale: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, units: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>scale</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The input scale to calculate the appropriate
+resolution for.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>units</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The units to use for calculation (m or degrees).
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The calculated resolution.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetscaleforresolution'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getScaleForResolution(resolution, units)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L105-L111'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the appropriate scale for the given resolution and units.</p>
+
+    <div class='pre p1 fill-light mt0'>getScaleForResolution(resolution: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, units: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>resolution</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The resolutions to calculate the scale for.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>units</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The units the resolution is based on, typically
+either 'm' or 'degrees'.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The appropriate scale.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetalllayers'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getAllLayers(collection, filter = ()=>true)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L124-L147'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns all layers of a collection. Even the hidden ones.</p>
+
+    <div class='pre p1 fill-light mt0'>getAllLayers(collection: (ol.Map | ol.layer.Group), filter: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>collection</span> <code class='quiet'>((ol.Map | ol.layer.Group))</code>
+	    The collection to get the layers
+from. This can be an ol.layer.Group
+or an ol.Map.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>filter</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>?
+            = <code>()=&gt;true</code>)</code>
+	    A filter function that receives the layer.
+If it returns true it will be included in the
+returned layers.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        An array of all Layers.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetlayerbyoluid'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayerByOlUid</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L156-L162'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Get a layer by its key (ol_uid).</p>
+
+    <div class='pre p1 fill-light mt0'>getLayerByOlUid</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to use for lookup.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>ol_uid</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The ol_uid of a layer.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>ol.layer.Layer</code>:
+        The layer.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetlayerbyname'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayerByName(map, name)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L172-L177'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the layer from the provided map by the given name.</p>
+
+    <div class='pre p1 fill-light mt0'>getLayerByName(map: ol.Map, name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): ol.Layer</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to use for lookup.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The name to get the layer by.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>ol.Layer</code>:
+        The result layer or undefined if the layer could not
+be found.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetlayerbynameparam'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayerByNameParam(map, name)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L188-L202'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the layer from the provided map by the given name
+(parameter LAYERS).</p>
+
+    <div class='pre p1 fill-light mt0'>getLayerByNameParam(map: ol.Map, name: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): ol.Layer</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to use for lookup.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The name to get the layer by.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>ol.Layer</code>:
+        The result layer or undefined if the layer could not
+be found.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetlayerbyfeature'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayerByFeature(map, feature, namespaces)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L213-L227'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the layer from the provided map by the given feature.</p>
+
+    <div class='pre p1 fill-light mt0'>getLayerByFeature(map: ol.Map, feature: ol.Feature, namespaces: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): ol.Layer</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to use for lookup.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>feature</span> <code class='quiet'>(ol.Feature)</code>
+	    The feature to get the layer by.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>namespaces</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    list of supported GeoServer namespaces.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>ol.Layer</code>:
+        The result layer or undefined if the layer could not
+be found.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetlayersbygroup'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayersByGroup(map, layerGroup)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L236-L248'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns all layers of the specified layer group recursively.</p>
+
+    <div class='pre p1 fill-light mt0'>getLayersByGroup(map: ol.Map, layerGroup: ol.Layer.Group): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to use for lookup.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layerGroup</span> <code class='quiet'>(ol.Layer.Group)</code>
+	    The group to flatten.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        The (flattened) layers from the group
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetlayersbyproperty'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayersByProperty(map, key, value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L259-L265'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the list of layers matching the given pair of properties.</p>
+
+    <div class='pre p1 fill-light mt0'>getLayersByProperty(map: ol.Map, key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.layer.Base></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to use for lookup.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The property key.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The property value.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.layer.Base></code>:
+        The array of matching layers.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetlayerpositioninfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLayerPositionInfo(layer, groupLayerOrMap?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L277-L295'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Get information about the LayerPosition in the tree.</p>
+
+    <div class='pre p1 fill-light mt0'>getLayerPositionInfo(layer: ol.layer.Layer, groupLayerOrMap: (ol.layer.Group | ol.Map)?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Layer)</code>
+	    The layer to get the information.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>groupLayerOrMap</span> <code class='quiet'>((ol.layer.Group | ol.Map)?)</code>
+	    The groupLayer or map
+containing the layer.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        An object with these keys:
+{ol.layer.Group} groupLayer The groupLayer containing the layer.
+{Integer} position The position of the layer in the collection.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetlegendgraphicurl'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLegendGraphicUrl(layer, extraParams)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L306-L343'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Get the getlegendGraphic url of a layer. Designed for geoserver.
+Currently supported Sources:</p>
+<ul>
+<li>ol.source.TileWms (with url configured)</li>
+<li>ol.source.ImageWms (with url configured)</li>
+</ul>
+
+    <div class='pre p1 fill-light mt0'>getLegendGraphicUrl(layer: ol.layer.Layer, extraParams: any): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Layer)</code>
+	    The layer that you want to have a legendUrlfor.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>extraParams</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)</code>:
+        The getLegendGraphicUrl.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputillayerinresolutionrange'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>layerInResolutionRange(layer, map)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L359-L372'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks whether the resolution of the passed map's view lies inside of the
+min- and max-resolution of the passed layer, e.g. whether the layer should
+be displayed at the current map view resolution.</p>
+
+    <div class='pre p1 fill-light mt0'>layerInResolutionRange(layer: ol.layer.Layer, map: ol.Map): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Layer)</code>
+	    The layer to check.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to get the view resolution for comparison
+from.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Whether the resolution of the passed map's view lies
+inside of the min- and max-resolution of the passed layer, e.g. whether
+the layer should be displayed at the current map view resolution. Will
+be 
+<code>false</code>
+ when no 
+<code>layer</code>
+ or no 
+<code>map</code>
+ is passed or if the view of the
+map is falsy or does not have a resolution (yet).
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilroundscale'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>roundScale(scale)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L381-L396'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Rounds a scalenumber in dependency to its size.</p>
+
+    <div class='pre p1 fill-light mt0'>roundScale(scale: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>scale</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The exact scale
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The roundedScale
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilgetzoomforscale'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getZoomForScale(scale, resolutions, units)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L409-L429'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the appropriate zoom level for the given scale and units.</p>
+
+    <div class='pre p1 fill-light mt0'>getZoomForScale(scale: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, resolutions: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, units: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>scale</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Map scale to get the zoom for.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>resolutions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    Resolutions array.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>units</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;m&#39;</code>)</code>
+	    The units the resolutions are based on, typically
+either 'm' or 'degrees'. Default is 'm'.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        Determined zoom level for the given scale.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilzoomtofeatures'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>zoomToFeatures(map, features)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L437-L453'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Fits the map's view to the extent of the passed features.</p>
+
+    <div class='pre p1 fill-light mt0'>zoomToFeatures(map: ol.Map, features: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.Feature>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(ol.Map)</code>
+	    The map to get the view from.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ol.Feature>)</code>
+	    The features to zoom to.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='maputilisinscalerange'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isInScaleRange(layer, resolution)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MapUtil/MapUtil.js#L461-L464'>
+      <span>src/MapUtil/MapUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if the given layer is visible for the given resolution.</p>
+
+    <div class='pre p1 fill-light mt0'>isInScaleRange(layer: ol.layer.Base, resolution: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>layer</span> <code class='quiet'>(ol.layer.Base)</code>
+	    The layer.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>resolution</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The resolution of the map
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='measureutil'>
+      MeasureUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L10-L216'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This class provides some static methods which might be helpful when working
+with measurements.</p>
+
+    <div class='pre p1 fill-light mt0'>new MeasureUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='measureutilgetlength'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLength(line, map, geodesic, radius)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L23-L33'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Get the length of a OlGeomLineString.</p>
+
+    <div class='pre p1 fill-light mt0'>getLength(line: OlGeomLineString, map: OlMap, geodesic: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, radius: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>line</span> <code class='quiet'>(OlGeomLineString)</code>
+	    The drawn line.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(OlMap)</code>
+	    An OlMap.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>geodesic</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>true</code>)</code>
+	    Is the measurement geodesic (default is true).
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>radius</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+            = <code>6371008.8</code>)</code>
+	    Sphere radius. By default, the radius of the earth
+is used (Clarke 1866 Authalic Sphere, 6371008.8).
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The length of line in meters.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='measureutilformatlength'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>formatLength(line, map, decimalPlacesInToolTips, geodesic)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L46-L58'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Format length output for the tooltip.</p>
+
+    <div class='pre p1 fill-light mt0'>formatLength(line: OlGeomLineString, map: OlMap, decimalPlacesInToolTips: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, geodesic: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>line</span> <code class='quiet'>(OlGeomLineString)</code>
+	    The drawn line.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(OlMap)</code>
+	    An OlMap.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>decimalPlacesInToolTips</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    How many decimal places will be
+allowed for the measure tooltips
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>geodesic</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>true</code>)</code>
+	    Is the measurement geodesic (default is true).
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The formatted length of the line.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='measureutilgetarea'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getArea(polygon, map, geodesic, radius)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L71-L81'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Get the area of a OlGeomPolygon.</p>
+
+    <div class='pre p1 fill-light mt0'>getArea(polygon: OlGeomPolygon, map: OlMap, geodesic: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, radius: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>polygon</span> <code class='quiet'>(OlGeomPolygon)</code>
+	    The drawn polygon.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(OlMap)</code>
+	    An OlMap.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>geodesic</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>true</code>)</code>
+	    Is the measurement geodesic (default is true).
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>radius</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+            = <code>6371008.8</code>)</code>
+	    Sphere radius. By default, the radius of the earth
+is used (Clarke 1866 Authalic Sphere, 6371008.8).
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The area of the polygon in square meter.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='measureutilformatarea'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>formatArea(polygon, map, decimalPlacesInToolTips, geodesic)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L94-L106'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Format length output for the tooltip.</p>
+
+    <div class='pre p1 fill-light mt0'>formatArea(polygon: OlGeomPolygon, map: OlMap, decimalPlacesInToolTips: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, geodesic: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>polygon</span> <code class='quiet'>(OlGeomPolygon)</code>
+	    The drawn polygon.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(OlMap)</code>
+	    An OlMap.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>decimalPlacesInToolTips</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    How many decimal places will be
+allowed for the measure tooltips.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>geodesic</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>true</code>)</code>
+	    Is the measurement geodesic.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The formatted area of the polygon.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='measureutilangle'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>angle(start, end)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L122-L130'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Determine the angle between two coordinates. The angle will be between
+-180° and 180°, with 0° being in the east. The angle will increase
+counter-clockwise.</p>
+<p>Inspired by <a href="https://stackoverflow.com/a/31136507">https://stackoverflow.com/a/31136507</a></p>
+
+    <div class='pre p1 fill-light mt0'>angle(start: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, end: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>start</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+	    The start coordinates of the line with the
+x-coordinate being at index 
+<code>0</code>
+ and y-coordinate being at index 
+<code>1</code>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>end</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+	    The end coordinates of the line with the
+x-coordinate being at index 
+<code>0</code>
+ and y-coordinate being at index 
+<code>1</code>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        the angle in degrees, ranging from -180° to 180°.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='measureutilangle360'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>angle360(start, end)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L146-L154'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Determine the angle between two coordinates. The angle will be between
+0° and 360°, with 0° being in the east. The angle will increase
+counter-clockwise.</p>
+<p>Inspired by <a href="https://stackoverflow.com/a/31136507">https://stackoverflow.com/a/31136507</a></p>
+
+    <div class='pre p1 fill-light mt0'>angle360(start: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, end: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>start</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+	    The start coordinates of the line with the
+x-coordinate being at index 
+<code>0</code>
+ and y-coordinate being at index 
+<code>1</code>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>end</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+	    The end coordinates of the line with the
+x-coordinate being at index 
+<code>0</code>
+ and y-coordinate being at index 
+<code>1</code>
+.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        the angle in degrees, ranging from 0° and 360°.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='measureutilmakeclockwise'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>makeClockwise(angle360)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L165-L167'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Given an angle between 0° and 360° this angle returns the exact opposite
+of the angle, e.g. for 90° you'll get back 270°. This effectively turns
+the direction of the angle from counter-clockwise to clockwise.</p>
+
+    <div class='pre p1 fill-light mt0'>makeClockwise(angle360: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>angle360</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The input angle obtained counter-clockwise.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The clockwise angle.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='measureutilmakezerodegreesatnorth'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>makeZeroDegreesAtNorth(angle360)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L178-L184'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This methods adds an offset of 90° to an counter-clockwise increasing
+angle of a line so that the origin (0°) lies at the top (in the north).</p>
+
+    <div class='pre p1 fill-light mt0'>makeZeroDegreesAtNorth(angle360: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>angle360</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The input angle obtained counter-clockwise, with
+0° degrees being in the east.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The adjusted angle, with 0° being in the north.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='measureutilformatangle'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>formatAngle(line, decimalPlacesInToolTips)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/MeasureUtil/MeasureUtil.js#L198-L214'>
+      <span>src/MeasureUtil/MeasureUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns the angle of the passed linestring in degrees, with 'N' being the
+0°-line and the angle increases in clockwise direction.</p>
+
+    <div class='pre p1 fill-light mt0'>formatAngle(line: OlGeomLineString, decimalPlacesInToolTips: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>line</span> <code class='quiet'>(OlGeomLineString)</code>
+	    The linestring to get the
+angle from. As this line is coming from our internal draw
+interaction, we know that it will only consist of two points.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>decimalPlacesInToolTips</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+            = <code>2</code>)</code>
+	    How many decimal places will be
+allowed for the measure tooltips.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The formatted angle of the line.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='permalinkutil'>
+      PermalinkUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/PermalinkUtil/PermalinkUtil.js#L10-L108'>
+      <span>src/PermalinkUtil/PermalinkUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class for some operations related to permalink function.</p>
+
+    <div class='pre p1 fill-light mt0'>new PermalinkUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='permalinkutilgetlink'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getLink</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/PermalinkUtil/PermalinkUtil.js#L20-L36'>
+      <span>src/PermalinkUtil/PermalinkUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Creates a permalink based on the given map state
+Permalink will contain center, zoom and layers, using semicolon as
+separator for arrays</p>
+
+    <div class='pre p1 fill-light mt0'>getLink</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The openlayers map
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Optional string used as separator
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The permalink.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='permalinkutilapplylink'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>applyLink</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/PermalinkUtil/PermalinkUtil.js#L43-L78'>
+      <span>src/PermalinkUtil/PermalinkUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Apply an existing permalink to the given map</p>
+
+    <div class='pre p1 fill-light mt0'>applyLink</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The openlayers map
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Optional string used as separator
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='permalinkutilsetparentsvisible'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>setParentsVisible</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/PermalinkUtil/PermalinkUtil.js#L87-L97'>
+      <span>src/PermalinkUtil/PermalinkUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Search through the given Ol-Collection for the given id and
+set all parenting groups visible.</p>
+
+    <div class='pre p1 fill-light mt0'>setParentsVisible</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The openlayers map
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>coll</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The Openlayers Collection
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Ther layer ol uid to search for
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='permalinkutilgetseparator'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getSeparator</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/PermalinkUtil/PermalinkUtil.js#L105-L107'>
+      <span>src/PermalinkUtil/PermalinkUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Determines field separator. If not defined, semicolon as default separator
+will be returned.</p>
+
+    <div class='pre p1 fill-light mt0'>getSeparator</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='defaultproj4crsdefinitions'>
+      defaultProj4CrsDefinitions
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/ProjectionUtil/ProjectionUtil.js#L9-L13'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Default proj4 CRS definitions.</p>
+
+    <div class='pre p1 fill-light mt0'>defaultProj4CrsDefinitions</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='defaultproj4crsmappings'>
+      defaultProj4CrsMappings
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/ProjectionUtil/ProjectionUtil.js#L18-L23'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Default mappings for CRS identifiers (e.g. "urn:ogc:def:crs:EPSG::25832").</p>
+
+    <div class='pre p1 fill-light mt0'>defaultProj4CrsMappings</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='projectionutil'>
+      ProjectionUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/ProjectionUtil/ProjectionUtil.js#L31-L144'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class for projection handling. Makes use of
+<a href="http://proj4js.org/">Proj4js</a>.</p>
+
+    <div class='pre p1 fill-light mt0'>new ProjectionUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='projectionutilinitproj4definitions'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>initProj4Definitions(customCrsDefs, registerDefaults)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/ProjectionUtil/ProjectionUtil.js#L44-L65'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Registers custom CRS definitions to the application.</p>
+
+    <div class='pre p1 fill-light mt0'>initProj4Definitions(customCrsDefs: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, registerDefaults: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>customCrsDefs</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The custom 
+<code>proj4</code>
+ definition strings
+which should be registered additionally to default available CRS (s.
+
+<code>defaultProj4CrsDefinitions</code>
+ above) as well.
+Further CRS definitions in proj4 format can be checked under
+
+<a href="http://epsg.io">http://epsg.io</a>
+ (e.g. 
+<a href="http://epsg.io/3426.proj4">http://epsg.io/3426.proj4</a>
+).
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>registerDefaults</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>true</code>)</code>
+	    Whether the default CRS should be
+registered or not. Default is true.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='projectionutilinitproj4definitionmappings'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>initProj4DefinitionMappings(customCrsMappings, useDefaultMappings)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/ProjectionUtil/ProjectionUtil.js#L80-L100'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Registers custom CRS mappings to allow automatic CRS detection. Sometimes
+FeatureCollections returned by the GeoServer may be associated with
+CRS identifiers (e.g. "urn:ogc:def:crs:EPSG::25832") that aren't
+supported by <code>proj4</code> and <code>OpenLayers</code> per default. Add appropriate
+mappings to allow automatic CRS detection by <code>OpenLayers</code> here.</p>
+
+    <div class='pre p1 fill-light mt0'>initProj4DefinitionMappings(customCrsMappings: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, useDefaultMappings: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>customCrsMappings</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The custom CRS mappings which will be
+added additionally to the by default available (s. 
+<code>defaultProj4CrsMappings</code>
+
+above).
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>useDefaultMappings</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>true</code>)</code>
+	    Whether the default CRS should be mapped
+as well or not. Default is true.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='projectionutiltodms'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>toDms(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/ProjectionUtil/ProjectionUtil.js#L111-L116'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Converts geographic coordinates given in DDD format like <code>DD.DDDD°</code> to
+the degree, minutes, decimal seconds (DMS) format like
+<code>DDD° MM' SS.SSS"</code>.</p>
+
+    <div class='pre p1 fill-light mt0'>toDms(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Value to be converted.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Converted value.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='projectionutiltodmm'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>toDmm(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/ProjectionUtil/ProjectionUtil.js#L126-L130'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Converts geographic coordinates given in DDD format like <code>DD.DDDD°</code> to
+the degree, decimal minutes (DMM) format like <code>DDD° MM.MMMM</code>.</p>
+
+    <div class='pre p1 fill-light mt0'>toDmm(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Value to be converted.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Converted value.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='projectionutilzerofill'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>zerofill(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/ProjectionUtil/ProjectionUtil.js#L141-L143'>
+      <span>src/ProjectionUtil/ProjectionUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds leading zero to all values less than 10 and returns this new
+zerofilled value as String. Values which are greater than 10 are not
+affected.</p>
+
+    <div class='pre p1 fill-light mt0'>zerofill(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Value to be zerofilled.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        converted value with leading zero if necessary.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='wfsfilterutil'>
+      WfsFilterUtil
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/WfsFilterUtil/WfsFilterUtil.js#L14-L138'>
+      <span>src/WfsFilterUtil/WfsFilterUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper class for building filters to be used with WFS GetFeature requests.</p>
+
+    <div class='pre p1 fill-light mt0'>new WfsFilterUtil()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='wfsfilterutilgetcombinedrequests'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getCombinedRequests(searchOpts, searchTerm)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/terrestris/ol-util/blob/0cf3282e0ddcadf4b143e4d4ae527e6262b5e69f/src/WfsFilterUtil/WfsFilterUtil.js#L90-L137'>
+      <span>src/WfsFilterUtil/WfsFilterUtil.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Creates GetFeature request body for all provided featureTypes and
+applies related filter encoding on it.</p>
+
+    <div class='pre p1 fill-light mt0'>getCombinedRequests(searchOpts: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, searchTerm: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>searchOpts</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    Search options object which has the following
+keys (see also 
+<a href="https://github.com/terrestris/react-geo/blob/master/src/Field/WfsSearch/">https://github.com/terrestris/react-geo/blob/master/src/Field/WfsSearch/</a>
+
+for further options explanations and examples):
+<ul>
+<li>featureNS        {String}   The namespace URI used for features</li>
+<li>featurePrefix    {String}   The prefix for the feature namespace.</li>
+<li>featureTypes     {String[]} The feature type names to search through.</li>
+<li>geometryName     {String}   Geometry name to use in a BBOX filter.</li>
+<li>maxFeatures      {Number}   Maximum number of features to fetch.</li>
+<li>outputFormat     {String}   The output format of the response.</li>
+<li>propertyNames    {String[]} Optional list of property names to serialize.</li>
+<li>srsName          {String}   SRS name.</li>
+<li>wfsFormatOptions {Object}   Options which are passed to the constructor of the ol.format.WFS
+(compare: <a href="https://openlayers.org/en/latest/apidoc/ol.format.WFS.html">https://openlayers.org/en/latest/apidoc/ol.format.WFS.html</a>)</li>
+<li>searchAttributes {Object}   An object mapping feature types to an array
+of attributes that should be searched through.</li>
+<li>attributeDetails {Object}   A nested object mapping feature types to an
+object of attribute details, which are also
+mapped by search attribute name.</li>
+</ul>
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>searchTerm</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Search string to be used with filter.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>
