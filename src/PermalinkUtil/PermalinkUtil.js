@@ -45,10 +45,11 @@ export class PermalinkUtil {
     const url = new URL(window.location.href);
     const center = url.searchParams.get('center');
     const zoom = url.searchParams.get('zoom');
-    const layers = url.searchParams.get('layers');
+    let layers = url.searchParams.get('layers');
     const allLayers = MapUtil.getAllLayers(map);
 
     if (layers) {
+      layers = layers.split(sep);
       allLayers.filter((l) => l instanceof TileLayer)
         .forEach((l) => {
           const visible = layers.includes(l.get('name'));
