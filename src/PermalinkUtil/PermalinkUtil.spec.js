@@ -232,5 +232,17 @@ describe('PermalinkUtil', () => {
         expect(secondLevelVisibles).toEqual(['pan']);
       });
     });
+
+    describe('#getSeparator', () => {
+      it('returns separator value if provied as argument', () => {
+        const separator = '---';
+        const got = PermalinkUtil.getSeparator(separator);
+        expect(got).toBe(separator);
+      });
+      it('returns semicolon if called with undefined argument', () => {
+        const got = PermalinkUtil.getSeparator();
+        expect(got).toBe(';');
+      });
+    });
   });
 });
