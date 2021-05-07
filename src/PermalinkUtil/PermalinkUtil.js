@@ -10,22 +10,31 @@ import MapUtil from '../MapUtil/MapUtil';
 export class PermalinkUtil {
 
   /**
-   * Creates a permalink based on the given map state
-   * Permalink will contain center, zoom and layers, using semicolon as
-   * separator for arrays
-   * @param {Object} map The openlayers map
-   * @param {string} separator Optional string used as separator
+   * Creates a permalink based on the given map state. It will contain
+   * the current view state of the map (center and zoom) as well as
+   * the current (filtered) list of layers.
+   *
+   * @param {ol/Map} map The OpenLayers map
+   * @param {string} separator The separator for the layers list and center
+   *                           coordinates in the link. Default is to ';'.
+   * @param {Function} identifier Function to generate the identifier of the
+   *                              layer in the link. Default is the name
+   *                              (given by the associated property) of
+   *                              the layer.
+   * @param {Function} filter Function to filter layers that should be
+   *                          added to the link. Default is to add all
+   *                          visible layers of type ol/layer/Tile.
    * @return {string} The permalink.
    */
-  static getLink = (map, separator) => {
-    const sep = PermalinkUtil.getSeparator(separator);
-    const center = map.getView().getCenter().join(sep);
+  static getLink = (map, separator = ';', identifier = l => l.get('name'),
+    filter = l => l instanceof TileLayer && l.getVisible()) => {
+    const center = map.getView().getCenter().join(separator);
     const zoom = map.getView().getZoom();
     const layers = MapUtil.getAllLayers(map);
     const visibles = layers
-      .filter((l) => l instanceof TileLayer && l.getVisible())
-      .map((l) => l.get('name'))
-      .join(sep);
+      .filter(filter)
+      .map(identifier)
+      .join(separator);
     const link = new URL(window.location.href);
 
     link.searchParams.set('center', center);
@@ -36,12 +45,21 @@ export class PermalinkUtil {
   };
 
   /**
-   * Apply an existing permalink to the given map
-   * @param {Object} map The openlayers map
-   * @param {string} separator Optional string used as separator
+   * Applies an existing permalink to the given map.
+   *
+   * @param {ol/Map} map The OpenLayers map.
+   * @param {string} separator The separator of the layers list and center
+   *                           coordinates in the link. Default is to ';'.
+   * @param {Function} identifier Function to generate the identifier of the
+   *                              layer in the link. Default is the name
+   *                              (given by the associated property) of
+   *                              the layer.
+   * @param {Function} filter Function to filter layers that should be
+   *                          handled by the link. Default is to consider all
+   *                          current map layers of type ol/layer/Tile.
    */
-  static applyLink = (map, separator) => {
-    const sep = PermalinkUtil.getSeparator(separator);
+  static applyLink = (map, separator = ';', identifier = l => l.get('name'),
+    filter = l => l instanceof TileLayer) => {
     const url = new URL(window.location.href);
     const center = url.searchParams.get('center');
     const zoom = url.searchParams.get('zoom');
@@ -49,10 +67,11 @@ export class PermalinkUtil {
     const allLayers = MapUtil.getAllLayers(map);
 
     if (layers) {
-      layers = layers.split(sep);
-      allLayers.filter((l) => l instanceof TileLayer)
-        .forEach((l) => {
-          const visible = layers.includes(l.get('name'));
+      layers = layers.split(separator);
+      allLayers
+        .filter(filter)
+        .forEach(l => {
+          const visible = layers.includes(identifier(l));
           l.setVisible(visible);
           // also make all parent folders / groups visible so
           // that the layer becomes visible in map
@@ -67,8 +86,8 @@ export class PermalinkUtil {
 
     if (center) {
       map.getView().setCenter([
-        parseFloat(center.split(sep)[0]),
-        parseFloat(center.split(sep)[1])
+        parseFloat(center.split(separator)[0]),
+        parseFloat(center.split(separator)[1])
       ]);
     }
 
@@ -96,15 +115,6 @@ export class PermalinkUtil {
      });
    };
 
-   /**
-    * Determines field separator. If not defined, semicolon as default separator
-    * will be returned.
-    * @param {string} separator
-    * @returns {string}
-    */
-   static getSeparator = (separator) => {
-     return separator ? separator : ';';
-   }
 }
 
 export default PermalinkUtil;
