@@ -76,7 +76,7 @@
     "rimraf": "^3.0.2",
     "shp-write": "^0.3.2",
     "whatwg-fetch": "^3.5.0",
-    "xmldom": "^0.5.0"
+    "xmldom": "^0.6.0"
   },
   "peerDependencies": {
     "ol": "~6.5"
