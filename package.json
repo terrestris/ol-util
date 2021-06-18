@@ -49,7 +49,7 @@
   "homepage": "https://github.com/terrestris/ol-util#readme",
   "dependencies": {
     "@terrestris/base-util": "^1.0.0",
-    "@turf/turf": "^5.1.6",
+    "@turf/turf": "^6.4.0",
     "lodash": "^4.17.20",
     "proj4": "^2.7.0",
     "shpjs": "^3.6.3"
