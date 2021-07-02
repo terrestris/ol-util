@@ -12,6 +12,7 @@ module.exports = {
     '<rootDir>/jest/__mocks__/shim.js',
     '<rootDir>/jest/setup.js'
   ],
+  testEnvironment: 'jsdom',
   collectCoverage: false,
   collectCoverageFrom: [
     'src/**/*.js',
