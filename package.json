@@ -52,7 +52,7 @@
     "@turf/turf": "^5.1.6",
     "lodash": "^4.17.20",
     "proj4": "^2.7.0",
-    "shpjs": "^3.6.3"
+    "shpjs": "^4.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
