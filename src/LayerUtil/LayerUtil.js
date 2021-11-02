@@ -34,7 +34,7 @@ class LayerUtil {
     }
 
     return layerUrl;
-  }
+  };
 
   /**
    * Returns the extent of the given layer as defined in the
