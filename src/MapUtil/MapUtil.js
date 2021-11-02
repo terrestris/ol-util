@@ -159,7 +159,7 @@ export class MapUtil {
       return ol_uid === l.ol_uid.toString();
     });
     return layer;
-  }
+  };
 
   /**
    * Returns the layer from the provided map by the given name.

@@ -103,17 +103,17 @@ export class PermalinkUtil {
    * @param {Object} coll The Openlayers Collection
    * @param {string} id Ther layer ol uid to search for
    */
-   static setParentsVisible = (map, coll, id) => {
-     coll.forEach(el => {
-       if (el instanceof OlLayerGroup) {
-         const layers = MapUtil.getLayersByGroup(map, el);
-         if (layers.map(layer => layer.ol_uid).includes(id)) {
-           el.setVisible(true);
-         }
-         PermalinkUtil.setParentsVisible(map, el.getLayers(), id);
-       }
-     });
-   };
+  static setParentsVisible = (map, coll, id) => {
+    coll.forEach(el => {
+      if (el instanceof OlLayerGroup) {
+        const layers = MapUtil.getLayersByGroup(map, el);
+        if (layers.map(layer => layer.ol_uid).includes(id)) {
+          el.setVisible(true);
+        }
+        PermalinkUtil.setParentsVisible(map, el.getLayers(), id);
+      }
+    });
+  };
 
 }
 

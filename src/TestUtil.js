@@ -114,7 +114,7 @@ export class TestUtil {
     event.clientY = position.top + y + TestUtil.mapDivHeight / 2;
     event.shiftKey = shiftKey;
     map.handleMapBrowserEvent(new OlMapBrowserEvent(type, map, event, dragging));
-  }
+  };
 
   /**
    * Creates and returns an empty vector layer.
@@ -129,7 +129,7 @@ export class TestUtil {
     layer.setProperties(properties);
 
     return layer;
-  }
+  };
 
   /**
    * Returns a point feature with a random position.
@@ -152,7 +152,7 @@ export class TestUtil {
     feat.setProperties(props);
 
     return feat;
-  })
+  });
 
 }
 
