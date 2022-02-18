@@ -7,14 +7,7 @@ import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import buffer from '@turf/buffer';
 import difference from '@turf/difference';
 import intersect from '@turf/intersect';
-// import polygonize from '@turf/polygonize';
 import union from '@turf/union';
-// import { featureCollection } from '@turf/helpers';
-// import { lineString } from '@turf/helpers';
-// import { featureEach } from '@turf/meta';
-// import lineToPolygon from '@turf/line-to-polygon';
-// import { polygon as makePolygon } from '@turf/helpers';
-// import { lineStringToPolygon } from '@turf/turf';
 import polygonSplitter from 'polygon-splitter';
 import { flattenReduce } from '@turf/turf';
 
