@@ -21,16 +21,13 @@ describe('AnimateUtil', () => {
         expect(AnimateUtil.moveFeature).toBeDefined();
       });
       it('moves feature to the new position', () => {
-        // the next line show this test isn't testing anything
-        // expect.assertions(1);
         const coords = [0, 0];
         const geom = new OlGeomPoint(coords);
         const featToMove = new OlFeature(geom);
 
         let map = TestUtil.createMap();
-
         AnimateUtil.moveFeature(
-          map, featToMove, 100, 50, new OlStyleStyle()
+          map, false, featToMove, 100, 50, new OlStyleStyle()
         ).then((feat) => {
           expect(feat.getGeometry().getCoordinates()).toEqual([50, 50]);
         });
