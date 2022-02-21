@@ -7,13 +7,9 @@ import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import buffer from '@turf/buffer';
 import difference from '@turf/difference';
 import intersect from '@turf/intersect';
-import polygonize from '@turf/polygonize';
 import union from '@turf/union';
-import { featureCollection } from '@turf/helpers';
-import { lineString } from '@turf/helpers';
-import { featureEach } from '@turf/meta';
-import lineToPolygon from '@turf/line-to-polygon';
-import { polygon as makePolygon } from '@turf/helpers';
+import polygonSplitter from 'polygon-splitter';
+import { flattenReduce } from '@turf/turf';
 
 /**
  * Helper class for the geospatial analysis. Makes use of
@@ -57,79 +53,19 @@ class GeometryUtil {
       : new OlFeature({
         geometry: line
       });
-
-    // Convert the input line features to turf.js/GeoJSON features while
-    // reprojecting them to the internal turf.js projection 'EPSG:4326'.
-    const turfLine = geoJsonFormat.writeFeatureObject(lineFeat);
-    // This lists all the polygons in the feature and splits the Multi polygons into an array of polygons.
-    const geometries = GeometryUtil.separateGeometries(polygonFeat.getGeometry());
-    // the array containing all the split features
-    let allSplitedPolygons = [];
-    // iterates over each polygon and splits it
-    geometries.forEach(geometry => {
-      // Convert the polygon to turf.js/GeoJSON geometry while
-      // reprojecting them to the internal turf.js projection 'EPSG:4326'.
-      const turfPolygon = geoJsonFormat.writeGeometryObject(geometry);
-      const turfPolygonCoordinates = turfPolygon.coordinates;
-      // outer lines of the given polygon
-      const outer = lineString(turfPolygonCoordinates[0]);
-      // polygonized outer polygon
-      const outerPolygon = lineToPolygon(outer);
-      // holes in the polygon
-      const inners = [];
-      turfPolygonCoordinates.slice(1, turfPolygonCoordinates.length).forEach(function (coord) {
-        inners.push(lineString(coord));
-      });
-      // Polygonize the holes in the polygon
-      const innerPolygon = polygonize(featureCollection(inners));
-      // make a lineString from the splitting line and the outer of the polygon
-      let unionGeom = union(outer, turfLine);
-      // Polygonize the combined lines.
-      const polygonizedUnionGeom = polygonize(unionGeom);
-      // Array of the split polygons within the geometry
-      const splitedPolygons = [];
-      // Iterate over each feature in the combined feature and remove sections that are outside the initial polygon and
-      // remove the parts from the cut polygons that are in polygon holes.
-      featureEach(polygonizedUnionGeom, cuttedSection => {
-        // checks to see if segment is in polygon
-        const segmentInPolygon = intersect(cuttedSection, outerPolygon);
-        if (segmentInPolygon && segmentInPolygon.geometry.type === 'Polygon') {
-          let polygonWithoutHoles = [];
-          if (innerPolygon.features.length > 0) {
-            // iterates over all the holes and removes their intersection with the cut polygon
-            innerPolygon.features.forEach(holes => {
-              const toCut = polygonWithoutHoles.length > 0 ? polygonWithoutHoles : [segmentInPolygon];
-              toCut.forEach((tocutPart, i) => {
-                let intersection = difference(tocutPart, holes);
-                if (intersection && (intersection.geometry.type === 'Polygon' || intersection.geometry.type === 'MultiPolygon')) {
-                  if (intersection.geometry.type === 'MultiPolygon') {
-                    intersection.geometry.coordinates.forEach(intersectPolyCoords => {
-                      polygonWithoutHoles.push(makePolygon(intersectPolyCoords));
-                    });
-                  } else {
-                    polygonWithoutHoles[i] = intersection;
-                  }
-                }
-              });
-            });
-          }
-          if (polygonWithoutHoles.length > 0) {
-            splitedPolygons.push(...polygonWithoutHoles);
-          }
-          else {
-            splitedPolygons.push(segmentInPolygon);
-          }
-        }
-      });
-      const collection = featureCollection(splitedPolygons);
-      const features = geoJsonFormat.readFeatures(collection);
-      allSplitedPolygons = [...features, ...allSplitedPolygons];
-    });
-    if (polygon instanceof OlFeature) {
-      return allSplitedPolygons;
-    } else {
-      return allSplitedPolygons.map(f => f.getGeometry());
-    }
+    const polyJson = geoJsonFormat.writeGeometryObject(polygonFeat.getGeometry());
+    const lineJson = geoJsonFormat.writeGeometryObject(lineFeat.getGeometry());
+    const result = polygonSplitter(polyJson, lineJson);
+    const list = [];
+    flattenReduce(result, (acc, feature) => {
+      if (polygon instanceof OlFeature) {
+        acc.push(geoJsonFormat.readFeature(feature));
+      } else {
+        acc.push(geoJsonFormat.readGeometry(feature.geometry));
+      }
+      return list;
+    }, list);
+    return list;
   }
 
   /**

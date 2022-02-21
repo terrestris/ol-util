@@ -14,7 +14,7 @@ class AnimateUtil {
    * in the end with given `duration` in ms, using the given style.
    *
    * @param {ol.Map} map An OlMap.
-   * @param {ol.layer.Vector} layer A vector layer which feature should be moved.
+   * @param {ol.layer.Vector|boolean} layer A vector layer to receive an postrender event or false.
    * @param {ol.Feature} featureToMove The feature to move.
    * @param {number} duration The duration in ms for the moving to complete.
    * @param {Array<number>} pixel Delta of pixels to move the feature.
@@ -60,7 +60,9 @@ class AnimateUtil {
         actualFrames++;
         map.render();
       };
-      listenerKey = layer.on('postrender', animate);
+      if (layer) {
+        listenerKey = layer.on('postrender', animate);
+      }
     });
   }
 }
