@@ -53,7 +53,9 @@ class GeometryUtil {
       : new OlFeature({
         geometry: line
       });
-    const result = polygonSplitter(geoJsonFormat.writeGeometryObject(polygonFeat.getGeometry()), geoJsonFormat.writeGeometryObject(lineFeat.getGeometry()));
+    const polyJson = geoJsonFormat.writeGeometryObject(polygonFeat.getGeometry());
+    const lineJson = geoJsonFormat.writeGeometryObject(lineFeat.getGeometry());
+    const result = polygonSplitter(polyJson, lineJson);
     const list = [];
     flattenReduce(result, (acc, feature) => {
       if (polygon instanceof OlFeature) {
