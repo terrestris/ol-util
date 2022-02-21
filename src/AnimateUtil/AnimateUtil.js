@@ -48,7 +48,7 @@ class AnimateUtil {
         if (style) {
           vectorContext.setStyle(style);
         }
-        // vectorContext.drawGeometry(geometry);
+        vectorContext.drawGeometry(geometry);
 
         if (elapsed > duration || actualFrames >= expectedFrames) {
           unByKey(listenerKey);
