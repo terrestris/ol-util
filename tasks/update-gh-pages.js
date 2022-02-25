@@ -9,7 +9,7 @@ const packageDef = require('../package.json');
 const version = packageDef.version;
 const repoUrl = packageDef.repository.url;
 const parsedRepoUrl = url.parse(repoUrl);
-const httpsRepoUrl = `https://${parsedRepoUrl.host}${parsedRepoUrl.path}`;
+const gitRepoUrl = `git@${parsedRepoUrl.host}:${parsedRepoUrl.path}`;
 
 const message = 'Update resources on gh-pages branch';
 
@@ -17,7 +17,7 @@ const message = 'Update resources on gh-pages branch';
 ghpages.publish('build/docs', {
   dest: `${version}`,
   message: message,
-  repo: httpsRepoUrl,
+  repo: gitRepoUrl,
   add: true
 }, function(err) {
   if (err) {
@@ -29,7 +29,7 @@ ghpages.publish('build/docs', {
     ghpages.publish('build/docs', {
       dest: `latest`,
       message: message,
-      repo: httpsRepoUrl,
+      repo: gitRepoUrl,
       add: false
     }, function(err) {
       if (err) {
