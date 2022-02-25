@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "es5",
+    "declaration": true,
+    "outDir": "dist/",
+    "rootDir": "./src/",
+    "skipLibCheck": true
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["**/*.spec.js"]
+}

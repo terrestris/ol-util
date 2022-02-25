@@ -15,22 +15,24 @@
     "npm": ">=7"
   },
   "scripts": {
+    "build": "npm run test && npm run build:dist && npm run build:declarations",
+    "build:declarations": "tsc --emitDeclarationOnly",
+    "build:docs": "npm run clean:docs && documentation build -g -f html -o build/docs src/index.js",
+    "build:dist": "npm run clean:dist && BABEL_ENV=production babel src --out-dir dist --copy-files --ignore **/*.spec.js --extensions \".ts,.js\"",
     "clean:dist": "rimraf ./dist/*",
     "clean:docs": "rimraf build/docs",
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "deploy": "NODE_DEBUG=gh-pages node tasks/update-gh-pages.js",
     "lint:src": "eslint --ext js src/",
     "lint:docs": "documentation lint src/index.js",
     "lint": "npm run lint:src && npm run lint:docs",
-    "pretest": "npm run lint",
+    "prepublishOnly": "npm run build:dist",
+    "pretest": "npm run typecheck && npm run lint",
+    "release": "np --no-yarn && git push https://github.com/terrestris/ol-util.git master --tags && npm run build:docs && npm run deploy",
+    "start:docs": "documentation serve -w -g src/index.js",
     "test": "jest --maxWorkers=4 --coverage",
     "test:watch": "jest --watchAll",
-    "start:docs": "documentation serve -w -g src/index.js",
-    "build:docs": "npm run clean:docs && documentation build -g -f html -o build/docs src/index.js",
-    "build:dist": "npm run clean:dist && BABEL_ENV=production babel src --out-dir dist --copy-files --ignore **/*.spec.js",
-    "build": "npm run test && npm run build:dist",
-    "coveralls": "cat coverage/lcov.info | coveralls",
-    "prepublishOnly": "npm run build:dist",
-    "deploy": "NODE_DEBUG=gh-pages node tasks/update-gh-pages.js",
-    "release": "np --no-yarn && git push https://github.com/terrestris/ol-util.git master --tags && npm run build:docs && npm run deploy"
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -54,7 +56,8 @@
     "lodash": "^4.17.21",
     "polygon-splitter": "^0.0.7",
     "proj4": "^2.7.5",
-    "shpjs": "^4.0.2"
+    "shpjs": "^4.0.2",
+    "typescript": "^4.5.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.3",
@@ -65,6 +68,7 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "@babel/runtime": "^7.17.2",
     "babel-jest": "^27.5.1",
     "canvas": "^2.9.0",
