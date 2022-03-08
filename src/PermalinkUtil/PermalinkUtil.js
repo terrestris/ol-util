@@ -1,6 +1,7 @@
 import TileLayer from 'ol/layer/Tile';
 import OlLayerGroup from 'ol/layer/Group';
 import MapUtil from '../MapUtil/MapUtil';
+import {getUid} from 'ol';
 
 /**
  * Helper class for some operations related to permalink function.
@@ -14,14 +15,14 @@ export class PermalinkUtil {
    * the current view state of the map (center and zoom) as well as
    * the current (filtered) list of layers.
    *
-   * @param {ol/Map} map The OpenLayers map
+   * @param {import("ol/Map").default} map The OpenLayers map
    * @param {string} separator The separator for the layers list and center
    *                           coordinates in the link. Default is to ';'.
-   * @param {Function} identifier Function to generate the identifier of the
+   * @param {(layer: import("ol/layer/Layer").default) => string} identifier Function to generate the identifier of the
    *                              layer in the link. Default is the name
    *                              (given by the associated property) of
    *                              the layer.
-   * @param {Function} filter Function to filter layers that should be
+   * @param {(layer: import("ol/layer/Layer").default) => boolean} filter Function to filter layers that should be
    *                          added to the link. Default is to add all
    *                          visible layers of type ol/layer/Tile.
    * @return {string} The permalink.
@@ -47,14 +48,14 @@ export class PermalinkUtil {
   /**
    * Applies an existing permalink to the given map.
    *
-   * @param {ol/Map} map The OpenLayers map.
+   * @param {import("ol/Map").default} map The OpenLayers map.
    * @param {string} separator The separator of the layers list and center
    *                           coordinates in the link. Default is to ';'.
-   * @param {Function} identifier Function to generate the identifier of the
+   * @param {(layer: import("ol/layer/Layer").default) => string} identifier Function to generate the identifier of the
    *                              layer in the link. Default is the name
    *                              (given by the associated property) of
    *                              the layer.
-   * @param {Function} filter Function to filter layers that should be
+   * @param {(layer: import("ol/layer/Layer").default) => boolean} filter Function to filter layers that should be
    *                          handled by the link. Default is to consider all
    *                          current map layers of type ol/layer/Tile.
    */
@@ -63,15 +64,15 @@ export class PermalinkUtil {
     const url = new URL(window.location.href);
     const center = url.searchParams.get('center');
     const zoom = url.searchParams.get('zoom');
-    let layers = url.searchParams.get('layers');
+    const layers = url.searchParams.get('layers');
     const allLayers = MapUtil.getAllLayers(map);
 
     if (layers) {
-      layers = layers.split(separator);
+      const layersSplitted = layers.split(separator);
       allLayers
         .filter(filter)
         .forEach(l => {
-          const visible = layers.includes(identifier(l));
+          const visible = layersSplitted.includes(identifier(l));
           l.setVisible(visible);
           // also make all parent folders / groups visible so
           // that the layer becomes visible in map
@@ -79,7 +80,7 @@ export class PermalinkUtil {
             PermalinkUtil.setParentsVisible(
               map,
               map.getLayerGroup().getLayers(),
-              l.ol_uid);
+              getUid(l));
           }
         });
     }

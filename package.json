@@ -27,7 +27,7 @@
     "lint:docs": "documentation lint src/index.js",
     "lint": "npm run lint:src && npm run lint:docs",
     "pretest": "npm run typecheck && npm run lint",
-    "release": "npm run build && np --no-yarn && git push https://github.com/terrestris/ol-util.git master --tags && npm run build:docs && npm run deploy",
+    "release": "npm run build && np --no-yarn && npm run build:docs && npm run deploy",
     "start:docs": "documentation serve -w -g src/index.js",
     "test": "jest --maxWorkers=4 --coverage",
     "test:watch": "jest --watchAll",

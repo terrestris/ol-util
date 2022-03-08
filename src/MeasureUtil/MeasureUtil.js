@@ -12,8 +12,8 @@ class MeasureUtil {
   /**
    * Get the length of a OlGeomLineString.
    *
-   * @param {OlGeomLineString} line The drawn line.
-   * @param {OlMap} map An OlMap.
+   * @param {import("ol/geom/LineString").default} line The drawn line.
+   * @param {import("ol/Map").default} map An OlMap.
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
    * @param {number} radius Sphere radius. By default, the radius of the earth
    *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
@@ -35,8 +35,8 @@ class MeasureUtil {
   /**
    * Format length output for the tooltip.
    *
-   * @param {OlGeomLineString} line The drawn line.
-   * @param {OlMap} map An OlMap.
+   * @param {import("ol/geom/LineString").default} line The drawn line.
+   * @param {import("ol/Map").default} map An OlMap.
    * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
@@ -60,8 +60,8 @@ class MeasureUtil {
   /**
    * Get the area of a OlGeomPolygon.
    *
-   * @param {OlGeomPolygon} polygon The drawn polygon.
-   * @param {OlMap} map An OlMap.
+   * @param {import("ol/geom/Polygon").default} polygon The drawn polygon.
+   * @param {import("ol/Map").default} map An OlMap.
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
    * @param {number} radius Sphere radius. By default, the radius of the earth
    *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
@@ -83,8 +83,8 @@ class MeasureUtil {
   /**
    * Format length output for the tooltip.
    *
-   * @param {OlGeomPolygon} polygon The drawn polygon.
-   * @param {OlMap} map An OlMap.
+   * @param {import("ol/geom/Polygon").default} polygon The drawn polygon.
+   * @param {import("ol/Map").default} map An OlMap.
    * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips.
    * @param {boolean} geodesic Is the measurement geodesic.
@@ -187,7 +187,7 @@ class MeasureUtil {
    * Returns the angle of the passed linestring in degrees, with 'N' being the
    * 0°-line and the angle increases in clockwise direction.
    *
-   * @param {OlGeomLineString} line The linestring to get the
+   * @param {import("ol/geom/LineString").default} line The linestring to get the
    *   angle from. As this line is coming from our internal draw
    *   interaction, we know that it will only consist of two points.
    * @param {number} decimalPlacesInToolTips How many decimal places will be
@@ -208,9 +208,8 @@ class MeasureUtil {
 
     angle = MeasureUtil.makeZeroDegreesAtNorth(angle);
     angle = MeasureUtil.makeClockwise(angle);
-    angle = angle.toFixed(decimalPlacesInToolTips);
 
-    return `${angle}°`;
+    return `${angle.toFixed(decimalPlacesInToolTips)}°`;
   }
 
 }

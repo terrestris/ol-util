@@ -13,21 +13,21 @@ export class FileUtil {
   /**
    * Adds a new vector layer from a geojson file.
    * @param {File} file the file to read the geojson from
-   * @param {ol.Map} map the map to add the layer to
+   * @param {import("ol/Map").default} map the map to add the layer to
    */
   static addGeojsonLayerFromFile(file, map) {
     const reader = new FileReader();
     reader.readAsText(file);
     reader.addEventListener('loadend', () => {
       const content = reader.result;
-      FileUtil.addGeojsonLayer(content, map);
+      FileUtil.addGeojsonLayer(/** @type {string} */ (content), map);
     });
   }
 
   /**
    * Adds a new vector layer from a shape file (zip).
    * @param {File} file the file to read the geojson from
-   * @param {ol.Map} map the map to add the layer to
+   * @param {import("ol/Map").default} map the map to add the layer to
    */
   static addShpLayerFromFile(file, map) {
     const reader = new FileReader();
@@ -43,7 +43,7 @@ export class FileUtil {
   /**
    * Adds a new vector layer from a geojson string.
    * @param {string} json the geojson string
-   * @param {ol.Map} map the map to add the layer to
+   * @param {import("ol/Map").default} map the map to add the layer to
    */
   static addGeojsonLayer(json, map) {
     const format = new OlFormatGeoJSON();

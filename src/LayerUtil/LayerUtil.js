@@ -16,7 +16,7 @@ class LayerUtil {
   /**
    * Returns the configured URL of the given layer.
    *
-   * @param {ol.layer.Layer} layer The layer to get the URL from.
+   * @param {import("../types").WMSOrWMTSLayer} layer The layer to get the URL from.
    * @returns The layer URL.
    */
   static getLayerUrl = layer => {
@@ -40,7 +40,7 @@ class LayerUtil {
    * Returns the extent of the given layer as defined in the
    * appropriate Capabilities document.
    *
-   * @param {ol.layer.Layer} layer
+   * @param {import("ol/layer/Layer").default<import("ol/source/ImageWMS").default|import("ol/source/TileWMS").default>} layer
    * @returns The extent of the layer.
    */
   static async getExtentForLayer(layer) {
