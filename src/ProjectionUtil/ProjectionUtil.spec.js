@@ -164,8 +164,9 @@ describe('ProjectionUtil', () => {
         const smallValue = 9.123;
         const bigValue = 15.456;
         const expectedSmallValue = '09.123';
+        const expectedBigValue = '15.456';
         expect(ProjectionUtil.zerofill(smallValue)).toBe(expectedSmallValue);
-        expect(ProjectionUtil.zerofill(bigValue)).toBe(bigValue);
+        expect(ProjectionUtil.zerofill(bigValue)).toBe(expectedBigValue);
       });
     });
 

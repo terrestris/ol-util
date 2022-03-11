@@ -111,7 +111,7 @@ export class ProjectionUtil {
    */
   static toDms(value) {
     const deg = Math.floor(value);
-    const min = (value - deg) * 60;
+    const min = Math.floor((value - deg) * 60);
     const sec = ((value - deg - min / 60) * 3600);
     return `${deg}° ${ProjectionUtil.zerofill(min)}' ${ProjectionUtil.zerofill(sec.toFixed(2))}''`;
   }
@@ -140,7 +140,7 @@ export class ProjectionUtil {
    * @return {string} converted value with leading zero if necessary.
    */
   static zerofill(value) {
-    const asNumber = _isString(value) ? parseInt(value, 10) : value;
+    const asNumber = _isString(value) ? parseFloat(value) : value;
     return asNumber < 10 ? `0${asNumber}` : `${asNumber}`;
   }
 }
