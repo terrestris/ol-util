@@ -18,7 +18,7 @@ class AnimateUtil {
    * @param {import("ol/Feature").default} featureToMove The feature to move.
    * @param {number} duration The duration in ms for the moving to complete.
    * @param {number} pixel Delta of pixels to move the feature.
-   * @param {import("ol/style/Style").default|null} [style] The style to use when moving the feature.
+   * @param {import("ol/style/Style").default} [style] The style to use when moving the feature.
    *
    * @return {Promise<import("ol/Feature").default>} Promise of the moved feature.
    */

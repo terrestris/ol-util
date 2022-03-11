@@ -17,7 +17,7 @@
   "scripts": {
     "build": "npm run test && npm run build:dist && npm run build:declarations",
     "build:declarations": "tsc --emitDeclarationOnly",
-    "build:docs": "npm run clean:docs && documentation build -g -f html -o build/docs src/index.js",
+    "build:docs": "npm run clean:docs && typedoc",
     "build:dist": "npm run clean:dist && BABEL_ENV=production babel src --out-dir dist --copy-files --ignore **/*.spec.js --extensions \".ts,.js\"",
     "clean:dist": "rimraf ./dist/*",
     "clean:docs": "rimraf build/docs",
@@ -28,7 +28,6 @@
     "lint": "npm run lint:src && npm run lint:docs",
     "pretest": "npm run typecheck && npm run lint",
     "release": "npm run build && np --no-yarn && npm run build:docs && npm run deploy",
-    "start:docs": "documentation serve -w -g src/index.js",
     "test": "jest --maxWorkers=4 --coverage",
     "test:watch": "jest --watchAll",
     "typecheck": "tsc --noEmit"
@@ -72,7 +71,6 @@
     "babel-jest": "^27.5.1",
     "canvas": "^2.9.0",
     "coveralls": "^3.1.1",
-    "documentation": "^13.2.5",
     "eslint": "^8.9.0",
     "gh-pages": "^3.2.3",
     "jest": "^27.5.1",
@@ -82,6 +80,7 @@
     "ol": "^6.12.0",
     "rimraf": "^3.0.2",
     "shp-write": "^0.3.2",
+    "typedoc": "^0.22.13",
     "whatwg-fetch": "^3.6.2",
     "xmldom": "^0.6.0"
   },
