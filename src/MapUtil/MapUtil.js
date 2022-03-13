@@ -33,7 +33,7 @@ export class MapUtil {
     let interactionCandidates = [];
 
     if (!(map instanceof OlMap)) {
-      Logger.debug('Input parameter map must be from type `import("ol/Map").default`.');
+      Logger.debug('Input parameter map must be from type `ol/Map`');
       return interactionCandidates;
     }
 
@@ -59,7 +59,7 @@ export class MapUtil {
     let interactionCandidates = [];
 
     if (!(map instanceof OlMap)) {
-      Logger.debug('Input parameter map must be from type `import("ol/Map").default`.');
+      Logger.debug('Input parameter map must be from type `ol/Map`.');
       return interactionCandidates;
     }
 
@@ -125,8 +125,8 @@ export class MapUtil {
    */
   static getAllLayers(collection, filter = (() => true)) {
     if (!(collection instanceof OlMap) && !(collection instanceof OlLayerGroup)) {
-      Logger.error('Input parameter collection must be from type `import("ol/Map").default`' +
-        'or `import("ol/layer/Group").default`.');
+      Logger.error('Input parameter collection must be from type `ol/Map`' +
+        'or `ol/layer/Group`.');
       return [];
     }
 
