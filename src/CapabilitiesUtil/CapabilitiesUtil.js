@@ -89,7 +89,7 @@ class CapabilitiesUtil {
    *                           requests to avoid CORS issues.
    * @return {import("ol/layer/Tile").default[]} Array of OlLayerTile
    */
-  static getLayersFromWmsCapabilities(capabilities, nameField = 'Name', proxyFn) {
+  static getLayersFromWmsCapabilities(capabilities, nameField = 'Name', proxyFn = undefined) {
     const wmsVersion = _get(capabilities, 'version');
     const layersInCapabilities = _get(capabilities, 'Capability.Layer.Layer');
     const wmsGetMapConfig = _get(capabilities, 'Capability.Request.GetMap');

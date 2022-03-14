@@ -14,7 +14,7 @@ class AnimateUtil {
    * in the end with given `duration` in ms, using the given style.
    *
    * @param {import("ol/Map").default} map An OlMap.
-   * @param {import("ol/layer/Vector").default} layer A vector layer to receive an postrender event or false.
+   * @param {import("ol/layer/Vector").default|false} layer A vector layer to receive an postrender event or false.
    * @param {import("ol/Feature").default} featureToMove The feature to move.
    * @param {number} duration The duration in ms for the moving to complete.
    * @param {number} pixel Delta of pixels to move the feature.
