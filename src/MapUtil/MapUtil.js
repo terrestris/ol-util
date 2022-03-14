@@ -2,9 +2,9 @@ import OlMap from 'ol/Map';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlLayerGroup from 'ol/layer/Group';
-import OlLayerBase from 'ol/layer/Base';
+import OlLayerLayer from 'ol/layer/Layer';
 import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
-import { METERS_PER_UNIT } from 'ol/proj/Units';
+import {METERS_PER_UNIT} from 'ol/proj/Units';
 import {getUid} from 'ol/util';
 
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
@@ -118,12 +118,12 @@ export class MapUtil {
    * @param {import("ol/Map").default|import("ol/layer/Group").default} collection The collection to get the layers
    *                                           from. This can be an ol.layer.Group
    *                                           or an ol.Map.
-   * @param {Function} [filter] A filter function that receives the layer.
+   * @param {(layer: import("ol/layer/Base").default) => boolean} [filter] A filter function that receives the layer.
    *                            If it returns true it will be included in the
    *                            returned layers.
-   * @return {Array} An array of all Layers.
+   * @return {import("ol/layer/Base").default[]} An array of all Layers.
    */
-  static getAllLayers(collection, filter = (() => true)) {
+  static getAllLayers(collection, filter = () => true) {
     if (!(collection instanceof OlMap) && !(collection instanceof OlLayerGroup)) {
       Logger.error('Input parameter collection must be from type `ol/Map`' +
         'or `ol/layer/Group`.');
@@ -131,21 +131,17 @@ export class MapUtil {
     }
 
     var layers = collection.getLayers().getArray();
-    var allLayers = [];
 
-    layers.forEach(function(layer) {
+    return layers.flatMap(function(layer) {
+      let layers = [];
       if (layer instanceof OlLayerGroup) {
-        MapUtil.getAllLayers(layer).forEach((layeri) => {
-          if (filter(layeri)) {
-            allLayers.push(layeri);
-          }
-        });
+        layers = MapUtil.getAllLayers(layer, filter);
       }
       if (filter(layer)) {
-        allLayers.push(layer);
+        layers.push(layer);
       }
+      return layers;
     });
-    return allLayers;
   }
 
   /**
@@ -153,14 +149,13 @@ export class MapUtil {
    *
    * @param {import("ol/Map").default} map The map to use for lookup.
    * @param {string} ol_uid The ol_uid of a layer.
-   * @return {import("ol/layer/Layer").default} The layer.
+   * @return {import("ol/layer/Base").default} The layer.
    */
   static getLayerByOlUid = (map, ol_uid) => {
     const layers = MapUtil.getAllLayers(map);
-    const layer = layers.find((l) => {
+    return layers.find((l) => {
       return ol_uid === getUid(l).toString();
     });
-    return layer;
   };
 
   /**
@@ -168,7 +163,7 @@ export class MapUtil {
    *
    * @param {import("ol/Map").default} map The map to use for lookup.
    * @param {string} name The name to get the layer by.
-   * @return {import("ol/layer/Layer").default} The result layer or undefined if the layer could not
+   * @return {import("ol/layer/Base").default} The result layer or undefined if the layer could not
    *                    be found.
    */
   static getLayerByName(map, name) {
@@ -184,7 +179,7 @@ export class MapUtil {
    *
    * @param {import("ol/Map").default} map The map to use for lookup.
    * @param {string} name The name to get the layer by.
-   * @return {import("ol/layer/Layer").default} The result layer or undefined if the layer could not
+   * @return {import("../types").WMSLayer|undefined} The result layer or undefined if the layer could not
    *                    be found.
    */
   static getLayerByNameParam(map, name) {
@@ -192,11 +187,14 @@ export class MapUtil {
     let layerCandidate;
 
     for (let layer of layers) {
-      if (layer.getSource &&
-        layer.getSource().getParams &&
-        layer.getSource().getParams()['LAYERS'] === name) {
-        layerCandidate = layer;
-        break;
+      if (layer instanceof OlLayerLayer) {
+        const source = layer.getSource();
+        if (source instanceof OlSourceImageWMS || source instanceof OlSourceTileWMS) {
+          if (layer.getSource().getParams()['LAYERS'] === name) {
+            layerCandidate = layer;
+            break;
+          }
+        }
       }
     }
 
@@ -209,7 +207,7 @@ export class MapUtil {
    * @param {import("ol/Map").default} map The map to use for lookup.
    * @param {import("ol/Feature").default} feature The feature to get the layer by.
    * @param {Array} namespaces list of supported GeoServer namespaces.
-   * @return {import("ol/layer/Layer").default} The result layer or undefined if the layer could not
+   * @return {import("ol/layer/Base").default} The result layer or undefined if the layer could not
    *                    be found.
    */
   static getLayerByFeature(map, feature, namespaces) {
@@ -269,7 +267,7 @@ export class MapUtil {
   /**
    * Get information about the LayerPosition in the tree.
    *
-   * @param {import("ol/layer/Layer").default} layer The layer to get the information.
+   * @param {import("ol/layer/Base").default} layer The layer to get the information.
    * @param {import("ol/layer/Group").default|import("ol/Map").default} [groupLayerOrMap] The groupLayer or map
    *                                                  containing the layer.
    * @return {{
@@ -303,7 +301,7 @@ export class MapUtil {
    *  - ol.source.TileWms (with url configured)
    *  - ol.source.ImageWms (with url configured)
    *
-   * @param {import("ol/layer/Layer").default} layer The layer that you want to have a legendUrlfor.
+   * @param {import("ol/layer/Base").default} layer The layer that you want to have a legendUrlfor.
    * @param {Object} extraParams
    * @return {string|undefined} The getLegendGraphicUrl.
    */
@@ -313,11 +311,12 @@ export class MapUtil {
       return;
     }
 
-    const source = layer.getSource();
-    if (!(layer instanceof OlLayerBase) || !source) {
+    if (!(layer instanceof OlLayerLayer)) {
       Logger.error('Invalid layer passed to MapUtil.getLegendGraphicUrl.');
       return;
     }
+
+    const source = layer.getSource();
 
     const isTiledWMS = source instanceof OlSourceTileWMS;
     const isImageWMS = source instanceof OlSourceImageWMS;
@@ -349,7 +348,7 @@ export class MapUtil {
    * min- and max-resolution of the passed layer, e.g. whether the layer should
    * be displayed at the current map view resolution.
    *
-   * @param {import("ol/layer/Layer").default} layer The layer to check.
+   * @param {import("ol/layer/Base").default} layer The layer to check.
    * @param {import("ol/Map").default} map The map to get the view resolution for comparison
    *     from.
    * @return {boolean} Whether the resolution of the passed map's view lies
@@ -369,8 +368,7 @@ export class MapUtil {
     const layerMinRes = layer.getMinResolution(); // default: 0 if unset
     const layerMaxRes = layer.getMaxResolution(); // default: Infinity if unset
     // minimum resolution is inclusive, maximum resolution exclusive
-    const within = currentRes >= layerMinRes && currentRes < layerMaxRes;
-    return within;
+    return currentRes >= layerMinRes && currentRes < layerMaxRes;
   }
 
 
@@ -419,15 +417,13 @@ export class MapUtil {
 
     let calculatedResolution = MapUtil.getResolutionForScale(scale, units);
     let closestVal = resolutions.reduce((prev, curr) => {
-      let res = Math.abs(curr - calculatedResolution) < Math.abs(prev - calculatedResolution)
+      return Math.abs(curr - calculatedResolution) < Math.abs(prev - calculatedResolution)
         ? curr
         : prev;
-      return res;
     });
-    let zoom = findIndex(resolutions, function(o) {
+    return findIndex(resolutions, function (o) {
       return Math.abs(o - closestVal) <= 1e-10;
     });
-    return zoom;
   }
 
   /**

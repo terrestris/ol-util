@@ -40,7 +40,7 @@ class LayerUtil {
    * Returns the extent of the given layer as defined in the
    * appropriate Capabilities document.
    *
-   * @param {import("ol/layer/Layer").default<import("ol/source/ImageWMS").default|import("ol/source/TileWMS").default>} layer
+   * @param {import("../types").WMSLayer} layer
    * @returns The extent of the layer.
    */
   static async getExtentForLayer(layer) {
