@@ -1,7 +1,8 @@
 import proj4 from 'proj4';
 import { register } from 'ol/proj/proj4';
 
-import isEmpty from 'lodash/isEmpty';
+import _isEmpty from 'lodash/isEmpty';
+import _isString from 'lodash/isString';
 
 /**
  * Default proj4 CRS definitions.
@@ -48,7 +49,7 @@ export class ProjectionUtil {
       proj4CrsDefinitions = defaultProj4CrsDefinitions;
     }
 
-    if (!isEmpty(customCrsDefs)) {
+    if (!_isEmpty(customCrsDefs)) {
       Object.keys(customCrsDefs).forEach(crsKey => {
         if (!(crsKey in proj4CrsDefinitions)) {
           proj4CrsDefinitions[crsKey] = customCrsDefs[crsKey];
@@ -56,7 +57,7 @@ export class ProjectionUtil {
       });
     }
 
-    if (!isEmpty(proj4CrsDefinitions)) {
+    if (!_isEmpty(proj4CrsDefinitions)) {
       for (let [projCode, projDefinition] of Object.entries(proj4CrsDefinitions)) {
         proj4.defs(projCode, projDefinition);
       }
@@ -84,7 +85,7 @@ export class ProjectionUtil {
       proj4CrsMappings = defaultProj4CrsMappings;
     }
 
-    if (!isEmpty(customCrsMappings)) {
+    if (!_isEmpty(customCrsMappings)) {
       Object.keys(customCrsMappings).forEach(crsKey => {
         if (!(crsKey in proj4CrsMappings)) {
           proj4CrsMappings[crsKey] = customCrsMappings[crsKey];
@@ -92,7 +93,7 @@ export class ProjectionUtil {
       });
     }
 
-    if (!isEmpty(proj4CrsMappings)) {
+    if (!_isEmpty(proj4CrsMappings)) {
       for (let [aliasProjCode, projCode] of Object.entries(proj4CrsMappings)) {
         proj4.defs(aliasProjCode, proj4.defs(projCode));
       }
@@ -109,8 +110,8 @@ export class ProjectionUtil {
    * @return {string} Converted value.
    */
   static toDms(value) {
-    const deg = parseInt(value, 10);
-    const min = parseInt((value - deg) * 60, 10);
+    const deg = Math.floor(value);
+    const min = Math.floor((value - deg) * 60);
     const sec = ((value - deg - min / 60) * 3600);
     return `${deg}° ${ProjectionUtil.zerofill(min)}' ${ProjectionUtil.zerofill(sec.toFixed(2))}''`;
   }
@@ -124,7 +125,7 @@ export class ProjectionUtil {
    * @return {string} Converted value.
    */
   static toDmm(value) {
-    const deg = parseInt(value, 10);
+    const deg = Math.floor(value);
     const min = ((value - deg) * 60);
     return `${deg}° ${ProjectionUtil.zerofill(min.toFixed(4))}'`;
   }
@@ -134,12 +135,13 @@ export class ProjectionUtil {
    * zerofilled value as String. Values which are greater than 10 are not
    * affected.
    *
-   * @param {number} value Value to be zerofilled.
+   * @param {number|string} value Value to be zerofilled.
    *
    * @return {string} converted value with leading zero if necessary.
    */
   static zerofill(value) {
-    return value < 10 ? `0${value}` : value;
+    const asNumber = _isString(value) ? parseFloat(value) : value;
+    return asNumber < 10 ? `0${asNumber}` : `${asNumber}`;
   }
 }
 

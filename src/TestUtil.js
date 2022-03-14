@@ -20,7 +20,7 @@ export class TestUtil {
   /**
    * Creates and applies a map <div> element to the body.
    *
-   * @return {Element} The mounted <div> element.
+   * @return {HTMLElement} The mounted <div> element.
    */
   static mountMapDiv = () => {
     var div = document.createElement('div');
@@ -56,8 +56,8 @@ export class TestUtil {
   /**
    * Creates an OpenLayers map.
    *
-   * @param {Object} mapOpts Additional options for the map to create.
-   * @return {ol.Map} The ol map.
+   * @param {import("ol/PluggableMap").MapOptions & { resolutions: number[] }} mapOpts Additional options for the map to create.
+   * @return {import("ol/Map").default} The ol map.
    */
   static createMap = (mapOpts) => {
     let source = new OlSourceVector();
@@ -96,7 +96,7 @@ export class TestUtil {
    * Simulates a browser pointer event on the map viewport.
    * Origin: https://github.com/openlayers/openlayers/blob/master/test/spec/ol/interaction/draw.test.js#L67
    *
-   * @param {ol.Map} map The map to use.
+   * @param {import("ol/Map").default} map The map to use.
    * @param {string} type Event type.
    * @param {number} x Horizontal offset from map center.
    * @param {number} y Vertical offset from map center.
@@ -108,10 +108,12 @@ export class TestUtil {
     // Calculated in case body has top < 0 (test runner with small window).
     let position = viewport.getBoundingClientRect();
     let shiftKey = opt_shiftKey !== undefined ? opt_shiftKey : false;
-    const event = new Event();
-    event.type = type;
+    const event = new MouseEvent(type);
+    // @ts-ignore
     event.clientX = position.left + x + TestUtil.mapDivWidth / 2;
+    // @ts-ignore
     event.clientY = position.top + y + TestUtil.mapDivHeight / 2;
+    // @ts-ignore
     event.shiftKey = shiftKey;
     map.handleMapBrowserEvent(new OlMapBrowserEvent(type, map, event, dragging));
   };
@@ -120,7 +122,7 @@ export class TestUtil {
    * Creates and returns an empty vector layer.
    *
    * @param {Object} properties The properties to set.
-   * @return {ol.layer.Vector} The layer.
+   * @return {import("ol/layer/Vector").default} The layer.
    */
   static createVectorLayer = (properties) => {
     let source = new OlSourceVector();

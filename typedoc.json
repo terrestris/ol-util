@@ -1,0 +1,5 @@
+{
+  "entryPoints": ["./src/index.js"],
+  "out": "build/docs",
+  "readme": "none"
+}

@@ -13,14 +13,14 @@ class AnimateUtil {
    * Moves / translates an `OlFeature` to the given `pixel` delta in
    * in the end with given `duration` in ms, using the given style.
    *
-   * @param {ol.Map} map An OlMap.
-   * @param {ol.layer.Vector|boolean} layer A vector layer to receive an postrender event or false.
-   * @param {ol.Feature} featureToMove The feature to move.
+   * @param {import("ol/Map").default} map An OlMap.
+   * @param {import("ol/layer/Vector").default} layer A vector layer to receive an postrender event or false.
+   * @param {import("ol/Feature").default} featureToMove The feature to move.
    * @param {number} duration The duration in ms for the moving to complete.
-   * @param {Array<number>} pixel Delta of pixels to move the feature.
-   * @param {ol.style.Style} style The style to use when moving the feature.
+   * @param {number} pixel Delta of pixels to move the feature.
+   * @param {import("ol/style/Style").default} [style] The style to use when moving the feature.
    *
-   * @return {string} A listener key from a postrender event.
+   * @return {Promise<import("ol/Feature").default>} Promise of the moved feature.
    */
   static moveFeature(map, layer, featureToMove, duration, pixel, style) {
     return new Promise(resolve => {

@@ -26,7 +26,7 @@ class WfsFilterUtil {
    *   attributes that should be searched through.
    * @param {Object} attributeDetails An object mapping feature types to an
    *   array of attribute details.
-   * @return {OlFormatFilter} Filter to be used with WFS GetFeature requests.
+   * @return {import("ol/format/filter/Filter").default} Filter to be used with WFS GetFeature requests.
    * @private
    */
   static createWfsFilter(featureType, searchTerm, searchAttributes, attributeDetails) {

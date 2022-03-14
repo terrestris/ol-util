@@ -1,5 +1,5 @@
-import isString from 'lodash/isString.js';
-import isArray from 'lodash/isArray';
+import _isArray from 'lodash/isArray';
+import _isString from 'lodash/isString';
 
 import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
 
@@ -14,16 +14,16 @@ class FeatureUtil {
    * Returns the featureType name out of a given feature. It assumes that
    * the feature has an ID in the following structure FEATURETYPE.FEATUREID.
    *
-   * @param {ol.Feature} feature The feature to obtain the featureType
+   * @param {import("ol/Feature").default} feature The feature to obtain the featureType
    *                             name from.
    * @return {string} The (unqualified) name of the featureType or undefined if
    *                  the name could not be picked.
    */
   static getFeatureTypeName(feature) {
     let featureId = feature.getId();
-    let featureIdParts = featureId ? featureId.split('.') : featureId;
+    let featureIdParts = _isString(featureId) ? featureId.split('.') : featureId;
 
-    return isArray(featureIdParts) ? featureIdParts[0] : undefined;
+    return _isArray(featureIdParts) ? featureIdParts[0] : undefined;
   }
 
   /**
@@ -56,7 +56,7 @@ class FeatureUtil {
    * to "Size of area is 1909 km²" (assuming the feature's attribute AREA_SIZE
    * really exists).
    *
-   * @param {ol.Feature} feature The feature to get the attributes from.
+   * @param {import("ol/Feature").default} feature The feature to get the attributes from.
    * @param {string} template The template string to resolve.
    * @param {string} [noValueFoundText] The text to apply, if the templated value
    *   could not be found, default is to 'n.v.'.
@@ -78,7 +78,7 @@ class FeatureUtil {
 
     // Find any character between two braces (including the braces in the result)
     let regExp = new RegExp(attributeTemplatePrefix + '(.*?)' + attributeTemplateSuffix, 'g');
-    let regExpRes = isString(template) ? template.match(regExp) : null;
+    let regExpRes = _isString(template) ? template.match(regExp) : null;
 
     // If we have a regex result, it means we found a placeholder in the
     // template and have to replace the placeholder with its appropriate value.
@@ -116,7 +116,7 @@ class FeatureUtil {
 
     // Fallback if no feature attribute is found.
     if (!resolved) {
-      resolved = feature.getId();
+      resolved = `${feature.getId()}`;
     }
 
     if (!leaveAsUrl) {
