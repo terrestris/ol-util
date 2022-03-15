@@ -684,21 +684,6 @@ describe('MapUtil', () => {
       expect(got[0]).toBeInstanceOf(OlLayerTile);
       expect(got[0].get('key')).toBe('prop');
     });
-
-    it('returns undefined if the map is null', () => {
-      const key = 'key';
-      const prop = 'prop';
-      const got = MapUtil.getLayersByProperty(null, key, prop);
-
-      expect(got).toBeUndefined();
-    });
-
-    it('returns undefined if the key is null', () => {
-      const prop = 'prop';
-      const got = MapUtil.getLayersByProperty(map, null, prop);
-
-      expect(got).toBeUndefined();
-    });
   });
 
   describe('#getZoomForScale', () => {

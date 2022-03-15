@@ -99,6 +99,7 @@ export class MapUtil {
     var layers = collection.getLayers().getArray();
 
     return layers.flatMap(function(layer) {
+      /** @type {import("ol/layer/Base").default[]} */
       let layers = [];
       if (layer instanceof OlLayerGroup) {
         layers = MapUtil.getAllLayers(layer, filter);
@@ -115,7 +116,7 @@ export class MapUtil {
    *
    * @param {import("ol/Map").default} map The map to use for lookup.
    * @param {string} ol_uid The ol_uid of a layer.
-   * @return {import("ol/layer/Base").default} The layer.
+   * @return {import("ol/layer/Base").default|undefined} The layer.
    */
   static getLayerByOlUid = (map, ol_uid) => {
     const layers = MapUtil.getAllLayers(map);
@@ -172,24 +173,22 @@ export class MapUtil {
    *
    * @param {import("ol/Map").default} map The map to use for lookup.
    * @param {import("ol/Feature").default} feature The feature to get the layer by.
-   * @param {Array} namespaces list of supported GeoServer namespaces.
-   * @return {import("ol/layer/Base").default} The result layer or undefined if the layer could not
+   * @param {string[]} namespaces list of supported GeoServer namespaces.
+   * @return {import("ol/layer/Base").default|undefined} The result layer or undefined if the layer could not
    *                    be found.
    */
   static getLayerByFeature(map, feature, namespaces) {
     let featureTypeName = FeatureUtil.getFeatureTypeName(feature);
-    let layerCandidate;
 
     for (let namespace of namespaces) {
       let qualifiedFeatureTypeName = `${namespace}:${featureTypeName}`;
       let layer = MapUtil.getLayerByNameParam(map, qualifiedFeatureTypeName);
       if (layer) {
-        layerCandidate = layer;
-        break;
+        return layer;
       }
     }
 
-    return layerCandidate;
+    return undefined;
   }
 
   /**
@@ -197,20 +196,16 @@ export class MapUtil {
    *
    * @param {import("ol/Map").default} map The map to use for lookup.
    * @param {import("ol/layer/Group").default} layerGroup The group to flatten.
-   * @return {Array} The (flattened) layers from the group
+   * @return {import("ol/layer/Layer").default[]} The (flattened) layers from the group
    */
   static getLayersByGroup(map, layerGroup) {
-    let layerCandidates = [];
-
-    layerGroup.getLayers().forEach((layer) => {
+    return layerGroup.getLayers().getArray().flatMap((layer) => {
       if (layer instanceof OlLayerGroup) {
-        layerCandidates.push(...MapUtil.getLayersByGroup(map, layer));
+        return MapUtil.getLayersByGroup(map, layer);
       } else {
-        layerCandidates.push(layer);
+        return [/** @type {import("ol/layer/Layer").default} */ (layer)];
       }
     });
-
-    return layerCandidates;
   }
 
   /**
@@ -223,9 +218,6 @@ export class MapUtil {
    * @return {import("ol/layer/Base").default[]} The array of matching layers.
    */
   static getLayersByProperty(map, key, value) {
-    if (!map || !key) {
-      return;
-    }
     const mapLayers = MapUtil.getAllLayers(map);
     return mapLayers.filter(l => l.get(key) === value);
   }
@@ -234,7 +226,7 @@ export class MapUtil {
    * Get information about the LayerPosition in the tree.
    *
    * @param {import("ol/layer/Base").default} layer The layer to get the information.
-   * @param {import("ol/layer/Group").default|import("ol/Map").default} [groupLayerOrMap] The groupLayer or map
+   * @param {import("ol/layer/Group").default|import("ol/Map").default} groupLayerOrMap The groupLayer or map
    *                                                  containing the layer.
    * @return {{
    *   groupLayer: import("ol/layer/Group").default,
@@ -269,14 +261,19 @@ export class MapUtil {
    *
    * @param {import("../types").WMSLayer} layer The layer that you want to have a legendUrl for.
    * @param {Object} extraParams
-   * @return {string|undefined} The getLegendGraphicUrl.
+   * @return {string} The getLegendGraphicUrl.
    */
   static getLegendGraphicUrl(layer, extraParams = {}) {
     const source = layer.getSource();
 
-    const url = source instanceof OlSourceTileWMS ?
-      source.getUrls() ? source.getUrls()[0] : ''
-      : source.getUrl();
+    if (!source) {
+      throw new Error('Layer has no source.');
+    }
+
+    const url = (source instanceof OlSourceTileWMS
+      ? source.getUrls()?.[0]
+      : source.getUrl())
+      ?? '';
     const params = {
       LAYER: source.getParams().LAYERS,
       VERSION: '1.3.0',
@@ -327,20 +324,17 @@ export class MapUtil {
    * @return {number} The roundedScale
    */
   static roundScale(scale) {
-    let roundScale;
     if (scale < 100) {
-      roundScale = Math.round(scale);
+      return Math.round(scale);
     }
     if (scale >= 100 && scale < 10000 ) {
-      roundScale = Math.round(scale / 10) * 10;
+      return Math.round(scale / 10) * 10;
     }
     if (scale >= 10000 && scale < 1000000 ) {
-      roundScale = Math.round(scale / 100) * 100;
+      return Math.round(scale / 100) * 100;
     }
-    if (scale >= 1000000) {
-      roundScale = Math.round(scale / 1000) * 1000;
-    }
-    return roundScale;
+    // scale >= 1000000
+    return Math.round(scale / 1000) * 1000;
   }
 
   /**
@@ -348,7 +342,7 @@ export class MapUtil {
 
    * @method
    * @param {number} scale Map scale to get the zoom for.
-   * @param {Array} resolutions Resolutions array.
+   * @param {number[]} resolutions Resolutions array.
    * @param {string} units The units the resolutions are based on, typically
    *                       either 'm' or 'degrees'. Default is 'm'.
    *
@@ -381,12 +375,7 @@ export class MapUtil {
    * @param {import("ol/Feature").default[]} features The features to zoom to.
    */
   static zoomToFeatures(map, features) {
-    let featGeometries = [];
-    features.forEach(feature => {
-      if (feature.getGeometry() !== null) {
-        featGeometries.push(feature.getGeometry());
-      }
-    });
+    const featGeometries = FeatureUtil.mapFeaturesToGeometries(features);
 
     if (featGeometries.length > 0) {
       const geomCollection = new OlGeomGeometryCollection(featGeometries);

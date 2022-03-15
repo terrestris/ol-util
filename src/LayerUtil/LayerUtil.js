@@ -19,16 +19,15 @@ class LayerUtil {
    */
   static getLayerUrl = layer => {
     const layerSource = layer.getSource();
-    let layerUrl;
+    let layerUrl = '';
 
     if (layerSource instanceof OlSourceTileWMS) {
-      layerUrl = layerSource.getUrls()[0];
+      layerUrl = layerSource.getUrls()?.[0] ?? '';
     } else if (layerSource instanceof OlSourceImageWMS) {
-      layerUrl = layerSource.getUrl();
+      layerUrl = layerSource.getUrl() ?? '';
     } else if (layerSource instanceof OlSourceWMTS) {
-      layerUrl = layerSource.getUrls()[0];
+      layerUrl = layerSource.getUrls()?.[0] ?? '';
     }
-
     return layerUrl;
   };
 
@@ -37,19 +36,21 @@ class LayerUtil {
    * appropriate Capabilities document.
    *
    * @param {import("../types").WMSLayer} layer
-   * @returns The extent of the layer.
+   * @returns {Promise<[number, number, number, number]>} The extent of the layer.
    */
   static async getExtentForLayer(layer) {
     const capabilities = await CapabilitiesUtil.getWmsCapabilitiesByLayer(layer);
 
-    if (!capabilities || !capabilities.Capability || !capabilities.Capability.Layer ||
-      !capabilities.Capability.Layer.Layer) {
+    if (!capabilities?.Capability?.Layer?.Layer) {
       throw new Error('Unexpected format of the Capabilities.');
     }
 
-    const layerName = layer.getSource().getParams().LAYERS;
+    const layerName = layer.getSource()?.getParams().LAYERS;
 
-    const layers = capabilities.Capability.Layer.Layer.filter((l) => {
+    /** @type {{ Name: string, EX_GeographicBoundingBox?: number[] }[]} */
+    const capabilitiesLayer = capabilities.Capability.Layer.Layer;
+
+    const layers = capabilitiesLayer.filter((l) => {
       return l.Name === layerName;
     });
 
@@ -63,7 +64,7 @@ class LayerUtil {
       throw new Error('No extent set in the Capabilities.');
     }
 
-    return extent;
+    return /** @type {[number, number, number, number]} */ (extent);
   }
 
 }

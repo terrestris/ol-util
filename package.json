@@ -49,6 +49,7 @@
   "dependencies": {
     "@terrestris/base-util": "^1.0.1",
     "@turf/turf": "^6.5.0",
+    "@types/geojson": "^7946.0.8",
     "lodash": "^4.17.21",
     "polygon-splitter": "^0.0.8",
     "proj4": "^2.7.5",
