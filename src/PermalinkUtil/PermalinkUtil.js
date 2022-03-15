@@ -18,11 +18,11 @@ export class PermalinkUtil {
    * @param {import("ol/Map").default} map The OpenLayers map
    * @param {string} separator The separator for the layers list and center
    *                           coordinates in the link. Default is to ';'.
-   * @param {(layer: import("ol/layer/Layer").default) => string} identifier Function to generate the identifier of the
+   * @param {(layer: import("ol/layer/Base").default) => string} identifier Function to generate the identifier of the
    *                              layer in the link. Default is the name
    *                              (given by the associated property) of
    *                              the layer.
-   * @param {(layer: import("ol/layer/Layer").default) => boolean} filter Function to filter layers that should be
+   * @param {(layer: import("ol/layer/Base").default) => boolean} filter Function to filter layers that should be
    *                          added to the link. Default is to add all
    *                          visible layers of type ol/layer/Tile.
    * @return {string} The permalink.
@@ -51,11 +51,11 @@ export class PermalinkUtil {
    * @param {import("ol/Map").default} map The OpenLayers map.
    * @param {string} separator The separator of the layers list and center
    *                           coordinates in the link. Default is to ';'.
-   * @param {(layer: import("ol/layer/Layer").default) => string} identifier Function to generate the identifier of the
+   * @param {(layer: import("ol/layer/Base").default) => string} identifier Function to generate the identifier of the
    *                              layer in the link. Default is the name
    *                              (given by the associated property) of
    *                              the layer.
-   * @param {(layer: import("ol/layer/Layer").default) => boolean} filter Function to filter layers that should be
+   * @param {(layer: import("ol/layer/Base").default) => boolean} filter Function to filter layers that should be
    *                          handled by the link. Default is to consider all
    *                          current map layers of type ol/layer/Tile.
    */
