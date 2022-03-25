@@ -6,14 +6,11 @@ import OlLayerTile from 'ol/layer/Tile';
 import OlLayerImage from 'ol/layer/Image';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
-import OlSourceTileJson from 'ol/source/TileJSON';
 import OlFeature from 'ol/Feature';
 import OlGeomPoint from 'ol/geom/Point';
 import OlLayerGroup from 'ol/layer/Group';
 import OlMap from 'ol/Map';
 import OlView from 'ol/View';
-
-import Logger from '@terrestris/base-util/dist/Logger';
 
 import TestUtil from '../TestUtil';
 
@@ -48,17 +45,6 @@ describe('MapUtil', () => {
   describe('#getInteractionsByName', () => {
     it('is defined', () => {
       expect(MapUtil.getInteractionsByName).toBeDefined();
-    });
-
-    it('needs to be called with a map instance', () => {
-      const logSpy = jest.spyOn(Logger, 'debug');
-
-      let returnedInteractions = MapUtil.getInteractionsByName(null, 'BVB!');
-
-      expect(logSpy).toHaveBeenCalled();
-      expect(returnedInteractions).toHaveLength(0);
-
-      logSpy.mockRestore();
     });
 
     it('returns an empty array if no interaction candidate is found', () => {
@@ -98,17 +84,6 @@ describe('MapUtil', () => {
   describe('#getInteractionsByClass', () => {
     it('is defined', () => {
       expect(MapUtil.getInteractionsByClass).toBeDefined();
-    });
-
-    it('needs to be called with a map instance', () => {
-      const logSpy = jest.spyOn(Logger, 'debug');
-
-      let returnedInteractions = MapUtil.getInteractionsByClass(null, OlInteractionDragRotateAndZoom);
-
-      expect(logSpy).toHaveBeenCalled();
-      expect(returnedInteractions).toHaveLength(0);
-
-      logSpy.mockRestore();
     });
 
     it('returns an empty array if no interaction candidate is found', () => {
@@ -359,17 +334,6 @@ describe('MapUtil', () => {
       map.setLayerGroup(layerGroup);
     });
 
-    it('Logs an error and returns an empty array on invalid argument', () => {
-      const logSpy = jest.spyOn(Logger, 'error');
-      const got = MapUtil.getAllLayers();
-
-      expect(got).toBeInstanceOf(Array);
-      expect(got).toHaveLength(0);
-      expect(logSpy).toHaveBeenCalled();
-
-      logSpy.mockRestore();
-    });
-
     it('returns a flat list of all layers (map passed)', () => {
       const got = MapUtil.getAllLayers(map);
 
@@ -466,7 +430,6 @@ describe('MapUtil', () => {
     let layer1;
     let layer2;
     let layer3;
-    let layer4;
 
     beforeEach(() => {
       layer1 = new OlLayerTile({
@@ -486,13 +449,6 @@ describe('MapUtil', () => {
         })
       });
       layer3 = new OlLayerTile({
-        name: 'Food insecurity',
-        source: new OlSourceTileJson({
-          url: 'https://api.tiles.mapbox.com/v3/mapbox.20110804-hoa-foodinsecurity-3month.json?secure',
-          crossOrigin: 'anonymous'
-        })
-      });
-      layer4 = new OlLayerTile({
         name: 'OSM-WMS',
         source: new OlSourceTileWMS({
           urls: [
@@ -503,24 +459,6 @@ describe('MapUtil', () => {
           serverType: 'geoserver'
         })
       });
-    });
-
-    it('logs an error if called without a layer', () => {
-      const logSpy = jest.spyOn(Logger, 'error');
-      const legendUrl = MapUtil.getLegendGraphicUrl();
-      expect(legendUrl).toBeUndefined();
-      expect(logSpy).toHaveBeenCalled();
-      expect(logSpy).toHaveBeenCalledWith('No layer passed to MapUtil.getLegendGraphicUrl.');
-
-      logSpy.mockRestore();
-    });
-
-    it('logs a warning if called with an unsupported layersource', () => {
-      const logSpy = jest.spyOn(Logger, 'warn');
-      const legendUrl = MapUtil.getLegendGraphicUrl(layer3);
-      expect(legendUrl).toBeUndefined();
-      expect(logSpy).toHaveBeenCalledWith('Source of "Food insecurity" is currently not supported by MapUtil.getLegendGraphicUrl.');
-      logSpy.mockRestore();
     });
 
     describe('returns a getLegendGraphicUrl from a given layer', () => {
@@ -567,7 +505,7 @@ describe('MapUtil', () => {
     });
 
     it('works as expected when layer URL contains params', () => {
-      const legendUrl = MapUtil.getLegendGraphicUrl(layer4);
+      const legendUrl = MapUtil.getLegendGraphicUrl(layer3);
       const numQuestionMarks = (legendUrl.match(/\?/g) || []).length;
       const containsParams = /humpty=dumpty/.test(legendUrl);
       expect(numQuestionMarks).toEqual(1);
@@ -819,11 +757,6 @@ describe('MapUtil', () => {
 
     it('is defined', () => {
       expect(MapUtil.zoomToFeatures).toBeDefined();
-    });
-
-    it('returns undefined if no map is given', () => {
-      const got = MapUtil.zoomToFeatures(null, features);
-      expect(got).toBe(undefined);
     });
 
     it('fits the view extent to the extent of the given features', () => {

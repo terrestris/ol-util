@@ -1,4 +1,3 @@
-import OlMap from 'ol/Map';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlLayerGroup from 'ol/layer/Group';
@@ -8,7 +7,6 @@ import {METERS_PER_UNIT} from 'ol/proj/Units';
 import {getUid} from 'ol/util';
 
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
-import Logger from '@terrestris/base-util/dist/Logger';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 
@@ -30,22 +28,9 @@ export class MapUtil {
    * @return {import("ol/interaction/Interaction").default[]} The list of result interactions.
    */
   static getInteractionsByName(map, name) {
-    let interactionCandidates = [];
-
-    if (!(map instanceof OlMap)) {
-      Logger.debug('Input parameter map must be from type `ol/Map`');
-      return interactionCandidates;
-    }
-
-    let interactions = map.getInteractions();
-
-    interactions.forEach(function(interaction) {
-      if (interaction.get('name') === name) {
-        interactionCandidates.push(interaction);
-      }
-    });
-
-    return interactionCandidates;
+    return map.getInteractions()
+      .getArray()
+      .filter(interaction => interaction.get('name') === name);
   }
 
   /**
@@ -56,22 +41,9 @@ export class MapUtil {
    * @return {import("ol/interaction/Interaction").default[]} The list of result interactions.
    */
   static getInteractionsByClass(map, clazz) {
-    let interactionCandidates = [];
-
-    if (!(map instanceof OlMap)) {
-      Logger.debug('Input parameter map must be from type `ol/Map`.');
-      return interactionCandidates;
-    }
-
-    let interactions = map.getInteractions();
-
-    interactions.forEach(function(interaction) {
-      if (interaction instanceof clazz) {
-        interactionCandidates.push(interaction);
-      }
-    });
-
-    return interactionCandidates;
+    return map.getInteractions()
+      .getArray()
+      .filter(interaction => interaction instanceof clazz);
   }
 
   /**
@@ -124,12 +96,6 @@ export class MapUtil {
    * @return {import("ol/layer/Base").default[]} An array of all Layers.
    */
   static getAllLayers(collection, filter = () => true) {
-    if (!(collection instanceof OlMap) && !(collection instanceof OlLayerGroup)) {
-      Logger.error('Input parameter collection must be from type `ol/Map`' +
-        'or `ol/layer/Group`.');
-      return [];
-    }
-
     var layers = collection.getLayers().getArray();
 
     return layers.flatMap(function(layer) {
@@ -301,46 +267,28 @@ export class MapUtil {
    *  - ol.source.TileWms (with url configured)
    *  - ol.source.ImageWms (with url configured)
    *
-   * @param {import("ol/layer/Base").default} layer The layer that you want to have a legendUrlfor.
+   * @param {import("../types").WMSLayer} layer The layer that you want to have a legendUrlfor.
    * @param {Object} extraParams
    * @return {string|undefined} The getLegendGraphicUrl.
    */
-  static getLegendGraphicUrl(layer, extraParams) {
-    if (!layer) {
-      Logger.error('No layer passed to MapUtil.getLegendGraphicUrl.');
-      return;
-    }
-
-    if (!(layer instanceof OlLayerLayer)) {
-      Logger.error('Invalid layer passed to MapUtil.getLegendGraphicUrl.');
-      return;
-    }
-
+  static getLegendGraphicUrl(layer, extraParams = {}) {
     const source = layer.getSource();
 
-    const isTiledWMS = source instanceof OlSourceTileWMS;
-    const isImageWMS = source instanceof OlSourceImageWMS;
+    const url = source instanceof OlSourceTileWMS ?
+      source.getUrls() ? source.getUrls()[0] : ''
+      : source.getUrl();
+    const params = {
+      LAYER: source.getParams().LAYERS,
+      VERSION: '1.3.0',
+      SERVICE: 'WMS',
+      REQUEST: 'getLegendGraphic',
+      FORMAT: 'image/png'
+    };
 
-    if (isTiledWMS || isImageWMS) {
-      const url = isTiledWMS ?
-        source.getUrls() ? source.getUrls()[0] : ''
-        : source.getUrl();
-      const params = {
-        LAYER: source.getParams().LAYERS,
-        VERSION: '1.3.0',
-        SERVICE: 'WMS',
-        REQUEST: 'getLegendGraphic',
-        FORMAT: 'image/png'
-      };
+    const queryString = UrlUtil.objectToRequestString(
+      Object.assign(params, extraParams));
 
-      const queryString = UrlUtil.objectToRequestString(
-        Object.assign(params, extraParams));
-
-      return /\?/.test(url) ? `${url}&${queryString}` : `${url}?${queryString}`;
-    } else {
-      Logger.warn(`Source of "${layer.get('name')}" is currently not supported `
-        + `by MapUtil.getLegendGraphicUrl.`);
-    }
+    return /\?/.test(url) ? `${url}&${queryString}` : `${url}?${queryString}`;
   }
 
   /**
@@ -433,10 +381,6 @@ export class MapUtil {
    * @param {import("ol/Feature").default[]} features The features to zoom to.
    */
   static zoomToFeatures(map, features) {
-    if (!(map instanceof OlMap)) {
-      return;
-    }
-
     let featGeometries = [];
     features.forEach(feature => {
       if (feature.getGeometry() !== null) {

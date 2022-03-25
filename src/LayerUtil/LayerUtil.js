@@ -2,8 +2,6 @@ import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceWMTS from 'ol/source/WMTS';
 
-import Logger from '@terrestris/base-util/dist/Logger';
-
 import CapabilitiesUtil from '../CapabilitiesUtil/CapabilitiesUtil';
 
 /**
@@ -17,7 +15,7 @@ class LayerUtil {
    * Returns the configured URL of the given layer.
    *
    * @param {import("../types").WMSOrWMTSLayer} layer The layer to get the URL from.
-   * @returns The layer URL.
+   * @returns {string} The layer URL.
    */
   static getLayerUrl = layer => {
     const layerSource = layer.getSource();
@@ -29,8 +27,6 @@ class LayerUtil {
       layerUrl = layerSource.getUrl();
     } else if (layerSource instanceof OlSourceWMTS) {
       layerUrl = layerSource.getUrls()[0];
-    } else {
-      Logger.error('The given source type is not supported.');
     }
 
     return layerUrl;
@@ -48,8 +44,7 @@ class LayerUtil {
 
     if (!capabilities || !capabilities.Capability || !capabilities.Capability.Layer ||
       !capabilities.Capability.Layer.Layer) {
-      Logger.error('Unexpected format of the Capabilities.');
-      return;
+      throw new Error('Unexpected format of the Capabilities.');
     }
 
     const layerName = layer.getSource().getParams().LAYERS;
@@ -59,15 +54,13 @@ class LayerUtil {
     });
 
     if (!layers || layers.length === 0) {
-      Logger.error('Could not find the desired layer in the Capabilities.');
-      return;
+      throw new Error('Could not find the desired layer in the Capabilities.');
     }
 
     const extent = layers[0].EX_GeographicBoundingBox;
 
     if (!extent || extent.length !== 4) {
-      Logger.error('No extent set in the Capabilities.');
-      return;
+      throw new Error('No extent set in the Capabilities.');
     }
 
     return extent;
