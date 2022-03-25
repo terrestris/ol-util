@@ -267,7 +267,7 @@ export class MapUtil {
    *  - ol.source.TileWms (with url configured)
    *  - ol.source.ImageWms (with url configured)
    *
-   * @param {import("../types").WMSLayer} layer The layer that you want to have a legendUrlfor.
+   * @param {import("../types").WMSLayer} layer The layer that you want to have a legendUrl for.
    * @param {Object} extraParams
    * @return {string|undefined} The getLegendGraphicUrl.
    */
