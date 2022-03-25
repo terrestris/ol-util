@@ -33,7 +33,7 @@ export class FileUtil {
     const reader = new FileReader();
     reader.readAsArrayBuffer(file);
     reader.addEventListener('loadend', () => {
-      const blob = reader.result;
+      const blob = /** @type {ArrayBuffer} */(reader.result);
       shp(blob).then(json => {
         FileUtil.addGeojsonLayer(json, map);
       });
@@ -42,7 +42,7 @@ export class FileUtil {
 
   /**
    * Adds a new vector layer from a geojson string.
-   * @param {string} json the geojson string
+   * @param {string|object} json the geojson string or object
    * @param {import("ol/Map").default} map the map to add the layer to
    */
   static addGeojsonLayer(json, map) {
