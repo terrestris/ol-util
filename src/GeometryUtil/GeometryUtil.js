@@ -159,7 +159,7 @@ class GeometryUtil {
    * Merges multiple geometries into one MultiGeometry.
    *
    * @param {OlGeomSimple[]} geometries An array of ol.geom.geometries;
-   * @returns {OlGeomMultiPoint|OlGeomMultiPolygon|OlGeomMultiLineString|undefined} A Multigeometry.
+   * @returns {OlGeomMultiPoint|OlGeomMultiPolygon|OlGeomMultiLineString} A Multigeometry.
    */
   static mergeGeometries(geometries) {
     const multiPrefix = GeometryUtil.MULTI_GEOM_PREFIX;
@@ -171,8 +171,7 @@ class GeometryUtil {
       }
     });
     if (mixedGeometryTypes) {
-      // Logger.warn('Can not merge mixed geometries into one multigeometry.');
-      return undefined;
+      throw new Error('Can not merge mixed geometries into one multigeometry.');
     }
 
     // split all multi-geometries to simple ones if passed geometries are
@@ -203,8 +202,6 @@ class GeometryUtil {
           multiGeom.appendLineString(/** @type {OlGeomLineString} */ (geom));
         }
         return multiGeom;
-      default:
-        return undefined;
     }
   }
 
@@ -239,7 +236,7 @@ class GeometryUtil {
    *  or ol.geom.Geometry instances of type Polygon.
    * @param {string} projection The projection of the input polygons as EPSG code.
    *  Default is to EPSG:3857.
-   * @returns {OlGeomMultiPolygon|OlGeomPolygon|OlFeature<OlGeomMultiPolygon|OlGeomPolygon>|undefined} A Feature or Geometry with the
+   * @returns {OlGeomMultiPolygon|OlGeomPolygon|OlFeature<OlGeomMultiPolygon|OlGeomPolygon>} A Feature or Geometry with the
    * combined area of the (Multi-)polygons.
    */
   static union(polygons, projection = 'EPSG:3857') {
@@ -258,7 +255,7 @@ class GeometryUtil {
    * @param {OlGeomPolygon[]} polygons An array of ol.geom.Geometry instances of type (Multi-)polygon.
    * @param {string} projection The projection of the input polygons as EPSG code.
    *  Default is to EPSG:3857.
-   * @returns {OlGeomMultiPolygon|OlGeomPolygon|undefined} A FGeometry with the combined area of the (Multi-)polygons.
+   * @returns {OlGeomMultiPolygon|OlGeomPolygon} A FGeometry with the combined area of the (Multi-)polygons.
    */
   static unionGeometries(polygons, projection = 'EPSG:3857') {
     const geoJsonFormat = new OlFormatGeoJSON({

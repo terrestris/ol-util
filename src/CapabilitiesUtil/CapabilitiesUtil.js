@@ -6,7 +6,6 @@ import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';
 
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
-import Logger from '@terrestris/base-util/dist/Logger';
 
 import LayerUtil from '../LayerUtil/LayerUtil';
 
@@ -24,22 +23,17 @@ class CapabilitiesUtil {
    * @return {Promise<Object>} An object representing the WMS capabilities.
    */
   static async getWmsCapabilities(capabilitiesUrl) {
-    try {
-      const capabilitiesResponse = await fetch(capabilitiesUrl);
+    const capabilitiesResponse = await fetch(capabilitiesUrl);
 
-      if (!capabilitiesResponse.ok) {
-        Logger.error('Could not get Capabilities');
-        return;
-      }
-
-      const wmsCapabilitiesParser = new OlWMSCapabilities();
-
-      const capabilitiesText = await capabilitiesResponse.text();
-
-      return wmsCapabilitiesParser.read(capabilitiesText);
-    } catch (error) {
-      Logger.error(`Error while reading Capabilities: ${error}`);
+    if (!capabilitiesResponse.ok) {
+      throw new Error('Could not get capabilities.');
     }
+
+    const wmsCapabilitiesParser = new OlWMSCapabilities();
+
+    const capabilitiesText = await capabilitiesResponse.text();
+
+    return wmsCapabilitiesParser.read(capabilitiesText);
   }
 
   /**
