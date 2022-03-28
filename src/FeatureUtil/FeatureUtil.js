@@ -16,7 +16,7 @@ class FeatureUtil {
    *
    * @param {import("ol/Feature").default} feature The feature to obtain the featureType
    *                             name from.
-   * @return {string} The (unqualified) name of the featureType or undefined if
+   * @return {string|undefined} The (unqualified) name of the featureType or undefined if
    *                  the name could not be picked.
    */
   static getFeatureTypeName(feature) {
@@ -35,7 +35,7 @@ class FeatureUtil {
    * @param {boolean} qualified Whether the qualified featureType name should be
    *   returned or not. Default is true.
    *
-   * @return {string} Obtained featureType name as string.
+   * @return {string|undefined} Obtained featureType name as string.
    */
   static getFeatureTypeNameFromGetFeatureInfoUrl(url, qualified = true) {
     const regex = /query_layers=(.*?)(&|$)/i;
@@ -60,7 +60,7 @@ class FeatureUtil {
    * @param {string} template The template string to resolve.
    * @param {string} [noValueFoundText] The text to apply, if the templated value
    *   could not be found, default is to 'n.v.'.
-   * @param {Function} [valueAdjust] A method that will be called with each
+   * @param {(key: string, val: string) => string} [valueAdjust] A method that will be called with each
    *   key/value match, we'll use what this function returns for the actual
    *   replacement. Optional, defaults to a function which will return the raw
    *   value it received. This can be used for last minute adjustments before
@@ -74,7 +74,7 @@ class FeatureUtil {
     valueAdjust = (key, val) => val, leaveAsUrl = false) {
     let attributeTemplatePrefix = '\\{\\{';
     let attributeTemplateSuffix = '\\}\\}';
-    let resolved = '';
+    let resolved;
 
     // Find any character between two braces (including the braces in the result)
     let regExp = new RegExp(attributeTemplatePrefix + '(.*?)' + attributeTemplateSuffix, 'g');
@@ -128,6 +128,19 @@ class FeatureUtil {
     }
 
     return resolved;
+  }
+
+  /**
+   * Maps an array of features to an array of geometries.
+   *
+   * @param {import("ol/Feature").default[]} features
+   */
+  static mapFeaturesToGeometries(features) {
+    return /** @type {import("ol/geom/Geometry").default[]} */(
+      features
+        .map(f => f.getGeometry())
+        .filter(g => g !== undefined)
+    );
   }
 }
 

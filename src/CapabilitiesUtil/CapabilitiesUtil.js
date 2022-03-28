@@ -20,7 +20,7 @@ class CapabilitiesUtil {
    * Fetches and parses the WMS Capabilities document for the given URL.
    *
    * @param {string} capabilitiesUrl Url to WMS capabilities document.
-   * @return {Promise<Object>} An object representing the WMS capabilities.
+   * @return {Promise<any>} An object representing the WMS capabilities.
    */
   static async getWmsCapabilities(capabilitiesUrl) {
     const capabilitiesResponse = await fetch(capabilitiesUrl);
@@ -40,7 +40,7 @@ class CapabilitiesUtil {
    * Fetches and parses the WMS Capabilities document for the given layer.
    *
    * @param {import("../types").WMSLayer} layer The layer to the get the Capabilites for.
-   * @return {Promise<Object>} An object representing the WMS capabilities.
+   * @return {Promise<any>} An object representing the WMS capabilities.
    */
   static async getWmsCapabilitiesByLayer(layer) {
     const capabilitiesUrl = this.getCapabilitiesUrl(layer);
@@ -50,7 +50,7 @@ class CapabilitiesUtil {
 
   /**
    * @param {string} capabilitiesUrl Url to WMS capabilities document
-   * @return {Promise<Object>} An object representing the WMS capabilities.
+   * @return {Promise<any>} An object representing the WMS capabilities.
    * @deprecated Please make use of #getWmsCapabilities
    */
   static async parseWmsCapabilities(capabilitiesUrl) {
@@ -66,7 +66,7 @@ class CapabilitiesUtil {
   static getCapabilitiesUrl(layer) {
     const layerSource = layer.getSource();
     const layerBaseUrl = LayerUtil.getLayerUrl(layer);
-    const wmsVersion = layerSource.getParams().VERSION || '1.3.0';
+    const wmsVersion = layerSource?.getParams().VERSION || '1.3.0';
 
     return UrlUtil.createValidGetCapabilitiesRequest(
       layerBaseUrl, 'WMS', wmsVersion);
@@ -78,14 +78,14 @@ class CapabilitiesUtil {
    * @param {Object} capabilities A capabilities object.
    * @param {string} nameField Configure the field which should be set as the
    *                           'name' property in the openlayers layer.
-   * @param {(url: string) => string} proxyFn Optional proxy function which can be applied to
+   * @param {(url: string) => string} [proxyFn] Optional proxy function which can be applied to
    *                           `GetMap`, `GetFeatureInfo` and `GetLegendGraphic`
    *                           requests to avoid CORS issues.
-   * @return {import("ol/layer/Tile").default[]} Array of OlLayerTile
+   * @return {import("ol/layer/Image").default<any>[]} Array of OlLayerImage
    */
   static getLayersFromWmsCapabilities(capabilities, nameField = 'Name', proxyFn = undefined) {
     const wmsVersion = _get(capabilities, 'version');
-    const layersInCapabilities = _get(capabilities, 'Capability.Layer.Layer');
+    const layersInCapabilities = /** @type {Object[]} */ (_get(capabilities, 'Capability.Layer.Layer'));
     const wmsGetMapConfig = _get(capabilities, 'Capability.Request.GetMap');
     const wmsGetFeatureInfoConfig = _get(capabilities, 'Capability.Request.GetFeatureInfo');
     const getMapUrl = _get(wmsGetMapConfig, 'DCPType[0].HTTP.Get.OnlineResource');

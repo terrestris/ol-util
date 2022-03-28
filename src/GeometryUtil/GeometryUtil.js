@@ -2,6 +2,9 @@ import OlFeature from 'ol/Feature';
 import OlGeomMultiPolygon from 'ol/geom/MultiPolygon';
 import OlGeomMultiPoint from 'ol/geom/MultiPoint';
 import OlGeomMultiLineString from 'ol/geom/MultiLineString';
+import OlGeomLineString from 'ol/geom/LineString';
+
+import OlGeomPolygon from 'ol/geom/Polygon';
 import OlFormatGeoJSON from 'ol/format/GeoJSON';
 
 import buffer from '@turf/buffer';
@@ -12,14 +15,17 @@ import polygonSplitter from 'polygon-splitter';
 import { flatten } from '@turf/turf';
 
 /** @typedef {import("ol/geom/Geometry").default} OlGeomGeometry */
-/** @typedef {import("ol/geom/Polygon").default} OlGeomPolygon */
-/** @typedef {import("ol/geom/Point").default} OlGeomPoint */
-/** @typedef {import("ol/geom/LineString").default} OlGeomLineString */
 /** @typedef {import("ol/geom/SimpleGeometry").default} OlGeomSimple */
+/** @typedef {import("ol/geom/Point").default} OlGeomPoint */
 
 /**
  * @typedef {import("@turf/helpers").Feature<import("@turf/helpers").Polygon|import("@turf/helpers").MultiPolygon>} TurfFeature
  * See https://github.com/Turfjs/turf/issues/1658
+ */
+
+/**
+ * @template T
+ * @typedef {T|T[]} MaybeArray
  */
 
 /**
@@ -158,50 +164,32 @@ class GeometryUtil {
   /**
    * Merges multiple geometries into one MultiGeometry.
    *
-   * @param {OlGeomSimple[]} geometries An array of ol.geom.geometries;
+   * @param {(OlGeomMultiPoint|OlGeomPoint)[]|(OlGeomMultiPolygon|OlGeomPolygon)[]|(OlGeomMultiLineString|OlGeomLineString)[]} geometries An array of ol.geom.geometries;
    * @returns {OlGeomMultiPoint|OlGeomMultiPolygon|OlGeomMultiLineString} A Multigeometry.
    */
   static mergeGeometries(geometries) {
-    const multiPrefix = GeometryUtil.MULTI_GEOM_PREFIX;
-    let geomType = geometries[0].getType();
-    let mixedGeometryTypes = false;
-    geometries.forEach(geometry => {
-      if (geomType.replace(multiPrefix, '') !== geometry.getType().replace(multiPrefix, '')) {
-        mixedGeometryTypes = true;
-      }
-    });
-    if (mixedGeometryTypes) {
-      throw new Error('Can not merge mixed geometries into one multigeometry.');
-    }
-
     // split all multi-geometries to simple ones if passed geometries are
     // multigeometries
-    const splittedGeometries = GeometryUtil.separateGeometries(geometries);
+    const separateGeometries = GeometryUtil.separateGeometries(geometries);
 
-    if (geomType.startsWith(multiPrefix)) {
-      geomType = geomType.substring(multiPrefix.length);
-    }
-
-    let multiGeom;
-    switch (geomType) {
-      case 'Polygon':
-        multiGeom = new OlGeomMultiPolygon([]);
-        for (const geom of splittedGeometries) {
-          multiGeom.appendPolygon(/** @type {OlGeomPolygon} */ (geom));
-        }
-        return multiGeom;
-      case 'Point':
-        multiGeom = new OlGeomMultiPoint([]);
-        for (const geom of splittedGeometries) {
-          multiGeom.appendPoint(/** @type {OlGeomPoint} */ (geom));
-        }
-        return multiGeom;
-      case 'LineString':
-        multiGeom = new OlGeomMultiLineString([]);
-        for (const geom of splittedGeometries) {
-          multiGeom.appendLineString(/** @type {OlGeomLineString} */ (geom));
-        }
-        return multiGeom;
+    if (separateGeometries[0] instanceof OlGeomPolygon) {
+      const multiGeom = new OlGeomMultiPolygon([]);
+      for (const geom of separateGeometries) {
+        multiGeom.appendPolygon(/** @type {OlGeomPolygon} */ (geom));
+      }
+      return multiGeom;
+    } else if (separateGeometries[0] instanceof OlGeomLineString) {
+      const multiGeom = new OlGeomMultiLineString([]);
+      for (const geom of separateGeometries) {
+        multiGeom.appendLineString(/** @type {OlGeomLineString} */ (geom));
+      }
+      return multiGeom;
+    } else {
+      const multiGeom = new OlGeomMultiPoint([]);
+      for (const geom of separateGeometries) {
+        multiGeom.appendPoint(/** @type {OlGeomPoint} */ (geom));
+      }
+      return multiGeom;
     }
   }
 
@@ -209,8 +197,8 @@ class GeometryUtil {
    * Splits an array of geometries (and multi geometries) or a single MultiGeom
    * into an array of single geometries.
    *
-   * @param {OlGeomSimple|OlGeomSimple[]} geometries An (array of) ol.geom.geometries;
-   * @returns {Omit<OlGeomSimple, OlGeomMultiPolygon|OlGeomMultiLineString|OlGeomMultiPoint>[]} An array of geometries.
+   * @param {MaybeArray<OlGeomPoint|OlGeomMultiPoint|OlGeomLineString|OlGeomMultiLineString|OlGeomPolygon|OlGeomMultiPolygon>} geometries An (array of) ol.geom.geometries;
+   * @returns {(OlGeomPoint|OlGeomLineString|OlGeomPolygon)[]} An array of geometries.
    */
   static separateGeometries(geometries) {
     geometries = Array.isArray(geometries) ? geometries : [geometries];

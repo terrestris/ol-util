@@ -7,7 +7,9 @@
     "outDir": "dist/",
     "rootDir": "./src/",
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitReturns": true
   },
   "include": ["./src/**/*"],
   "exclude": ["**/*.spec.js"]

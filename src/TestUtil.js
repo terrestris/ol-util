@@ -84,6 +84,8 @@ export class TestUtil {
 
   /**
    * Removes the map.
+   *
+   * @param {OlMap|undefined} map
    */
   static removeMap = (map) => {
     if (map instanceof OlMap) {
@@ -122,7 +124,7 @@ export class TestUtil {
    * Creates and returns an empty vector layer.
    *
    * @param {Object} properties The properties to set.
-   * @return {import("ol/layer/Vector").default} The layer.
+   * @return {OlLayerVector<OlSourceVector>} The layer.
    */
   static createVectorLayer = (properties) => {
     let source = new OlSourceVector();

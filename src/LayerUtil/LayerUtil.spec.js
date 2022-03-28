@@ -2,10 +2,8 @@
 
 import OlLayerTile from 'ol/layer/Tile';
 import OlLayerImage from 'ol/layer/Image';
-import OlLayerVector from 'ol/layer/Vector';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
-import OlSourceVector from 'ol/source/Vector';
 import OlSourceWMTS from 'ol/source/WMTS';
 
 import LayerUtil from './LayerUtil';
@@ -57,16 +55,6 @@ describe('LayerUtil', () => {
         const url3 = LayerUtil.getLayerUrl(layer3);
 
         expect(url3).toEqual('https://ows.terrestris.de/osm-gray/service');
-      });
-
-      it('returns undefined for an unsupported layer/source type', () => {
-        const layer = new OlLayerVector({
-          source: new OlSourceVector()
-        });
-
-        const url = LayerUtil.getLayerUrl(layer);
-
-        expect(url).toBeUndefined();
       });
     });
 

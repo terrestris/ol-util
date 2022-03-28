@@ -34,7 +34,7 @@ export class ProjectionUtil {
   /**
    * Registers custom CRS definitions to the application.
    *
-   * @param {Object} customCrsDefs The custom `proj4` definition strings
+   * @param {Record<string, string>} customCrsDefs The custom `proj4` definition strings
    *   which should be registered additionally to default available CRS (s.
    *   `defaultProj4CrsDefinitions` above) as well.
    *   Further CRS definitions in proj4 format can be checked under
@@ -43,6 +43,7 @@ export class ProjectionUtil {
    *   registered or not. Default is true.
    */
   static initProj4Definitions(customCrsDefs, registerDefaults = true) {
+    /** @type {Record<string, string>} */
     let proj4CrsDefinitions = {};
 
     if (registerDefaults) {
@@ -72,7 +73,7 @@ export class ProjectionUtil {
    * supported by `proj4` and `OpenLayers` per default. Add appropriate
    * mappings to allow automatic CRS detection by `OpenLayers` here.
    *
-   * @param {Object} customCrsMappings The custom CRS mappings which will be
+   * @param {Record<string, string>} customCrsMappings The custom CRS mappings which will be
    *   added additionally to the by default available (s. `defaultProj4CrsMappings`
    *   above).
    * @param {boolean} useDefaultMappings Whether the default CRS should be mapped

@@ -14,7 +14,7 @@ class AnimateUtil {
    * in the end with given `duration` in ms, using the given style.
    *
    * @param {import("ol/Map").default} map An OlMap.
-   * @param {import("ol/layer/Vector").default|false} layer A vector layer to receive an postrender event or false.
+   * @param {import("ol/layer/Vector").default<import("ol/source/Vector").default>} layer A vector layer to receive an postrender event.
    * @param {import("ol/Feature").default} featureToMove The feature to move.
    * @param {number} duration The duration in ms for the moving to complete.
    * @param {number} pixel Delta of pixels to move the feature.
@@ -24,10 +24,12 @@ class AnimateUtil {
    */
   static moveFeature(map, layer, featureToMove, duration, pixel, style) {
     return new Promise(resolve => {
-      let listenerKey;
       const geometry = featureToMove.getGeometry();
-      const start = new Date().getTime();
-      const resolution = map.getView().getResolution();
+      if (!geometry) {
+        throw new Error('Feature has no geometry.');
+      }
+      const start = Date.now();
+      const resolution = map.getView().getResolution() ?? 0;
       const totalDisplacement = pixel * resolution;
       const expectedFrames = duration / 1000 * 60;
       let actualFrames = 0;
@@ -38,9 +40,12 @@ class AnimateUtil {
        * Moves the feature `pixel` right and `pixel` up.
        * @ignore
        */
-      const animate = (event) => {
+      const listenerKey = layer.on('postrender', (event) => {
         const vectorContext = getVectorContext(event);
         const frameState = event.frameState;
+        if (!frameState) {
+          return;
+        }
         const elapsed = frameState.time - start;
 
         geometry.translate(deltaX, deltaY);
@@ -59,10 +64,7 @@ class AnimateUtil {
 
         actualFrames++;
         map.render();
-      };
-      if (layer) {
-        listenerKey = layer.on('postrender', animate);
-      }
+      });
     });
   }
 }

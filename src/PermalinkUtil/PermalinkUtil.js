@@ -29,8 +29,8 @@ export class PermalinkUtil {
    */
   static getLink = (map, separator = ';', identifier = l => l.get('name'),
     filter = l => l instanceof TileLayer && l.getVisible()) => {
-    const center = map.getView().getCenter().join(separator);
-    const zoom = map.getView().getZoom();
+    const center = map.getView().getCenter()?.join(separator) ?? '';
+    const zoom = map.getView().getZoom()?.toString() ?? '';
     const layers = MapUtil.getAllLayers(map);
     const visibles = layers
       .filter(filter)
@@ -39,7 +39,7 @@ export class PermalinkUtil {
     const link = new URL(window.location.href);
 
     link.searchParams.set('center', center);
-    link.searchParams.set('zoom', zoom.toString());
+    link.searchParams.set('zoom', zoom);
     link.searchParams.set('layers', visibles);
 
     return link.href;
@@ -100,15 +100,15 @@ export class PermalinkUtil {
   /**
    * Search through the given Ol-Collection for the given id and
    * set all parenting groups visible.
-   * @param {Object} map The openlayers map
-   * @param {Object} coll The Openlayers Collection
+   * @param {import("ol/Map").default} map The openlayers map
+   * @param {import("ol/Collection").default<import("ol/layer/Base").default>} coll The Openlayers Collection
    * @param {string} id Ther layer ol uid to search for
    */
   static setParentsVisible = (map, coll, id) => {
     coll.forEach(el => {
       if (el instanceof OlLayerGroup) {
         const layers = MapUtil.getLayersByGroup(map, el);
-        if (layers.map(layer => layer.ol_uid).includes(id)) {
+        if (layers.map(layer => getUid(layer)).includes(id)) {
           el.setVisible(true);
         }
         PermalinkUtil.setParentsVisible(map, el.getLayers(), id);
