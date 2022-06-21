@@ -90,7 +90,6 @@ class LayerUtil {
     return attributionString;
   };
 
-
   /**
    * Converts a html string into text using DOMParser.
    *
