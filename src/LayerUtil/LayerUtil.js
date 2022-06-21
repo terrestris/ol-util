@@ -1,8 +1,14 @@
+import OlFormatGeoJSON from 'ol/format/GeoJSON';
+import OlLayerVector from 'ol/layer/Vector';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
+import OlSourceOSM from 'ol/source/OSM';
 import OlSourceTileWMS from 'ol/source/TileWMS';
+import OlSourceVector from 'ol/source/Vector';
 import OlSourceWMTS from 'ol/source/WMTS';
+import OpenLayersParser from 'geostyler-openlayers-parser';
 
 import Logger from '@terrestris/base-util/dist/Logger';
+import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
 
 import CapabilitiesUtil from '../CapabilitiesUtil/CapabilitiesUtil';
 
@@ -70,6 +76,112 @@ class LayerUtil {
   }
 
   /**
+   * Converts a given OpenLayers layer to a inkmap layer spec.
+   *
+   * @param {import("ol/layer/Layer").default} olLayer The layer.
+   *
+   * @return {Promise<import("../types").InkmapLayer | null>} Promise of the inmkap layer spec.
+   */
+  static async mapOlLayerToInkmap(olLayer) {
+    const source = olLayer.getSource();
+    const opacity = olLayer.getOpacity();
+
+    const attributionString = LayerUtil.getLayerAttributionsText(olLayer);
+
+    if (source instanceof OlSourceTileWMS) {
+      const tileWmsLayer = {
+        type: 'WMS',
+        url: source.getUrls()?.[0] ?? '',
+        opacity: opacity,
+        attribution: attributionString,
+        layer: source.getParams()?.LAYERS,
+        tiled: true
+      };
+      return /** @type {import("../types").InkmapWmsLayer} */ (tileWmsLayer);
+    } else if (source instanceof OlSourceImageWMS) {
+      const imageWmsLayer = {
+        type: 'WMS',
+        url: source.getUrl() ?? '',
+        opacity: opacity,
+        attribution: attributionString,
+        layer: source.getParams()?.LAYERS,
+        tiled: false
+      };
+      return /** @type {import("../types").InkmapWmsLayer} */ (imageWmsLayer);
+    } else if (source instanceof OlSourceWMTS) {
+      const olTileGrid = source.getTileGrid();
+      const resolutions = olTileGrid?.getResolutions();
+      const matrixIds = resolutions?.map((res, idx) => idx);
+
+      const tileGrid = {
+        resolutions: olTileGrid?.getResolutions(),
+        extent: olTileGrid?.getExtent(),
+        matrixIds: matrixIds
+      };
+
+      const wmtsLayer = {
+        type: 'WMTS',
+        requestEncoding: source.getRequestEncoding(),
+        url: source.getUrls()?.[0] ?? '',
+        layer: source.getLayer(),
+        projection: source.getProjection().getCode(),
+        matrixSet: source.getMatrixSet(),
+        tileGrid: tileGrid,
+        format: source.getFormat(),
+        opacity: opacity,
+        attribution: attributionString
+      };
+      return /** @type {import("../types").InkmapWmtsLayer} */ (wmtsLayer);
+    } else if (source instanceof OlSourceOSM) {
+      const osmLayer = {
+        type: 'XYZ',
+        url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        opacity: opacity,
+        attribution: '© OpenStreetMap (www.openstreetmap.org)',
+        tiled: true
+      };
+      return /** @type {import("../types").InkmapOsmLayer} */ (osmLayer);
+    } else if (source instanceof OlSourceVector) {
+      const geojson = new OlFormatGeoJSON().writeFeaturesObject(source.getFeatures());
+      const parser = new OpenLayersParser();
+      const geojsonLayerConfig = {
+        type: 'GeoJSON',
+        geojson: geojson,
+        attribution: attributionString,
+        style: undefined
+      };
+
+      let olStyle = null;
+
+      if (olLayer instanceof OlLayerVector) {
+        olStyle = olLayer.getStyle();
+      }
+
+      // todo: support stylefunction / different styles per feature
+      // const styles = source.getFeatures()?.map(f => f.getStyle());
+
+      if (olStyle) {
+        const gsStyle = await parser.readStyle(olStyle);
+        if (gsStyle.errors) {
+          Logger.error('Geostyler errors: ', gsStyle.errors);
+        }
+        if (gsStyle.warnings) {
+          Logger.warn('Geostyler warnings: ', gsStyle.warnings);
+        }
+        if (gsStyle.unsupportedProperties) {
+          Logger.warn('Detected unsupported style properties: ', gsStyle.unsupportedProperties);
+        }
+        if (gsStyle.output) {
+          // @ts-ignore
+          geojsonLayerConfig.style = gsStyle.output;
+        }
+      }
+      return /** @type {import("../types").InkmapGeoJsonLayer} */ (geojsonLayerConfig);
+    }
+    return null;
+  }
+
+  /**
    * Returns all attributions as text joined by a separator.
    *
    * @param {import("ol/layer/Layer").default} layer The layer to get the attributions from.
@@ -83,29 +195,11 @@ class LayerUtil {
 
     let attributionString;
     if (Array.isArray(attributions)) {
-      attributionString = attributions.map(LayerUtil.getTextFromHtml).join(separator);
+      attributionString = attributions.map(StringUtil.stripHTMLTags).join(separator);
     } else {
-      attributionString = attributions ? LayerUtil.getTextFromHtml(attributions) : '';
+      attributionString = attributions ? StringUtil.stripHTMLTags(attributions) : '';
     }
     return attributionString;
-  };
-
-  /**
-   * Converts a html string into text using DOMParser.
-   *
-   * Credits: https://stackoverflow.com/questions/822452/strip-html-from-text-javascript/47140708#47140708.
-   *
-   * @param {string} html The html to convert.
-   * @returns {string} The output text. Returns an empty string if parsing fails.
-   */
-  static getTextFromHtml = (html) => {
-    try {
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      return doc.body.textContent || '';
-    } catch (error) {
-      Logger.error(error);
-      return '';
-    }
   };
 
 }
