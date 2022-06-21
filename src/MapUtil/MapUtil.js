@@ -1,17 +1,27 @@
-import OlSourceTileWMS from 'ol/source/TileWMS';
-import OlSourceImageWMS from 'ol/source/ImageWMS';
+import {getUid} from 'ol/util';
+import {METERS_PER_UNIT} from 'ol/proj/Units';
+import {toLonLat} from 'ol/proj';
+import OlFormatGeoJSON from 'ol/format/GeoJSON';
+import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
 import OlLayerGroup from 'ol/layer/Group';
 import OlLayerLayer from 'ol/layer/Layer';
-import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
-import {METERS_PER_UNIT} from 'ol/proj/Units';
-import {getUid} from 'ol/util';
+import OlLayerVector from 'ol/layer/Vector';
+import OlSourceImageWMS from 'ol/source/ImageWMS';
+import OlSourceOSM from 'ol/source/OSM';
+import OlSourceTileWMS from 'ol/source/TileWMS';
+import OlSourceVector from 'ol/source/Vector';
+import OlSourceWMTS from 'ol/source/WMTS';
 
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
+import Logger from '@terrestris/base-util/dist/Logger';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 
+import OpenLayersParser from 'geostyler-openlayers-parser';
+
 import findIndex from 'lodash/findIndex';
 import _isString from 'lodash/isString';
+import _isFinite from 'lodash/isFinite';
 
 /**
  * Helper class for the OpenLayers map.
@@ -393,6 +403,157 @@ export class MapUtil {
     return resolution >= layer.get('minResolution')
       && resolution < layer.get('maxResolution');
   }
+
+  /**
+   * Converts a given OpenLayers layer to a inkmap layer spec.
+   *
+   * @param {import("ol/layer/Layer").default} olLayer The layer.
+   *
+   * @return {Promise<any>} Promise of the inmkap layer spec.
+   */
+  static async mapOlLayerToInkmap(olLayer) {
+    const source = olLayer.getSource();
+    const opacity = olLayer.getOpacity();
+
+    if (source instanceof OlSourceTileWMS) {
+      const tileWmsLayer = {
+        type: 'WMS',
+        url: source.getUrls()?.[0] ?? '',
+        opacity: opacity,
+        attribution: '', // todo: get attributions from source
+        layer: source.getParams()?.LAYERS,
+        tiled: true
+      };
+      return tileWmsLayer;
+    } else if (source instanceof OlSourceImageWMS) {
+      const imageWmsLayer = {
+        type: 'WMS',
+        url: source.getUrl() ?? '',
+        opacity: opacity,
+        attribution: '', // todo: get attributions from source
+        layer: source.getParams()?.LAYERS,
+        tiled: false
+      };
+      return imageWmsLayer;
+    } else if (source instanceof OlSourceWMTS) {
+      const olTileGrid = source.getTileGrid();
+      const resolutions = olTileGrid?.getResolutions();
+      const matrixIds = resolutions?.map((res, idx) => idx);
+
+      const tileGrid = {
+        resolutions: olTileGrid?.getResolutions(),
+        extent: olTileGrid?.getExtent(),
+        matrixIds: matrixIds
+      };
+
+      const wmtsLayer = {
+        type: 'WMTS',
+        requestEncoding: source.getRequestEncoding(),
+        url: source.getUrls()?.[0] ?? '',
+        layer: source.getLayer(),
+        projection: source.getProjection().getCode(),
+        matrixSet: source.getMatrixSet(),
+        tileGrid: tileGrid,
+        format: source.getFormat(),
+        opacity: opacity,
+        attribution: '', // todo: get attributions from source
+      };
+      return wmtsLayer;
+    } else if (source instanceof OlSourceOSM) {
+      const osmLayer = {
+        type: 'XYZ',
+        url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        opacity: opacity,
+        attribution: '© OpenStreetMap (www.openstreetmap.org)',
+        tiled: true
+      };
+      return osmLayer;
+    } else if (source instanceof OlSourceVector) {
+      const geojson = new OlFormatGeoJSON().writeFeaturesObject(source.getFeatures());
+      const parser = new OpenLayersParser();
+      const config = {
+        type: 'GeoJSON',
+        geojson: geojson,
+        attribution: '',
+        style: undefined
+      };
+
+      let olStyle = null;
+
+      if (olLayer instanceof OlLayerVector) {
+        olStyle = olLayer.getStyle();
+      }
+
+      // todo: support stylefunction / different styles per feature
+      // const styles = source.getFeatures()?.map(f => f.getStyle());
+
+      if (olStyle) {
+        const gsStyle = await parser.readStyle(olStyle);
+        if (gsStyle.errors) {
+          Logger.error('Geostyler errors: ', gsStyle.errors);
+        }
+        if (gsStyle.warnings) {
+          Logger.warn('Geostyler warnings: ', gsStyle.warnings);
+        }
+        if (gsStyle.unsupportedProperties) {
+          Logger.warn('Detected unsupported style properties: ', gsStyle.unsupportedProperties);
+        }
+        if (gsStyle.output) {
+          // @ts-ignore
+          config.style = gsStyle.output;
+        }
+      }
+      return config;
+    }
+    return null;
+  }
+
+  /**
+   * Converts a given OpenLayers map to an inkmap spec.
+   *
+   * @param {import("ol/Map").default} olMap The ol map.
+   * @param {[number, number] | [number, number, string]} size The output size.
+   * @param {number} dpi The dpi.
+   *
+   * @return {Promise<any>} Promise of the inmkap print spec.
+   */
+  static async generatePrintConfig(olMap, size, dpi) {
+    const unit = olMap.getView().getProjection().getUnits();
+    const resolution = olMap.getView().getResolution();
+    const projection =  olMap.getView().getProjection().getCode();
+    if (resolution === undefined) {
+      throw new Error('Can not determine resolution from map');
+    }
+
+    const scale = MapUtil.getScaleForResolution(resolution, unit);
+    const center = olMap?.getView().getCenter();
+    if (!unit || !center || !_isFinite(resolution)) {
+      throw new Error('Can not determine unit / resolution from map');
+    }
+    const centerLonLat = toLonLat(center, projection);
+
+    const layerPromises = olMap.getAllLayers()
+      .map(MapUtil.mapOlLayerToInkmap);
+
+    return Promise.all(layerPromises)
+      .then((responses) => {
+        const layers = responses.filter(l => l !== null);
+        const config = {
+          layers: layers,
+          size: size,
+          center: centerLonLat,
+          dpi: dpi,
+          scale: scale,
+          projection: projection
+        };
+        return Promise.resolve(config);
+      })
+      .catch((error) => {
+        Logger.error(error);
+        return Promise.reject();
+      });
+  }
+
 }
 
 export default MapUtil;
