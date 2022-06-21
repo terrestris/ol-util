@@ -8,7 +8,6 @@ import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
-import Logger from '@terrestris/base-util/dist/Logger';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import LayerUtil from '../LayerUtil/LayerUtil';
@@ -424,23 +423,17 @@ export class MapUtil {
     const layerPromises = olMap.getAllLayers()
       .map(LayerUtil.mapOlLayerToInkmap);
 
+    const responses = await Promise.all(layerPromises);
+    const layers = responses.filter(l => l !== null);
+    const config = {
+      layers: layers,
+      center: centerLonLat,
+      scale: scale,
+      projection: projection
+    };
+    // ignore typecheck because responses.filter(l => l !== null) is not recognized properly
     // @ts-ignore
-    return Promise.all(layerPromises)
-      .then((responses) => {
-        // ignore typecheck because responses.filter(l => l !== null) is not recognized properly
-        const layers = responses.filter(l => l !== null);
-        const config = {
-          layers: layers,
-          center: centerLonLat,
-          scale: scale,
-          projection: projection
-        };
-        return Promise.resolve(config);
-      })
-      .catch((error) => {
-        Logger.error(error);
-        return Promise.reject();
-      });
+    return config;
   }
 
 }
