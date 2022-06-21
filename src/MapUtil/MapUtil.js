@@ -16,6 +16,7 @@ import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 import Logger from '@terrestris/base-util/dist/Logger';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
+import LayerUtil from '../LayerUtil/LayerUtil';
 
 import OpenLayersParser from 'geostyler-openlayers-parser';
 
@@ -409,32 +410,34 @@ export class MapUtil {
    *
    * @param {import("ol/layer/Layer").default} olLayer The layer.
    *
-   * @return {Promise<any>} Promise of the inmkap layer spec.
+   * @return {Promise<import("../types").InkmapLayer | null>} Promise of the inmkap layer spec.
    */
   static async mapOlLayerToInkmap(olLayer) {
     const source = olLayer.getSource();
     const opacity = olLayer.getOpacity();
+
+    const attributionString = LayerUtil.getLayerAttributionsText(olLayer);
 
     if (source instanceof OlSourceTileWMS) {
       const tileWmsLayer = {
         type: 'WMS',
         url: source.getUrls()?.[0] ?? '',
         opacity: opacity,
-        attribution: '', // todo: get attributions from source
+        attribution: attributionString,
         layer: source.getParams()?.LAYERS,
         tiled: true
       };
-      return tileWmsLayer;
+      return /** @type {import("../types").InkmapWmsLayer} */ (tileWmsLayer);
     } else if (source instanceof OlSourceImageWMS) {
       const imageWmsLayer = {
         type: 'WMS',
         url: source.getUrl() ?? '',
         opacity: opacity,
-        attribution: '', // todo: get attributions from source
+        attribution: attributionString,
         layer: source.getParams()?.LAYERS,
         tiled: false
       };
-      return imageWmsLayer;
+      return /** @type {import("../types").InkmapWmsLayer} */ (imageWmsLayer);
     } else if (source instanceof OlSourceWMTS) {
       const olTileGrid = source.getTileGrid();
       const resolutions = olTileGrid?.getResolutions();
@@ -456,9 +459,9 @@ export class MapUtil {
         tileGrid: tileGrid,
         format: source.getFormat(),
         opacity: opacity,
-        attribution: '', // todo: get attributions from source
+        attribution: attributionString
       };
-      return wmtsLayer;
+      return /** @type {import("../types").InkmapWmtsLayer} */ (wmtsLayer);
     } else if (source instanceof OlSourceOSM) {
       const osmLayer = {
         type: 'XYZ',
@@ -467,14 +470,14 @@ export class MapUtil {
         attribution: '© OpenStreetMap (www.openstreetmap.org)',
         tiled: true
       };
-      return osmLayer;
+      return /** @type {import("../types").InkmapOsmLayer} */ (osmLayer);
     } else if (source instanceof OlSourceVector) {
       const geojson = new OlFormatGeoJSON().writeFeaturesObject(source.getFeatures());
       const parser = new OpenLayersParser();
-      const config = {
+      const geojsonLayerConfig = {
         type: 'GeoJSON',
         geojson: geojson,
-        attribution: '',
+        attribution: attributionString,
         style: undefined
       };
 
@@ -500,24 +503,23 @@ export class MapUtil {
         }
         if (gsStyle.output) {
           // @ts-ignore
-          config.style = gsStyle.output;
+          geojsonLayerConfig.style = gsStyle.output;
         }
       }
-      return config;
+      return /** @type {import("../types").InkmapGeoJsonLayer} */ (geojsonLayerConfig);
     }
     return null;
   }
 
   /**
-   * Converts a given OpenLayers map to an inkmap spec.
+   * Converts a given OpenLayers map to an inkmap spec. Only returns options which can be
+   * derived from a map (center, scale, projection, layers).
    *
    * @param {import("ol/Map").default} olMap The ol map.
-   * @param {[number, number] | [number, number, string]} size The output size.
-   * @param {number} dpi The dpi.
    *
-   * @return {Promise<any>} Promise of the inmkap print spec.
+   * @return {Promise<Partial<import("../types").InkmapPrintSpec>>} Promise of the inmkap print spec.
    */
-  static async generatePrintConfig(olMap, size, dpi) {
+  static async generatePrintConfig(olMap) {
     const unit = olMap.getView().getProjection().getUnits();
     const resolution = olMap.getView().getResolution();
     const projection =  olMap.getView().getProjection().getCode();
@@ -535,14 +537,14 @@ export class MapUtil {
     const layerPromises = olMap.getAllLayers()
       .map(MapUtil.mapOlLayerToInkmap);
 
+    // @ts-ignore
     return Promise.all(layerPromises)
       .then((responses) => {
+        // ignore typecheck because responses.filter(l => l !== null) is not recognized properly
         const layers = responses.filter(l => l !== null);
         const config = {
           layers: layers,
-          size: size,
           center: centerLonLat,
-          dpi: dpi,
           scale: scale,
           projection: projection
         };

@@ -2,6 +2,8 @@ import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceWMTS from 'ol/source/WMTS';
 
+import Logger from '@terrestris/base-util/dist/Logger';
+
 import CapabilitiesUtil from '../CapabilitiesUtil/CapabilitiesUtil';
 
 /**
@@ -66,6 +68,46 @@ class LayerUtil {
 
     return /** @type {[number, number, number, number]} */ (extent);
   }
+
+  /**
+   * Returns all attributions as text joined by a separator.
+   *
+   * @param {import("ol/layer/Layer").default} layer The layer to get the attributions from.
+   * @param {string} separator The separator separating multiple attributions.
+   * @returns {string} The attributions.
+   */
+  static getLayerAttributionsText = (layer, separator = ', ') => {
+    const attributionsFn = layer.getSource()?.getAttributions();
+    // @ts-ignore
+    const attributions = attributionsFn ? attributionsFn(undefined) : null;
+
+    let attributionString;
+    if (Array.isArray(attributions)) {
+      attributionString = attributions.map(LayerUtil.getTextFromHtml).join(separator);
+    } else {
+      attributionString = attributions ? LayerUtil.getTextFromHtml(attributions) : '';
+    }
+    return attributionString;
+  };
+
+
+  /**
+   * Converts a html string into text using DOMParser.
+   *
+   * Credits: https://stackoverflow.com/questions/822452/strip-html-from-text-javascript/47140708#47140708.
+   *
+   * @param {string} html The html to convert.
+   * @returns {string} The output text. Returns an empty string if parsing fails.
+   */
+  static getTextFromHtml = (html) => {
+    try {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      return doc.body.textContent || '';
+    } catch (error) {
+      Logger.error(error);
+      return '';
+    }
+  };
 
 }
 
