@@ -1,17 +1,20 @@
-import OlSourceTileWMS from 'ol/source/TileWMS';
-import OlSourceImageWMS from 'ol/source/ImageWMS';
+import {getUid} from 'ol/util';
+import {METERS_PER_UNIT} from 'ol/proj/Units';
+import {toLonLat} from 'ol/proj';
+import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
 import OlLayerGroup from 'ol/layer/Group';
 import OlLayerLayer from 'ol/layer/Layer';
-import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
-import {METERS_PER_UNIT} from 'ol/proj/Units';
-import {getUid} from 'ol/util';
+import OlSourceImageWMS from 'ol/source/ImageWMS';
+import OlSourceTileWMS from 'ol/source/TileWMS';
 
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
+import LayerUtil from '../LayerUtil/LayerUtil';
 
 import findIndex from 'lodash/findIndex';
 import _isString from 'lodash/isString';
+import _isFinite from 'lodash/isFinite';
 
 /**
  * Helper class for the OpenLayers map.
@@ -393,6 +396,46 @@ export class MapUtil {
     return resolution >= layer.get('minResolution')
       && resolution < layer.get('maxResolution');
   }
+
+  /**
+   * Converts a given OpenLayers map to an inkmap spec. Only returns options which can be
+   * derived from a map (center, scale, projection, layers).
+   *
+   * @param {import("ol/Map").default} olMap The ol map.
+   *
+   * @return {Promise<Partial<import("../types").InkmapPrintSpec>>} Promise of the inmkap print spec.
+   */
+  static async generatePrintConfig(olMap) {
+    const unit = olMap.getView().getProjection().getUnits();
+    const resolution = olMap.getView().getResolution();
+    const projection =  olMap.getView().getProjection().getCode();
+    if (resolution === undefined) {
+      throw new Error('Can not determine resolution from map');
+    }
+
+    const scale = MapUtil.getScaleForResolution(resolution, unit);
+    const center = olMap?.getView().getCenter();
+    if (!unit || !center || !_isFinite(resolution)) {
+      throw new Error('Can not determine unit / resolution from map');
+    }
+    const centerLonLat = toLonLat(center, projection);
+
+    const layerPromises = olMap.getAllLayers()
+      .map(LayerUtil.mapOlLayerToInkmap);
+
+    const responses = await Promise.all(layerPromises);
+    const layers = responses.filter(l => l !== null);
+    const config = {
+      layers: layers,
+      center: centerLonLat,
+      scale: scale,
+      projection: projection
+    };
+    // ignore typecheck because responses.filter(l => l !== null) is not recognized properly
+    // @ts-ignore
+    return config;
+  }
+
 }
 
 export default MapUtil;
