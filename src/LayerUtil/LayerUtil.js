@@ -2,6 +2,7 @@ import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import OlLayerVector from 'ol/layer/Vector';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceOSM from 'ol/source/OSM';
+import OlSourceStamen from 'ol/source/Stamen';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceVector from 'ol/source/Vector';
 import OlSourceWMTS from 'ol/source/WMTS';
@@ -141,6 +142,15 @@ class LayerUtil {
         tiled: true
       };
       return /** @type {import("../types").InkmapOsmLayer} */ (osmLayer);
+    } else if (source instanceof OlSourceStamen) {
+      const stamenLayer = {
+        type: 'XYZ',
+        url: source.getUrls()?.[0],
+        opacity: opacity,
+        attribution: attributionString,
+        tiled: true
+      };
+      return /** @type {import("../types").InkmapLayer} */ (stamenLayer);
     } else if (source instanceof OlSourceVector) {
       const geojson = new OlFormatGeoJSON().writeFeaturesObject(source.getFeatures());
       const parser = new OpenLayersParser();
