@@ -52,7 +52,7 @@
     "@types/geojson": "^7946.0.8",
     "geostyler-openlayers-parser": "^3.1.0",
     "lodash": "^4.17.21",
-    "polygon-splitter": "^0.0.8",
+    "polygon-splitter": "^0.0.10",
     "proj4": "^2.7.5",
     "shpjs": "^4.0.2",
     "typescript": "^4.5.5"
