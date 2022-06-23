@@ -85,7 +85,7 @@ class LayerUtil {
    */
   static async mapOlLayerToInkmap(olLayer) {
     const source = olLayer.getSource();
-    const opacity = olLayer.getOpacity();
+    const opacity = olLayer.getVisible() ? olLayer.getOpacity() : 0;
 
     const attributionString = LayerUtil.getLayerAttributionsText(olLayer);
 
