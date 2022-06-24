@@ -85,7 +85,13 @@ class LayerUtil {
    */
   static async mapOlLayerToInkmap(olLayer) {
     const source = olLayer.getSource();
-    const opacity = olLayer.getVisible() ? olLayer.getOpacity() : 0;
+    if (!olLayer.getVisible()) {
+      // do not include invisible layers
+      return null;
+    }
+    const opacity = olLayer.getOpacity();
+    const legendUrl = olLayer.get('legendUrl');
+    const layerName = olLayer.get('name');
 
     const attributionString = LayerUtil.getLayerAttributionsText(olLayer);
 
@@ -93,20 +99,24 @@ class LayerUtil {
       const tileWmsLayer = {
         type: 'WMS',
         url: source.getUrls()?.[0] ?? '',
-        opacity: opacity,
+        opacity,
         attribution: attributionString,
         layer: source.getParams()?.LAYERS,
-        tiled: true
+        tiled: true,
+        legendUrl,
+        layerName
       };
       return /** @type {import("../types").InkmapWmsLayer} */ (tileWmsLayer);
     } else if (source instanceof OlSourceImageWMS) {
       const imageWmsLayer = {
         type: 'WMS',
         url: source.getUrl() ?? '',
-        opacity: opacity,
+        opacity,
         attribution: attributionString,
         layer: source.getParams()?.LAYERS,
-        tiled: false
+        tiled: false,
+        legendUrl,
+        layerName
       };
       return /** @type {import("../types").InkmapWmsLayer} */ (imageWmsLayer);
     } else if (source instanceof OlSourceWMTS) {
@@ -127,28 +137,34 @@ class LayerUtil {
         layer: source.getLayer(),
         projection: source.getProjection().getCode(),
         matrixSet: source.getMatrixSet(),
-        tileGrid: tileGrid,
+        tileGrid,
         format: source.getFormat(),
-        opacity: opacity,
-        attribution: attributionString
+        opacity,
+        attribution: attributionString,
+        legendUrl,
+        layerName
       };
       return /** @type {import("../types").InkmapWmtsLayer} */ (wmtsLayer);
     } else if (source instanceof OlSourceOSM) {
       const osmLayer = {
         type: 'XYZ',
         url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        opacity: opacity,
+        opacity,
         attribution: '© OpenStreetMap (www.openstreetmap.org)',
-        tiled: true
+        tiled: true,
+        legendUrl,
+        layerName
       };
       return /** @type {import("../types").InkmapOsmLayer} */ (osmLayer);
     } else if (source instanceof OlSourceStamen) {
       const stamenLayer = {
         type: 'XYZ',
         url: source.getUrls()?.[0],
-        opacity: opacity,
+        opacity,
         attribution: attributionString,
-        tiled: true
+        tiled: true,
+        legendUrl,
+        layerName
       };
       return /** @type {import("../types").InkmapLayer} */ (stamenLayer);
     } else if (source instanceof OlSourceVector) {
@@ -156,9 +172,11 @@ class LayerUtil {
       const parser = new OpenLayersParser();
       const geojsonLayerConfig = {
         type: 'GeoJSON',
-        geojson: geojson,
+        geojson,
         attribution: attributionString,
-        style: undefined
+        style: undefined,
+        legendUrl,
+        layerName
       };
 
       let olStyle = null;

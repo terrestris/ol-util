@@ -40,7 +40,9 @@
  *   opacity?: number,
  *   attribution?: string,
  *   layer: string,
- *   tiled?: boolean
+ *   tiled?: boolean,
+ *   legendUrl?: string,
+ *   name?: string
  *  }} InkmapWmsLayer
  */
 
@@ -55,7 +57,9 @@
  *   matrixSet?: string,
  *   tileGrid?: any,
  *   format?: string,
- *   requestEncoding?: string
+ *   requestEncoding?: string,
+ *   legendUrl?: string,
+ *   name?: string
  *  }} InkmapWmtsLayer
  */
 
@@ -64,7 +68,9 @@
  *   type: 'GeoJSON',
  *   attribution?: string,
  *   style: any,
- *   geojson: any
+ *   geojson: any,
+ *   legendUrl?: string,
+ *   name?: string
  *  }} InkmapGeoJsonLayer
  */
 
@@ -74,13 +80,14 @@
  *   url: string,
  *   attribution?: string,
  *   layer?: string,
- *   projection?: string
+ *   projection?: string,
+ *   legendUrl?: string,
+ *   name?: string
  *  }} InkmapWfsLayer
  */
 
 /**
  * @typedef {{
- *   layers: string,
  *   type: 'XYZ';
  *   url: string,
  *   opacity?: number,
@@ -88,12 +95,8 @@
  *   layer?: string,
  *   tiled?: boolean,
  *   projection?: string,
- *   matrixSet?: string,
- *   tileGrid?: any,
- *   style?: any,
- *   format?: string,
- *   requestEncoding?: string,
- *   geojson?: any
+ *   legendUrl?: string,
+ *   name?: string
  *  }} InkmapOsmLayer
  */
 
