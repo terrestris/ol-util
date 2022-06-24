@@ -104,7 +104,7 @@ class LayerUtil {
         layer: source.getParams()?.LAYERS,
         tiled: true,
         legendUrl,
-        layerName
+        name: layerName
       };
       return /** @type {import("../types").InkmapWmsLayer} */ (tileWmsLayer);
     } else if (source instanceof OlSourceImageWMS) {
