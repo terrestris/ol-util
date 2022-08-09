@@ -14,7 +14,7 @@ const curDir = process.cwd();
 
 if (process.argv.length < 3) {
   console.log('please specify target path');
-  console.log('for example ../progemis-th/node_modules/@progemis/progemis-client-lib/');
+  console.log('for example ../react-geo/node_modules/@terrestris/react-geo/');
   process.exit(0);
 }
 

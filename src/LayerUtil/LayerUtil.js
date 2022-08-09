@@ -8,6 +8,8 @@ import OlSourceVector from 'ol/source/Vector';
 import OlSourceWMTS from 'ol/source/WMTS';
 import OpenLayersParser from 'geostyler-openlayers-parser';
 
+import _uniq from 'lodash/uniq';
+
 import Logger from '@terrestris/base-util/dist/Logger';
 import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
 
@@ -93,7 +95,8 @@ class LayerUtil {
     const legendUrl = olLayer.get('legendUrl');
     const layerName = olLayer.get('name');
 
-    const attributionString = LayerUtil.getLayerAttributionsText(olLayer);
+    // todo: introduce config object which hold possible additional configurations
+    const attributionString = LayerUtil.getLayerAttributionsText(olLayer, ' ,', true);
 
     if (source instanceof OlSourceTileWMS) {
       const tileWmsLayer = {
@@ -214,15 +217,20 @@ class LayerUtil {
    *
    * @param {import("ol/layer/Layer").default} layer The layer to get the attributions from.
    * @param {string} separator The separator separating multiple attributions.
+   * @param {boolean} removeDuplicates Whether to remove duplicated attribution
+   * strings or not.
    * @returns {string} The attributions.
    */
-  static getLayerAttributionsText = (layer, separator = ', ') => {
+  static getLayerAttributionsText = (layer, separator = ', ', removeDuplicates = false) => {
     const attributionsFn = layer.getSource()?.getAttributions();
     // @ts-ignore
-    const attributions = attributionsFn ? attributionsFn(undefined) : null;
+    let attributions = attributionsFn ? attributionsFn(undefined) : null;
 
     let attributionString;
     if (Array.isArray(attributions)) {
+      if (removeDuplicates) {
+        attributions = _uniq(attributions);
+      }
       attributionString = attributions.map(StringUtil.stripHTMLTags).join(separator);
     } else {
       attributionString = attributions ? StringUtil.stripHTMLTags(attributions) : '';
