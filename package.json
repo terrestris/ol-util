@@ -77,7 +77,7 @@
     "eslint": "^8.18.0",
     "gh-pages": "^4.0.0",
     "fs-extra": "10.1.0",
-    "jest": "^28.1.2",
+    "jest": "^29.0.0",
     "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^28.1.2",
     "node-pre-gyp": "^0.17.0",
