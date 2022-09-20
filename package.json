@@ -18,7 +18,7 @@
     "build": "npm run test && npm run build:dist && npm run build:declarations",
     "build:declarations": "tsc --emitDeclarationOnly",
     "build:docs": "npm run clean:docs && typedoc",
-    "build:dist": "npm run clean:dist && BABEL_ENV=production babel src --out-dir dist --copy-files --ignore **/*.spec.js --extensions \".ts,.js\"",
+    "build:dist": "npm run clean:dist && BABEL_ENV=production babel src --out-dir dist --copy-files --ignore **/*.spec.js --extensions \".ts,.js\" && npm run build:declarations",
     "clean:dist": "rimraf ./dist/*",
     "clean:docs": "rimraf build/docs",
     "coveralls": "cat coverage/lcov.info | coveralls",

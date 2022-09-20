@@ -2,6 +2,8 @@ import TileLayer from 'ol/layer/Tile';
 import OlLayerGroup from 'ol/layer/Group';
 import MapUtil from '../MapUtil/MapUtil';
 import {getUid} from 'ol';
+import _isNil from 'lodash/isNil';
+import _isEmpty from 'lodash/isEmpty';
 
 /**
  * Helper class for some operations related to permalink function.
@@ -25,10 +27,16 @@ export class PermalinkUtil {
    * @param {(layer: import("ol/layer/Base").default) => boolean} filter Function to filter layers that should be
    *                          added to the link. Default is to add all
    *                          visible layers of type ol/layer/Tile.
+   * @param {string[]} customAttributes Custom layer attributes which will be saved in the permalink for each layer.
    * @return {string} The permalink.
    */
-  static getLink = (map, separator = ';', identifier = l => l.get('name'),
-    filter = l => l instanceof TileLayer && l.getVisible()) => {
+  static getLink = (
+    map,
+    separator = ';',
+    identifier = l => l.get('name'),
+    filter = l => l instanceof TileLayer && l.getVisible(),
+    customAttributes = []
+  ) => {
     const center = map.getView().getCenter()?.join(separator) ?? '';
     const zoom = map.getView().getZoom()?.toString() ?? '';
     const layers = MapUtil.getAllLayers(map);
@@ -37,6 +45,25 @@ export class PermalinkUtil {
       .map(identifier)
       .join(separator);
     const link = new URL(window.location.href);
+
+    if (customAttributes.length > 0) {
+      /** @type {{}[]} */
+      const customLayerAttributes = [];
+      layers.forEach((layer) => {
+        /** @type {any} */
+        const config = {};
+        customAttributes.forEach((attribute) => {
+          if (!_isNil(layer.get(attribute))) {
+            config[attribute] = layer.get(attribute);
+          }
+        });
+        if (!_isEmpty(config)) {
+          customLayerAttributes.push(config);
+        }
+      });
+      const customLayerAttributesString = JSON.stringify(customLayerAttributes);
+      link.searchParams.set('customLayerAttributes', customLayerAttributesString);
+    }
 
     link.searchParams.set('center', center);
     link.searchParams.set('zoom', zoom);
@@ -58,6 +85,7 @@ export class PermalinkUtil {
    * @param {(layer: import("ol/layer/Base").default) => boolean} filter Function to filter layers that should be
    *                          handled by the link. Default is to consider all
    *                          current map layers of type ol/layer/Tile.
+   * @return {string | null} The customLayerAttributes, if defined. Otherwise null.
    */
   static applyLink = (map, separator = ';', identifier = l => l.get('name'),
     filter = l => l instanceof TileLayer) => {
@@ -65,6 +93,7 @@ export class PermalinkUtil {
     const center = url.searchParams.get('center');
     const zoom = url.searchParams.get('zoom');
     const layers = url.searchParams.get('layers');
+    const customLayerAttributes = url.searchParams.get('customLayerAttributes');
     const allLayers = MapUtil.getAllLayers(map);
 
     if (layers) {
@@ -95,6 +124,11 @@ export class PermalinkUtil {
     if (zoom) {
       map.getView().setZoom(parseInt(zoom, 10));
     }
+
+    if (customLayerAttributes) {
+      return customLayerAttributes;
+    }
+    return null;
   };
 
   /**
