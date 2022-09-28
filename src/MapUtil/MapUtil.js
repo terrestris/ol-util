@@ -104,7 +104,9 @@ export class MapUtil {
     return layers.flatMap(function(layer) {
       /** @type {import("ol/layer/Base").default[]} */
       let layers = [];
-      if (layer instanceof OlLayerGroup) {
+      // @ts-ignore
+      if (layer.getLayers) {
+        // @ts-ignore
         layers = MapUtil.getAllLayers(layer, filter);
       }
       if (filter(layer)) {
@@ -203,7 +205,9 @@ export class MapUtil {
    */
   static getLayersByGroup(map, layerGroup) {
     return layerGroup.getLayers().getArray().flatMap((layer) => {
-      if (layer instanceof OlLayerGroup) {
+      // @ts-ignore
+      if (layer.getLayers) {
+        // @ts-ignore
         return MapUtil.getLayersByGroup(map, layer);
       } else {
         return [/** @type {import("ol/layer/Layer").default} */ (layer)];
@@ -245,7 +249,9 @@ export class MapUtil {
 
     if (layers.indexOf(layer) < 0) {
       layers.forEach((childLayer) => {
-        if (childLayer instanceof OlLayerGroup && !info.groupLayer) {
+        // @ts-ignore
+        if (childLayer.getLayers && !info.groupLayer) {
+          // @ts-ignore
           info = MapUtil.getLayerPositionInfo(layer, childLayer);
         }
       });
