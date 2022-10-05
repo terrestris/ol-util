@@ -47,10 +47,12 @@ class LayerUtil {
    * appropriate Capabilities document.
    *
    * @param {import("../types").WMSLayer} layer
+   * @param {RequestInit} fetchOpts Optional fetch options to make use of
+   *                                while requesting the Capabilities.
    * @returns {Promise<[number, number, number, number]>} The extent of the layer.
    */
-  static async getExtentForLayer(layer) {
-    const capabilities = await CapabilitiesUtil.getWmsCapabilitiesByLayer(layer);
+  static async getExtentForLayer(layer, fetchOpts = {}) {
+    const capabilities = await CapabilitiesUtil.getWmsCapabilitiesByLayer(layer, fetchOpts);
 
     if (!capabilities?.Capability?.Layer?.Layer) {
       throw new Error('Unexpected format of the Capabilities.');

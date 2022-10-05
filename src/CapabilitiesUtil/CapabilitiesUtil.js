@@ -20,10 +20,12 @@ class CapabilitiesUtil {
    * Fetches and parses the WMS Capabilities document for the given URL.
    *
    * @param {string} capabilitiesUrl Url to WMS capabilities document.
+   * @param {RequestInit} fetchOpts Optional fetch options to make use of
+   *                                while requesting the Capabilities.
    * @return {Promise<any>} An object representing the WMS capabilities.
    */
-  static async getWmsCapabilities(capabilitiesUrl) {
-    const capabilitiesResponse = await fetch(capabilitiesUrl);
+  static async getWmsCapabilities(capabilitiesUrl, fetchOpts = {}) {
+    const capabilitiesResponse = await fetch(capabilitiesUrl, fetchOpts);
 
     if (!capabilitiesResponse.ok) {
       throw new Error('Could not get capabilities.');
@@ -40,12 +42,14 @@ class CapabilitiesUtil {
    * Fetches and parses the WMS Capabilities document for the given layer.
    *
    * @param {import("../types").WMSLayer} layer The layer to the get the Capabilites for.
+   * @param {RequestInit} fetchOpts Optional fetch options to make use of
+   *                                while requesting the Capabilities.
    * @return {Promise<any>} An object representing the WMS capabilities.
    */
-  static async getWmsCapabilitiesByLayer(layer) {
+  static async getWmsCapabilitiesByLayer(layer, fetchOpts = {}) {
     const capabilitiesUrl = this.getCapabilitiesUrl(layer);
 
-    return await this.getWmsCapabilities(capabilitiesUrl);
+    return await this.getWmsCapabilities(capabilitiesUrl, fetchOpts);
   }
 
   /**
