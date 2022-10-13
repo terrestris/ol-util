@@ -140,7 +140,7 @@ class LayerUtil {
         requestEncoding: source.getRequestEncoding(),
         url: source.getUrls()?.[0] ?? '',
         layer: source.getLayer(),
-        projection: source.getProjection().getCode(),
+        projection: source.getProjection()?.getCode(),
         matrixSet: source.getMatrixSet(),
         tileGrid,
         format: source.getFormat(),
