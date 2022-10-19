@@ -266,7 +266,7 @@ export class MapUtil {
    * @param {OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>} layer The layer that you want to have a
    * legendUrl for.
    * @param {Object} extraParams
-   * @return {string} The getLegendGraphicUrl.
+   * @return {string | undefined} The getLegendGraphicUrl.
    */
   static getLegendGraphicUrl(
     layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
@@ -276,8 +276,8 @@ export class MapUtil {
   ): string {
     const source = layer.getSource();
 
-    if (!source) {
-      throw new Error('Layer has no source.');
+    if (!(source instanceof OlSourceTileWMS || source instanceof OlSourceImageWMS)) {
+      return;
     }
 
     const url = (source instanceof OlSourceTileWMS
