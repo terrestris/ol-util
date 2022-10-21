@@ -84,7 +84,6 @@ export class ProjectionUtil {
    *   as well or not. Default is true.
    */
   static initProj4DefinitionMappings(customCrsMappings: CrsDefinition, useDefaultMappings = true) {
-    /** @type {Record<string, string>} */
     let proj4CrsMappings: CrsDefinition = {};
 
     if (useDefaultMappings) {

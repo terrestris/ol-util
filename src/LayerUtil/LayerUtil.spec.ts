@@ -57,7 +57,8 @@ describe('LayerUtil', () => {
             matrixSet: 'test',
             tileGrid: new OlWMTSTileGrid({
               matrixIds: [],
-              resolutions: []
+              resolutions: [],
+              origin: [19, 9]
             }),
             style: 'default'
           }),

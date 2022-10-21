@@ -51,7 +51,6 @@ export class PermalinkUtil {
     const link = new URL(window.location.href);
 
     if (customAttributes.length > 0) {
-      /** @type {{}[]} */
       const customLayerAttributes: {
         [key: string]: any;
       }[] = [];

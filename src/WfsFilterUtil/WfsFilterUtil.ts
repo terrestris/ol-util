@@ -5,7 +5,7 @@ import OlFormatWFS, { WriteGetFeatureOptions } from 'ol/format/WFS';
 
 export type AttributeDetails = {
   attributeName: string;
-  type: 'number' | 'int' | 'text';
+  type: 'number' | 'int' | 'string';
   exactSearch?: boolean;
   matchCase?: boolean;
 };
@@ -14,11 +14,11 @@ export type SearchConfig = {
   featureNS: string;
   featureTypes?: string[];
   featurePrefix: string;
-  geometryName: string;
-  maxFeatures: number;
+  geometryName?: string;
+  maxFeatures?: number;
   outputFormat?: string;
-  srsName: string;
-  wfsFormatOptions: string;
+  srsName?: string;
+  wfsFormatOptions?: string;
   attributeDetails: AttributeDetails[];
 };
 
@@ -36,9 +36,8 @@ class WfsFilterUtil {
    * Currently, supports EQUALTO and LIKE filters only, which can be combined with
    * OR filter if searchAttributes array contains multiple values though.
    *
-   * @param {string} featureType Name of feature type to be used in filter.
    * @param {string} searchTerm Search value.
-   * @param {SearchConfig} [searchConfig] An object mapping feature types to an array of
+   * @param attributeDetails
    *   attributes that should be searched through.
    * @return {OlFormatFilter} Filter to be used with WFS GetFeature requests.
    * @private

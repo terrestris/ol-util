@@ -2,6 +2,7 @@
 
 import OlFeature from 'ol/Feature';
 import OlFormatGeoJSON from 'ol/format/GeoJSON';
+import OlGeometry from 'ol/geom/Geometry';
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomMultiLineString from 'ol/geom/MultiLineString';
 import OlGeomMultiPoint from 'ol/geom/MultiPoint';
@@ -13,13 +14,13 @@ import {
   boxCoords,
   boxCoords2,
   boxCoords3,
-  boxCoords4,
+  boxCoords4, differenceBoxCoords,
   expectedMultiPolygon,
   holeCoords2,
   holeCoords2CutLine,
   holeCoords2ExpPoly1,
   holeCoords2ExpPoly2,
-  holeCoords2ExpPoly3,
+  holeCoords2ExpPoly3, intersectionCoords,
   lineStringCoords,
   lineStringCoords2,
   lineStringLFormedCoords,
@@ -38,7 +39,8 @@ import {
   splitUFormerdCoords1,
   splitUFormerdCoords2,
   splitUFormerdCoords3,
-  uFormedPolygonCoords
+  uFormedPolygonCoords,
+  unionedBoxCoordinates
 } from '../../assets/TestCoords';
 import { GeometryUtil, } from '../index';
 
@@ -352,8 +354,11 @@ describe('GeometryUtil', () => {
         const mergedPoint = GeometryUtil.mergeGeometries([testPoint1, testPoint2]);
         const separatedPoints = GeometryUtil.separateGeometries(mergedPoint);
         expect(Array.isArray(separatedPoints)).toBe(true);
-        expect(separatedPoints[0].getCoordinates()).toEqual(pointCoords);
-        expect(separatedPoints[1].getCoordinates()).toEqual(pointCoords2);
+        expect(separatedPoints[0]).toBeInstanceOf(OlGeomPoint);
+        const firstPoint = separatedPoints[0] as OlGeomPoint;
+        const secondPoint = separatedPoints[1] as OlGeomPoint;
+        expect(firstPoint.getCoordinates()).toEqual(pointCoords);
+        expect(secondPoint.getCoordinates()).toEqual(pointCoords2);
       });
       it('can split a single ol.geom.MultiPolygoin into an array of ol.geom.Polygon', () => {
         const testPolygon1 = new OlGeomPolygon(boxCoords);
@@ -361,8 +366,11 @@ describe('GeometryUtil', () => {
         const mergedPolygon = GeometryUtil.mergeGeometries([testPolygon1, testPolygon2]);
         const separatedPolygons = GeometryUtil.separateGeometries(mergedPolygon);
         expect(Array.isArray(separatedPolygons)).toBe(true);
-        expect(separatedPolygons[0].getCoordinates()).toEqual(boxCoords);
-        expect(separatedPolygons[1].getCoordinates()).toEqual(boxCoords3);
+        expect(separatedPolygons[0]).toBeInstanceOf(OlGeomPolygon);
+        const firstPolygon = separatedPolygons[0] as OlGeomPolygon;
+        const secondPolygon = separatedPolygons[1] as OlGeomPolygon;
+        expect(firstPolygon.getCoordinates()).toEqual(boxCoords);
+        expect(secondPolygon.getCoordinates()).toEqual(boxCoords3);
       });
       it('can split a single ol.geom.MultiLineString into an array of ol.geom.LineString', () => {
         const testLineString1 = new OlGeomLineString(lineStringCoords);
@@ -370,8 +378,11 @@ describe('GeometryUtil', () => {
         const mergedLineString = GeometryUtil.mergeGeometries([testLineString1, testLineString2]);
         const separatedLineStrings = GeometryUtil.separateGeometries(mergedLineString);
         expect(Array.isArray(separatedLineStrings)).toBe(true);
-        expect(separatedLineStrings[0].getCoordinates()).toEqual(lineStringCoords);
-        expect(separatedLineStrings[1].getCoordinates()).toEqual(lineStringCoords2);
+        expect(separatedLineStrings[0]).toBeInstanceOf(OlGeomLineString);
+        const firstLineString = separatedLineStrings[0] as OlGeomLineString;
+        const secondLineString = separatedLineStrings[1] as OlGeomLineString;
+        expect(firstLineString.getCoordinates()).toEqual(lineStringCoords);
+        expect(secondLineString.getCoordinates()).toEqual(lineStringCoords2);
       });
       it('can split multiple mixed MultiGeometries into an array of ol.geom.Geomtries', () => {
         const testPoint1 = new OlGeomPoint(pointCoords);
@@ -383,15 +394,24 @@ describe('GeometryUtil', () => {
         const testLineString1 = new OlGeomLineString(lineStringCoords);
         const testLineString2 = new OlGeomLineString(lineStringCoords2);
         const mergedLineString = GeometryUtil.mergeGeometries([testLineString1, testLineString2]);
-        const mixedMultiGeoemtries = [mergedPoint, mergedPolygon, mergedLineString];
-        const separatedGeometries = GeometryUtil.separateGeometries(mixedMultiGeoemtries);
+        const mixedMultiGeometries = [mergedPoint, mergedPolygon, mergedLineString];
+        const separatedGeometries = GeometryUtil.separateGeometries(mixedMultiGeometries);
         expect(Array.isArray(separatedGeometries)).toBe(true);
-        expect(separatedGeometries[0].getCoordinates()).toEqual(pointCoords);
-        expect(separatedGeometries[1].getCoordinates()).toEqual(pointCoords2);
-        expect(separatedGeometries[2].getCoordinates()).toEqual(boxCoords);
-        expect(separatedGeometries[3].getCoordinates()).toEqual(boxCoords3);
-        expect(separatedGeometries[4].getCoordinates()).toEqual(lineStringCoords);
-        expect(separatedGeometries[5].getCoordinates()).toEqual(lineStringCoords2);
+        expect(separatedGeometries.length).toEqual(6);
+
+        expect(separatedGeometries[0]).toBeInstanceOf(OlGeomPoint);
+        expect(separatedGeometries[1]).toBeInstanceOf(OlGeomPoint);
+        expect(separatedGeometries[2]).toBeInstanceOf(OlGeomPolygon);
+        expect(separatedGeometries[3]).toBeInstanceOf(OlGeomPolygon);
+        expect(separatedGeometries[4]).toBeInstanceOf(OlGeomLineString);
+        expect(separatedGeometries[5]).toBeInstanceOf(OlGeomLineString);
+
+        expect((separatedGeometries[0] as OlGeomPoint).getCoordinates()).toEqual(pointCoords);
+        expect((separatedGeometries[1] as OlGeomPoint).getCoordinates()).toEqual(pointCoords2);
+        expect((separatedGeometries[2] as OlGeomPolygon).getCoordinates()).toEqual(boxCoords);
+        expect((separatedGeometries[3] as OlGeomPolygon).getCoordinates()).toEqual(boxCoords3);
+        expect((separatedGeometries[4] as OlGeomLineString).getCoordinates()).toEqual(lineStringCoords);
+        expect((separatedGeometries[5] as OlGeomLineString).getCoordinates()).toEqual(lineStringCoords2);
       });
       it('can split multiple mixed MultiGeometries and SingelGeometries into an array of ol.geom.Geomtries', () => {
         const testPoint1 = new OlGeomPoint(pointCoords);
@@ -402,9 +422,15 @@ describe('GeometryUtil', () => {
         const mixedMultiGeoemtries = [mergedPoint, testPolygon1, testPolygon2];
         const separatedGeometries = GeometryUtil.separateGeometries(mixedMultiGeoemtries);
         expect(Array.isArray(separatedGeometries)).toBe(true);
-        expect(separatedGeometries[0].getCoordinates()).toEqual(pointCoords);
-        expect(separatedGeometries[1].getCoordinates()).toEqual(pointCoords2);
-        expect(separatedGeometries[2].getCoordinates()).toEqual(boxCoords);
+        expect(separatedGeometries.length).toEqual(4);
+        expect(separatedGeometries[0]).toBeInstanceOf(OlGeomPoint);
+        expect(separatedGeometries[1]).toBeInstanceOf(OlGeomPoint);
+        expect(separatedGeometries[2]).toBeInstanceOf(OlGeomPolygon);
+        expect(separatedGeometries[3]).toBeInstanceOf(OlGeomPolygon);
+        expect((separatedGeometries[0] as OlGeomPoint).getCoordinates()).toEqual(pointCoords);
+        expect((separatedGeometries[1] as OlGeomPoint).getCoordinates()).toEqual(pointCoords2);
+        expect((separatedGeometries[2] as OlGeomPolygon).getCoordinates()).toEqual(boxCoords);
+        expect((separatedGeometries[3] as OlGeomPolygon).getCoordinates()).toEqual(boxCoords3);
       });
     });
 
@@ -453,125 +479,131 @@ describe('GeometryUtil', () => {
       });
     });
 
-    // describe('#union', () => {
-    //   describe('with ol.Feature as params', () => {
-    //     it('unions multiple instances of ol.geom.Polygon into one ol.geom.MultiPolygon', () => {
-    //       const poly1 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords)
-    //       });
-    //       const poly2 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords2)
-    //       });
-    //       const unionedFeature = GeometryUtil.union([poly1, poly2], 'EPSG:4326');
-    //       expect(unionedFeature instanceof OlFeature).toBe(true);
-    //       expect(unionedFeature.getGeometry().getCoordinates()).toEqual(unionedBoxCoordinates);
-    //     });
-    //
-    //     it('unions multiple instances of ol.geom.MultiPolygon into one ol.geom.MultiPolygon', () => {
-    //       const multiPoly1 = new OlFeature({
-    //         geometry: new OlGeomMultiPolygon([boxCoords])
-    //       });
-    //       const multiPoly2 = new OlFeature({
-    //         geometry: new OlGeomMultiPolygon([boxCoords2])
-    //       });
-    //       const unionedFeature = GeometryUtil.union([multiPoly1, multiPoly2], 'EPSG:4326');
-    //       expect(unionedFeature instanceof OlFeature).toBe(true);
-    //       expect(unionedFeature.getGeometry().getCoordinates()).toEqual(unionedBoxCoordinates);
-    //     });
-    //   });
-    //   describe('with ol.geom.Geometry as params', () => {
-    //     it('unions multiple instances of ol.geom.Polygon into one ol.geom.MultiPolygon', () => {
-    //       const poly1 = new OlGeomPolygon(boxCoords);
-    //       const poly2 = new OlGeomPolygon(boxCoords2);
-    //       const unionedGeometry = GeometryUtil.union([poly1, poly2], 'EPSG:4326');
-    //       expect(unionedGeometry instanceof OlGeomGeometry).toBe(true);
-    //       expect(unionedGeometry.getCoordinates()).toEqual(unionedBoxCoordinates);
-    //     });
-    //   });
-    // });
-    //
-    // describe('#difference', () => {
-    //   describe('with ol.Feature as params', () => {
-    //     it('returns the difference of two instances of ol.geom.Polygon', () => {
-    //       const poly1 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords)
-    //       });
-    //       const poly2 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords2)
-    //       });
-    //       const differenceFeature = GeometryUtil.difference(poly1, poly2, 'EPSG:4326');
-    //       expect(differenceFeature instanceof OlFeature).toBe(true);
-    //       expect(differenceFeature.getGeometry().getCoordinates()).toEqual(differenceBoxCoords);
-    //     });
-    //     it('returns poly1 if no difference is found', () => {
-    //       const poly1 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords)
-    //       });
-    //       const poly2 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords4)
-    //       });
-    //       const differenceFeature = GeometryUtil.difference(poly1, poly2, 'EPSG:4326');
-    //       expect(differenceFeature instanceof OlFeature).toBe(true);
-    //       expect(differenceFeature.getGeometry().getCoordinates()).toEqual(poly1.getGeometry().getCoordinates());
-    //     });
-    //   });
-    //   describe('with ol.geom.Geometry as params', () => {
-    //     it('returns the difference of two instances of ol.geom.Polygon', () => {
-    //       const poly1 = new OlGeomPolygon(boxCoords);
-    //       const poly2 = new OlGeomPolygon(boxCoords2);
-    //       const differenceGeometry = GeometryUtil.difference(poly1, poly2, 'EPSG:4326');
-    //       expect(differenceGeometry instanceof OlGeomGeometry).toBe(true);
-    //       expect(differenceGeometry.getCoordinates()).toEqual(differenceBoxCoords);
-    //     });
-    //     it('returns poly1 if no difference is found', () => {
-    //       const poly1 = new OlGeomPolygon(boxCoords);
-    //       const poly2 = new OlGeomPolygon(boxCoords4);
-    //       const differenceGeometry = GeometryUtil.difference(poly1, poly2, 'EPSG:4326');
-    //       expect(differenceGeometry instanceof OlGeomGeometry).toBe(true);
-    //       expect(differenceGeometry.getCoordinates()).toEqual(poly1.getCoordinates());
-    //     });
-    //   });
-    // });
-    //
-    // describe('#intersection', () => {
-    //   describe('with ol.Feature as params', () => {
-    //     it('returns the intersection of two instances of ol.geom.Polygon', () => {
-    //       const poly1 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords)
-    //       });
-    //       const poly2 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords3)
-    //       });
-    //       const intersectionFeature = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
-    //       expect(intersectionFeature instanceof OlFeature).toBe(true);
-    //       expect(intersectionFeature.getGeometry().getCoordinates()).toEqual(intersectionCoords);
-    //     });
-    //     it('returns null if no intersection is found', () => {
-    //       const poly1 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords)
-    //       });
-    //       const poly2 = new OlFeature({
-    //         geometry: new OlGeomPolygon(boxCoords4)
-    //       });
-    //       const intersectionFeature = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
-    //       expect(intersectionFeature).toBe(null);
-    //     });
-    //   });
-    //   describe('with ol.geom.Geometry as params', () => {
-    //     it('returns the intersection of two instances of ol.geom.Polygon', () => {
-    //       const poly1 = new OlGeomPolygon(boxCoords);
-    //       const poly2 = new OlGeomPolygon(boxCoords3);
-    //       const intersectionGeometry = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
-    //       expect(intersectionGeometry instanceof OlGeomGeometry).toBe(true);
-    //       expect(intersectionGeometry.getCoordinates()).toEqual(intersectionCoords);
-    //     });
-    //     it('returns null if no intersection is found', () => {
-    //       const poly1 = new OlGeomPolygon(boxCoords);
-    //       const poly2 = new OlGeomPolygon(boxCoords4);
-    //       const intersectionGeometry = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
-    //       expect(intersectionGeometry).toBe(null);
-    //     });
-    //   });
-    // });
+    describe('#union', () => {
+      describe('with ol.Feature as params', () => {
+        it('unions multiple instances of ol.geom.Polygon into one ol.geom.MultiPolygon', () => {
+          const poly1 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords)
+          });
+          const poly2 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords2)
+          });
+          const unionedFeature: OlFeature<OlGeomPolygon> =
+            GeometryUtil.union([poly1, poly2], 'EPSG:4326') as OlFeature<OlGeomPolygon>;
+          expect(unionedFeature).toBeDefined();
+          expect(unionedFeature.getGeometry()).toBeDefined();
+          expect(unionedFeature?.getGeometry()?.getCoordinates()).toEqual(unionedBoxCoordinates);
+        });
+
+        it('unions multiple instances of ol.geom.MultiPolygon into one ol.geom.MultiPolygon', () => {
+          const multiPoly1 = new OlFeature({
+            geometry: new OlGeomMultiPolygon([boxCoords])
+          });
+          const multiPoly2 = new OlFeature({
+            geometry: new OlGeomMultiPolygon([boxCoords2])
+          });
+          const unionedFeature = GeometryUtil.union([multiPoly1, multiPoly2], 'EPSG:4326');
+          expect(unionedFeature instanceof OlFeature).toBe(true);
+          expect((unionedFeature as OlFeature<OlGeomMultiPolygon>)!.getGeometry()!
+            .getCoordinates()).toEqual(unionedBoxCoordinates);
+        });
+      });
+      describe('with ol.geom.Geometry as params', () => {
+        it('unions multiple instances of ol.geom.Polygon into one ol.geom.MultiPolygon', () => {
+          const poly1 = new OlGeomPolygon(boxCoords);
+          const poly2 = new OlGeomPolygon(boxCoords2);
+          const unionedGeometry = GeometryUtil.union([poly1, poly2], 'EPSG:4326');
+          expect(unionedGeometry).toBeInstanceOf(OlGeomPolygon);
+          expect((unionedGeometry as OlGeomPolygon).getCoordinates()).toEqual(unionedBoxCoordinates);
+        });
+      });
+    });
+
+    describe('#difference', () => {
+      describe('with ol.Feature as params', () => {
+        it('returns the difference of two instances of ol.geom.Polygon', () => {
+          const poly1 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords)
+          });
+          const poly2 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords2)
+          });
+          const differenceFeature = GeometryUtil.difference(poly1, poly2, 'EPSG:4326');
+          expect(differenceFeature instanceof OlFeature).toBe(true);
+          expect((differenceFeature as OlFeature<OlGeomPolygon | OlGeomMultiPolygon>)!.getGeometry()!.getCoordinates())
+            .toEqual(differenceBoxCoords);
+        });
+        it('returns poly1 if no difference is found', () => {
+          const poly1 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords)
+          });
+          const poly2 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords4)
+          });
+          const differenceFeature = GeometryUtil.difference(poly1, poly2, 'EPSG:4326');
+          expect(differenceFeature instanceof OlFeature).toBe(true);
+          expect((differenceFeature as OlFeature<OlGeomPolygon | OlGeomMultiPolygon>)!.getGeometry()!.getCoordinates())
+            .toEqual(poly1?.getGeometry()?.getCoordinates());
+        });
+      });
+      describe('with ol.geom.Geometry as params', () => {
+        it('returns the difference of two instances of ol.geom.Polygon', () => {
+          const poly1 = new OlGeomPolygon(boxCoords);
+          const poly2 = new OlGeomPolygon(boxCoords2);
+          const differenceGeometry = GeometryUtil.difference(poly1, poly2, 'EPSG:4326');
+          expect(differenceGeometry instanceof OlGeometry).toBe(true);
+          expect((differenceGeometry as OlGeomMultiPolygon).getCoordinates()).toEqual(differenceBoxCoords);
+        });
+        it('returns poly1 if no difference is found', () => {
+          const poly1 = new OlGeomPolygon(boxCoords);
+          const poly2 = new OlGeomPolygon(boxCoords4);
+          const differenceGeometry = GeometryUtil.difference(poly1, poly2, 'EPSG:4326');
+          expect(differenceGeometry instanceof OlGeometry).toBe(true);
+          expect((differenceGeometry as OlGeomPolygon).getCoordinates()).toEqual(poly1.getCoordinates());
+        });
+      });
+    });
+
+    describe('#intersection', () => {
+      describe('with ol.Feature as params', () => {
+        it('returns the intersection of two instances of ol.geom.Polygon', () => {
+          const poly1 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords)
+          });
+          const poly2 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords3)
+          });
+          const intersectionFeature = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
+          expect(intersectionFeature instanceof OlFeature).toBe(true);
+          expect((intersectionFeature as OlFeature<OlGeomPolygon>)!.getGeometry()!.getCoordinates())
+            .toEqual(intersectionCoords);
+        });
+        it('returns null if no intersection is found', () => {
+          const poly1 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords)
+          });
+          const poly2 = new OlFeature({
+            geometry: new OlGeomPolygon(boxCoords4)
+          });
+          const intersectionFeature = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
+          expect(intersectionFeature).toBeUndefined();
+        });
+      });
+      describe('with ol.geom.Geometry as params', () => {
+        it('returns the intersection of two instances of ol.geom.Polygon', () => {
+          const poly1 = new OlGeomPolygon(boxCoords);
+          const poly2 = new OlGeomPolygon(boxCoords3);
+          const intersectionGeometry = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
+          expect(intersectionGeometry).toBeInstanceOf(OlGeomPolygon);
+          expect((intersectionGeometry as OlGeomPolygon).getCoordinates()).toEqual(intersectionCoords);
+        });
+        it('returns null if no intersection is found', () => {
+          const poly1 = new OlGeomPolygon(boxCoords);
+          const poly2 = new OlGeomPolygon(boxCoords4);
+          const intersectionGeometry = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
+          expect(intersectionGeometry).toBeUndefined();
+        });
+      });
+    });
   });
 });

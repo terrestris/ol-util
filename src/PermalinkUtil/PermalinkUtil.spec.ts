@@ -190,6 +190,9 @@ describe('PermalinkUtil', () => {
         }));
 
         const link = 'http://fake?zoom=3&center=10|20&layers=peter|pan';
+        // @ts-ignore
+        delete global.window.location;
+        global.window = Object.create(window);
         Object.defineProperty(window, 'location', {
           value: {
             href: link
