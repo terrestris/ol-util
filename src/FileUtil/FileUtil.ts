@@ -1,7 +1,9 @@
+import { FeatureCollection } from 'geojson';
 import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import OlLayerVector from 'ol/layer/Vector';
+import OlMap from 'ol/Map';
 import OlSourceVector from 'ol/source/Vector';
-import shp from 'shpjs';
+import shp, { FeatureCollectionWithFilename } from 'shpjs';
 
 /**
  * Helper class for adding layers from various file formats.
@@ -15,12 +17,12 @@ export class FileUtil {
    * @param {File} file the file to read the geojson from
    * @param {import("ol/Map").default} map the map to add the layer to
    */
-  static addGeojsonLayerFromFile(file, map) {
+  static addGeojsonLayerFromFile(file: File, map: OlMap): void {
     const reader = new FileReader();
     reader.readAsText(file);
     reader.addEventListener('loadend', () => {
-      const content = reader.result;
-      FileUtil.addGeojsonLayer(/** @type {string} */ (content), map);
+      const content = reader.result as string;
+      FileUtil.addGeojsonLayer(content, map);
     });
   }
 
@@ -29,12 +31,12 @@ export class FileUtil {
    * @param {File} file the file to read the geojson from
    * @param {import("ol/Map").default} map the map to add the layer to
    */
-  static addShpLayerFromFile(file, map) {
+  static addShpLayerFromFile(file: File, map: OlMap): void {
     const reader = new FileReader();
     reader.readAsArrayBuffer(file);
     reader.addEventListener('loadend', () => {
-      const blob = /** @type {ArrayBuffer} */(reader.result);
-      shp(blob).then(json => {
+      const blob = reader.result as ArrayBuffer;
+      shp(blob).then((json: FeatureCollectionWithFilename | FeatureCollectionWithFilename[]) => {
         FileUtil.addGeojsonLayer(json, map);
       });
     });
@@ -45,7 +47,7 @@ export class FileUtil {
    * @param {string|object} json the geojson string or object
    * @param {import("ol/Map").default} map the map to add the layer to
    */
-  static addGeojsonLayer(json, map) {
+  static addGeojsonLayer(json: string | FeatureCollection | FeatureCollection[], map: OlMap) {
     const format = new OlFormatGeoJSON();
     const features = format.readFeatures(json);
     const layer = new OlLayerVector({

@@ -1,39 +1,12 @@
 {
   "extends": [
-    "eslint:recommended"
+    "@terrestris/eslint-config-typescript"
   ],
-  "plugins": [],
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "parser": "@babel/eslint-parser",
-  "globals": {
-    "Promise": false
-  },
+  "plugins": ["simple-import-sort"],
   "rules": {
-    "no-console": "error",
-    "indent": ["error", 2, { "SwitchCase": 1 }],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "semi": ["error", "always"],
-    "one-var": ["error", "never"],
-    "no-confusing-arrow": "error",
-    "no-unused-vars": ["error", {
-      "ignoreRestSiblings": true
-    }],
-    "key-spacing": ["error", {
-      "beforeColon": false,
-      "afterColon": true
-    }],
-    "require-jsdoc": ["error", {
-      "require": {
-        "FunctionDeclaration": true,
-        "MethodDefinition": true,
-        "ClassDeclaration": true,
-        "ArrowFunctionExpression": true
-      }
-    }],
-    "space-infix-ops": ["error", {"int32Hint": false}]
+    "@typescript-eslint/member-ordering": "off",
+    "no-underscore-dangle": "off",
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": "warn"
   }
 }

@@ -1,20 +1,29 @@
-import {getUid} from 'ol/util';
-import {METERS_PER_UNIT} from 'ol/proj/Units';
-import {toLonLat} from 'ol/proj';
+import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
+import { isNil } from 'lodash';
+import findIndex from 'lodash/findIndex';
+import _isFinite from 'lodash/isFinite';
+import _isString from 'lodash/isString';
+import OlFeature from 'ol/Feature';
+import OlGeometry from 'ol/geom/Geometry';
 import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
+import OlBaseLayer from 'ol/layer/Base';
 import OlLayerGroup from 'ol/layer/Group';
-import OlLayerLayer from 'ol/layer/Layer';
+import OlLayerImage from 'ol/layer/Image';
+import OlLayerTile from 'ol/layer/Tile';
+import OlMap from 'ol/Map';
+import { toLonLat } from 'ol/proj';
+import { METERS_PER_UNIT } from 'ol/proj/Units';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
-
-import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
+import { getUid } from 'ol/util';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import LayerUtil from '../LayerUtil/LayerUtil';
 
-import findIndex from 'lodash/findIndex';
-import _isString from 'lodash/isString';
-import _isFinite from 'lodash/isFinite';
+export type LayerPositionInfo = {
+  position?: number;
+  groupLayer?: OlLayerGroup;
+};
 
 /**
  * Helper class for the OpenLayers map.
@@ -26,27 +35,14 @@ export class MapUtil {
   /**
    * Returns all interactions by the given name of a map.
    *
-   * @param {import("ol/Map").default} map The map to use for lookup.
+   * @param {OlMap} map The map to use for lookup.
    * @param {string} name The name of the interaction to look for.
-   * @return {import("ol/interaction/Interaction").default[]} The list of result interactions.
+   * @return The list of result interactions.
    */
-  static getInteractionsByName(map, name) {
+  static getInteractionsByName(map: OlMap, name: string) {
     return map.getInteractions()
       .getArray()
       .filter(interaction => interaction.get('name') === name);
-  }
-
-  /**
-   * Returns all interactions of the given class of the passed map.
-   *
-   * @param {import("ol/Map").default} map The map to use for lookup.
-   * @param {typeof import("ol/interaction/Interaction").default} clazz The class of the interaction to look for.
-   * @return {import("ol/interaction/Interaction").default[]} The list of result interactions.
-   */
-  static getInteractionsByClass(map, clazz) {
-    return map.getInteractions()
-      .getArray()
-      .filter(interaction => interaction instanceof clazz);
   }
 
   /**
@@ -62,7 +58,7 @@ export class MapUtil {
    * @param {string} units The units to use for calculation (m or degrees).
    * @return {number} The calculated resolution.
    */
-  static getResolutionForScale (scale, units) {
+  static getResolutionForScale (scale: number | string, units: string): number {
     let dpi = 25.4 / 0.28;
     let mpu = METERS_PER_UNIT[units];
     let inchesPerMeter = 39.37;
@@ -79,7 +75,7 @@ export class MapUtil {
    *                       either 'm' or 'degrees'.
    * @return {number} The appropriate scale.
    */
-  static getScaleForResolution (resolution, units) {
+  static getScaleForResolution (resolution: number | string, units: string): number {
     var dpi = 25.4 / 0.28;
     var mpu = METERS_PER_UNIT[units];
     var inchesPerMeter = 39.37;
@@ -90,55 +86,54 @@ export class MapUtil {
   /**
    * Returns all layers of a collection. Even the hidden ones.
    *
-   * @param {import("ol/Map").default|import("ol/layer/Group").default} collection The collection to get the layers
+   * @param {OlMap | OlLayerGroup} collection The collection to get the layers
    *                                           from. This can be an ol.layer.Group
    *                                           or an ol.Map.
-   * @param {(layer: import("ol/layer/Base").default) => boolean} [filter] A filter function that receives the layer.
+   * @param {(olLayer: OlBaseLayer) => boolean} [filter] A filter function that receives the layer.
    *                            If it returns true it will be included in the
    *                            returned layers.
-   * @return {import("ol/layer/Base").default[]} An array of all Layers.
+   * @return {OlBaseLayer} An array of all Layers.
    */
-  static getAllLayers(collection, filter = () => true) {
-    var layers = collection.getLayers().getArray();
-
-    return layers.flatMap(function(layer) {
-      /** @type {import("ol/layer/Base").default[]} */
-      let layers = [];
-      // @ts-ignore
-      if (layer.getLayers) {
-        // @ts-ignore
-        layers = MapUtil.getAllLayers(layer, filter);
+  static getAllLayers(
+    collection: OlMap | OlLayerGroup,
+    filter: (olLayer: OlBaseLayer) => boolean = () => true
+  ): OlBaseLayer[] {
+    const layers = collection.getLayers().getArray();
+    return layers.flatMap((layer: OlBaseLayer) => {
+      let ll: OlBaseLayer[] = [];
+      if (layer instanceof OlLayerGroup) {
+        ll = MapUtil.getAllLayers(layer, filter);
       }
       if (filter(layer)) {
-        layers.push(layer);
+        ll.push(layer);
       }
-      return layers;
+      return ll;
     });
   }
 
   /**
    * Get a layer by its key (ol_uid).
    *
-   * @param {import("ol/Map").default} map The map to use for lookup.
-   * @param {string} ol_uid The ol_uid of a layer.
-   * @return {import("ol/layer/Base").default|undefined} The layer.
+   * @param {OlMap} map The map to use for lookup.
+   * @param olUid
+   * @return {OlBaseLayer|undefined} The layer.
    */
-  static getLayerByOlUid = (map, ol_uid) => {
+  static getLayerByOlUid = (map: OlMap, olUid: string): OlBaseLayer | undefined => {
     const layers = MapUtil.getAllLayers(map);
     return layers.find((l) => {
-      return ol_uid === getUid(l).toString();
+      return olUid === getUid(l).toString();
     });
   };
 
   /**
    * Returns the layer from the provided map by the given name.
    *
-   * @param {import("ol/Map").default} map The map to use for lookup.
+   * @param {OlMap} map The map to use for lookup.
    * @param {string} name The name to get the layer by.
-   * @return {import("ol/layer/Base").default} The result layer or undefined if the layer could not
+   * @return {OlBaseLayer} The result layer or undefined if the layer could not
    *                    be found.
    */
-  static getLayerByName(map, name) {
+  static getLayerByName(map: OlMap, name: string): OlBaseLayer {
     const layers = MapUtil.getAllLayers(map);
     return layers.filter((layer) => {
       return layer.get('name') === name;
@@ -149,20 +144,23 @@ export class MapUtil {
    * Returns the layer from the provided map by the given name
    * (parameter LAYERS).
    *
-   * @param {import("ol/Map").default} map The map to use for lookup.
+   * @param {OlMap} map The map to use for lookup.
    * @param {string} name The name to get the layer by.
-   * @return {import("../types").WMSLayer|undefined} The result layer or undefined if the layer could not
-   *                    be found.
+   * @return {OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>|undefined}
+   * The result layer or undefined if the layer could not be found.
    */
-  static getLayerByNameParam(map, name) {
+  static getLayerByNameParam(
+    map: OlMap,
+    name: string
+  ): OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | undefined {
     let layers = MapUtil.getAllLayers(map);
-    let layerCandidate;
+    let layerCandidate: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | undefined;
 
     for (let layer of layers) {
-      if (layer instanceof OlLayerLayer) {
+      if (layer instanceof OlLayerTile || layer instanceof OlLayerImage<OlSourceImageWMS>) {
         const source = layer.getSource();
         if (source instanceof OlSourceImageWMS || source instanceof OlSourceTileWMS) {
-          if (layer.getSource().getParams()['LAYERS'] === name) {
+          if (layer.getSource().getParams().LAYERS === name) {
             layerCandidate = layer;
             break;
           }
@@ -176,13 +174,13 @@ export class MapUtil {
   /**
    * Returns the layer from the provided map by the given feature.
    *
-   * @param {import("ol/Map").default} map The map to use for lookup.
-   * @param {import("ol/Feature").default} feature The feature to get the layer by.
+   * @param {OlMap} map The map to use for lookup.
+   * @param {OlFeature<OlGeometry>} feature The feature to get the layer by.
    * @param {string[]} namespaces list of supported GeoServer namespaces.
-   * @return {import("ol/layer/Base").default|undefined} The result layer or undefined if the layer could not
+   * @return {OlBaseLayer|undefined} The result layer or undefined if the layer could not
    *                    be found.
    */
-  static getLayerByFeature(map, feature, namespaces) {
+  static getLayerByFeature(map: OlMap, feature: OlFeature<OlGeometry>, namespaces: string[]): OlBaseLayer | undefined {
     let featureTypeName = FeatureUtil.getFeatureTypeName(feature);
 
     for (let namespace of namespaces) {
@@ -199,32 +197,31 @@ export class MapUtil {
   /**
    * Returns all layers of the specified layer group recursively.
    *
-   * @param {import("ol/Map").default} map The map to use for lookup.
-   * @param {import("ol/layer/Group").default} layerGroup The group to flatten.
-   * @return {import("ol/layer/Layer").default[]} The (flattened) layers from the group
+   * @param {OlMap} map The map to use for lookup.
+   * @param {OlLayerGroup} layerGroup The group to flatten.
+   * @return {OlBaseLayer} The (flattened) layers from the group
    */
-  static getLayersByGroup(map, layerGroup) {
-    return layerGroup.getLayers().getArray().flatMap((layer) => {
-      // @ts-ignore
-      if (layer.getLayers) {
-        // @ts-ignore
-        return MapUtil.getLayersByGroup(map, layer);
-      } else {
-        return [/** @type {import("ol/layer/Layer").default} */ (layer)];
-      }
-    });
+  static getLayersByGroup(map: OlMap, layerGroup: OlLayerGroup): OlBaseLayer[] {
+    return layerGroup.getLayers().getArray()
+      .flatMap((layer: OlBaseLayer) => {
+        if (layer instanceof OlLayerGroup) {
+          return MapUtil.getLayersByGroup(map, layer);
+        } else {
+          return [layer];
+        }
+      });
   }
 
   /**
    * Returns the list of layers matching the given pair of properties.
    *
-   * @param {import("ol/Map").default} map The map to use for lookup.
+   * @param {OlMap} map The map to use for lookup.
    * @param {string} key The property key.
    * @param {Object} value The property value.
    *
-   * @return {import("ol/layer/Base").default[]} The array of matching layers.
+   * @return {OlBaseLayer[]} The array of matching layers.
    */
-  static getLayersByProperty(map, key, value) {
+  static getLayersByProperty(map: OlMap, key: string, value: any) {
     const mapLayers = MapUtil.getAllLayers(map);
     return mapLayers.filter(l => l.get(key) === value);
   }
@@ -232,26 +229,24 @@ export class MapUtil {
   /**
    * Get information about the LayerPosition in the tree.
    *
-   * @param {import("ol/layer/Base").default} layer The layer to get the information.
-   * @param {import("ol/layer/Group").default|import("ol/Map").default} groupLayerOrMap The groupLayer or map
+   * @param {OlBaseLayer} layer The layer to get the information.
+   * @param {OlLayerGroup|OlMap} groupLayerOrMap The groupLayer or map
    *                                                  containing the layer.
    * @return {{
-   *   groupLayer: import("ol/layer/Group").default,
+   *   groupLayer: OlLayerGroup,
    *   position: number
    * }} The groupLayer containing the layer and the position of the layer in the collection.
    */
-  static getLayerPositionInfo(layer, groupLayerOrMap) {
+  static getLayerPositionInfo(layer: OlBaseLayer, groupLayerOrMap: OlMap | OlLayerGroup): LayerPositionInfo {
     const groupLayer = groupLayerOrMap instanceof OlLayerGroup
       ? groupLayerOrMap
       : groupLayerOrMap.getLayerGroup();
     const layers = groupLayer.getLayers().getArray();
-    let info = {};
+    let info: LayerPositionInfo = {};
 
     if (layers.indexOf(layer) < 0) {
       layers.forEach((childLayer) => {
-        // @ts-ignore
-        if (childLayer.getLayers && !info.groupLayer) {
-          // @ts-ignore
+        if (childLayer instanceof OlLayerGroup && !info.groupLayer) {
           info = MapUtil.getLayerPositionInfo(layer, childLayer);
         }
       });
@@ -268,11 +263,17 @@ export class MapUtil {
    *  - ol.source.TileWms (with url configured)
    *  - ol.source.ImageWms (with url configured)
    *
-   * @param {import("../types").WMSLayer} layer The layer that you want to have a legendUrl for.
+   * @param {OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>} layer The layer that you want to have a
+   * legendUrl for.
    * @param {Object} extraParams
    * @return {string} The getLegendGraphicUrl.
    */
-  static getLegendGraphicUrl(layer, extraParams = {}) {
+  static getLegendGraphicUrl(
+    layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
+    extraParams: {
+      [key: string]: string | number;
+    } = {}
+  ): string {
     const source = layer.getSource();
 
     if (!source) {
@@ -302,8 +303,8 @@ export class MapUtil {
    * min- and max-resolution of the passed layer, e.g. whether the layer should
    * be displayed at the current map view resolution.
    *
-   * @param {import("ol/layer/Base").default} layer The layer to check.
-   * @param {import("ol/Map").default} map The map to get the view resolution for comparison
+   * @param {OlBaseLayer} layer The layer to check.
+   * @param {OlMap} map The map to get the view resolution for comparison
    *     from.
    * @return {boolean} Whether the resolution of the passed map's view lies
    *     inside of the min- and max-resolution of the passed layer, e.g. whether
@@ -311,10 +312,10 @@ export class MapUtil {
    *     be `false` when no `layer` or no `map` is passed or if the view of the
    *     map is falsy or does not have a resolution (yet).
    */
-  static layerInResolutionRange(layer, map) {
-    const mapView = map && map.getView();
-    const currentRes = mapView && mapView.getResolution();
-    if (!layer || !mapView || !currentRes) {
+  static layerInResolutionRange(layer?: OlBaseLayer, map?: OlMap): boolean {
+    const mapView = map?.getView();
+    const currentRes = mapView?.getResolution();
+    if (isNil(layer) || !mapView || !currentRes) {
       // It is questionable what we should return in this case, I opted for
       // false, since we cannot sanely determine a correct answer.
       return false;
@@ -327,12 +328,12 @@ export class MapUtil {
 
 
   /**
-   * Rounds a scalenumber in dependency to its size.
+   * Rounds a scale number depending on its size.
    *
    * @param  {number} scale The exact scale
    * @return {number} The roundedScale
    */
-  static roundScale(scale) {
+  static roundScale(scale: number): number {
     if (scale < 100) {
       return Math.round(scale);
     }
@@ -357,7 +358,7 @@ export class MapUtil {
    *
    * @return {number} Determined zoom level for the given scale.
    */
-  static getZoomForScale(scale, resolutions, units = 'm') {
+  static getZoomForScale(scale: number, resolutions: number[], units: string = 'm'): number {
     if (Number.isNaN(Number(scale))) {
       return 0;
     }
@@ -380,10 +381,10 @@ export class MapUtil {
   /**
    * Fits the map's view to the extent of the passed features.
    *
-   * @param {import("ol/Map").default} map The map to get the view from.
-   * @param {import("ol/Feature").default[]} features The features to zoom to.
+   * @param {OlMap} map The map to get the view from.
+   * @param {OlFeature[]} features The features to zoom to.
    */
-  static zoomToFeatures(map, features) {
+  static zoomToFeatures(map: OlMap, features: OlFeature[]) {
     const featGeometries = FeatureUtil.mapFeaturesToGeometries(features);
 
     if (featGeometries.length > 0) {
@@ -395,23 +396,23 @@ export class MapUtil {
   /**
    * Checks if the given layer is visible for the given resolution.
    *
-   * @param {import("ol/layer/Base").default} layer The layer.
+   * @param {OlBaseLayer} layer The layer.
    * @param {number} resolution The resolution of the map
    */
-  static isInScaleRange(layer, resolution) {
-    return resolution >= layer.get('minResolution')
-      && resolution < layer.get('maxResolution');
+  static isInScaleRange(layer: OlBaseLayer, resolution: number) {
+    return resolution >= layer?.get('minResolution')
+      && resolution < layer?.get('maxResolution');
   }
 
   /**
    * Converts a given OpenLayers map to an inkmap spec. Only returns options which can be
    * derived from a map (center, scale, projection, layers).
    *
-   * @param {import("ol/Map").default} olMap The ol map.
+   * @param {OlMap} olMap The ol map.
    *
    * @return {Promise<Partial<import("../types").InkmapPrintSpec>>} Promise of the inmkap print spec.
    */
-  static async generatePrintConfig(olMap) {
+  static async generatePrintConfig(olMap: OlMap) {
     const unit = olMap.getView().getProjection().getUnits();
     const resolution = olMap.getView().getResolution();
     const projection =  olMap.getView().getProjection().getCode();
@@ -431,15 +432,13 @@ export class MapUtil {
 
     const responses = await Promise.all(layerPromises);
     const layers = responses.filter(l => l !== null);
-    const config = {
+    // ignore typecheck because responses.filter(l => l !== null) is not recognized properly
+    return {
       layers: layers,
       center: centerLonLat,
       scale: scale,
       projection: projection
     };
-    // ignore typecheck because responses.filter(l => l !== null) is not recognized properly
-    // @ts-ignore
-    return config;
   }
 
 }

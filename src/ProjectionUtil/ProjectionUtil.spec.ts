@@ -1,15 +1,17 @@
-/*eslint-env jest*/
-import proj4 from 'proj4';
+/* eslint-env jest*/
 import * as OlProj4 from 'ol/proj/proj4';
+import proj4 from 'proj4';
 
 import {
   defaultProj4CrsDefinitions,
   defaultProj4CrsMappings,
   ProjectionUtil
-} from './ProjectionUtil.js';
+} from './ProjectionUtil';
+import SpyInstance = jest.SpyInstance;
 
-let registerSpy;
-let defsSpy;
+let registerSpy: SpyInstance;
+let defsSpy: SpyInstance;
+
 beforeEach(() => {
   registerSpy = jest.spyOn(OlProj4, 'register').mockImplementation( jest.fn );
   defsSpy = jest.spyOn(proj4, 'defs');

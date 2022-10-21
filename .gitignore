@@ -3,3 +3,6 @@ node_modules/
 dist/
 
 coverage/
+
+# Ignore IntelliJ iml files
+*.iml

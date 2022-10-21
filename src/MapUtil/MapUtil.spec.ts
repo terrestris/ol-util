@@ -1,25 +1,28 @@
-/*eslint-env jest*/
+/* eslint-env jest*/
 
-import OlInteractionDragRotateAndZoom from 'ol/interaction/DragRotateAndZoom';
-import OlInteractionDraw from 'ol/interaction/Draw';
-import OlLayerTile from 'ol/layer/Tile';
-import OlLayerImage from 'ol/layer/Image';
-import OlSourceTileWMS from 'ol/source/TileWMS';
-import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlFeature from 'ol/Feature';
 import OlGeomPoint from 'ol/geom/Point';
+import OlInteractionDragRotateAndZoom from 'ol/interaction/DragRotateAndZoom';
+import OlBaseLayer from 'ol/layer/Base';
 import OlLayerGroup from 'ol/layer/Group';
+import OlLayerImage from 'ol/layer/Image';
+import OlLayerTile from 'ol/layer/Tile';
 import OlMap from 'ol/Map';
+import OlSourceImageWMS from 'ol/source/ImageWMS';
+import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlView from 'ol/View';
 
+import { MapUtil, } from '../index';
 import TestUtil from '../TestUtil';
 
-import {
-  MapUtil,
-} from '../index';
+type Unit = 'degrees' | 'm' | 'ft' | 'us-ft';
+
+type TestResolutionsType = {
+  [key in Unit]: number;
+};
 
 describe('MapUtil', () => {
-  const testResolutions = {
+  const testResolutions: TestResolutionsType = {
     degrees: 0.000004807292355257246,
     m: 0.5345462690925383,
     ft: 1.7537607253692198,
@@ -27,8 +30,7 @@ describe('MapUtil', () => {
   };
   const testScale = 1909.09;
 
-  let map;
-
+  let map: OlMap;
 
   beforeEach(() => {
     map = TestUtil.createMap();
@@ -81,47 +83,13 @@ describe('MapUtil', () => {
     });
   });
 
-  describe('#getInteractionsByClass', () => {
-    it('is defined', () => {
-      expect(MapUtil.getInteractionsByClass).toBeDefined();
-    });
-
-    it('returns an empty array if no interaction candidate is found', () => {
-      let dragInteraction = new OlInteractionDragRotateAndZoom();
-      map.addInteraction(dragInteraction);
-
-      let returnedInteractions = MapUtil.getInteractionsByClass(
-        map, OlInteractionDraw);
-
-      expect(returnedInteractions).toHaveLength(0);
-    });
-
-    it('returns the requested interactions by class', () => {
-      let dragInteraction = new OlInteractionDragRotateAndZoom();
-      map.addInteraction(dragInteraction);
-
-      let returnedInteractions = MapUtil.getInteractionsByClass(
-        map, OlInteractionDragRotateAndZoom);
-
-      expect(returnedInteractions).toHaveLength(1);
-
-      let anotherDragInteraction = new OlInteractionDragRotateAndZoom();
-      map.addInteraction(anotherDragInteraction);
-
-      returnedInteractions = MapUtil.getInteractionsByClass(
-        map, OlInteractionDragRotateAndZoom);
-
-      expect(returnedInteractions).toHaveLength(2);
-    });
-  });
-
   describe('#getResolutionForScale', () => {
     it('is defined', () => {
       expect(MapUtil.getResolutionForScale).toBeDefined();
     });
 
     it('returns expected values for valid units', () => {
-      const units = ['degrees', 'm', 'ft', 'us-ft'];
+      const units: Unit[] = ['degrees', 'm', 'ft', 'us-ft'];
       units.forEach( (unit) => {
         expect(MapUtil.getResolutionForScale(testScale, unit)).toBe(testResolutions[unit]);
       });
@@ -141,12 +109,12 @@ describe('MapUtil', () => {
     });
 
     it('returns expected values for valid units', () => {
-      const units = ['degrees', 'm', 'ft', 'us-ft'];
+      const units: Unit[] = ['degrees', 'm', 'ft', 'us-ft'];
 
       /**
        * Helper method to round number to two floating digits
        */
-      const roundToTwoDecimals = (num) => (Math.round(num * 100) / 100);
+      const roundToTwoDecimals = (num: number) => (Math.round(num * 100) / 100);
 
       units.forEach( (unit) => {
         expect(roundToTwoDecimals(MapUtil.getScaleForResolution(testResolutions[unit], unit))).toBe(testScale);
@@ -164,7 +132,9 @@ describe('MapUtil', () => {
     it('returns the layer by the given name', () => {
       const layerName = 'Peter';
       const layer = new OlLayerTile({
-        name: layerName
+        properties: {
+          name: layerName
+        }
       });
       map.addLayer(layer);
       const got = MapUtil.getLayerByName(map, layerName);
@@ -198,7 +168,7 @@ describe('MapUtil', () => {
       const got = MapUtil.getLayerByNameParam(map, layerName);
 
       expect(got).toBeInstanceOf(OlLayerTile);
-      expect(got.get('key')).toBe('prop');
+      expect(got?.get('key')).toBe('prop');
     });
 
     it('returns undefined if the layer could not be found', () => {
@@ -217,9 +187,7 @@ describe('MapUtil', () => {
 
       let featId = `${layerName}.1909`;
       let feat = new OlFeature({
-        geometry: new OlGeomPoint({
-          coordinates: [1909, 1909]
-        })
+        geometry: new OlGeomPoint([1909, 1909])
       });
       feat.setId(featId);
 
@@ -238,7 +206,7 @@ describe('MapUtil', () => {
       let got = MapUtil.getLayerByFeature(map, feat, [namespace]);
 
       expect(got).toBeInstanceOf(OlLayerTile);
-      expect(got.get('key')).toBe('prop');
+      expect(got?.get('key')).toBe('prop');
     });
 
     it('returns undefined if the layer could not be found', () => {
@@ -247,9 +215,7 @@ describe('MapUtil', () => {
       let qualifiedLayerName = `${namespace}:${layerName}`;
       let featId = `${layerName}_INVALID.1909`;
       let feat = new OlFeature({
-        geometry: new OlGeomPoint({
-          coordinates: [1909, 1909]
-        })
+        geometry: new OlGeomPoint([1909, 1909])
       });
       feat.setId(featId);
 
@@ -302,31 +268,39 @@ describe('MapUtil', () => {
   });
 
   describe('#getAllLayers', () => {
-    let subLayer;
-    let nestedLayerGroup;
-    let layer1;
-    let layer2;
+    let subLayer: OlBaseLayer;
+    let nestedLayerGroup: OlLayerGroup;
+    let layer1: OlLayerTile<OlSourceTileWMS>;
+    let layer2: OlLayerTile<OlSourceTileWMS>;
     let layerGroup;
 
     beforeEach(() => {
       const layerSource1 = new OlSourceTileWMS();
       layer1 = new OlLayerTile({
-        name: 'layer1',
-        source: layerSource1
+        source: layerSource1,
+        properties: {
+          name: 'layer1'
+        }
       });
       const layerSource2 = new OlSourceTileWMS();
       layer2 = new OlLayerTile({
-        name: 'layer2',
         visible: false,
-        source: layerSource2
+        source: layerSource2,
+        properties: {
+          name: 'layer2'
+        }
       });
       subLayer = new OlLayerTile({
-        name: 'subLayer',
-        source: new OlSourceTileWMS()
+        source: new OlSourceTileWMS(),
+        properties: {
+          name: 'subLayer'
+        }
       });
       nestedLayerGroup = new OlLayerGroup({
-        name: 'nestedLayerGroup',
-        layers: [subLayer]
+        layers: [subLayer],
+        properties: {
+          name: 'nestedLayerGroup'
+        }
       });
       layerGroup = new OlLayerGroup({
         layers: [layer1, layer2, nestedLayerGroup]
@@ -364,31 +338,39 @@ describe('MapUtil', () => {
   });
 
   describe('getLayerPositionInfo', () => {
-    let subLayer;
-    let nestedLayerGroup;
-    let layer1;
-    let layer2;
-    let layerGroup;
+    let subLayer: OlBaseLayer;
+    let nestedLayerGroup: OlLayerGroup;
+    let layer1: OlLayerTile<OlSourceTileWMS>;
+    let layer2: OlLayerTile<OlSourceTileWMS>;
+    let layerGroup: OlLayerGroup;
 
     beforeEach(() => {
       const layerSource1 = new OlSourceTileWMS();
       layer1 = new OlLayerTile({
-        name: 'layer1',
-        source: layerSource1
+        source: layerSource1,
+        properties: {
+          name: 'layer1'
+        }
       });
       const layerSource2 = new OlSourceTileWMS();
       layer2 = new OlLayerTile({
-        name: 'layer2',
         visible: false,
-        source: layerSource2
+        source: layerSource2,
+        properties: {
+          name: 'layer2'
+        }
       });
       subLayer = new OlLayerTile({
-        name: 'subLayer',
-        source: new OlSourceTileWMS()
+        source: new OlSourceTileWMS(),
+        properties: {
+          name: 'subLayer'
+        }
       });
       nestedLayerGroup = new OlLayerGroup({
-        name: 'nestedLayerGroup',
-        layers: [subLayer]
+        layers: [subLayer],
+        properties: {
+          name: 'nestedLayerGroup'
+        }
       });
       layerGroup = new OlLayerGroup({
         layers: [layer1, layer2, nestedLayerGroup]
@@ -426,30 +408,32 @@ describe('MapUtil', () => {
   });
 
   describe('getLegendGraphicUrl', () => {
-
-    let layer1;
-    let layer2;
-    let layer3;
+    let layer1: OlLayerTile<OlSourceTileWMS>;
+    let layer2: OlLayerImage<OlSourceImageWMS>;
+    let layer3: OlLayerTile<OlSourceTileWMS>;
 
     beforeEach(() => {
       layer1 = new OlLayerTile({
-        name: 'OSM-WMS',
         source: new OlSourceTileWMS({
           url: 'https://ows.terrestris.de/osm-gray/service?',
           params: {'LAYERS': 'OSM-WMS', 'TILED': true},
           serverType: 'geoserver'
-        })
+        }),
+        properties: {
+          name: 'OSM-WMS'
+        }
       });
       layer2 = new OlLayerImage({
-        name: 'OSM-WMS',
         source: new OlSourceImageWMS({
           url: 'https://ows.terrestris.de/osm-gray/service',
           params: {'LAYERS': 'OSM-WMS', 'TILED': true},
           serverType: 'geoserver'
-        })
+        }),
+        properties: {
+          name: 'OSM-WMS'
+        }
       });
       layer3 = new OlLayerTile({
-        name: 'OSM-WMS',
         source: new OlSourceTileWMS({
           urls: [
             'https://a.example.com/service?humpty=dumpty',
@@ -457,7 +441,10 @@ describe('MapUtil', () => {
           ],
           params: {'LAYERS': 'OSM-WMS', 'TILED': true},
           serverType: 'geoserver'
-        })
+        }),
+        properties: {
+          name: 'OSM-WMS'
+        }
       });
     });
 
@@ -553,23 +540,18 @@ describe('MapUtil', () => {
       const layer = new OlLayerTile();
       expect(MapUtil.layerInResolutionRange(layer)).toBe(false);
     });
-    it('returns false if map does not have a view', () => {
-      const layer = new OlLayerTile();
-      const map = new OlMap({view: null});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(false);
-    });
     it('returns false if map view does not have a resolution', () => {
       const layer = new OlLayerTile();
       const view = new OlView();
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(false);
+      const olMap: OlMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(false);
     });
 
     it('returns true: layer (no limits) & any viewRes', () => {
       const layer = new OlLayerTile();
       const view = new OlView({resolution: 42});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(true);
+      const olMap: OlMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(true);
     });
 
     it('returns true: layer (w/ minResolution) & viewRes > l.minres', () => {
@@ -577,8 +559,8 @@ describe('MapUtil', () => {
         minResolution: 42
       });
       const view = new OlView({resolution: 43});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(true);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(true);
     });
 
     it('returns true: layer (w/ minResolution) & viewRes = l.minres', () => {
@@ -586,8 +568,8 @@ describe('MapUtil', () => {
         minResolution: 42
       });
       const view = new OlView({resolution: 42});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(true);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(true);
     });
 
     it('returns true: layer (w/ maxResolution) & viewRes < l.maxres', () => {
@@ -595,8 +577,8 @@ describe('MapUtil', () => {
         maxResolution: 42
       });
       const view = new OlView({resolution: 41});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(true);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(true);
     });
 
     it('returns false: layer (w/ maxResolution) & viewRes = l.maxres', () => {
@@ -604,8 +586,8 @@ describe('MapUtil', () => {
         maxResolution: 42
       });
       const view = new OlView({resolution: 42});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(false);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(false);
     });
 
     it('returns true: layer (w/ min and max) & viewRes  within', () => {
@@ -614,8 +596,8 @@ describe('MapUtil', () => {
         maxResolution: 50
       });
       const view = new OlView({resolution: 46});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(true);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(true);
     });
 
     it('returns false: layer (w/ min and max) & viewRes outside min', () => {
@@ -624,8 +606,8 @@ describe('MapUtil', () => {
         maxResolution: 50
       });
       const view = new OlView({resolution: 38});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(false);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(false);
     });
 
     it('returns true: layer (w/ min and max) & viewRes = min', () => {
@@ -634,8 +616,8 @@ describe('MapUtil', () => {
         maxResolution: 50
       });
       const view = new OlView({resolution: 42});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(true);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(true);
     });
 
     it('returns false: layer (w/ min and max) & viewRes outside max', () => {
@@ -644,8 +626,8 @@ describe('MapUtil', () => {
         maxResolution: 50
       });
       const view = new OlView({resolution: 54});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(false);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(false);
     });
 
     it('returns false: layer (w/ min and max) & viewRes = max', () => {
@@ -654,8 +636,8 @@ describe('MapUtil', () => {
         maxResolution: 50
       });
       const view = new OlView({resolution: 50});
-      const map = new OlMap({view: view});
-      expect(MapUtil.layerInResolutionRange(layer, map)).toBe(false);
+      const olMap = new OlMap({view: view});
+      expect(MapUtil.layerInResolutionRange(layer, olMap)).toBe(false);
     });
   });
 
@@ -689,11 +671,6 @@ describe('MapUtil', () => {
   describe('#getZoomForScale', () => {
     it('is defined', () => {
       expect(MapUtil.getZoomForScale).toBeDefined();
-    });
-
-    it('returns 0 if non numeric scale is provided', () => {
-      const got = MapUtil.getZoomForScale('scale', [1, 2]);
-      expect(got).toBe(0);
     });
 
     it('returns 0 if negative scale is provided', () => {
@@ -749,9 +726,9 @@ describe('MapUtil', () => {
         zoom: 19,
         constrainResolution: true
       });
-      const map = new OlMap({view: view});
+      const olMap: OlMap = new OlMap({view: view});
 
-      MapUtil.zoomToFeatures(map, features);
+      MapUtil.zoomToFeatures(olMap, features);
       const extent = view.calculateExtent();
 
       expect(extent[0]).toBeCloseTo(-0.866138385868561);

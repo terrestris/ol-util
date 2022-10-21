@@ -1,17 +1,24 @@
-/*eslint-env jest*/
+/* eslint-env jest*/
 
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomPolygon from 'ol/geom/Polygon';
+import OlMap from 'ol/Map';
 
 import {
   MeasureUtil,
 } from '../index';
-
 import TestUtil from '../TestUtil';
 
 describe('MeasureUtil', () => {
 
-  let map;
+  const smallPolyCoords = [
+    [0, 0],
+    [0, 10],
+    [10, 10],
+    [10, 0],
+    [0, 0]
+  ];
+  let map: OlMap;
 
   describe('Basics', () => {
     it('is defined', () => {
@@ -74,13 +81,6 @@ describe('MeasureUtil', () => {
         expect(MeasureUtil.getArea).toBeDefined();
       });
       it('get the area of a polygon as expected', () => {
-        const smallPolyCoords = [
-          [0, 0],
-          [0, 10],
-          [10, 10],
-          [10, 0],
-          [0, 0]
-        ];
         const bigPolyCoords = smallPolyCoords.map(coord => [coord[0] * 100, coord[1] * 100]);
 
         const smallPoly = new OlGeomPolygon([smallPolyCoords]);
@@ -103,13 +103,6 @@ describe('MeasureUtil', () => {
         expect(MeasureUtil.formatArea).toBeDefined();
       });
       it('formats the area of a polygon as expected', () => {
-        const smallPolyCoords = [
-          [0, 0],
-          [0, 10],
-          [10, 10],
-          [10, 0],
-          [0, 0]
-        ];
         const bigPolyCoords = smallPolyCoords.map(coord => [coord[0] * 100, coord[1] * 100]);
 
         const smallPoly = new OlGeomPolygon([smallPolyCoords]);

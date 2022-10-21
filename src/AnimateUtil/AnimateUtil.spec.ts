@@ -1,6 +1,6 @@
-/*eslint-env jest*/
+/* eslint-env jest*/
 
-import AnimateUtil from '../AnimateUtil/AnimateUtil';
+import AnimateUtil from './AnimateUtil';
 
 describe('AnimateUtil', () => {
 

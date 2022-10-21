@@ -1,15 +1,20 @@
-import proj4 from 'proj4';
-import { register } from 'ol/proj/proj4';
-
 import _isEmpty from 'lodash/isEmpty';
 import _isString from 'lodash/isString';
+import { register } from 'ol/proj/proj4';
+import proj4 from 'proj4';
+
+export type CrsDefinition = {
+  [key: string]: string;
+};
 
 /**
  * Default proj4 CRS definitions.
  */
-export const defaultProj4CrsDefinitions = {
+export const defaultProj4CrsDefinitions: CrsDefinition = {
   'EPSG:25832': '+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs',
+  // eslint-disable-next-line max-len
   'EPSG:31466': '+proj=tmerc +lat_0=0 +lon_0=6 +k=1 +x_0=2500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs',
+  // eslint-disable-next-line max-len
   'EPSG:31467': '+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs'
 };
 
@@ -34,7 +39,7 @@ export class ProjectionUtil {
   /**
    * Registers custom CRS definitions to the application.
    *
-   * @param {Record<string, string>} customCrsDefs The custom `proj4` definition strings
+   * @param {CrsDefinition} customCrsDefs The custom `proj4` definition strings
    *   which should be registered additionally to default available CRS (s.
    *   `defaultProj4CrsDefinitions` above) as well.
    *   Further CRS definitions in proj4 format can be checked under
@@ -42,9 +47,8 @@ export class ProjectionUtil {
    * @param {boolean} registerDefaults Whether the default CRS should be
    *   registered or not. Default is true.
    */
-  static initProj4Definitions(customCrsDefs, registerDefaults = true) {
-    /** @type {Record<string, string>} */
-    let proj4CrsDefinitions = {};
+  static initProj4Definitions(customCrsDefs?: CrsDefinition, registerDefaults: boolean = true) {
+    let proj4CrsDefinitions: CrsDefinition = {};
 
     if (registerDefaults) {
       proj4CrsDefinitions = defaultProj4CrsDefinitions;
@@ -73,15 +77,15 @@ export class ProjectionUtil {
    * supported by `proj4` and `OpenLayers` per default. Add appropriate
    * mappings to allow automatic CRS detection by `OpenLayers` here.
    *
-   * @param {Record<string, string>} customCrsMappings The custom CRS mappings which will be
+   * @param {CrsDefinition} customCrsMappings The custom CRS mappings which will be
    *   added additionally to the by default available (s. `defaultProj4CrsMappings`
    *   above).
    * @param {boolean} useDefaultMappings Whether the default CRS should be mapped
    *   as well or not. Default is true.
    */
-  static initProj4DefinitionMappings(customCrsMappings, useDefaultMappings = true) {
+  static initProj4DefinitionMappings(customCrsMappings: CrsDefinition, useDefaultMappings = true) {
     /** @type {Record<string, string>} */
-    let proj4CrsMappings = {};
+    let proj4CrsMappings: CrsDefinition = {};
 
     if (useDefaultMappings) {
       proj4CrsMappings = defaultProj4CrsMappings;
@@ -111,7 +115,7 @@ export class ProjectionUtil {
    *
    * @return {string} Converted value.
    */
-  static toDms(value) {
+  static toDms(value: number): string {
     const deg = Math.floor(value);
     const min = Math.floor((value - deg) * 60);
     const sec = ((value - deg - min / 60) * 3600);
@@ -126,7 +130,7 @@ export class ProjectionUtil {
    *
    * @return {string} Converted value.
    */
-  static toDmm(value) {
+  static toDmm(value: number): string {
     const deg = Math.floor(value);
     const min = ((value - deg) * 60);
     return `${deg}° ${ProjectionUtil.zerofill(min.toFixed(4))}'`;
@@ -141,7 +145,7 @@ export class ProjectionUtil {
    *
    * @return {string} converted value with leading zero if necessary.
    */
-  static zerofill(value) {
+  static zerofill(value: number | string): string {
     const asNumber = _isString(value) ? parseFloat(value) : value;
     return asNumber < 10 ? `0${asNumber}` : `${asNumber}`;
   }

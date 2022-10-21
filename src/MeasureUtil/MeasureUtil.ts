@@ -1,5 +1,8 @@
 
-import { getLength, getArea } from 'ol/sphere';
+import OlGeomLineString from 'ol/geom/LineString';
+import OlGeomPolygon from 'ol/geom/Polygon';
+import OlMap from 'ol/Map';
+import { getArea,getLength } from 'ol/sphere';
 
 /**
  * This class provides some static methods which might be helpful when working
@@ -12,15 +15,15 @@ class MeasureUtil {
   /**
    * Get the length of a OlGeomLineString.
    *
-   * @param {import("ol/geom/LineString").default} line The drawn line.
-   * @param {import("ol/Map").default} map An OlMap.
+   * @param {OlGeomLineString} line The drawn line.
+   * @param {OlMap} map An OlMap.
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
    * @param {number} radius Sphere radius. By default, the radius of the earth
    *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
    *
    * @return {number} The length of line in meters.
    */
-  static getLength(line, map, geodesic = true, radius = 6371008.8) {
+  static getLength(line: OlGeomLineString, map: OlMap, geodesic: boolean = true, radius: number = 6371008.8): number {
     if (geodesic) {
       const opts = {
         projection: map.getView().getProjection().getCode(),
@@ -35,15 +38,17 @@ class MeasureUtil {
   /**
    * Format length output for the tooltip.
    *
-   * @param {import("ol/geom/LineString").default} line The drawn line.
-   * @param {import("ol/Map").default} map An OlMap.
+   * @param {OlGeomLineString} line The drawn line.
+   * @param {OlMap} map An OlMap.
    * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
    *
    * @return {string} The formatted length of the line.
    */
-  static formatLength(line, map, decimalPlacesInToolTips, geodesic = true) {
+  static formatLength(
+    line: OlGeomLineString, map: OlMap, decimalPlacesInToolTips: number, geodesic = true
+  ): string {
     const decimalHelper = Math.pow(10, decimalPlacesInToolTips);
     const length = MeasureUtil.getLength(line, map, geodesic);
     let output;
@@ -60,15 +65,17 @@ class MeasureUtil {
   /**
    * Get the area of a OlGeomPolygon.
    *
-   * @param {import("ol/geom/Polygon").default} polygon The drawn polygon.
-   * @param {import("ol/Map").default} map An OlMap.
+   * @param {OlGeomPolygon} polygon The drawn polygon.
+   * @param {OlMap} map An OlMap.
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
    * @param {number} radius Sphere radius. By default, the radius of the earth
    *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
    *
    * @return {number} The area of the polygon in square meter.
    */
-  static getArea(polygon, map, geodesic = true, radius = 6371008.8) {
+  static getArea(
+    polygon: OlGeomPolygon, map: OlMap, geodesic: boolean = true, radius: number = 6371008.8
+  ): number {
     if (geodesic) {
       const opts = {
         projection: map.getView().getProjection().getCode(),
@@ -83,15 +90,17 @@ class MeasureUtil {
   /**
    * Format length output for the tooltip.
    *
-   * @param {import("ol/geom/Polygon").default} polygon The drawn polygon.
-   * @param {import("ol/Map").default} map An OlMap.
+   * @param {OlGeomPolygon} polygon The drawn polygon.
+   * @param {OlMap} map An OlMap.
    * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips.
    * @param {boolean} geodesic Is the measurement geodesic.
    *
    * @return {string} The formatted area of the polygon.
    */
-  static formatArea(polygon, map, decimalPlacesInToolTips, geodesic = true) {
+  static formatArea(
+    polygon: OlGeomPolygon, map: OlMap, decimalPlacesInToolTips: number, geodesic: boolean = true
+  ): string {
     const decimalHelper = Math.pow(10, decimalPlacesInToolTips);
     const area = MeasureUtil.getArea(polygon, map, geodesic);
     let output;
@@ -119,7 +128,7 @@ class MeasureUtil {
    *
    * @return {number} the angle in degrees, ranging from -180° to 180°.
    */
-  static angle(start, end) {
+  static angle(start: number[], end: number[]): number {
     const dx = start[0] - end[0];
     const dy = start[1] - end[1];
     // range (-PI, PI]
@@ -143,7 +152,7 @@ class MeasureUtil {
    *
    * @return {number} the angle in degrees, ranging from 0° and 360°.
    */
-  static angle360(start, end) {
+  static angle360(start: number[], end: number[]): number {
     // range (-180, 180]
     let theta = MeasureUtil.angle(start, end);
     if (theta < 0) {
@@ -162,7 +171,7 @@ class MeasureUtil {
    *
    * @return {number} The clockwise angle.
    */
-  static makeClockwise(angle360) {
+  static makeClockwise(angle360: number): number {
     return 360 - angle360;
   }
 
@@ -175,7 +184,7 @@ class MeasureUtil {
    *
    * @return {number} The adjusted angle, with 0° being in the north.
    */
-  static makeZeroDegreesAtNorth(angle360) {
+  static makeZeroDegreesAtNorth(angle360: number): number {
     let corrected = angle360 + 90;
     if (corrected > 360) {
       corrected = corrected - 360;
@@ -187,7 +196,7 @@ class MeasureUtil {
    * Returns the angle of the passed linestring in degrees, with 'N' being the
    * 0°-line and the angle increases in clockwise direction.
    *
-   * @param {import("ol/geom/LineString").default} line The linestring to get the
+   * @param {OlGeomLineString} line The linestring to get the
    *   angle from. As this line is coming from our internal draw
    *   interaction, we know that it will only consist of two points.
    * @param {number} decimalPlacesInToolTips How many decimal places will be
@@ -195,7 +204,7 @@ class MeasureUtil {
    *
    * @return {string} The formatted angle of the line.
    */
-  static formatAngle(line, decimalPlacesInToolTips = 2) {
+  static formatAngle(line: OlGeomLineString, decimalPlacesInToolTips: number = 2): string {
     const coords = line.getCoordinates();
     const numCoords = coords.length;
     if (numCoords < 2) {

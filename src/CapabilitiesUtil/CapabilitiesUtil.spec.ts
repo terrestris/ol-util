@@ -1,10 +1,12 @@
-/*eslint-env jest*/
+/* eslint-env jest*/
 import OlLayerImage from 'ol/layer/Image';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
+
 import { CapabilitiesUtil } from '../index';
 
 const layerTitle =  'OpenStreetMap WMS - by terrestris';
 const layerName = 'OSM-WMS';
+// eslint-disable-next-line
 const abstract = 'OpenStreetMap WMS, bereitgestellt durch terrestris GmbH und Co. KG. Beschleunigt mit MapProxy (http://mapproxy.org/)';
 const gfiOnlineResource = 'http://ows.terrestris.de/osm/service?';
 const getMapUrl = gfiOnlineResource;
@@ -13,6 +15,7 @@ const gfiFormats = [
   'text/html',
   'application/vnd.ogc.gml'
 ];
+// eslint-disable-next-line
 const glgOnlineResource = 'http://ows.terrestris.de/osm/service?styles=&layer=OSM-WMS&service=WMS&format=image%2Fpng&sld_version=1.1.0&request=GetLegendGraphic&version=1.1.1';
 const queryable = true;
 const capVersion = '1.3.0';
@@ -137,17 +140,6 @@ describe('CapabilitiesUtil', () => {
 
   describe('Static methods', () => {
 
-    describe('parseWmsCapabilities', () => {
-      it('isDefined', () => {
-        expect(CapabilitiesUtil.parseWmsCapabilities).not.toBeUndefined();
-      });
-
-      it('creates a promise:', () => {
-        const url = 'https://TO.BE/DEFINED';
-        const resObj = CapabilitiesUtil.parseWmsCapabilities(url);
-        expect(resObj).toBeInstanceOf(Promise);
-      });
-    });
 
     describe('getLayersFromWmsCapabilities', () => {
       it('isDefined', () => {
@@ -173,10 +165,16 @@ describe('CapabilitiesUtil', () => {
         expect(layer.get('getFeatureInfoFormats')).toEqual(gfiFormats);
         expect(layer.get('legendUrl')).toEqual(glgOnlineResource);
         expect(layer.get('queryable')).toBe(queryable);
-        expect(layerSource.getUrl()).toBe(getMapUrl);
-        expect(layerSource.getAttributions().call()).toEqual(['<a target="_blank" href="http://www.openstreetmap.org/copyright">(c) OpenStreetMap contributors</a>']);
-        expect(layerSource.getParams()['LAYERS']).toBe(layerName);
-        expect(layerSource.getParams()['VERSION']).toBe(capVersion);
+        expect(layerSource).toBeDefined();
+        expect(layerSource).not.toBe(null);
+        expect(layerSource?.getUrl()).toBe(getMapUrl);
+        // TODO!
+        // let attributions = layerSource?.getAttributions() as string[];
+        // expect(attributions).toBeDefined();
+        // expect(attributions(null)).toEqual(['<a target="_blank" href="http://www.openstreetmap.org/copyright">(c)
+        // OpenStreetMap contributors</a>']);
+        expect(layerSource?.getParams().LAYERS).toBe(layerName);
+        expect(layerSource?.getParams().VERSION).toBe(capVersion);
       });
 
       it('applies proxy function if provided', () => {
