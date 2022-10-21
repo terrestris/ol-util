@@ -87,7 +87,6 @@ class WfsFilterUtil {
       maxFeatures,
       outputFormat,
       srsName,
-      wfsFormatOptions,
       attributeDetails
     } = searchConfig;
 
