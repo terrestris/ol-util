@@ -4,6 +4,7 @@ import intersect from '@turf/intersect';
 import { flatten } from '@turf/turf';
 import union from '@turf/union';
 import { Feature } from 'geojson';
+import { isNil } from 'lodash';
 import OlFeature from 'ol/Feature';
 import OlFormatGeoJSON, { GeoJSONMultiPolygon, GeoJSONPolygon } from 'ol/format/GeoJSON';
 import OlGeometry from 'ol/geom/Geometry';
@@ -15,7 +16,6 @@ import OlGeomPoint from 'ol/geom/Point';
 import OlGeomPolygon from 'ol/geom/Polygon';
 import { ProjectionLike } from 'ol/proj';
 import polygonSplitter from 'polygon-splitter';
-import { isNil } from 'lodash';
 
 /**
  * @template {OlGeomGeometry} T
