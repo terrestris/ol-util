@@ -78,7 +78,7 @@ class WfsFilterUtil {
    * @param {SearchConfig} searchConfig The search config
    * @param {string} searchTerm Search string to be used with filter.
    */
-  static getCombinedRequests(searchConfig: SearchConfig, searchTerm: string) {
+  static getCombinedRequests(searchConfig: SearchConfig, searchTerm: string): Element | undefined {
     const {
       featureNS,
       featurePrefix,
@@ -112,9 +112,9 @@ class WfsFilterUtil {
     });
 
     if (_isNil(requests)) {
-      return null;
+      return;
     }
-    const request = requests[0];
+    const request = requests[0] as Element;
 
     requests.forEach((req: any) => {
       if (req !== request) {

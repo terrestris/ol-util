@@ -1,6 +1,7 @@
 /* eslint-env jest*/
 import EqualTo from 'ol/format/filter/EqualTo';
 import IsLike from 'ol/format/filter/IsLike';
+import Or from 'ol/format/filter/Or';
 
 import WfsFilterUtil, { AttributeDetails, SearchConfig } from './WfsFilterUtil';
 
@@ -64,21 +65,24 @@ describe('WfsFilterUtil', () => {
         expect(equalToFilter?.expression).toEqual(digitSearchTerm);
         expect(equalToFilter?.propertyName).toEqual(test.attributeName);
       });
-    //
-    //   it ('returns combined OR filter if more than one search attributes are provided', () => {
-    //     searchAttributes[featureType].push(...['stringAttr1', 'stringAttr2']);
-    //     attributeDetails = {
-    //       'featureType': {
-    //         'stringAttr1': stringAttr1,
-    //         'stringAttr2': stringAttr2
-    //       }
-    //     };
-    //
-    //     const got = WfsFilterUtil.createWfsFilter(featureType, stringSearchTerm, searchAttributes, attributeDetails);
-    //
-    //     expect(got.getTagName()).toBe('Or');
-    //     expect(got.conditions.length).toEqual(searchAttributes[featureType].length);
-    //   });
+
+      it ('returns combined OR filter if more than one search attributes are provided', () => {
+        const test1: AttributeDetails = {
+          attributeName: 'test1',
+          type: 'string'
+        };
+
+        const test2: AttributeDetails = {
+          attributeName: 'test2',
+          type: 'string'
+        };
+
+        const got = WfsFilterUtil.createWfsFilter(digitSearchTerm, [test1, test2]);
+        expect(got?.getTagName()).toBe('Or');
+        expect(got).toBeInstanceOf(Or);
+        const orFilter = got as Or;
+        expect(orFilter?.conditions.length).toEqual(2);
+      });
     });
 
     describe('#getCombinedRequests', () => {
@@ -86,22 +90,22 @@ describe('WfsFilterUtil', () => {
         expect(WfsFilterUtil.getCombinedRequests).toBeDefined();
       });
 
-      // it('creates WFS filter for each feature type', () => {
-      //   const filterSpy = jest.spyOn(WfsFilterUtil, 'createWfsFilter');
-      //   WfsFilterUtil.getCombinedRequests(searchOpts, searchTerm);
-      //   expect(filterSpy).toHaveBeenCalledTimes(searchOpts.featureTypes.length);
-      //   filterSpy.mockRestore();
-      // });
-      //
-      // it('creates WFS GetFeature request body containing queries and filter for each feature type', () => {
-      //   const got = WfsFilterUtil.getCombinedRequests(searchOpts, searchTerm);
-      //   expect(got.tagName).toBe('GetFeature');
-      //   expect(got.querySelectorAll('Query').length).toBe(searchOpts.featureTypes.length);
-      //   got.querySelectorAll('Query').forEach(query => {
-      //     expect(query.children[0].tagName).toBe('Filter');
-      //     expect(query.children[0].getElementsByTagName('Literal')[0].innerHTML).toBe(`*${searchTerm}*`);
-      //   });
-      // });
+      it('creates WFS filter for each feature type', () => {
+        const filterSpy = jest.spyOn(WfsFilterUtil, 'createWfsFilter');
+        const searchTerm: string = 'peter';
+        WfsFilterUtil.getCombinedRequests(searchConfig, searchTerm);
+        expect(filterSpy).toHaveBeenCalledTimes(searchConfig.attributeDetails.length);
+        filterSpy.mockRestore();
+      });
+
+      it('creates WFS GetFeature request body containing queries and filter for each feature type', () => {
+        const filterSpy = jest.spyOn(WfsFilterUtil, 'createWfsFilter');
+        const searchTerm: string = 'peter';
+        const got = WfsFilterUtil.getCombinedRequests(searchConfig, searchTerm) as Element;
+        expect(got?.tagName).toBe('GetFeature');
+        expect(filterSpy).toHaveBeenCalledTimes(searchConfig.attributeDetails.length);
+        expect(got?.getRootNode()?.firstChild?.textContent).toContain(`*${searchTerm}*`);
+      });
     });
   });
 });
