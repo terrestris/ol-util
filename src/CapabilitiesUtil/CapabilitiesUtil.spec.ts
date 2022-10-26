@@ -168,11 +168,8 @@ describe('CapabilitiesUtil', () => {
         expect(layerSource).toBeDefined();
         expect(layerSource).not.toBe(null);
         expect(layerSource?.getUrl()).toBe(getMapUrl);
-        // TODO!
-        // let attributions = layerSource?.getAttributions() as string[];
-        // expect(attributions).toBeDefined();
-        // expect(attributions(null)).toEqual(['<a target="_blank" href="http://www.openstreetmap.org/copyright">(c)
-        // OpenStreetMap contributors</a>']);
+        const attributions = layerSource!.getAttributions();
+        expect(attributions).toBeDefined();
         expect(layerSource?.getParams().LAYERS).toBe(layerName);
         expect(layerSource?.getParams().VERSION).toBe(capVersion);
       });
