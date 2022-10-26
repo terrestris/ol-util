@@ -3,6 +3,7 @@ import * as OlProj4 from 'ol/proj/proj4';
 import proj4 from 'proj4';
 
 import {
+  CrsDefinition,
   defaultProj4CrsDefinitions,
   defaultProj4CrsMappings,
   ProjectionUtil
@@ -23,15 +24,17 @@ afterEach(() => {
 
 describe('ProjectionUtil', () => {
 
-  const custom = {
-    'EPSG:31468': '+proj=tmerc +lat_0=0 +lon_0=12 ' +
+  const custom: CrsDefinition = {
+    crsCode: 'EPSG:31468',
+    definition: '+proj=tmerc +lat_0=0 +lon_0=12 ' +
       '+k=1 +x_0=4500000 +y_0=0 +ellps=bessel ' +
       '+towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m ' +
       '+no_defs'
   };
 
-  const alreadyThere = {
-    'EPSG:31467': '+proj=tmerc +lat_0=0 +lon_0=9 ' +
+  const alreadyThere: CrsDefinition = {
+    crsCode: 'EPSG:31467',
+    definition: '+proj=tmerc +lat_0=0 +lon_0=9 ' +
       '+k=1 +x_0=3500000 +y_0=0 +ellps=bessel ' +
       '+towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m ' +
       '+no_defs'
@@ -52,7 +55,7 @@ describe('ProjectionUtil', () => {
       });
 
       it('it registers the given CRS definitions in proj4 and ol', () => {
-        const length = Object.keys(defaultProj4CrsDefinitions).length;
+        const length = defaultProj4CrsDefinitions.length;
 
         ProjectionUtil.initProj4Definitions();
         expect(defsSpy).toHaveBeenCalledTimes(length);
@@ -60,12 +63,9 @@ describe('ProjectionUtil', () => {
       });
 
       it('additionally registers a custom projection', () => {
-        const length = Object.keys(defaultProj4CrsDefinitions).length;
+        const length = defaultProj4CrsDefinitions.length;
 
-        // eslint-disable-next-line require-jsdoc
-        const hasCustomProj = () => {
-          proj4('EPSG:31468');
-        };
+        const hasCustomProj = () => proj4('EPSG:31468');
 
         expect(hasCustomProj).toThrow();
         ProjectionUtil.initProj4Definitions(custom);
@@ -75,7 +75,7 @@ describe('ProjectionUtil', () => {
       });
 
       it('does not register a custom projection which is already registered', () => {
-        const length = Object.keys(defaultProj4CrsDefinitions).length;
+        const length = defaultProj4CrsDefinitions.length;
 
         ProjectionUtil.initProj4Definitions(alreadyThere);
         expect(defsSpy).toHaveBeenCalledTimes(length);
@@ -89,7 +89,7 @@ describe('ProjectionUtil', () => {
       });
 
       it('does not fail when neither custom projections nor defaults', () => {
-        ProjectionUtil.initProj4Definitions({}, false);
+        ProjectionUtil.initProj4Definitions(undefined, false);
         expect(defsSpy).toHaveBeenCalledTimes(0);
         expect(OlProj4.register).not.toHaveBeenCalled();
       });
@@ -103,31 +103,31 @@ describe('ProjectionUtil', () => {
       });
 
       it('registers the given CRS mappings in proj4', () => {
-        const length = Object.keys(defaultProj4CrsMappings).length;
+        const length = defaultProj4CrsMappings.length;
 
         ProjectionUtil.initProj4DefinitionMappings(defaultProj4CrsMappings);
         expect(defsSpy).toHaveBeenCalledTimes(length * 2);
       });
 
       it('additionally registers given CRS mappings in proj4', () => {
-        const length = Object.keys(defaultProj4CrsMappings).length;
+        const length = defaultProj4CrsMappings.length;
 
         // first register custom:
         ProjectionUtil.initProj4DefinitionMappings({
-          'foo': 'EPSG:31467'
+          alias: 'foo', mappedCode: 'EPSG:31467'
         });
         expect(defsSpy).toHaveBeenCalledTimes((length + 1) * 2);
       });
 
       it('registers only given CRS mappings in proj4, if told so', () => {
         ProjectionUtil.initProj4DefinitionMappings({
-          'foo': 'EPSG:31467'
+          alias: 'foo', mappedCode: 'EPSG:31467'
         }, false);
         expect(defsSpy).toHaveBeenCalledTimes(2);
       });
 
       it('does not fail when neither custom mappings nor defaults', () => {
-        ProjectionUtil.initProj4DefinitionMappings({}, false);
+        ProjectionUtil.initProj4DefinitionMappings([], false);
         expect(defsSpy).toHaveBeenCalledTimes(0);
       });
 
