@@ -62,7 +62,7 @@ describe('FileUtil', () => {
             expect(layer.getSource().getFeatures().length).toBe(16);
             resolve(true);
           });
-          FileUtil.addGeojsonLayer(geoJson, map);
+          FileUtil.addGeojsonLayer(JSON.stringify(geoJson), map);
         });
       });
     });

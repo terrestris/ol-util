@@ -8,6 +8,7 @@ import OlSourceWMTS from 'ol/source/WMTS';
 import OlWMTSTileGrid from 'ol/tilegrid/WMTS';
 
 import CapabilitiesUtil from '../CapabilitiesUtil/CapabilitiesUtil';
+import { InkmapWmsLayer, InkmapWmtsLayer } from './InkmapTypes';
 import LayerUtil from './LayerUtil';
 
 describe('LayerUtil', () => {
@@ -107,6 +108,55 @@ describe('LayerUtil', () => {
         expect(extent).toEqual([1, 2, 3, 4]);
 
         getWmsCapabilitiesByLayerSpy.mockRestore();
+      });
+    });
+
+    describe('#mapOlLayerToInkmap', () => {
+      it('exports WMS tile layer correctly', async () => {
+        const layer = new OlLayerTile({
+          source: new OlSourceTileWMS({
+            url: 'https://ows.terrestris.de/osm-gray/service?',
+            params: {
+              LAYERS: 'OSM-WMS'
+            }
+          }),
+          properties: {
+            name: 'OSM-WMS layer'
+          }
+        });
+
+        const result = await LayerUtil.mapOlLayerToInkmap(layer) as InkmapWmsLayer;
+        expect(result).toBeDefined();
+        expect(result.url).toEqual(layer?.getSource()?.getUrls()!.at(0));
+        expect(result.layerName).toEqual(layer?.getProperties()?.name);
+        expect(result.type).toEqual('WMS');
+        expect(result.layer).toEqual(layer?.getSource()?.getParams().LAYERS);
+      });
+
+      it('exports WMTS layers correctly', async () => {
+        const layer3 = new OlLayerTile({
+          source: new OlSourceWMTS({
+            urls: ['https://ows.terrestris.de/osm-gray/service'],
+            layer: 'test',
+            matrixSet: 'test',
+            tileGrid: new OlWMTSTileGrid({
+              matrixIds: [],
+              resolutions: [],
+              origin: [19, 9]
+            }),
+            style: 'default'
+          }),
+          properties: {
+            name: 'OSM-WMS'
+          }
+        });
+
+        const result = await LayerUtil.mapOlLayerToInkmap(layer3) as InkmapWmtsLayer;
+        expect(result).toBeDefined();
+        expect(result.url).toEqual(layer3?.getSource()?.getUrls()!.at(0));
+        expect(result.layerName).toEqual(layer3?.getProperties()?.name);
+        expect(result.type).toEqual('WMTS');
+        expect(result.layer).toEqual(layer3?.getSource()?.getLayer());
       });
     });
 
