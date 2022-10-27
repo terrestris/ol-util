@@ -1,13 +1,13 @@
-/*eslint-env jest*/
+/* eslint-env jest*/
+
+import OlMap from 'ol/Map';
+import shpwrite from 'shp-write';
 
 import geoJson from '../../assets/federal-states-ger.json';
-
-import TestUtil from '../TestUtil';
 import {
   FileUtil
 } from '../index';
-
-import shpwrite from 'shp-write';
+import TestUtil from '../TestUtil';
 
 
 const geoJson2 = {
@@ -27,16 +27,16 @@ const geoJson2 = {
 describe('FileUtil', () => {
   const geoJsonFile = new File([JSON.stringify(geoJson)], 'geo.json', {
     type: 'application/json',
-    lastModified: new Date()
+    lastModified: new Date().getMilliseconds()
   });
 
   const shpBuffer = shpwrite.zip(geoJson2);
   const shpFile = new File([new Blob([shpBuffer])], 'geo.zip', {
     type: 'application/zip',
-    lastModified: new Date()
+    lastModified: new Date().getMilliseconds()
   });
 
-  let map;
+  let map: OlMap;
 
   it('is defined', () => {
     expect(FileUtil).not.toBeUndefined();
@@ -47,10 +47,9 @@ describe('FileUtil', () => {
       map = TestUtil.createMap();
     });
 
-    // TODO investigate why removing of map leads to test failing
-    // afterEach(() => {
-    //   TestUtil.removeMap(map);
-    // });
+    afterEach(() => {
+      TestUtil.removeMap(map);
+    });
 
     describe('#addGeojsonLayer', () => {
       it('adds a layer from a geojson string', () => {
@@ -61,9 +60,9 @@ describe('FileUtil', () => {
             const layer = event.element;
             expect(layers.getLength()).toBe(2);
             expect(layer.getSource().getFeatures().length).toBe(16);
-            resolve();
+            resolve(true);
           });
-          FileUtil.addGeojsonLayer(geoJson, map);
+          FileUtil.addGeojsonLayer(JSON.stringify(geoJson), map);
         });
       });
     });
@@ -77,7 +76,7 @@ describe('FileUtil', () => {
             const layer = event.element;
             expect(layers.getLength()).toBe(2);
             expect(layer.getSource().getFeatures().length).toBe(16);
-            resolve();
+            resolve(true);
           });
           FileUtil.addGeojsonLayerFromFile(geoJsonFile, map);
         });
@@ -103,7 +102,7 @@ describe('FileUtil', () => {
             expect(coords[1]).toBe(-11);
             expect('song' in properties).toBe(true);
             expect(properties.song).toBe('If you have ghosts');
-            resolve();
+            resolve(true);
           });
           FileUtil.addShpLayerFromFile(shpFile, map);
         });

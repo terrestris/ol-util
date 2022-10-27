@@ -1,5 +1,12 @@
-import {getVectorContext} from 'ol/render';
+import _isNil from 'lodash/isNil';
+import OlFeature from 'ol/Feature';
+import OlGeometry from 'ol/geom/Geometry';
+import OlLayerVector from 'ol/layer/Vector';
+import OlMap from 'ol/Map';
 import { unByKey } from 'ol/Observable';
+import { getVectorContext } from 'ol/render';
+import OlSourceVector from 'ol/source/Vector';
+import OlStyle from 'ol/style/Style';
 
 /**
  * This class provides some static methods which might be helpful when working
@@ -10,11 +17,12 @@ import { unByKey } from 'ol/Observable';
 class AnimateUtil {
 
   /**
-   * Moves / translates an `OlFeature` to the given `pixel` delta in
+   * Moves / translates an `OlFeature` to the given `pixel` delta
    * in the end with given `duration` in ms, using the given style.
    *
    * @param {import("ol/Map").default} map An OlMap.
-   * @param {import("ol/layer/Vector").default<import("ol/source/Vector").default>} layer A vector layer to receive an postrender event.
+   * @param {import("ol/layer/Vector").default<import("ol/source/Vector").default>} layer A vector layer to receive a
+   * postrender event.
    * @param {import("ol/Feature").default} featureToMove The feature to move.
    * @param {number} duration The duration in ms for the moving to complete.
    * @param {number} pixel Delta of pixels to move the feature.
@@ -22,10 +30,17 @@ class AnimateUtil {
    *
    * @return {Promise<import("ol/Feature").default>} Promise of the moved feature.
    */
-  static moveFeature(map, layer, featureToMove, duration, pixel, style) {
+  static moveFeature(
+    map: OlMap,
+    layer: OlLayerVector<OlSourceVector>,
+    featureToMove: OlFeature<OlGeometry>,
+    duration: number,
+    pixel: number,
+    style: OlStyle
+  ): Promise<OlFeature<OlGeometry>> {
     return new Promise(resolve => {
       const geometry = featureToMove.getGeometry();
-      if (!geometry) {
+      if (_isNil(geometry)) {
         throw new Error('Feature has no geometry.');
       }
       const start = Date.now();

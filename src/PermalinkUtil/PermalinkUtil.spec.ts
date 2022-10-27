@@ -1,14 +1,13 @@
-/*eslint-env jest*/
-import OlSourceTile from 'ol/source/Tile';
-import OlLayerTile from 'ol/layer/Tile';
+/* eslint-env jest*/
 import OlLayerGroup from 'ol/layer/Group';
+import OlLayerTile from 'ol/layer/Tile';
+import OlMap from 'ol/Map';
+import OlSourceTile from 'ol/source/Tile';
 
-import {
-  PermalinkUtil
-} from './PermalinkUtil.js';
 import TestUtil from '../TestUtil';
+import { PermalinkUtil } from './PermalinkUtil';
 
-let map;
+let map: OlMap;
 
 beforeEach(() => {
   map = TestUtil.createMap();
@@ -38,25 +37,31 @@ describe('PermalinkUtil', () => {
         map.getView().setCenter([50, 7]);
         map.getView().setZoom(7);
         map.addLayer(new OlLayerTile({
-          name: 'peter',
           visible: true,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'peter'
+          }
         }));
         map.addLayer(new OlLayerTile({
-          name: 'paul',
           visible: false,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'paul'
+          }
         }));
         map.addLayer(new OlLayerTile({
-          name: 'pan',
           visible: true,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'pan'
+          }
         }));
         const link = PermalinkUtil.getLink(map);
         const url = new URL(link);
@@ -73,18 +78,22 @@ describe('PermalinkUtil', () => {
         map.getView().setCenter([50, 7]);
         map.getView().setZoom(7);
         map.addLayer(new OlLayerTile({
-          name: 'peter',
           visible: true,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'peter'
+          }
         }));
         map.addLayer(new OlLayerTile({
-          name: 'pan',
           visible: true,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'pan'
+          }
         }));
 
         const link = PermalinkUtil.getLink(map, '|');
@@ -107,30 +116,35 @@ describe('PermalinkUtil', () => {
       it('applies a given permalink', () => {
         map.getLayers().clear();
         map.addLayer(new OlLayerTile({
-          name: 'peter',
           visible: false,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'peter'
+          }
         }));
         map.addLayer(new OlLayerTile({
-          name: 'paul',
           visible: false,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'paul'
+          }
         }));
         map.addLayer(new OlLayerTile({
-          name: 'pan',
           visible: false,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'pan'
+          }
         }));
 
         const link = 'http://fake?zoom=3&center=10;20&layers=peter;pan';
-        global.window = Object.create(window);
-        Object.defineProperty(window, 'location', {
+        Object.defineProperty(global.window, 'location', {
           value: {
             href: link
           }
@@ -148,28 +162,35 @@ describe('PermalinkUtil', () => {
       it('correctly uses optional separator on link apply', () => {
         map.getLayers().clear();
         map.addLayer(new OlLayerTile({
-          name: 'peter',
           visible: false,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'peter'
+          }
         }));
         map.addLayer(new OlLayerTile({
-          name: 'paul',
           visible: false,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'paul'
+          }
         }));
         map.addLayer(new OlLayerTile({
-          name: 'pan',
           visible: false,
           source: new OlSourceTile({
             attributions: ''
-          })
+          }),
+          properties: {
+            name: 'pan'
+          }
         }));
 
         const link = 'http://fake?zoom=3&center=10|20&layers=peter|pan';
+        // @ts-ignore
         delete global.window.location;
         global.window = Object.create(window);
         Object.defineProperty(window, 'location', {
@@ -190,29 +211,33 @@ describe('PermalinkUtil', () => {
       it('applies visible state to parenting groups', () => {
         map.getLayers().clear();
         map.addLayer(new OlLayerGroup({
-          name: 'peter',
           visible: false,
           layers: [
             new OlLayerTile({
-              name: 'paul',
               visible: false,
               source: new OlSourceTile({
                 attributions: ''
-              })
+              }),
+              properties: {
+                name: 'paul'
+              }
             }),
             new OlLayerTile({
-              name: 'pan',
               visible: false,
               source: new OlSourceTile({
                 attributions: ''
-              })
+              }),
+              properties: {
+                name: 'pan'
+              }
             })
-          ]
+          ],
+          properties: {
+            name: 'peter'
+          }
         }));
 
         const link = 'http://fake?zoom=3&center=10|20&layers=pan';
-        delete global.window.location;
-        global.window = Object.create(window);
         Object.defineProperty(window, 'location', {
           value: {
             href: link
@@ -226,7 +251,9 @@ describe('PermalinkUtil', () => {
           .map(l => l.get('name'));
         expect(firstLevelVisibles).toEqual(['peter']);
 
-        const secondLevelVisibles = map.getLayers().getArray()[0]
+        let firstElement = map.getLayers().getArray()[0];
+        expect(firstElement).toBeInstanceOf(OlLayerGroup);
+        const secondLevelVisibles = (firstElement as OlLayerGroup)
           .getLayers().getArray().filter(l => l.getVisible())
           .map(l => l.get('name'));
         expect(secondLevelVisibles).toEqual(['pan']);

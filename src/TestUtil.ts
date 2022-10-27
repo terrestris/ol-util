@@ -1,10 +1,12 @@
-import OlView from 'ol/View';
-import OlMap from 'ol/Map';
-import OlSourceVector from 'ol/source/Vector';
-import OlLayerVector from 'ol/layer/Vector';
+import _isNil from 'lodash/isNil';
 import OlFeature from 'ol/Feature';
 import OlGeomPoint from 'ol/geom/Point';
+import OlLayerVector from 'ol/layer/Vector';
+import OlMap from 'ol/Map';
 import OlMapBrowserEvent from 'ol/MapBrowserEvent';
+import { MapOptions } from 'ol/PluggableMap';
+import OlSourceVector from 'ol/source/Vector';
+import OlView from 'ol/View';
 
 /**
  * A set of some useful static helper methods.
@@ -56,10 +58,10 @@ export class TestUtil {
   /**
    * Creates an OpenLayers map.
    *
-   * @param {import("ol/PluggableMap").MapOptions & { resolutions: number[] }} mapOpts Additional options for the map to create.
-   * @return {import("ol/Map").default} The ol map.
+   * @param {MapOptions & { resolutions: number[] }} mapOpts Additional options for the map to create.
+   * @return {OlMap} The ol map.
    */
-  static createMap = (mapOpts) => {
+  static createMap = (mapOpts?: MapOptions & { resolutions: number[] }) => {
     let source = new OlSourceVector();
     let layer = new OlLayerVector({source: source});
     let targetDiv = TestUtil.mountMapDiv();
@@ -69,28 +71,23 @@ export class TestUtil {
       view: new OlView({
         center: [829729, 6708850],
         resolution: 1,
-        resolutions: mapOpts ? mapOpts.resolutions : undefined
+        resolutions: mapOpts?.resolutions
       })
     };
 
     Object.assign(defaultMapOpts, mapOpts);
-
-    let map = new OlMap(defaultMapOpts);
-
+    const map = new OlMap(defaultMapOpts);
     map.renderSync();
-
     return map;
   };
 
   /**
    * Removes the map.
    *
-   * @param {OlMap|undefined} map
+   * @param {OlMap} map
    */
-  static removeMap = (map) => {
-    if (map instanceof OlMap) {
-      map.dispose();
-    }
+  static removeMap = (map: OlMap) => {
+    map?.dispose();
     TestUtil.unmountMapDiv();
   };
 
@@ -98,25 +95,24 @@ export class TestUtil {
    * Simulates a browser pointer event on the map viewport.
    * Origin: https://github.com/openlayers/openlayers/blob/master/test/spec/ol/interaction/draw.test.js#L67
    *
-   * @param {import("ol/Map").default} map The map to use.
+   * @param {OlMap} map The map to use.
    * @param {string} type Event type.
    * @param {number} x Horizontal offset from map center.
    * @param {number} y Vertical offset from map center.
-   * @param {boolean} opt_shiftKey Shift key is pressed
+   * @param {boolean} shift Shift key is pressed
    * @param {boolean} dragging Whether the map is being dragged or not.
    */
-  static simulatePointerEvent = (map, type, x, y, opt_shiftKey, dragging) => {
+  static simulatePointerEvent = (map: OlMap, type: string, x: number, y: number, shift: boolean, dragging: boolean) => {
     let viewport = map.getViewport();
     // Calculated in case body has top < 0 (test runner with small window).
     let position = viewport.getBoundingClientRect();
-    let shiftKey = opt_shiftKey !== undefined ? opt_shiftKey : false;
     const event = new MouseEvent(type);
     // @ts-ignore
     event.clientX = position.left + x + TestUtil.mapDivWidth / 2;
     // @ts-ignore
     event.clientY = position.top + y + TestUtil.mapDivHeight / 2;
     // @ts-ignore
-    event.shiftKey = shiftKey;
+    event.shiftKey = shift;
     map.handleMapBrowserEvent(new OlMapBrowserEvent(type, map, event, dragging));
   };
 
@@ -126,12 +122,15 @@ export class TestUtil {
    * @param {Object} properties The properties to set.
    * @return {OlLayerVector<OlSourceVector>} The layer.
    */
-  static createVectorLayer = (properties) => {
-    let source = new OlSourceVector();
-    let layer = new OlLayerVector({source: source});
+  static createVectorLayer = (properties?: {
+    [key: string]: any;
+  }) => {
+    const source = new OlSourceVector();
+    const layer = new OlLayerVector({source: source});
 
-    layer.setProperties(properties);
-
+    if (!_isNil(properties)) {
+      layer.setProperties(properties);
+    }
     return layer;
   };
 

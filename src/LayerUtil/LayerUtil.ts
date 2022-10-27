@@ -1,4 +1,13 @@
+import Logger from '@terrestris/base-util/dist/Logger';
+import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
+import OpenLayersParser from 'geostyler-openlayers-parser';
+import { isNil } from 'lodash';
+import _uniq from 'lodash/uniq';
+import { Extent as OlExtent } from 'ol/extent';
 import OlFormatGeoJSON from 'ol/format/GeoJSON';
+import OlLayerImage from 'ol/layer/Image';
+import OlLayer from 'ol/layer/Layer';
+import OlLayerTile from 'ol/layer/Tile';
 import OlLayerVector from 'ol/layer/Vector';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceOSM from 'ol/source/OSM';
@@ -6,14 +15,9 @@ import OlSourceStamen from 'ol/source/Stamen';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceVector from 'ol/source/Vector';
 import OlSourceWMTS from 'ol/source/WMTS';
-import OpenLayersParser from 'geostyler-openlayers-parser';
-
-import _uniq from 'lodash/uniq';
-
-import Logger from '@terrestris/base-util/dist/Logger';
-import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
 
 import CapabilitiesUtil from '../CapabilitiesUtil/CapabilitiesUtil';
+import { InkmapGeoJsonLayer, InkmapLayer } from './InkmapTypes';
 
 /**
  * Helper class for layer interaction.
@@ -25,33 +29,38 @@ class LayerUtil {
   /**
    * Returns the configured URL of the given layer.
    *
-   * @param {import("../types").WMSOrWMTSLayer} layer The layer to get the URL from.
+   * @param { OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | OlLayerTile<OlSourceWMTS>} layer The layer
+   *   to get the URL from.
    * @returns {string} The layer URL.
    */
-  static getLayerUrl = layer => {
+  static getLayerUrl = (
+    layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | OlLayerTile<OlSourceWMTS>
+  ): string => {
     const layerSource = layer.getSource();
-    let layerUrl = '';
 
     if (layerSource instanceof OlSourceTileWMS) {
-      layerUrl = layerSource.getUrls()?.[0] ?? '';
+      return layerSource.getUrls()?.[0] ?? '';
     } else if (layerSource instanceof OlSourceImageWMS) {
-      layerUrl = layerSource.getUrl() ?? '';
+      return layerSource.getUrl() ?? '';
     } else if (layerSource instanceof OlSourceWMTS) {
-      layerUrl = layerSource.getUrls()?.[0] ?? '';
+      return layerSource.getUrls()?.[0] ?? '';
     }
-    return layerUrl;
+    return '';
   };
 
   /**
    * Returns the extent of the given layer as defined in the
    * appropriate Capabilities document.
    *
-   * @param {import("../types").WMSLayer} layer
+   * @param { OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>} layer
    * @param {RequestInit} fetchOpts Optional fetch options to make use of
    *                                while requesting the Capabilities.
    * @returns {Promise<[number, number, number, number]>} The extent of the layer.
    */
-  static async getExtentForLayer(layer, fetchOpts = {}) {
+  static async getExtentForLayer(
+    layer:  OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
+    fetchOpts: RequestInit = {}
+  ): Promise<OlExtent> {
     const capabilities = await CapabilitiesUtil.getWmsCapabilitiesByLayer(layer, fetchOpts);
 
     if (!capabilities?.Capability?.Layer?.Layer) {
@@ -59,11 +68,8 @@ class LayerUtil {
     }
 
     const layerName = layer.getSource()?.getParams().LAYERS;
-
-    /** @type {{ Name: string, EX_GeographicBoundingBox?: number[] }[]} */
     const capabilitiesLayer = capabilities.Capability.Layer.Layer;
-
-    const layers = capabilitiesLayer.filter((l) => {
+    const layers = capabilitiesLayer.filter((l: any) => {
       return l.Name === layerName;
     });
 
@@ -71,27 +77,26 @@ class LayerUtil {
       throw new Error('Could not find the desired layer in the Capabilities.');
     }
 
-    const extent = layers[0].EX_GeographicBoundingBox;
+    const extent: OlExtent = layers[0].EX_GeographicBoundingBox;
 
     if (!extent || extent.length !== 4) {
       throw new Error('No extent set in the Capabilities.');
     }
 
-    return /** @type {[number, number, number, number]} */ (extent);
+    return extent;
   }
 
   /**
-   * Converts a given OpenLayers layer to a inkmap layer spec.
+   * Converts a given OpenLayers layer to an inkmap layer spec.
    *
-   * @param {import("ol/layer/Layer").default} olLayer The layer.
-   *
-   * @return {Promise<import("../types").InkmapLayer | null>} Promise of the inmkap layer spec.
    */
-  static async mapOlLayerToInkmap(olLayer) {
+  static async mapOlLayerToInkmap(
+    olLayer: OlLayer
+  ): Promise<InkmapLayer> {
     const source = olLayer.getSource();
     if (!olLayer.getVisible()) {
       // do not include invisible layers
-      return null;
+      return Promise.reject();
     }
     const opacity = olLayer.getOpacity();
     const legendUrl = olLayer.get('legendUrl');
@@ -101,7 +106,7 @@ class LayerUtil {
     const attributionString = LayerUtil.getLayerAttributionsText(olLayer, ' ,', true);
 
     if (source instanceof OlSourceTileWMS) {
-      const tileWmsLayer = {
+      return {
         type: 'WMS',
         url: source.getUrls()?.[0] ?? '',
         opacity,
@@ -109,11 +114,10 @@ class LayerUtil {
         layer: source.getParams()?.LAYERS,
         tiled: true,
         legendUrl,
-        name: layerName
+        layerName
       };
-      return /** @type {import("../types").InkmapWmsLayer} */ (tileWmsLayer);
     } else if (source instanceof OlSourceImageWMS) {
-      const imageWmsLayer = {
+      return {
         type: 'WMS',
         url: source.getUrl() ?? '',
         opacity,
@@ -123,7 +127,6 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-      return /** @type {import("../types").InkmapWmsLayer} */ (imageWmsLayer);
     } else if (source instanceof OlSourceWMTS) {
       const olTileGrid = source.getTileGrid();
       const resolutions = olTileGrid?.getResolutions();
@@ -135,7 +138,7 @@ class LayerUtil {
         matrixIds: matrixIds
       };
 
-      const wmtsLayer = {
+      return {
         type: 'WMTS',
         requestEncoding: source.getRequestEncoding(),
         url: source.getUrls()?.[0] ?? '',
@@ -149,9 +152,8 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-      return /** @type {import("../types").InkmapWmtsLayer} */ (wmtsLayer);
     } else if (source instanceof OlSourceOSM) {
-      const osmLayer = {
+      return {
         type: 'XYZ',
         url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         opacity,
@@ -160,22 +162,24 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-      return /** @type {import("../types").InkmapOsmLayer} */ (osmLayer);
     } else if (source instanceof OlSourceStamen) {
-      const stamenLayer = {
+      const urls = source.getUrls();
+      if (isNil(urls)) {
+        return Promise.reject();
+      }
+      return {
         type: 'XYZ',
-        url: source.getUrls()?.[0],
+        url: urls[0],
         opacity,
         attribution: attributionString,
         tiled: true,
         legendUrl,
         layerName
       };
-      return /** @type {import("../types").InkmapLayer} */ (stamenLayer);
     } else if (source instanceof OlSourceVector) {
       const geojson = new OlFormatGeoJSON().writeFeaturesObject(source.getFeatures());
       const parser = new OpenLayersParser();
-      const geojsonLayerConfig = {
+      const geojsonLayerConfig: InkmapGeoJsonLayer = {
         type: 'GeoJSON',
         geojson,
         attribution: attributionString,
@@ -186,11 +190,11 @@ class LayerUtil {
 
       let olStyle = null;
 
-      if (olLayer instanceof OlLayerVector) {
+      if (olLayer instanceof OlLayerVector<OlSourceVector>) {
         olStyle = olLayer.getStyle();
       }
 
-      // todo: support stylefunction / different styles per feature
+      // todo: support style function / different styles per feature
       // const styles = source.getFeatures()?.map(f => f.getStyle());
 
       if (olStyle) {
@@ -205,25 +209,31 @@ class LayerUtil {
           Logger.warn('Detected unsupported style properties: ', gsStyle.unsupportedProperties);
         }
         if (gsStyle.output) {
-          // @ts-ignore
           geojsonLayerConfig.style = gsStyle.output;
         }
       }
-      return /** @type {import("../types").InkmapGeoJsonLayer} */ (geojsonLayerConfig);
+      return geojsonLayerConfig;
     }
-    return null;
+    return Promise.reject();
   }
 
   /**
    * Returns all attributions as text joined by a separator.
    *
-   * @param {import("ol/layer/Layer").default} layer The layer to get the attributions from.
+   * @param {OlLayer} layer The layer to get the attributions from.
    * @param {string} separator The separator separating multiple attributions.
    * @param {boolean} removeDuplicates Whether to remove duplicated attribution
    * strings or not.
    * @returns {string} The attributions.
    */
-  static getLayerAttributionsText = (layer, separator = ', ', removeDuplicates = false) => {
+  static getLayerAttributionsText = (
+    layer: OlLayer,
+    separator: string = ', ',
+    removeDuplicates: boolean = false
+  ): string => {
+    if (isNil(layer)) {
+      return '';
+    }
     const attributionsFn = layer.getSource()?.getAttributions();
     // @ts-ignore
     let attributions = attributionsFn ? attributionsFn(undefined) : null;

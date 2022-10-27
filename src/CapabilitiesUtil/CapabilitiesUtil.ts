@@ -1,11 +1,11 @@
-import OlWMSCapabilities from 'ol/format/WMSCapabilities';
-import OlSourceImageWMS from 'ol/source/ImageWMS';
-import OlLayerImage from 'ol/layer/Image';
-
+import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';
-
-import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
+import OlWMSCapabilities from 'ol/format/WMSCapabilities';
+import OlLayerImage from 'ol/layer/Image';
+import OlLayerTile from 'ol/layer/Tile';
+import OlSourceImageWMS from 'ol/source/ImageWMS';
+import OlSourceTileWMS from 'ol/source/TileWMS';
 
 import LayerUtil from '../LayerUtil/LayerUtil';
 
@@ -24,7 +24,7 @@ class CapabilitiesUtil {
    *                                while requesting the Capabilities.
    * @return {Promise<any>} An object representing the WMS capabilities.
    */
-  static async getWmsCapabilities(capabilitiesUrl, fetchOpts = {}) {
+  static async getWmsCapabilities(capabilitiesUrl: string, fetchOpts: RequestInit = {}): Promise<any> {
     const capabilitiesResponse = await fetch(capabilitiesUrl, fetchOpts);
 
     if (!capabilitiesResponse.ok) {
@@ -32,9 +32,7 @@ class CapabilitiesUtil {
     }
 
     const wmsCapabilitiesParser = new OlWMSCapabilities();
-
     const capabilitiesText = await capabilitiesResponse.text();
-
     return wmsCapabilitiesParser.read(capabilitiesText);
   }
 
@@ -46,19 +44,12 @@ class CapabilitiesUtil {
    *                                while requesting the Capabilities.
    * @return {Promise<any>} An object representing the WMS capabilities.
    */
-  static async getWmsCapabilitiesByLayer(layer, fetchOpts = {}) {
+  static async getWmsCapabilitiesByLayer(
+    layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
+    fetchOpts: RequestInit = {}
+  ): Promise<any> {
     const capabilitiesUrl = this.getCapabilitiesUrl(layer);
-
     return await this.getWmsCapabilities(capabilitiesUrl, fetchOpts);
-  }
-
-  /**
-   * @param {string} capabilitiesUrl Url to WMS capabilities document
-   * @return {Promise<any>} An object representing the WMS capabilities.
-   * @deprecated Please make use of #getWmsCapabilities
-   */
-  static async parseWmsCapabilities(capabilitiesUrl) {
-    return await this.getWmsCapabilities(capabilitiesUrl);
   }
 
   /**
@@ -67,10 +58,10 @@ class CapabilitiesUtil {
    * @param {import("../types").WMSLayer} layer The layer to the get the Capabilities URL for.
    * @return {string} The Capabilities URL.
    */
-  static getCapabilitiesUrl(layer) {
+  static getCapabilitiesUrl(layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>) {
     const layerSource = layer.getSource();
     const layerBaseUrl = LayerUtil.getLayerUrl(layer);
-    const wmsVersion = layerSource?.getParams().VERSION || '1.3.0';
+    const wmsVersion = layerSource?.getParams()?.VERSION || '1.3.0';
 
     return UrlUtil.createValidGetCapabilitiesRequest(
       layerBaseUrl, 'WMS', wmsVersion);
@@ -87,9 +78,13 @@ class CapabilitiesUtil {
    *                           requests to avoid CORS issues.
    * @return {import("ol/layer/Image").default<any>[]} Array of OlLayerImage
    */
-  static getLayersFromWmsCapabilities(capabilities, nameField = 'Name', proxyFn = undefined) {
+  static getLayersFromWmsCapabilities(
+    capabilities: any,
+    nameField: string  = 'Name',
+    proxyFn?: (proxyUrl: string) => string
+  ): OlLayerImage<OlSourceImageWMS>[] {
     const wmsVersion = _get(capabilities, 'version');
-    const layersInCapabilities = /** @type {Object[]} */ (_get(capabilities, 'Capability.Layer.Layer'));
+    const layersInCapabilities = _get(capabilities, 'Capability.Layer.Layer');
     const wmsGetMapConfig = _get(capabilities, 'Capability.Request.GetMap');
     const wmsGetFeatureInfoConfig = _get(capabilities, 'Capability.Request.GetFeatureInfo');
     const getMapUrl = _get(wmsGetMapConfig, 'DCPType[0].HTTP.Get.OnlineResource');
@@ -98,7 +93,7 @@ class CapabilitiesUtil {
       ? _get(layersInCapabilities[0], 'Style[0].LegendURL[0].OnlineResource')
       : null;
 
-    return layersInCapabilities.map(layerObj => {
+    return layersInCapabilities.map((layerObj: any) => {
       const title = _get(layerObj, 'Attribution.Title');
       const onlineResource = _get(layerObj, 'Attribution.OnlineResource');
       const attributions = [onlineResource ? `<a target="_blank" href="${onlineResource}">${title}</a>` : title];

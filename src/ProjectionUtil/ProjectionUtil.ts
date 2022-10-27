@@ -1,27 +1,51 @@
-import proj4 from 'proj4';
-import { register } from 'ol/proj/proj4';
-
+import _isNil from 'lodash';
 import _isEmpty from 'lodash/isEmpty';
 import _isString from 'lodash/isString';
+import { register } from 'ol/proj/proj4';
+import proj4, { ProjectionDefinition } from 'proj4';
+
+export type CrsDefinition = {
+  crsCode: string;
+  definition: string | ProjectionDefinition;
+};
+
+export type CrsMapping = {
+  alias: string;
+  mappedCode: string;
+};
 
 /**
  * Default proj4 CRS definitions.
  */
-export const defaultProj4CrsDefinitions = {
-  'EPSG:25832': '+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs',
-  'EPSG:31466': '+proj=tmerc +lat_0=0 +lon_0=6 +k=1 +x_0=2500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs',
-  'EPSG:31467': '+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs'
-};
+export const defaultProj4CrsDefinitions: CrsDefinition[] = [{
+  crsCode: 'EPSG:25832',
+  definition: '+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs'}
+, {
+  crsCode: 'EPSG:31466',
+  // eslint-disable-next-line
+  definition: '+proj=tmerc +lat_0=0 +lon_0=6 +k=1 +x_0=2500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs'
+}, {
+  crsCode: 'EPSG:31467',
+  // eslint-disable-next-line
+  definition: '+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs'
+}];
 
 /**
  * Default mappings for CRS identifiers (e.g. "urn:ogc:def:crs:EPSG::25832").
  */
-export const defaultProj4CrsMappings = {
-  'urn:ogc:def:crs:EPSG::3857': 'EPSG:3857',
-  'urn:ogc:def:crs:EPSG::25832': 'EPSG:25832',
-  'urn:ogc:def:crs:EPSG::31466': 'EPSG:31466',
-  'urn:ogc:def:crs:EPSG::31467': 'EPSG:31467'
-};
+export const defaultProj4CrsMappings: CrsMapping[] = [{
+  alias: 'urn:ogc:def:crs:EPSG::3857',
+  mappedCode: 'EPSG:3857'
+}, {
+  alias: 'urn:ogc:def:crs:EPSG::25832',
+  mappedCode: 'EPSG:25832'
+}, {
+  alias: 'urn:ogc:def:crs:EPSG::31466',
+  mappedCode: 'EPSG:31466'
+}, {
+  alias: 'urn:ogc:def:crs:EPSG::31467',
+  mappedCode: 'EPSG:31467'
+}];
 
 /**
  * Helper class for projection handling. Makes use of
@@ -34,7 +58,7 @@ export class ProjectionUtil {
   /**
    * Registers custom CRS definitions to the application.
    *
-   * @param {Record<string, string>} customCrsDefs The custom `proj4` definition strings
+   * @param { CrsDefinition | CrsDefinition[]} customCrsDefs The custom `proj4` definitions
    *   which should be registered additionally to default available CRS (s.
    *   `defaultProj4CrsDefinitions` above) as well.
    *   Further CRS definitions in proj4 format can be checked under
@@ -42,26 +66,25 @@ export class ProjectionUtil {
    * @param {boolean} registerDefaults Whether the default CRS should be
    *   registered or not. Default is true.
    */
-  static initProj4Definitions(customCrsDefs, registerDefaults = true) {
-    /** @type {Record<string, string>} */
-    let proj4CrsDefinitions = {};
+  static initProj4Definitions(customCrsDefs?: CrsDefinition | CrsDefinition[], registerDefaults: boolean = true) {
+    let proj4CrsDefinitions: CrsDefinition[] = [];
 
     if (registerDefaults) {
       proj4CrsDefinitions = defaultProj4CrsDefinitions;
     }
 
-    if (!_isEmpty(customCrsDefs)) {
-      Object.keys(customCrsDefs).forEach(crsKey => {
-        if (!(crsKey in proj4CrsDefinitions)) {
-          proj4CrsDefinitions[crsKey] = customCrsDefs[crsKey];
+    if (!_isNil(customCrsDefs) || customCrsDefs) {
+      const crsDefs: CrsDefinition[] = Array.isArray(customCrsDefs) ?
+        customCrsDefs : [customCrsDefs] as CrsDefinition[];
+      crsDefs?.forEach(crsDef => {
+        if (proj4CrsDefinitions?.findIndex(tCrs => tCrs.crsCode === crsDef?.crsCode) === -1){
+          proj4CrsDefinitions.push(crsDef);
         }
       });
     }
 
-    if (!_isEmpty(proj4CrsDefinitions)) {
-      for (let [projCode, projDefinition] of Object.entries(proj4CrsDefinitions)) {
-        proj4.defs(projCode, projDefinition);
-      }
+    if (proj4CrsDefinitions?.length > 0) {
+      proj4CrsDefinitions.forEach(crsDef => proj4.defs(crsDef.crsCode, crsDef.definition));
       register(proj4);
     }
   }
@@ -73,33 +96,34 @@ export class ProjectionUtil {
    * supported by `proj4` and `OpenLayers` per default. Add appropriate
    * mappings to allow automatic CRS detection by `OpenLayers` here.
    *
-   * @param {Record<string, string>} customCrsMappings The custom CRS mappings which will be
+   * @param {CrsMapping | CrsMapping[]} customCrsMappings The custom CRS mappings which will be
    *   added additionally to the by default available (s. `defaultProj4CrsMappings`
    *   above).
    * @param {boolean} useDefaultMappings Whether the default CRS should be mapped
    *   as well or not. Default is true.
    */
-  static initProj4DefinitionMappings(customCrsMappings, useDefaultMappings = true) {
-    /** @type {Record<string, string>} */
-    let proj4CrsMappings = {};
+  static initProj4DefinitionMappings(customCrsMappings: CrsMapping | CrsMapping[], useDefaultMappings = true) {
+    let proj4CrsMappings: CrsMapping[] = [];
 
     if (useDefaultMappings) {
       proj4CrsMappings = defaultProj4CrsMappings;
     }
 
     if (!_isEmpty(customCrsMappings)) {
-      Object.keys(customCrsMappings).forEach(crsKey => {
-        if (!(crsKey in proj4CrsMappings)) {
-          proj4CrsMappings[crsKey] = customCrsMappings[crsKey];
+      const crsMappings: CrsMapping[] = Array.isArray(customCrsMappings) ?
+        customCrsMappings : [customCrsMappings] as CrsMapping[];
+      crsMappings?.forEach(crsMapping => {
+        if (proj4CrsMappings?.findIndex(mapping => mapping.alias === crsMapping?.alias) === -1){
+          proj4CrsMappings.push(crsMapping);
         }
       });
     }
 
-    if (!_isEmpty(proj4CrsMappings)) {
-      for (let [aliasProjCode, projCode] of Object.entries(proj4CrsMappings)) {
-        proj4.defs(aliasProjCode, proj4.defs(projCode));
-      }
-    }
+    proj4CrsMappings?.map(crsMapping => {
+      const projDef = proj4.defs(crsMapping.mappedCode) as proj4.ProjectionDefinition;
+      proj4.defs(crsMapping.alias, projDef);
+    });
+
   }
 
   /**
@@ -111,7 +135,7 @@ export class ProjectionUtil {
    *
    * @return {string} Converted value.
    */
-  static toDms(value) {
+  static toDms(value: number): string {
     const deg = Math.floor(value);
     const min = Math.floor((value - deg) * 60);
     const sec = ((value - deg - min / 60) * 3600);
@@ -126,7 +150,7 @@ export class ProjectionUtil {
    *
    * @return {string} Converted value.
    */
-  static toDmm(value) {
+  static toDmm(value: number): string {
     const deg = Math.floor(value);
     const min = ((value - deg) * 60);
     return `${deg}° ${ProjectionUtil.zerofill(min.toFixed(4))}'`;
@@ -141,7 +165,7 @@ export class ProjectionUtil {
    *
    * @return {string} converted value with leading zero if necessary.
    */
-  static zerofill(value) {
+  static zerofill(value: number | string): string {
     const asNumber = _isString(value) ? parseFloat(value) : value;
     return asNumber < 10 ? `0${asNumber}` : `${asNumber}`;
   }

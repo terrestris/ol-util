@@ -1,9 +1,13 @@
-import TileLayer from 'ol/layer/Tile';
-import OlLayerGroup from 'ol/layer/Group';
-import MapUtil from '../MapUtil/MapUtil';
-import {getUid} from 'ol';
-import _isNil from 'lodash/isNil';
 import _isEmpty from 'lodash/isEmpty';
+import _isNil from 'lodash/isNil';
+import { getUid } from 'ol';
+import OlCollection from 'ol/Collection';
+import OlBaseLayer from 'ol/layer/Base';
+import OlLayerGroup from 'ol/layer/Group';
+import OlTileLayer from 'ol/layer/Tile';
+import OlMap from 'ol/Map';
+
+import MapUtil from '../MapUtil/MapUtil';
 
 /**
  * Helper class for some operations related to permalink function.
@@ -17,41 +21,43 @@ export class PermalinkUtil {
    * the current view state of the map (center and zoom) as well as
    * the current (filtered) list of layers.
    *
-   * @param {import("ol/Map").default} map The OpenLayers map
+   * @param {OlMap} map The OpenLayers map
    * @param {string} separator The separator for the layers list and center
    *                           coordinates in the link. Default is to ';'.
-   * @param {(layer: import("ol/layer/Base").default) => string} identifier Function to generate the identifier of the
+   * @param {(layer: OlBaseLayer) => string} identifier Function to generate the identifier of the
    *                              layer in the link. Default is the name
    *                              (given by the associated property) of
    *                              the layer.
-   * @param {(layer: import("ol/layer/Base").default) => boolean} filter Function to filter layers that should be
+   * @param {(layer: OlBaseLayer) => boolean} filter Function to filter layers that should be
    *                          added to the link. Default is to add all
    *                          visible layers of type ol/layer/Tile.
    * @param {string[]} customAttributes Custom layer attributes which will be saved in the permalink for each layer.
    * @return {string} The permalink.
    */
   static getLink = (
-    map,
+    map: OlMap,
     separator = ';',
-    identifier = l => l.get('name'),
-    filter = l => l instanceof TileLayer && l.getVisible(),
-    customAttributes = []
-  ) => {
+    identifier = (l: OlBaseLayer) => l?.get('name'),
+    filter = (l: OlBaseLayer) => !_isNil(l) && l instanceof OlTileLayer && l.getVisible(),
+    customAttributes: string[] = []
+  ): string => {
     const center = map.getView().getCenter()?.join(separator) ?? '';
     const zoom = map.getView().getZoom()?.toString() ?? '';
     const layers = MapUtil.getAllLayers(map);
-    const visibles = layers
+    const visibleOnes = layers
       .filter(filter)
       .map(identifier)
       .join(separator);
     const link = new URL(window.location.href);
 
     if (customAttributes.length > 0) {
-      /** @type {{}[]} */
-      const customLayerAttributes = [];
+      const customLayerAttributes: {
+        [key: string]: any;
+      }[] = [];
       layers.forEach((layer) => {
-        /** @type {any} */
-        const config = {};
+        const config: {
+          [key: string]: any;
+        } = {};
         customAttributes.forEach((attribute) => {
           if (!_isNil(layer.get(attribute))) {
             config[attribute] = layer.get(attribute);
@@ -67,7 +73,7 @@ export class PermalinkUtil {
 
     link.searchParams.set('center', center);
     link.searchParams.set('zoom', zoom);
-    link.searchParams.set('layers', visibles);
+    link.searchParams.set('layers', visibleOnes);
 
     return link.href;
   };
@@ -75,20 +81,24 @@ export class PermalinkUtil {
   /**
    * Applies an existing permalink to the given map.
    *
-   * @param {import("ol/Map").default} map The OpenLayers map.
+   * @param {OlMap} map The OpenLayers map.
    * @param {string} separator The separator of the layers list and center
    *                           coordinates in the link. Default is to ';'.
-   * @param {(layer: import("ol/layer/Base").default) => string} identifier Function to generate the identifier of the
+   * @param {(layer: OlBaseLayer) => string} identifier Function to generate the identifier of the
    *                              layer in the link. Default is the name
    *                              (given by the associated property) of
    *                              the layer.
-   * @param {(layer: import("ol/layer/Base").default) => boolean} filter Function to filter layers that should be
+   * @param {(layer: OlBaseLayer) => boolean} filter Function to filter layers that should be
    *                          handled by the link. Default is to consider all
    *                          current map layers of type ol/layer/Tile.
    * @return {string | null} The customLayerAttributes, if defined. Otherwise null.
    */
-  static applyLink = (map, separator = ';', identifier = l => l.get('name'),
-    filter = l => l instanceof TileLayer) => {
+  static applyLink = (
+    map: OlMap,
+    separator: string = ';',
+    identifier: (layer: OlBaseLayer) => string = l => l?.get('name'),
+    filter = (layer: OlBaseLayer) => layer instanceof OlTileLayer
+  ): string | null => {
     const url = new URL(window.location.href);
     const center = url.searchParams.get('center');
     const zoom = url.searchParams.get('zoom');
@@ -134,11 +144,11 @@ export class PermalinkUtil {
   /**
    * Search through the given Ol-Collection for the given id and
    * set all parenting groups visible.
-   * @param {import("ol/Map").default} map The openlayers map
-   * @param {import("ol/Collection").default<import("ol/layer/Base").default>} coll The Openlayers Collection
+   * @param {OlMap} map The openlayers map
+   * @param {OlCollection<OlBaseLayer>} coll The Openlayers Collection
    * @param {string} id Ther layer ol uid to search for
    */
-  static setParentsVisible = (map, coll, id) => {
+  static setParentsVisible = (map: OlMap, coll: OlCollection<OlBaseLayer>, id: string) => {
     coll.forEach(el => {
       if (el instanceof OlLayerGroup) {
         const layers = MapUtil.getLayersByGroup(map, el);

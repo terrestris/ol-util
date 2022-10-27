@@ -1,7 +1,9 @@
-import _isArray from 'lodash/isArray';
-import _isString from 'lodash/isString';
-
 import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
+import _isArray from 'lodash/isArray';
+import _isNil from 'lodash/isNil';
+import _isString from 'lodash/isString';
+import OlFeature from 'ol/Feature';
+import OlGeometry from 'ol/geom/Geometry';
 
 /**
  * Helper class for working with OpenLayers features.
@@ -19,10 +21,9 @@ class FeatureUtil {
    * @return {string|undefined} The (unqualified) name of the featureType or undefined if
    *                  the name could not be picked.
    */
-  static getFeatureTypeName(feature) {
-    let featureId = feature.getId();
-    let featureIdParts = _isString(featureId) ? featureId.split('.') : featureId;
-
+  static getFeatureTypeName(feature: OlFeature<OlGeometry>): string | undefined {
+    const featureId = feature.getId();
+    const featureIdParts = _isString(featureId) ? featureId.split('.') : featureId;
     return _isArray(featureIdParts) ? featureIdParts[0] : undefined;
   }
 
@@ -37,9 +38,9 @@ class FeatureUtil {
    *
    * @return {string|undefined} Obtained featureType name as string.
    */
-  static getFeatureTypeNameFromGetFeatureInfoUrl(url, qualified = true) {
+  static getFeatureTypeNameFromGetFeatureInfoUrl(url: string, qualified: boolean = true): string | undefined {
     const regex = /query_layers=(.*?)(&|$)/i;
-    let match = url.match(regex);
+    const match = url.match(regex);
     let featureTypeName;
     if (match && match[1]) {
       featureTypeName = decodeURIComponent(match[1]);
@@ -70,8 +71,13 @@ class FeatureUtil {
    *   <a>-tag and will be returned as URL. Default is false.
    * @return {string} The resolved template string.
    */
-  static resolveAttributeTemplate(feature, template, noValueFoundText = 'n.v.',
-    valueAdjust = (key, val) => val, leaveAsUrl = false) {
+  static resolveAttributeTemplate(
+    feature: OlFeature<OlGeometry>,
+    template: string,
+    noValueFoundText: string = 'n.v.',
+    valueAdjust = (key: string, val: any) => val,
+    leaveAsUrl = false
+  ) {
     let attributeTemplatePrefix = '\\{\\{';
     let attributeTemplateSuffix = '\\}\\}';
     let resolved;
@@ -87,8 +93,8 @@ class FeatureUtil {
       // for the given placeholder, finally set the desired value to the hover.
       // field text
       regExpRes.forEach((res) => {
-        // We count every non matching candidate. If this count is equal to
-        // the objects length, we assume that there is no match at all and
+        // We count every candidate that is not matching. If this count is equal to
+        // the object array length, we assume that there is no match at all and
         // set the output value to the value of "noValueFoundText".
         let noMatchCnt = 0;
 
@@ -134,14 +140,14 @@ class FeatureUtil {
    * Maps an array of features to an array of geometries.
    *
    * @param {import("ol/Feature").default[]} features
+   * @return {import("ol/Geometry").default[]} The geometries of the features
    */
-  static mapFeaturesToGeometries(features) {
-    return /** @type {import("ol/geom/Geometry").default[]} */(
-      features
-        .map(f => f.getGeometry())
-        .filter(g => g !== undefined)
-    );
+  static mapFeaturesToGeometries(features: OlFeature<OlGeometry>[]): OlGeometry[] {
+    return features
+      .filter(feature => !_isNil(feature.getGeometry()))
+      .map(f => f.getGeometry() as OlGeometry);
   }
+
 }
 
 export default FeatureUtil;

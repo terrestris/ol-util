@@ -1,25 +1,25 @@
-/*eslint-env jest*/
+/* eslint-env jest*/
 
+import { Coordinate } from 'ol/coordinate';
 import OlFeature from 'ol/Feature';
+import OlGeometry from 'ol/geom/Geometry';
 import OlGeomPoint from 'ol/geom/Point';
 
-import {
-  FeatureUtil,
-} from '../index';
+import { FeatureUtil, } from '../index';
 
 describe('FeatureUtil', () => {
-  let coords;
+  let coords: Coordinate;
   let geom;
-  let props;
-  let feat;
-  let featId;
+  let props: {
+    [key: string]: any;
+  };
+  let feat: OlFeature<OlGeometry>;
+  let featId: string;
 
   beforeEach(() => {
     featId = 'BVB.BORUSSIA';
     coords = [1909, 1909];
-    geom = new OlGeomPoint({
-      coordinates: coords
-    });
+    geom = new OlGeomPoint(coords);
     props = {
       name: 'Shinji Kagawa',
       address: 'Borsigplatz 9',
@@ -54,7 +54,7 @@ describe('FeatureUtil', () => {
       });
 
       it('returns undefined if the ID is not set', () => {
-        feat.setId(null);
+        feat.setId(undefined);
         let got = FeatureUtil.getFeatureTypeName(feat);
         expect(got).toBe(undefined);
       });
@@ -84,8 +84,7 @@ describe('FeatureUtil', () => {
       });
 
       it('returns undefined if no match was found', () => {
-
-        const notMatchingUrl = `http://mock.de?&REQUEST=GetFeatureInfo&SOME_PARAMS=some_values`;
+        const notMatchingUrl = 'http://mock.de?&REQUEST=GetFeatureInfo&SOME_PARAMS=some_values';
         const got = FeatureUtil.getFeatureTypeNameFromGetFeatureInfoUrl(notMatchingUrl);
         expect(got).toBeUndefined();
       });
@@ -98,7 +97,7 @@ describe('FeatureUtil', () => {
         let got = FeatureUtil.resolveAttributeTemplate(feat, template);
         expect(got).toBe(props.name);
 
-        // It's case insensitive.
+        // It's case-insensitive.
         template = '{{NAmE}}';
         got = FeatureUtil.resolveAttributeTemplate(feat, template);
         expect(got).toBe(props.name);
@@ -114,7 +113,7 @@ describe('FeatureUtil', () => {
         expect(got).toBe(template);
       });
 
-      it('can be configured wrt handling inexistent / falsy values', () => {
+      it('can be configured wrt handling in-existent / falsy values', () => {
         let template = '{{exists-and-is-undefined}}|{{exists-and-is-null}}|{{key-does-not-exist}}';
         let got = FeatureUtil.resolveAttributeTemplate(feat, template);
         expect(got).toBe('undefined|null|n.v.');
@@ -123,10 +122,14 @@ describe('FeatureUtil', () => {
         const mockFn = jest.fn(() => {return 'FOO';});
         got = FeatureUtil.resolveAttributeTemplate(feat, template, '', mockFn);
         expect(mockFn.mock.calls.length).toBe(2);
-        expect(mockFn.mock.calls[0][0]).toBe('exists-and-is-undefined');
-        expect(mockFn.mock.calls[0][1]).toBe(undefined);
-        expect(mockFn.mock.calls[1][0]).toBe('exists-and-is-null');
-        expect(mockFn.mock.calls[1][1]).toBe(null);
+        const array1: any[] = mockFn.mock.calls[0];
+        const array2: any[] = mockFn.mock.calls[1];
+        expect(array1).toBeDefined();
+        expect(array2).toBeDefined();
+        expect(array1[0]).toBe('exists-and-is-undefined');
+        expect(array1[1]).toBe(undefined);
+        expect(array2[0]).toBe('exists-and-is-null');
+        expect(array2[1]).toBe(null);
         expect(got).toBe('FOO|FOO|');
       });
 
@@ -157,7 +160,7 @@ describe('FeatureUtil', () => {
         let got = FeatureUtil.resolveAttributeTemplate(feat, template);
         expect(got).toBe(featId);
 
-        got = FeatureUtil.resolveAttributeTemplate(feat);
+        got = FeatureUtil.resolveAttributeTemplate(feat, template);
         expect(got).toBe(featId);
       });
 

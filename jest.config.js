@@ -1,22 +1,24 @@
 module.exports = {
-  moduleFileExtensions: [
-    'js'
-  ],
-  moduleDirectories: [
-    'node_modules'
-  ],
-  transformIgnorePatterns: [
-    'node_modules/(?!(ol)/)'
-  ],
-  setupFiles: [
-    '<rootDir>/jest/__mocks__/shim.js',
-    '<rootDir>/jest/setup.js'
-  ],
   testEnvironment: 'jsdom',
-  collectCoverage: false,
-  collectCoverageFrom: [
-    'src/**/*.js',
-    '!src/TestUtil.js'
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  moduleFileExtensions: [
+    'ts',
+    'js',
+    'json'
   ],
-  coverageDirectory: '<rootDir>/coverage'
+  transform: {
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.ts$': '<rootDir>/node_modules/babel-jest'
+  },
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/(?!(ol|@babel|jest-runtime|@terrestris))'
+  ],
+  testRegex: '/src/.*\\.spec.(ts|js)$',
+  collectCoverageFrom: [
+    'src/**/*.{ts,js}',
+    '!src/spec/**/*.{ts,js}'
+  ],
+  roots: [
+    './src'
+  ]
 };
