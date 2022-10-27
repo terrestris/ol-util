@@ -48,9 +48,9 @@
         mappedCode: 'EPSG:25833'
       }]
       ```
-* `WfsFilterUtil` as completely been overhauled:
-  * in contrast to the migrated `WfsFilterUtil`, from now on the search / filter has to be configured using new type `SearchConfig`.
-  * For example: a filter creation for an exact search of `my search term` in attribute `name` of feature type `TEST:MYTYPE` look slike this:
+* `WfsFilterUtil` has completely been overhauled:
+  * in contrast to the migrated `WfsFilterUtil`, from now on the search / filter has to be configured using the new type `SearchConfig`.
+  * For example: a filter creation for an exact search of `my search term` in attribute `name` of feature type `TEST:MYTYPE` looks like this:
   ```typescript
     const attributeDetails: AttributeDetails [] = [{
       type: 'string',
