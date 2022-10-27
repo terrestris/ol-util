@@ -122,12 +122,14 @@ describe('FeatureUtil', () => {
         const mockFn = jest.fn(() => {return 'FOO';});
         got = FeatureUtil.resolveAttributeTemplate(feat, template, '', mockFn);
         expect(mockFn.mock.calls.length).toBe(2);
-
-        // TODO !
-        // expect(mockFn.mock.calls[0][0]).toBe('exists-and-is-undefined');
-        // expect(mockFn.mock.calls[0][1]).toBe(undefined);
-        // expect(mockFn.mock.calls[1][0]).toBe('exists-and-is-null');
-        // expect(mockFn.mock.calls[1][1]).toBe(null);
+        const array1: any[] = mockFn.mock.calls[0];
+        const array2: any[] = mockFn.mock.calls[1];
+        expect(array1).toBeDefined();
+        expect(array2).toBeDefined();
+        expect(array1[0]).toBe('exists-and-is-undefined');
+        expect(array1[1]).toBe(undefined);
+        expect(array2[0]).toBe('exists-and-is-null');
+        expect(array2[1]).toBe(null);
         expect(got).toBe('FOO|FOO|');
       });
 
