@@ -27,7 +27,6 @@
     "lint:fix": "eslint -c .eslintrc --ext .ts src/ --fix",
     "prepare": "husky install",
     "pretest": "npm run typecheck && npm run lint",
-    "release": "npm run build && np --no-yarn && npm run build:docs && npm run deploy",
     "test": "jest --maxWorkers=4 --coverage",
     "test:watch": "jest --watchAll",
     "typecheck": "tsc --noEmit --project tsconfig.json",
