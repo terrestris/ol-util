@@ -68,6 +68,7 @@ jobs:
       - name: Get the version 📎
         run: |
           echo "VERSION=$(node -pe "require('./package.json').version")" >> $GITHUB_ENV
+
       - name: Deploy (v${{ env.VERSION }}) 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:

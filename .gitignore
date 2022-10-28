@@ -1,7 +1,7 @@
 build/
 node_modules/
 dist/
-
+docs/
 coverage/
 
 # Ignore IntelliJ iml files

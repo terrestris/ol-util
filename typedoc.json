@@ -1,5 +1,4 @@
 {
   "entryPoints": ["./src/index.ts"],
-  "out": "build/docs",
   "readme": "none"
 }
