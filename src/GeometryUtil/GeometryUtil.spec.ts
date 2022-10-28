@@ -10,6 +10,7 @@ import OlGeomMultiPolygon from 'ol/geom/MultiPolygon';
 import OlGeomPoint from 'ol/geom/Point';
 import OlGeomPolygon from 'ol/geom/Polygon';
 
+import GeometryUtil from './GeometryUtil';
 import {
   boxCoords,
   boxCoords2,
@@ -41,8 +42,7 @@ import {
   splitUFormerdCoords3,
   uFormedPolygonCoords,
   unionedBoxCoordinates
-} from '../../assets/TestCoords';
-import { GeometryUtil, } from '../index';
+} from './TestCoords';
 
 describe('GeometryUtil', () => {
   let polygonFeature: OlFeature<OlGeomPolygon>;
