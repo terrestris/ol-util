@@ -1,3 +1,19 @@
+# [8.1.0](https://github.com/terrestris/ol-util/compare/v8.0.0...v8.1.0) (2022-10-28)
+
+
+### Bug Fixes
+
+* export of compiled sources and location of test assets ([638996a](https://github.com/terrestris/ol-util/commit/638996aaf2e2581033f7748f0a949673260e8ce9))
+* output directory of docs required for build pipeline ([3625867](https://github.com/terrestris/ol-util/commit/3625867e89a5a44e04bfa4b14680e417a377c871))
+* remove uneeded release phase ([626b768](https://github.com/terrestris/ol-util/commit/626b7680304c01e900e75b7f82baae4904034112))
+* set correct default branch ([6c528d1](https://github.com/terrestris/ol-util/commit/6c528d16c2980367dc7718c441a8841f9b2216c9))
+
+
+### Features
+
+* introduce commitlint to use predefined commit message conventions ([1422aa5](https://github.com/terrestris/ol-util/commit/1422aa59c2a87a1474a972ab7b5bafa6b6164a86))
+* introduce semantic-release plugin ([9cbe0c0](https://github.com/terrestris/ol-util/commit/9cbe0c002b1206367c373001dda03206c3f7e3ba))
+
 # [8.0.0]
 
 ### :rotating_light: BREAKING CHANGES :rotating_light:
