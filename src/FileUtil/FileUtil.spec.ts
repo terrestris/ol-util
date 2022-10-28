@@ -3,12 +3,11 @@
 import OlMap from 'ol/Map';
 import shpwrite from 'shp-write';
 
-import geoJson from '../../assets/federal-states-ger.json';
 import {
   FileUtil
 } from '../index';
 import TestUtil from '../TestUtil';
-
+import geoJson from './federal-states-ger.json';
 
 const geoJson2 = {
   type: 'FeatureCollection',
