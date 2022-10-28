@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  coveralls:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,3 +37,55 @@ jobs:
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources 🔰
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 16 🧮
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Cache Node.js modules 💾
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - name: Install dependencies ⏬
+        run: npm ci
+
+      - name: Build artifacts 🏗️
+        run: npm run build
+
+      - name: Build docs 📔
+        run: npm run build:docs
+
+      - name: Get the version 📎
+        run: |
+          echo "VERSION=$(node -pe "require('./package.json').version")" >> $GITHUB_ENV
+      - name: Deploy (v${{ env.VERSION }}) 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: docs
+          target-folder: v${{ env.VERSION }}
+
+      - name: Deploy docs (latest) 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: docs
+          target-folder: latest
+
+      - name: Release 🚀
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
