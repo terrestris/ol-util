@@ -276,7 +276,7 @@ export class MapUtil {
   ): string {
     const source = layer.getSource();
 
-    if (!(source instanceof OlSourceTileWMS || source instanceof OlSourceImageWMS)) {
+    if (!source || !(source instanceof OlSourceTileWMS || source instanceof OlSourceImageWMS)) {
       throw new Error('Layer has no or unexpected source.');
     }
 
