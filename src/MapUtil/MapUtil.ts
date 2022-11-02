@@ -266,7 +266,7 @@ export class MapUtil {
    * @param {OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>} layer The layer that you want to have a
    * legendUrl for.
    * @param {Object} extraParams
-   * @return {string | undefined} The getLegendGraphicUrl.
+   * @return {string} The getLegendGraphicUrl.
    */
   static getLegendGraphicUrl(
     layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
