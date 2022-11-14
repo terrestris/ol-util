@@ -1,3 +1,22 @@
+# [9.0.0](https://github.com/terrestris/ol-util/compare/v8.1.0...v9.0.0) (2022-11-14)
+
+
+### Bug Fixes
+
+* adaptaions after ol7 upgrade ([15edac9](https://github.com/terrestris/ol-util/commit/15edac9660274ff371dbaebe6359cc444ae722c6))
+* fix import after ol upgrade ([8f07aa6](https://github.com/terrestris/ol-util/commit/8f07aa642e4d3d5abf8a0c31fc0b7f7c239993fa))
+* get rid of unnecessary quotes ([10eb361](https://github.com/terrestris/ol-util/commit/10eb3612353a272a9c24e050776738b35bc8e705))
+
+
+### chore
+
+* upgrade to ol7 ([0c64775](https://github.com/terrestris/ol-util/commit/0c64775b891bc01fe9d3c8363f789778632a4cc7))
+
+
+### BREAKING CHANGES
+
+* set ol peer dependency to 7.1
+
 # [8.1.0](https://github.com/terrestris/ol-util/compare/v8.0.0...v8.1.0) (2022-10-28)
 
 
