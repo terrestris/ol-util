@@ -1,3 +1,4 @@
+import logger from '@terrestris/base-util/dist/Logger';
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 import { isNil } from 'lodash';
 import findIndex from 'lodash/findIndex';
@@ -12,7 +13,7 @@ import OlLayerImage from 'ol/layer/Image';
 import OlLayerTile from 'ol/layer/Tile';
 import OlMap from 'ol/Map';
 import { toLonLat } from 'ol/proj';
-import { METERS_PER_UNIT } from 'ol/proj/Units';
+import { METERS_PER_UNIT, Units } from 'ol/proj/Units';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import { getUid } from 'ol/util';
@@ -55,12 +56,20 @@ export class MapUtil {
    * @method
    * @param {number|string} scale The input scale to calculate the appropriate
    *                       resolution for.
-   * @param {string} units The units to use for calculation (m or degrees).
+   * @param {Units} units The units to use for calculation (m or degrees).
    * @return {number} The calculated resolution.
    */
-  static getResolutionForScale (scale: number | string, units: string): number {
+  static getResolutionForScale(scale: number | string, units: Units): number | undefined {
     let dpi = 25.4 / 0.28;
-    let mpu = METERS_PER_UNIT[units];
+    let mpu;
+    if (units === 'm') {
+      mpu = METERS_PER_UNIT.m;
+    } else if (units === 'degrees') {
+      mpu = METERS_PER_UNIT.degrees;
+    } else {
+      logger.info('Currently only \'degrees\' and \'m\' units are supported.');
+      return undefined;
+    }
     let inchesPerMeter = 39.37;
 
     return (_isString(scale) ? parseFloat(scale) : scale) / (mpu * inchesPerMeter * dpi);
@@ -75,9 +84,17 @@ export class MapUtil {
    *                       either 'm' or 'degrees'.
    * @return {number} The appropriate scale.
    */
-  static getScaleForResolution (resolution: number | string, units: string): number {
-    var dpi = 25.4 / 0.28;
-    var mpu = METERS_PER_UNIT[units];
+  static getScaleForResolution(resolution: number | string, units: Units): number | undefined {
+    const dpi = 25.4 / 0.28;
+    let mpu;
+    if (units === 'm') {
+      mpu = METERS_PER_UNIT.m;
+    } else if (units === 'degrees') {
+      mpu = METERS_PER_UNIT.degrees;
+    } else {
+      logger.info('Currently only \'degrees\' and \'m\' units are supported.');
+      return undefined;
+    }
     var inchesPerMeter = 39.37;
 
     return (_isString(resolution) ? parseFloat(resolution) : resolution) * mpu * inchesPerMeter * dpi;
@@ -358,7 +375,7 @@ export class MapUtil {
    *
    * @return {number} Determined zoom level for the given scale.
    */
-  static getZoomForScale(scale: number, resolutions: number[], units: string = 'm'): number {
+  static getZoomForScale(scale: number, resolutions: number[], units: Units = 'm'): number {
     if (Number.isNaN(Number(scale))) {
       return 0;
     }
@@ -368,8 +385,11 @@ export class MapUtil {
     }
 
     let calculatedResolution = MapUtil.getResolutionForScale(scale, units);
+    if (!_isFinite(calculatedResolution)) {
+      throw new Error('Can not determine unit / scale from map');
+    }
     let closestVal = resolutions.reduce((prev, curr) => {
-      return Math.abs(curr - calculatedResolution) < Math.abs(prev - calculatedResolution)
+      return Math.abs(curr - calculatedResolution!) < Math.abs(prev - calculatedResolution!)
         ? curr
         : prev;
     });
@@ -413,7 +433,7 @@ export class MapUtil {
    * @return {Promise<Partial<import("../types").InkmapPrintSpec>>} Promise of the inmkap print spec.
    */
   static async generatePrintConfig(olMap: OlMap) {
-    const unit = olMap.getView().getProjection().getUnits();
+    const unit = olMap.getView().getProjection().getUnits() as Units;
     const resolution = olMap.getView().getResolution();
     const projection =  olMap.getView().getProjection().getCode();
     if (resolution === undefined) {
@@ -422,8 +442,8 @@ export class MapUtil {
 
     const scale = MapUtil.getScaleForResolution(resolution, unit);
     const center = olMap?.getView().getCenter();
-    if (!unit || !center || !_isFinite(resolution)) {
-      throw new Error('Can not determine unit / resolution from map');
+    if (!unit || !center || !_isFinite(scale)) {
+      throw new Error('Can not determine unit / scale from map');
     }
     const centerLonLat = toLonLat(center, projection);
 
