@@ -39,7 +39,7 @@ describe('LayerUtil', () => {
           source: new OlSourceImageWMS({
             url: 'https://ows.terrestris.de/osm-gray/service',
             params: {
-              'LAYERS': 'OSM-WMS'
+              LAYERS: 'OSM-WMS'
             }
           }),
           properties: {

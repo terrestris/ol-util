@@ -2,9 +2,8 @@ import _isNil from 'lodash/isNil';
 import OlFeature from 'ol/Feature';
 import OlGeomPoint from 'ol/geom/Point';
 import OlLayerVector from 'ol/layer/Vector';
-import OlMap from 'ol/Map';
+import OlMap, { MapOptions } from 'ol/Map';
 import OlMapBrowserEvent from 'ol/MapBrowserEvent';
-import { MapOptions } from 'ol/PluggableMap';
 import OlSourceVector from 'ol/source/Vector';
 import OlView from 'ol/View';
 
@@ -25,8 +24,8 @@ export class TestUtil {
    * @return {HTMLElement} The mounted <div> element.
    */
   static mountMapDiv = () => {
-    var div = document.createElement('div');
-    var style = div.style;
+    const div = document.createElement('div');
+    const style = div.style;
 
     style.position = 'absolute';
     style.left = '-1000px';

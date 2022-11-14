@@ -113,8 +113,8 @@ class CapabilitiesUtil {
           url: _isFunction(proxyFn) ? proxyFn(getMapUrl) : getMapUrl,
           attributions: attributions,
           params: {
-            'LAYERS': _get(layerObj, 'Name'),
-            'VERSION': wmsVersion
+            LAYERS: _get(layerObj, 'Name'),
+            VERSION: wmsVersion
           }
         })
       });

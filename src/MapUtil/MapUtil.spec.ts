@@ -8,25 +8,22 @@ import OlLayerGroup from 'ol/layer/Group';
 import OlLayerImage from 'ol/layer/Image';
 import OlLayerTile from 'ol/layer/Tile';
 import OlMap from 'ol/Map';
+import { Units as OlUnits } from 'ol/proj/Units';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlView from 'ol/View';
 
-import { MapUtil, } from '../index';
+import { MapUtil } from '../index';
 import TestUtil from '../TestUtil';
 
-type Unit = 'degrees' | 'm' | 'ft' | 'us-ft';
-
 type TestResolutionsType = {
-  [key in Unit]: number;
+  [key in OlUnits as string]: number;
 };
 
 describe('MapUtil', () => {
   const testResolutions: TestResolutionsType = {
     degrees: 0.000004807292355257246,
-    m: 0.5345462690925383,
-    ft: 1.7537607253692198,
-    'us-ft': 1.7537572178477696
+    m: 0.5345462690925383
   };
   const testScale = 1909.09;
 
@@ -89,9 +86,16 @@ describe('MapUtil', () => {
     });
 
     it('returns expected values for valid units', () => {
-      const units: Unit[] = ['degrees', 'm', 'ft', 'us-ft'];
+      const units: OlUnits[] = ['degrees', 'm'];
       units.forEach( (unit) => {
         expect(MapUtil.getResolutionForScale(testScale, unit)).toBe(testResolutions[unit]);
+      });
+    });
+
+    it('returns undefined for any units excepting m or degrees', () => {
+      const units: OlUnits[] = ['ft', 'radians'];
+      units.forEach( (unit) => {
+        expect(MapUtil.getResolutionForScale(testScale, unit)).toBeUndefined();
       });
     });
 
@@ -99,7 +103,8 @@ describe('MapUtil', () => {
       const unit = 'm';
       const resolutionToTest = 190919.09;
       const calculateScale = MapUtil.getScaleForResolution(resolutionToTest, unit);
-      expect(MapUtil.getResolutionForScale(calculateScale, unit)).toBe(resolutionToTest);
+      expect(calculateScale).toBeDefined();
+      expect(MapUtil.getResolutionForScale(calculateScale!, unit)).toBe(resolutionToTest);
     });
   });
 
@@ -109,7 +114,7 @@ describe('MapUtil', () => {
     });
 
     it('returns expected values for valid units', () => {
-      const units: Unit[] = ['degrees', 'm', 'ft', 'us-ft'];
+      const units: OlUnits[] = ['degrees', 'm'];
 
       /**
        * Helper method to round number to two floating digits
@@ -117,14 +122,26 @@ describe('MapUtil', () => {
       const roundToTwoDecimals = (num: number) => (Math.round(num * 100) / 100);
 
       units.forEach( (unit) => {
-        expect(roundToTwoDecimals(MapUtil.getScaleForResolution(testResolutions[unit], unit))).toBe(testScale);
+        let scale = MapUtil.getScaleForResolution(testResolutions[unit], unit);
+        expect(scale).toBeDefined();
+        expect(roundToTwoDecimals(scale!)).toBe(testScale);
+      });
+    });
+
+    it('returns undefined for any units excepting m or degrees', () => {
+      const units: OlUnits[] = ['ft', 'radians'];
+
+      units.forEach( (unit) => {
+        let scale = MapUtil.getScaleForResolution(testResolutions[unit], unit);
+        expect(scale).toBeUndefined();
       });
     });
 
     it('returns inverse of getResolutionForScale', () => {
       const unit = 'm';
       const calculateScale = MapUtil.getResolutionForScale(testScale, unit);
-      expect(MapUtil.getScaleForResolution(calculateScale, unit)).toBe(testScale);
+      expect(calculateScale).toBeDefined();
+      expect(MapUtil.getScaleForResolution(calculateScale!, unit)).toBe(testScale);
     });
   });
 
@@ -158,8 +175,8 @@ describe('MapUtil', () => {
         source: new OlSourceTileWMS({
           url: 'https://ows.terrestris.de/osm/service?',
           params: {
-            'LAYERS': layerName,
-            'TILED': true
+            LAYERS: layerName,
+            TILED: true
           }
         })
       });
@@ -196,8 +213,8 @@ describe('MapUtil', () => {
         source: new OlSourceTileWMS({
           url: 'https://ows.terrestris.de/osm/service?',
           params: {
-            'LAYERS': qualifiedLayerName,
-            'TILED': true
+            LAYERS: qualifiedLayerName,
+            TILED: true
           }
         })
       });
@@ -224,8 +241,8 @@ describe('MapUtil', () => {
         source: new OlSourceTileWMS({
           url: 'https://ows.terrestris.de/osm/service?',
           params: {
-            'LAYERS': qualifiedLayerName,
-            'TILED': true
+            LAYERS: qualifiedLayerName,
+            TILED: true
           }
         })
       });
@@ -416,7 +433,7 @@ describe('MapUtil', () => {
       layer1 = new OlLayerTile({
         source: new OlSourceTileWMS({
           url: 'https://ows.terrestris.de/osm-gray/service?',
-          params: {'LAYERS': 'OSM-WMS', 'TILED': true},
+          params: {LAYERS: 'OSM-WMS', TILED: true},
           serverType: 'geoserver'
         }),
         properties: {
@@ -426,7 +443,7 @@ describe('MapUtil', () => {
       layer2 = new OlLayerImage({
         source: new OlSourceImageWMS({
           url: 'https://ows.terrestris.de/osm-gray/service',
-          params: {'LAYERS': 'OSM-WMS', 'TILED': true},
+          params: {LAYERS: 'OSM-WMS', TILED: true},
           serverType: 'geoserver'
         }),
         properties: {
@@ -439,7 +456,7 @@ describe('MapUtil', () => {
             'https://a.example.com/service?humpty=dumpty',
             'https://b.example.com/service?foo=bar'
           ],
-          params: {'LAYERS': 'OSM-WMS', 'TILED': true},
+          params: {LAYERS: 'OSM-WMS', TILED: true},
           serverType: 'geoserver'
         }),
         properties: {
