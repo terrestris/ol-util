@@ -24,7 +24,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">default</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/7c0d368/src/WfsFilterUtil/WfsFilterUtil.ts#L30">WfsFilterUtil/WfsFilterUtil.ts:30</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/f37958c/src/WfsFilterUtil/WfsFilterUtil.ts#L57">WfsFilterUtil/WfsFilterUtil.ts:57</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -52,7 +52,7 @@
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private"><a id="createWfsFilter" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <code class="tsd-tag ts-flagPrivate">Private</code> <span>create<wbr/>Wfs<wbr/>Filter</span><a href="#createWfsFilter" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="createWfsFilter.createWfsFilter-1">create<wbr/>Wfs<wbr/>Filter<span class="tsd-signature-symbol">(</span>searchTerm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, attributeDetails<span class="tsd-signature-symbol">: </span><a href="../types/WfsFilterUtil_WfsFilterUtil.AttributeDetails.html" class="tsd-signature-type" data-tsd-kind="Type alias">AttributeDetails</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Filter</span><a href="#createWfsFilter.createWfsFilter-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="createWfsFilter.createWfsFilter-1">create<wbr/>Wfs<wbr/>Filter<span class="tsd-signature-symbol">(</span>featureType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, searchTerm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, attributeDetails<span class="tsd-signature-symbol">: </span><a href="../types/WfsFilterUtil_WfsFilterUtil.AttributeDetails.html" class="tsd-signature-type" data-tsd-kind="Type alias">AttributeDetails</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Filter</span><a href="#createWfsFilter.createWfsFilter-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
 <div class="tsd-comment tsd-typography"><p>Creates a filter for a given feature type considering configured
 search attributes, mapped features types to an array of attribute details and the
@@ -66,16 +66,18 @@ OR filter if searchAttributes array contains multiple values though.</p>
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
+<h5>featureType: <span class="tsd-signature-type">string</span></h5></li>
+<li>
 <h5>searchTerm: <span class="tsd-signature-type">string</span></h5>
 <div class="tsd-comment tsd-typography"><p>Search value.</p>
 </div></li>
 <li>
-<h5>attributeDetails: <a href="../types/WfsFilterUtil_WfsFilterUtil.AttributeDetails.html" class="tsd-signature-type" data-tsd-kind="Type alias">AttributeDetails</a><span class="tsd-signature-symbol">[]</span></h5>
+<h5>attributeDetails: <a href="../types/WfsFilterUtil_WfsFilterUtil.AttributeDetails.html" class="tsd-signature-type" data-tsd-kind="Type alias">AttributeDetails</a></h5>
 <div class="tsd-comment tsd-typography"><p>attributes that should be searched through.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Filter</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/7c0d368/src/WfsFilterUtil/WfsFilterUtil.ts#L45">WfsFilterUtil/WfsFilterUtil.ts:45</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/f37958c/src/WfsFilterUtil/WfsFilterUtil.ts#L72">WfsFilterUtil/WfsFilterUtil.ts:72</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getCombinedRequests" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Combined<wbr/>Requests</span><a href="#getCombinedRequests" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -97,7 +99,7 @@ applies related filter encoding on it.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Element</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/7c0d368/src/WfsFilterUtil/WfsFilterUtil.ts#L81">WfsFilterUtil/WfsFilterUtil.ts:81</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/f37958c/src/WfsFilterUtil/WfsFilterUtil.ts#L120">WfsFilterUtil/WfsFilterUtil.ts:120</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
