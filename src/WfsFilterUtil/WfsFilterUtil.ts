@@ -3,11 +3,38 @@ import { equalTo, like, or } from 'ol/format/filter';
 import OlFormatFilter from 'ol/format/filter/Filter';
 import OlFormatWFS, { WriteGetFeatureOptions } from 'ol/format/WFS';
 
-export type AttributeDetails = {
-  attributeName: string;
+export type AttributeSearchSettings = {
   type: 'number' | 'int' | 'string';
   exactSearch?: boolean;
   matchCase?: boolean;
+};
+
+/**
+ * A nested object mapping feature types to an object of their attribute details.
+ *
+ * Example:
+ *   ```
+ *   attributeDetails: {
+ *    featType1: {
+ *      attr1: {
+ *        matchCase: true,
+ *        type: 'number',
+ *        exactSearch: false
+ *      },
+ *      attr2: {
+ *        matchCase: false,
+ *        type: 'string',
+ *        exactSearch: true
+ *      }
+ *    },
+ *    featType2: {...}
+ *   }
+ *   ```
+ */
+export type AttributeDetails = {
+  [featureType: string]: {
+    [attributeName: string]: AttributeSearchSettings;
+  };
 };
 
 export type SearchConfig = {
@@ -19,7 +46,7 @@ export type SearchConfig = {
   outputFormat?: string;
   srsName?: string;
   wfsFormatOptions?: string;
-  attributeDetails: AttributeDetails[];
+  attributeDetails: AttributeDetails;
 };
 
 /**
@@ -43,25 +70,37 @@ class WfsFilterUtil {
    * @private
    */
   static createWfsFilter(
+    featureType: string,
     searchTerm: string,
-    attributeDetails: AttributeDetails[]
+    attributeDetails: AttributeDetails
   ): OlFormatFilter | null {
-    if (attributeDetails.length === 0) {
+
+    const details = attributeDetails[featureType];
+
+    if (!details) {
       return null;
     }
 
-    const propertyFilters = attributeDetails
+    const attributes = Object.keys(details);
+
+    if (attributes.length === 0) {
+      return null;
+    }
+
+    const propertyFilters = attributes
       .filter(attribute => {
-        const type = attribute.type;
+        const filterDetails = details[attribute];
+        const type = filterDetails.type;
         return !(type && (type === 'int' || type === 'number') && searchTerm.match(/[^.\d]/));
       })
-      .map(attributeDetail => {
-        if (attributeDetail.exactSearch) {
-          return equalTo(attributeDetail.attributeName, searchTerm, attributeDetail.exactSearch);
+      .map(attribute => {
+        const filterDetails = details[attribute];
+        if (filterDetails.exactSearch) {
+          return equalTo(attribute, searchTerm, filterDetails.exactSearch);
         } else {
-          return like(attributeDetail.attributeName,
+          return like(attribute,
             `*${searchTerm}*`, '*', '.', '!',
-            attributeDetail.matchCase ?? false);
+            filterDetails.matchCase ?? false);
         }
       });
     if (Object.keys(propertyFilters).length > 1) {
@@ -91,8 +130,8 @@ class WfsFilterUtil {
     } = searchConfig;
 
     const requests = featureTypes?.map((featureType: string): any => {
-      const filter = WfsFilterUtil.createWfsFilter(searchTerm, attributeDetails);
-      const propertyNames = attributeDetails.map(a => a.attributeName);
+      const filter = WfsFilterUtil.createWfsFilter(featureType, searchTerm, attributeDetails);
+      const propertyNames = Object.keys(attributeDetails[featureType]);
       const wfsFormatOpts: WriteGetFeatureOptions = {
         featureNS,
         featurePrefix,
@@ -100,14 +139,17 @@ class WfsFilterUtil {
         geometryName,
         maxFeatures,
         outputFormat,
-        srsName,
-        propertyNames
+        srsName
       };
+
+      if (!_isNil(propertyNames)) {
+        wfsFormatOpts.propertyNames = propertyNames;
+      }
       if (!_isNil(filter)) {
         wfsFormatOpts.filter = filter;
       }
 
-      const wfsFormat: OlFormatWFS  = new OlFormatWFS(wfsFormatOpts);
+      const wfsFormat: OlFormatWFS = new OlFormatWFS(wfsFormatOpts);
       return wfsFormat.writeGetFeature(wfsFormatOpts);
     });
 
