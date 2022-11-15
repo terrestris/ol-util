@@ -1,3 +1,16 @@
+# [10.0.0](https://github.com/terrestris/ol-util/compare/v9.0.0...v10.0.0) (2022-11-15)
+
+
+### Bug Fixes
+
+* restore attribute config object for multiple feature types ([776c2f2](https://github.com/terrestris/ol-util/commit/776c2f238c61f405f105919769c2298919888361))
+
+
+### BREAKING CHANGES
+
+* attributeDetails expects a nested object mapping requestable
+feature types to their attribute details
+
 # [9.0.0](https://github.com/terrestris/ol-util/compare/v8.1.0...v9.0.0) (2022-11-14)
 
 
