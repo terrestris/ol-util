@@ -55,9 +55,12 @@ class MeasureUtil {
     if (length > 1000) {
       output = (Math.round(length / 1000 * decimalHelper) /
                 decimalHelper) + ' km';
-    } else {
+    } else if (length > 1) {
       output = (Math.round(length * decimalHelper) / decimalHelper) +
                 ' m';
+    } else {
+      output = (Math.round(length * 1000 * decimalHelper) / decimalHelper) +
+      ' mm';
     }
     return output;
   }
@@ -107,9 +110,12 @@ class MeasureUtil {
     if (area > 10000) {
       output = (Math.round(area / 1000000 * decimalHelper) /
                 decimalHelper) + ' km<sup>2</sup>';
-    } else {
+    } else if (area > 0.01) {
       output = (Math.round(area * decimalHelper) / decimalHelper) +
                 ' m<sup>2</sup>';
+    } else {
+      output = (Math.round(area * 1000000 * decimalHelper) / decimalHelper) +
+                ' mm<sup>2</sup>';
     }
     return output;
   }
