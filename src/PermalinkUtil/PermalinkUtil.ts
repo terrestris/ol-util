@@ -4,6 +4,7 @@ import { getUid } from 'ol';
 import OlCollection from 'ol/Collection';
 import OlBaseLayer from 'ol/layer/Base';
 import OlLayerGroup from 'ol/layer/Group';
+import OlImageLayer from 'ol/layer/Image';
 import OlTileLayer from 'ol/layer/Tile';
 import OlMap from 'ol/Map';
 
@@ -38,12 +39,13 @@ export class PermalinkUtil {
     map: OlMap,
     separator = ';',
     identifier = (l: OlBaseLayer) => l?.get('name'),
-    filter = (l: OlBaseLayer) => !_isNil(l) && l instanceof OlTileLayer && l.getVisible(),
+    filter = (l: OlBaseLayer) => !_isNil(l) &&
+      (l instanceof OlTileLayer || l instanceof OlImageLayer) && l.getVisible(),
     customAttributes: string[] = []
   ): string => {
     const center = map.getView().getCenter()?.join(separator) ?? '';
     const zoom = map.getView().getZoom()?.toString() ?? '';
-    const layers = MapUtil.getAllLayers(map);
+    const layers = map.getAllLayers();
     const visibleOnes = layers
       .filter(filter)
       .map(identifier)
