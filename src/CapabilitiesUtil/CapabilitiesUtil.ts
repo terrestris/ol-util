@@ -89,14 +89,12 @@ class CapabilitiesUtil {
     const wmsGetFeatureInfoConfig = _get(capabilities, 'Capability.Request.GetFeatureInfo');
     const getMapUrl = _get(wmsGetMapConfig, 'DCPType[0].HTTP.Get.OnlineResource');
     const getFeatureInfoUrl = _get(wmsGetFeatureInfoConfig, 'DCPType[0].HTTP.Get.OnlineResource');
-    const legendUrl = layersInCapabilities.length > 0
-      ? _get(layersInCapabilities[0], 'Style[0].LegendURL[0].OnlineResource')
-      : null;
 
     return layersInCapabilities.map((layerObj: any) => {
       const title = _get(layerObj, 'Attribution.Title');
       const onlineResource = _get(layerObj, 'Attribution.OnlineResource');
       const attributions = [onlineResource ? `<a target="_blank" href="${onlineResource}">${title}</a>` : title];
+      const legendUrl = _get(layerObj, 'Style[0].LegendURL[0].OnlineResource');
 
       return new OlLayerImage({
         opacity: 1,
