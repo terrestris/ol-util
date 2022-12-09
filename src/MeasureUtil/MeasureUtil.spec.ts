@@ -122,7 +122,7 @@ describe('MeasureUtil', () => {
 
     describe('#angle', () => {
       it('is defined', () => {
-        expect(MeasureUtil.formatArea).toBeDefined();
+        expect(MeasureUtil.angle).toBeDefined();
       });
       it('calculates the angle in deegrees', function() {
         const start = [0, 0];
@@ -158,7 +158,7 @@ describe('MeasureUtil', () => {
 
     describe('#angle360', () => {
       it('is defined', () => {
-        expect(MeasureUtil.formatArea).toBeDefined();
+        expect(MeasureUtil.angle360).toBeDefined();
       });
       it('calculates the angle in deegrees ranged from 0° and 360°', function() {
         const start = [0, 0];
@@ -194,7 +194,7 @@ describe('MeasureUtil', () => {
 
     describe('#makeClockwise', () => {
       it('is defined', () => {
-        expect(MeasureUtil.formatArea).toBeDefined();
+        expect(MeasureUtil.makeClockwise).toBeDefined();
       });
       it('returns a clockwised version of an angle', function() {
         expect(MeasureUtil.makeClockwise(0)).toBe(360);
@@ -211,7 +211,7 @@ describe('MeasureUtil', () => {
 
     describe('#makeZeroDegreesAtNorth', () => {
       it('is defined', () => {
-        expect(MeasureUtil.formatArea).toBeDefined();
+        expect(MeasureUtil.makeZeroDegreesAtNorth).toBeDefined();
       });
       it('shifts a calculates the angle so 0° is in the north', function() {
         const start = [0, 0];
