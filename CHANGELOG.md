@@ -1,3 +1,11 @@
+## [10.0.1](https://github.com/terrestris/ol-util/compare/v10.0.0...v10.0.1) (2022-12-09)
+
+
+### Bug Fixes
+
+* fix extraction of legend url ([#877](https://github.com/terrestris/ol-util/issues/877)) ([931797e](https://github.com/terrestris/ol-util/commit/931797e751b57f8f251b5652f7ca3f062794aec8))
+* include image layers in permalink ([#878](https://github.com/terrestris/ol-util/issues/878)) ([f0dcf60](https://github.com/terrestris/ol-util/commit/f0dcf60af4dc150a83e1f03742b68e0232dd9ab5))
+
 # [10.0.0](https://github.com/terrestris/ol-util/compare/v9.0.0...v10.0.0) (2022-11-15)
 
 
