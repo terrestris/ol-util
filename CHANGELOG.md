@@ -1,3 +1,10 @@
+## [10.1.1](https://github.com/terrestris/ol-util/compare/v10.1.0...v10.1.1) (2022-12-12)
+
+
+### Bug Fixes
+
+* adjusts filter in permalink for image layer ([a977ac5](https://github.com/terrestris/ol-util/commit/a977ac50c9a2168543ef9c6dcde3ad6658b76e51))
+
 # [10.1.0](https://github.com/terrestris/ol-util/compare/v10.0.1...v10.1.0) (2022-12-12)
 
 
