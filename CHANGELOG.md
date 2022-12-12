@@ -1,3 +1,15 @@
+# [10.1.0](https://github.com/terrestris/ol-util/compare/v10.0.1...v10.1.0) (2022-12-12)
+
+
+### Bug Fixes
+
+* tests adjusted to legend graphic request param ([fca5780](https://github.com/terrestris/ol-util/commit/fca5780fb50d22a84a3285ec179f0de70ea0cbcb))
+
+
+### Features
+
+* get legend url for wmts from layer property ([589e981](https://github.com/terrestris/ol-util/commit/589e98190bcdf2e89938056aed9a2079b299ade1))
+
 ## [10.0.1](https://github.com/terrestris/ol-util/compare/v10.0.0...v10.0.1) (2022-12-09)
 
 
