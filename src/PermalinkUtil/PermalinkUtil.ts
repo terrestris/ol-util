@@ -99,7 +99,8 @@ export class PermalinkUtil {
     map: OlMap,
     separator: string = ';',
     identifier: (layer: OlBaseLayer) => string = l => l?.get('name'),
-    filter = (layer: OlBaseLayer) => layer instanceof OlTileLayer
+    filter = (layer: OlBaseLayer) =>
+      layer instanceof OlTileLayer || layer instanceof OlImageLayer
   ): string | null => {
     const url = new URL(window.location.href);
     const center = url.searchParams.get('center');
