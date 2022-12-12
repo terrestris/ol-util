@@ -424,7 +424,7 @@ describe('MapUtil', () => {
 
   });
 
-  describe('getLegendGraphicUrl', () => {
+  describe('GetLegendGraphicUrl', () => {
     let layer1: OlLayerTile<OlSourceTileWMS>;
     let layer2: OlLayerImage<OlSourceImageWMS>;
     let layer3: OlLayerTile<OlSourceTileWMS>;
@@ -465,14 +465,14 @@ describe('MapUtil', () => {
       });
     });
 
-    describe('returns a getLegendGraphicUrl from a given layer', () => {
+    describe('returns a GetLegendGraphicUrl from a given layer', () => {
       it('… for a tiled Layer', () => {
         const legendUrl = MapUtil.getLegendGraphicUrl(layer1);
         const url = 'https://ows.terrestris.de/osm-gray/service?';
         const layerParam = 'LAYER=OSM-WMS';
         const versionParam = 'VERSION=1.3.0';
         const serviceParam = 'SERVICE=WMS';
-        const requestParam = 'REQUEST=getLegendGraphic';
+        const requestParam = 'REQUEST=GetLegendGraphic';
         const formatParam = 'FORMAT=image%2Fpng';
 
         expect(legendUrl).toContain(url);
@@ -488,7 +488,7 @@ describe('MapUtil', () => {
         const layerParam = 'LAYER=OSM-WMS';
         const versionParam = 'VERSION=1.3.0';
         const serviceParam = 'SERVICE=WMS';
-        const requestParam = 'REQUEST=getLegendGraphic';
+        const requestParam = 'REQUEST=GetLegendGraphic';
         const formatParam = 'FORMAT=image%2Fpng';
 
         expect(legendUrl).toContain(url);
@@ -526,7 +526,7 @@ describe('MapUtil', () => {
       const layerParam = 'LAYER=OSM-WMS';
       const versionParam = 'VERSION=1.3.0';
       const serviceParam = 'SERVICE=WMS';
-      const requestParam = 'REQUEST=getLegendGraphic';
+      const requestParam = 'REQUEST=GetLegendGraphic';
       const formatParam = 'FORMAT=image%2Fpng';
       const heightParam = 'HEIGHT=10';
       const widthParam = 'WIDTH=10';
