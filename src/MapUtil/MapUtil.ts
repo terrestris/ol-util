@@ -16,6 +16,7 @@ import { toLonLat } from 'ol/proj';
 import { METERS_PER_UNIT, Units } from 'ol/proj/Units';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
+import OlSourceWMTS from 'ol/source/WMTS';
 import { getUid } from 'ol/util';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
@@ -279,40 +280,57 @@ export class MapUtil {
    * Currently supported Sources:
    *  - ol.source.TileWms (with url configured)
    *  - ol.source.ImageWms (with url configured)
+   *  - ol.source.WMTS (with url configured)
    *
-   * @param {OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>} layer The layer that you want to have a
-   * legendUrl for.
+   * @param {OlLayerTile<OlSourceTileWMS>
+   * | OlLayerImage<OlSourceImageWMS>
+   * | OlLayerImage<OlSourceImageWMS>} layer The layer that you want to have a legendUrl for.
    * @param {Object} extraParams
    * @return {string} The getLegendGraphicUrl.
    */
   static getLegendGraphicUrl(
-    layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
+    layer:
+      | OlLayerTile<OlSourceTileWMS>
+      | OlLayerImage<OlSourceImageWMS>
+      | OlLayerTile<OlSourceWMTS>,
     extraParams: {
       [key: string]: string | number;
     } = {}
   ): string {
     const source = layer.getSource();
 
-    if (!source || !(source instanceof OlSourceTileWMS || source instanceof OlSourceImageWMS)) {
+    if (
+      !source ||
+      !(
+        source instanceof OlSourceTileWMS ||
+        source instanceof OlSourceImageWMS ||
+        source instanceof OlSourceWMTS
+      )
+    ) {
       throw new Error('Layer has no or unexpected source.');
     }
 
-    const url = (source instanceof OlSourceTileWMS
-      ? source.getUrls()?.[0]
-      : source.getUrl())
-      ?? '';
-    const params = {
-      LAYER: source.getParams().LAYERS,
-      VERSION: '1.3.0',
-      SERVICE: 'WMS',
-      REQUEST: 'getLegendGraphic',
-      FORMAT: 'image/png'
-    };
+    if (source instanceof OlSourceWMTS) {
+      return source.get('legendUrl') ? source.get('legendUrl') : '';
+    } else {
+      const url =
+        (source instanceof OlSourceTileWMS
+          ? source.getUrls()?.[0]
+          : source.getUrl()) ?? '';
+      const params = {
+        LAYER: source.getParams().LAYERS,
+        VERSION: '1.3.0',
+        SERVICE: 'WMS',
+        REQUEST: 'GetLegendGraphic',
+        FORMAT: 'image/png'
+      };
 
-    const queryString = UrlUtil.objectToRequestString(
-      Object.assign(params, extraParams));
+      const queryString = UrlUtil.objectToRequestString(
+        Object.assign(params, extraParams)
+      );
 
-    return /\?/.test(url) ? `${url}&${queryString}` : `${url}?${queryString}`;
+      return /\?/.test(url) ? `${url}&${queryString}` : `${url}?${queryString}`;
+    }
   }
 
   /**
