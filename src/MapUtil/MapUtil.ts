@@ -321,7 +321,7 @@ export class MapUtil {
         LAYER: source.getParams().LAYERS,
         VERSION: '1.3.0',
         SERVICE: 'WMS',
-        REQUEST: 'getLegendGraphic',
+        REQUEST: 'GetLegendGraphic',
         FORMAT: 'image/png'
       };
 
