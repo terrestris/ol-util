@@ -11,6 +11,7 @@ import OlLayerTile from 'ol/layer/Tile';
 import OlLayerVector from 'ol/layer/Vector';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceOSM from 'ol/source/OSM';
+import OlSource from 'ol/source/Source';
 import OlSourceStamen from 'ol/source/Stamen';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceVector from 'ol/source/Vector';
@@ -38,11 +39,11 @@ class LayerUtil {
   ): string => {
     const layerSource = layer.getSource();
 
-    if (layerSource instanceof OlSourceTileWMS) {
+    if (LayerUtil.isOlSourceTileWMS(layerSource)) {
       return layerSource.getUrls()?.[0] ?? '';
-    } else if (layerSource instanceof OlSourceImageWMS) {
+    } else if (LayerUtil.isOlSourceImageWMS(layerSource)) {
       return layerSource.getUrl() ?? '';
-    } else if (layerSource instanceof OlSourceWMTS) {
+    } else if (LayerUtil.isOlSourceWMTS(layerSource)) {
       return layerSource.getUrls()?.[0] ?? '';
     }
     return '';
@@ -105,7 +106,7 @@ class LayerUtil {
     // todo: introduce config object which hold possible additional configurations
     const attributionString = LayerUtil.getLayerAttributionsText(olLayer, ' ,', true);
 
-    if (source instanceof OlSourceTileWMS) {
+    if (LayerUtil.isOlSourceTileWMS(source)) {
       return {
         type: 'WMS',
         url: source.getUrls()?.[0] ?? '',
@@ -116,7 +117,7 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (source instanceof OlSourceImageWMS) {
+    } else if (LayerUtil.isOlSourceImageWMS(source)) {
       return {
         type: 'WMS',
         url: source.getUrl() ?? '',
@@ -127,10 +128,10 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (source instanceof OlSourceWMTS) {
+    } else if (LayerUtil.isOlSourceWMTS(source)) {
       const olTileGrid = source.getTileGrid();
       const resolutions = olTileGrid?.getResolutions();
-      const matrixIds = resolutions?.map((res, idx) => idx);
+      const matrixIds = resolutions?.map((res: number, idx: number) => idx);
 
       const tileGrid = {
         resolutions: olTileGrid?.getResolutions(),
@@ -152,7 +153,7 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (source instanceof OlSourceOSM) {
+    } else if (LayerUtil.isOlSourceOSM(source)) {
       return {
         type: 'XYZ',
         url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -162,7 +163,7 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (source instanceof OlSourceStamen) {
+    } else if (LayerUtil.isOlSourceStamen(source)) {
       const urls = source.getUrls();
       if (isNil(urls)) {
         return Promise.reject();
@@ -176,7 +177,7 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (source instanceof OlSourceVector) {
+    } else if (LayerUtil.isOlSourceVector(source)) {
       const geojson = new OlFormatGeoJSON().writeFeaturesObject(source.getFeatures());
       const parser = new OpenLayersParser();
       const geojsonLayerConfig: InkmapGeoJsonLayer = {
@@ -189,8 +190,7 @@ class LayerUtil {
       };
 
       let olStyle = null;
-
-      if (olLayer instanceof OlLayerVector<OlSourceVector>) {
+      if (LayerUtil.isOlLayerVector(olLayer)) {
         olStyle = olLayer.getStyle();
       }
 
@@ -248,6 +248,42 @@ class LayerUtil {
       attributionString = attributions ? StringUtil.stripHTMLTags(attributions) : '';
     }
     return attributionString;
+  };
+
+  static isOlSourceTileWMS = (source: OlSource | null): source is OlSourceTileWMS => {
+    return source?.constructor?.name === OlSourceTileWMS.name || false;
+  };
+
+  static isOlSourceImageWMS = (source: OlSource | null): source is OlSourceImageWMS => {
+    return source?.constructor?.name === OlSourceImageWMS.name || false;
+  };
+
+  static isOlSourceOSM = (source: OlSource | null): source is OlSourceOSM => {
+    return source?.constructor?.name === OlSourceOSM.name || false;
+  };
+
+  static isOlSourceStamen = (source: OlSource | null): source is OlSourceStamen => {
+    return source?.constructor?.name === OlSourceStamen.name || false;
+  };
+
+  static isOlSourceVector = (source: OlSource | null): source is OlSourceVector => {
+    return source?.constructor?.name === OlSourceVector.name || false;
+  };
+
+  static isOlSourceWMTS = (source: OlSource | null): source is OlSourceWMTS => {
+    return source?.constructor?.name === OlSourceWMTS.name || false;
+  };
+
+  static isOlLayerVector = (layer: OlLayer | null): layer is OlLayerVector<OlSourceVector> => {
+    return layer?.constructor?.name === OlLayerVector.name || false;
+  };
+
+  static isOlLayerImage = (layer: OlLayer | null): layer is OlLayerImage<OlSourceImageWMS> => {
+    return layer?.constructor?.name === OlLayerImage.name || false;
+  };
+
+  static isOlLayerTile = (layer: OlLayer | null): layer is OlLayerTile<OlSourceTileWMS> => {
+    return layer?.constructor?.name === OlLayerTile.name || false;
   };
 
 }
