@@ -468,8 +468,14 @@ export class MapUtil {
     const layerPromises = olMap.getAllLayers()
       .map(LayerUtil.mapOlLayerToInkmap);
 
-    const responses = await Promise.all(layerPromises);
-    const layers = responses.filter(l => l !== null);
+    const responses = await Promise.allSettled(layerPromises);
+    const layers = responses
+      .filter(r => r !== null && r.status === 'fulfilled')
+      .map((l: any) => l.value);
+    const rejectedLayers = responses
+      .filter(r => r && r.status === 'rejected');
+    rejectedLayers.forEach(r => logger.warn(
+      'A layer could not be printed, maybe its invisible or unsupported: ', r));
     // ignore typecheck because responses.filter(l => l !== null) is not recognized properly
     return {
       layers: layers,
