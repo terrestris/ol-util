@@ -1,3 +1,10 @@
+## [10.1.2](https://github.com/terrestris/ol-util/compare/v10.1.1...v10.1.2) (2022-12-13)
+
+
+### Bug Fixes
+
+* printing with inkmap decoupled from openlayers version ([2a01705](https://github.com/terrestris/ol-util/commit/2a017051992cfc2aa1b7966f2ed1d2bb76594730))
+
 ## [10.1.1](https://github.com/terrestris/ol-util/compare/v10.1.0...v10.1.1) (2022-12-12)
 
 
