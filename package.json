@@ -1,6 +1,6 @@
 {
   "name": "@terrestris/ol-util",
-  "version": "10.1.2",
+  "version": "10.1.3",
   "description": "A set of helper classes for working with openLayers",
   "module": "src/index.ts",
   "main": "dist/index.js",

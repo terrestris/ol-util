@@ -1,3 +1,10 @@
+## [10.1.3](https://github.com/terrestris/ol-util/compare/v10.1.2...v10.1.3) (2022-12-15)
+
+
+### Bug Fixes
+
+* source type detection in production builds ([e1f9595](https://github.com/terrestris/ol-util/commit/e1f9595300bf496d549ca8edbfd9cd169e8c1e2a))
+
 ## [10.1.2](https://github.com/terrestris/ol-util/compare/v10.1.1...v10.1.2) (2022-12-13)
 
 
