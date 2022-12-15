@@ -8,10 +8,8 @@ import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import OlLayerImage from 'ol/layer/Image';
 import OlLayer from 'ol/layer/Layer';
 import OlLayerTile from 'ol/layer/Tile';
-import OlLayerVector from 'ol/layer/Vector';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceOSM from 'ol/source/OSM';
-import OlSource from 'ol/source/Source';
 import OlSourceStamen from 'ol/source/Stamen';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceVector from 'ol/source/Vector';
@@ -19,6 +17,16 @@ import OlSourceWMTS from 'ol/source/WMTS';
 
 import CapabilitiesUtil from '../CapabilitiesUtil/CapabilitiesUtil';
 import { InkmapGeoJsonLayer, InkmapLayer } from './InkmapTypes';
+
+interface UnknownOlSource {
+  getImageLoadFunction?: any;
+  getTileGrid?: any;
+  getFeatures?: any;
+  getMatrixSet?: any;
+  getUrls?: any;
+  attribution?: any;
+  getLegendUrl?: any;
+}
 
 /**
  * Helper class for layer interaction.
@@ -94,7 +102,7 @@ class LayerUtil {
   static async mapOlLayerToInkmap(
     olLayer: OlLayer
   ): Promise<InkmapLayer> {
-    const source = olLayer.getSource();
+    const source = olLayer.getSource() as UnknownOlSource;
     if (!olLayer.getVisible()) {
       // do not include invisible layers
       return Promise.reject();
@@ -190,7 +198,9 @@ class LayerUtil {
       };
 
       let olStyle = null;
-      if (LayerUtil.isOlLayerVector(olLayer)) {
+      // @ts-ignore
+      if (olLayer.getStyle) {
+        // @ts-ignore
         olStyle = olLayer.getStyle();
       }
 
@@ -250,40 +260,29 @@ class LayerUtil {
     return attributionString;
   };
 
-  static isOlSourceTileWMS = (source: OlSource | null): source is OlSourceTileWMS => {
-    return source?.constructor?.name === OlSourceTileWMS.name || false;
+  static isOlSourceTileWMS = (source: UnknownOlSource | null): source is OlSourceTileWMS => {
+    return source?.getTileGrid && !source?.getMatrixSet || false;
   };
 
-  static isOlSourceImageWMS = (source: OlSource | null): source is OlSourceImageWMS => {
-    return source?.constructor?.name === OlSourceImageWMS.name || false;
+  static isOlSourceImageWMS = (source: UnknownOlSource | null): source is OlSourceImageWMS => {
+    return source?.getImageLoadFunction || false;
   };
 
-  static isOlSourceOSM = (source: OlSource | null): source is OlSourceOSM => {
-    return source?.constructor?.name === OlSourceOSM.name || false;
+  static isOlSourceOSM = (source: UnknownOlSource | null): source is OlSourceOSM => {
+    return source?.getUrls && source.getUrls().find(
+      (u: string) => u.includes('openstreetmap.org')) || false;
   };
 
-  static isOlSourceStamen = (source: OlSource | null): source is OlSourceStamen => {
-    return source?.constructor?.name === OlSourceStamen.name || false;
+  static isOlSourceStamen = (source: UnknownOlSource | null): source is OlSourceStamen => {
+    return source?.attribution?.includes('stamen.com') || false;
   };
 
-  static isOlSourceVector = (source: OlSource | null): source is OlSourceVector => {
-    return source?.constructor?.name === OlSourceVector.name || false;
+  static isOlSourceVector = (source: UnknownOlSource | null): source is OlSourceVector => {
+    return source?.getFeatures || false;
   };
 
-  static isOlSourceWMTS = (source: OlSource | null): source is OlSourceWMTS => {
-    return source?.constructor?.name === OlSourceWMTS.name || false;
-  };
-
-  static isOlLayerVector = (layer: OlLayer | null): layer is OlLayerVector<OlSourceVector> => {
-    return layer?.constructor?.name === OlLayerVector.name || false;
-  };
-
-  static isOlLayerImage = (layer: OlLayer | null): layer is OlLayerImage<OlSourceImageWMS> => {
-    return layer?.constructor?.name === OlLayerImage.name || false;
-  };
-
-  static isOlLayerTile = (layer: OlLayer | null): layer is OlLayerTile<OlSourceTileWMS> => {
-    return layer?.constructor?.name === OlLayerTile.name || false;
+  static isOlSourceWMTS = (source: UnknownOlSource | null): source is OlSourceWMTS => {
+    return source?.getTileGrid && source?.getMatrixSet || false;
   };
 
 }
