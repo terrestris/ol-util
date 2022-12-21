@@ -44,7 +44,7 @@ class MeasureUtil {
    *   allowed for the measure tooltips
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
    *
-   * @return {string} The formatted length of the line.
+   * @return {string} The formatted length of the line (units: km, m or mm).
    */
   static formatLength(
     line: OlGeomLineString, map: OlMap, decimalPlacesInToolTips: number, geodesic = true
