@@ -50,7 +50,7 @@
   "dependencies": {
     "@terrestris/base-util": "^1.0.1",
     "@turf/turf": "^6.5.0",
-    "geostyler-openlayers-parser": "4.0.0",
+    "geostyler-openlayers-parser": "4.1.0",
     "lodash": "^4.17.21",
     "polygon-splitter": "^0.0.11",
     "proj4": "^2.8.0",
