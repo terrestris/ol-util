@@ -60,17 +60,21 @@ describe('MeasureUtil', () => {
         const start = [0, 0];
         const end = [0, 100];
         const end2 = [0, 100550];
+        const end3 = [0, 0.1];
 
         const shortLine = new OlGeomLineString([start, end]);
         const longLine = new OlGeomLineString([start, end2]);
+        const veryShortLine = new OlGeomLineString([start, end3]);
 
         map = TestUtil.createMap();
 
         const expectedShortLength = MeasureUtil.formatLength(shortLine, map, 2);
         const expectedLongLength = MeasureUtil.formatLength(longLine, map, 2);
+        const expectedVeryShortLength = MeasureUtil.formatLength(veryShortLine, map, 2);
 
         expect(expectedShortLength).toBe('99.89 m');
         expect(expectedLongLength).toBe('100.43 km');
+        expect(expectedVeryShortLength).toBe('99.89 mm');
 
         TestUtil.removeMap(map);
       });
@@ -104,17 +108,21 @@ describe('MeasureUtil', () => {
       });
       it('formats the area of a polygon as expected', () => {
         const bigPolyCoords = smallPolyCoords.map(coord => [coord[0] * 100, coord[1] * 100]);
+        const verySmallPolyCoords = smallPolyCoords.map(coord => [coord[0] / 100, coord[1] / 100]);
 
         const smallPoly = new OlGeomPolygon([smallPolyCoords]);
         const bigPoly = new OlGeomPolygon([bigPolyCoords]);
+        const verySmallPoly = new OlGeomPolygon([verySmallPolyCoords]);
 
         map = TestUtil.createMap();
 
         const expectedSmallArea = MeasureUtil.formatArea(smallPoly, map, 2);
         const expectedBigArea = MeasureUtil.formatArea(bigPoly, map, 2);
+        const expectedVerySmallArea = MeasureUtil.formatArea(verySmallPoly, map, 2);
 
         expect(expectedSmallArea).toBe('99.78 m<sup>2</sup>');
         expect(expectedBigArea).toBe('1 km<sup>2</sup>');
+        expect(expectedVerySmallArea).toBe('9977.66 mm<sup>2</sup>');
 
         TestUtil.removeMap(map);
       });
