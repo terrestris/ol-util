@@ -19,7 +19,7 @@ npm i @terrestris/ol-util
 
 ## Development
 
-`npm run watch:buildto` can be used to inject an updated version of `ol-util` into antother project. The script will also watch for further changes. Example usage for [react-geo](https://github.com/terrestris/react-geo):
+`npm run watch:buildto` can be used to inject an updated version of `ol-util` into another project. The script will also watch for further changes. Example usage for [react-geo](https://github.com/terrestris/react-geo):
 
 ```sh
 npm run watch:buildto ../react-geo/node_modules/@terrestris/ol-util
