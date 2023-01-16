@@ -87,7 +87,7 @@
     "np": "^7.6.2",
     "ol": "^7.1.0",
     "path-exists-cli": "2.0.0",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.0.7",
     "semantic-release": "^20.0.2",
     "shp-write": "^0.3.2",
     "typedoc": "^0.23.21",
