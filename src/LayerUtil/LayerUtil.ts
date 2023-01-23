@@ -26,6 +26,7 @@ interface UnknownOlSource {
   getUrls?: any;
   attribution?: any;
   getLegendUrl?: any;
+  getParams?: any;
 }
 
 /**
@@ -110,6 +111,10 @@ class LayerUtil {
     const opacity = olLayer.getOpacity();
     const legendUrl = olLayer.get('legendUrl');
     const layerName = olLayer.get('name');
+    let time;
+    if (LayerUtil.isOlSourceTileWMS(source) || LayerUtil.isOlSourceImageWMS(source)) {
+      time = source.getParams().TIME;
+    }
 
     // todo: introduce config object which hold possible additional configurations
     const attributionString = LayerUtil.getLayerAttributionsText(olLayer, ' ,', true);
@@ -123,7 +128,10 @@ class LayerUtil {
         layer: source.getParams()?.LAYERS,
         tiled: true,
         legendUrl,
-        layerName
+        layerName,
+        customParams: {
+          ...(time && { time })
+        }
       };
     } else if (LayerUtil.isOlSourceImageWMS(source)) {
       return {
@@ -134,7 +142,10 @@ class LayerUtil {
         layer: source.getParams()?.LAYERS,
         tiled: false,
         legendUrl,
-        layerName
+        layerName,
+        customParams: {
+          ...(time && { time })
+        }
       };
     } else if (LayerUtil.isOlSourceWMTS(source)) {
       const olTileGrid = source.getTileGrid();
