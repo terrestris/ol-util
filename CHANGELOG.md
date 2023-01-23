@@ -1,3 +1,16 @@
+# [10.2.0](https://github.com/terrestris/ol-util/compare/v10.1.3...v10.2.0) (2023-01-23)
+
+
+### Bug Fixes
+
+* fix semantic release action ([#925](https://github.com/terrestris/ol-util/issues/925)) ([36fef96](https://github.com/terrestris/ol-util/commit/36fef9639b1e7f197aea2491606cc645b39d5927))
+
+
+### Features
+
+* add custom print params for wms ([#923](https://github.com/terrestris/ol-util/issues/923)) ([04dc9fb](https://github.com/terrestris/ol-util/commit/04dc9fb8d35f6a5e3f682afbbef0e21c62fa072f))
+* use node 18 for semantic release ([#924](https://github.com/terrestris/ol-util/issues/924)) ([ecf52b9](https://github.com/terrestris/ol-util/commit/ecf52b9af80c8a7d3fc5804ba819057cd448e063))
+
 ## [10.1.3](https://github.com/terrestris/ol-util/compare/v10.1.2...v10.1.3) (2022-12-15)
 
 
