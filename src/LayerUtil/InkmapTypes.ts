@@ -7,6 +7,7 @@ export type InkmapWmsLayer = {
   tiled?: boolean;
   legendUrl?: string;
   layerName?: string;
+  customParams?: any;
 };
 
 export type InkmapWmtsLayer = {
