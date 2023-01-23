@@ -111,7 +111,10 @@ class LayerUtil {
     const opacity = olLayer.getOpacity();
     const legendUrl = olLayer.get('legendUrl');
     const layerName = olLayer.get('name');
-    const time = source.getParams().TIME;
+    let time;
+    if (LayerUtil.isOlSourceTileWMS(source) || LayerUtil.isOlSourceImageWMS(source)) {
+      time = source.getParams().TIME;
+    }
 
     // todo: introduce config object which hold possible additional configurations
     const attributionString = LayerUtil.getLayerAttributionsText(olLayer, ' ,', true);
@@ -127,7 +130,7 @@ class LayerUtil {
         legendUrl,
         layerName,
         customParams: {
-          time
+          ...(time && { time })
         }
       };
     } else if (LayerUtil.isOlSourceImageWMS(source)) {
@@ -141,7 +144,7 @@ class LayerUtil {
         legendUrl,
         layerName,
         customParams: {
-          time
+          ...(time && { time })
         }
       };
     } else if (LayerUtil.isOlSourceWMTS(source)) {
