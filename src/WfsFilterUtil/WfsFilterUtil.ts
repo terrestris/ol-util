@@ -147,10 +147,10 @@ class WfsFilterUtil {
 
       if (!_isNil(filterPropertyNames)) {
         wfsFormatOpts.propertyNames = filterPropertyNames;
-
-        if (!_isNil(propertyNames)) {
-          wfsFormatOpts.propertyNames = filterPropertyNames.concat(propertyNames);
-        }
+      }
+      if (!_isNil(propertyNames)) {
+        wfsFormatOpts.propertyNames =
+          wfsFormatOpts?.propertyNames?.concat(propertyNames);
       }
       if (!_isNil(filter)) {
         wfsFormatOpts.filter = filter;
