@@ -50,7 +50,7 @@
   "dependencies": {
     "@terrestris/base-util": "^1.0.1",
     "@turf/turf": "^6.5.0",
-    "geostyler-openlayers-parser": "4.0.0",
+    "geostyler-openlayers-parser": "^4.1.0",
     "lodash": "^4.17.21",
     "polygon-splitter": "^0.0.11",
     "proj4": "^2.8.0",
@@ -85,15 +85,13 @@
     "jest-environment-jsdom": "^29.3.1",
     "node-pre-gyp": "^0.17.0",
     "np": "^7.6.2",
-    "ol": "^7.1.0",
-    "path-exists-cli": "2.0.0",
-    "rimraf": "^4.1.1",
+    "ol": "^7.2.2",
+    "rimraf": "^4.1.2",
     "semantic-release": "^20.0.2",
     "shp-write": "^0.3.2",
-    "typedoc": "^0.23.21",
+    "typedoc": "^0.23.24",
     "watch": "1.0.2",
-    "whatwg-fetch": "^3.6.2",
-    "xmldom": "^0.6.0"
+    "whatwg-fetch": "^3.6.2"
   },
   "peerDependencies": {
     "ol": "^7.1"
