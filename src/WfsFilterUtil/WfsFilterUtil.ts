@@ -47,6 +47,7 @@ export type SearchConfig = {
   srsName?: string;
   wfsFormatOptions?: string;
   attributeDetails: AttributeDetails;
+  propertyNames?: string[];
 };
 
 /**
@@ -126,12 +127,14 @@ class WfsFilterUtil {
       maxFeatures,
       outputFormat,
       srsName,
-      attributeDetails
+      attributeDetails,
+      propertyNames
     } = searchConfig;
 
     const requests = featureTypes?.map((featureType: string): any => {
       const filter = WfsFilterUtil.createWfsFilter(featureType, searchTerm, attributeDetails);
-      const propertyNames = Object.keys(attributeDetails[featureType]);
+      const filterPropertyNames = Object.keys(attributeDetails[featureType]);
+
       const wfsFormatOpts: WriteGetFeatureOptions = {
         featureNS,
         featurePrefix,
@@ -142,8 +145,12 @@ class WfsFilterUtil {
         srsName
       };
 
-      if (!_isNil(propertyNames)) {
-        wfsFormatOpts.propertyNames = propertyNames;
+      if (!_isNil(filterPropertyNames)) {
+        wfsFormatOpts.propertyNames = filterPropertyNames;
+
+        if (!_isNil(propertyNames)) {
+          wfsFormatOpts.propertyNames = filterPropertyNames.concat(propertyNames);
+        }
       }
       if (!_isNil(filter)) {
         wfsFormatOpts.filter = filter;
