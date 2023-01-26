@@ -1,3 +1,10 @@
+## [10.2.1](https://github.com/terrestris/ol-util/compare/v10.2.0...v10.2.1) (2023-01-26)
+
+
+### Bug Fixes
+
+* reintroduces the use of propertyNames ([c222326](https://github.com/terrestris/ol-util/commit/c2223264ba71f6c1e897b592502e019006b853fb))
+
 # [10.2.0](https://github.com/terrestris/ol-util/compare/v10.1.3...v10.2.0) (2023-01-23)
 
 
