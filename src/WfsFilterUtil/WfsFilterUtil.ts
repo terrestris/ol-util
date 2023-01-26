@@ -47,6 +47,7 @@ export type SearchConfig = {
   srsName?: string;
   wfsFormatOptions?: string;
   attributeDetails: AttributeDetails;
+  propertyNames?: string[];
 };
 
 /**
@@ -126,12 +127,12 @@ class WfsFilterUtil {
       maxFeatures,
       outputFormat,
       srsName,
-      attributeDetails
+      attributeDetails,
+      propertyNames
     } = searchConfig;
 
     const requests = featureTypes?.map((featureType: string): any => {
       const filter = WfsFilterUtil.createWfsFilter(featureType, searchTerm, attributeDetails);
-      const propertyNames = Object.keys(attributeDetails[featureType]);
       const wfsFormatOpts: WriteGetFeatureOptions = {
         featureNS,
         featurePrefix,
