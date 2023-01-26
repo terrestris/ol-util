@@ -36,6 +36,7 @@ describe('WfsFilterUtil', () => {
     featureNS: 'test',
     featureTypes: [featureType],
     featurePrefix: 'test',
+    propertyNames: ['testAttribute', 'anotherTestAttribute'],
     attributeDetails: {
       featureType: {}
     }
