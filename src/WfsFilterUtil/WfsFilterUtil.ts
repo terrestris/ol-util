@@ -133,8 +133,6 @@ class WfsFilterUtil {
 
     const requests = featureTypes?.map((featureType: string): any => {
       const filter = WfsFilterUtil.createWfsFilter(featureType, searchTerm, attributeDetails);
-      const filterPropertyNames = Object.keys(attributeDetails[featureType]);
-
       const wfsFormatOpts: WriteGetFeatureOptions = {
         featureNS,
         featurePrefix,
@@ -145,12 +143,8 @@ class WfsFilterUtil {
         srsName
       };
 
-      if (!_isNil(filterPropertyNames)) {
-        wfsFormatOpts.propertyNames = filterPropertyNames;
-      }
       if (!_isNil(propertyNames)) {
-        wfsFormatOpts.propertyNames =
-          wfsFormatOpts?.propertyNames?.concat(propertyNames);
+        wfsFormatOpts.propertyNames = propertyNames;
       }
       if (!_isNil(filter)) {
         wfsFormatOpts.filter = filter;
