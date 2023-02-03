@@ -157,17 +157,12 @@ class WfsFilterUtil {
     if (_isNil(requests)) {
       return;
     }
-    const request = requests[0] as Element;
-
-    requests.forEach((req: any) => {
-      if (req !== request) {
-        const query = req.contains('Query');
-        if (query !== null) {
-          request.append(query);
-        }
+    const request = requests[0];
+    requests.forEach((req, idx) => {
+      if (idx !== 0 && req.querySelector('Query')) {
+        request.appendChild(req.querySelector('Query'));
       }
     });
-
     return request;
   }
 }
