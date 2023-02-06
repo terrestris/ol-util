@@ -1,3 +1,10 @@
+## [10.2.2](https://github.com/terrestris/ol-util/compare/v10.2.1...v10.2.2) (2023-02-06)
+
+
+### Bug Fixes
+
+* wfs query append ([9358966](https://github.com/terrestris/ol-util/commit/9358966b9197a499b11f62d654c4db583555c819))
+
 ## [10.2.1](https://github.com/terrestris/ol-util/compare/v10.2.0...v10.2.1) (2023-01-26)
 
 
