@@ -1,3 +1,10 @@
+## [10.2.3](https://github.com/terrestris/ol-util/compare/v10.2.2...v10.2.3) (2023-02-17)
+
+
+### Bug Fixes
+
+* moveFeature in AnimateUtil ([c35ca3b](https://github.com/terrestris/ol-util/commit/c35ca3b0ec954495ca0f802b072a93cc88adf316))
+
 ## [10.2.2](https://github.com/terrestris/ol-util/compare/v10.2.1...v10.2.2) (2023-02-06)
 
 
