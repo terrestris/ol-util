@@ -1,3 +1,4 @@
+import _isFunction from 'lodash/isFunction';
 import _isNil from 'lodash/isNil';
 import OlFeature from 'ol/Feature';
 import OlGeometry from 'ol/geom/Geometry';
@@ -66,7 +67,11 @@ class AnimateUtil {
         geometry.translate(deltaX, deltaY);
 
         if (style) {
-          vectorContext.setStyle(style);
+          if (_isFunction(style)) {
+            vectorContext.setStyle(style(featureToMove));
+          } else {
+            vectorContext.setStyle(style);
+          }
         }
         vectorContext.drawGeometry(geometry);
 
