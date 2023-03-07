@@ -136,7 +136,7 @@ class WfsFilterUtil {
       const wfsFormatOpts: WriteGetFeatureOptions = {
         featureNS,
         featurePrefix,
-        featureTypes,
+        featureTypes: [featureType],
         geometryName,
         maxFeatures,
         outputFormat,
