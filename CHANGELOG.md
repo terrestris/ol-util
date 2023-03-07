@@ -1,3 +1,10 @@
+## [10.2.4](https://github.com/terrestris/ol-util/compare/v10.2.3...v10.2.4) (2023-03-07)
+
+
+### Bug Fixes
+
+* fix wfs filter builder ([0f59f14](https://github.com/terrestris/ol-util/commit/0f59f14d7cc8b8b2f782f7377a0089db993489c9))
+
 ## [10.2.3](https://github.com/terrestris/ol-util/compare/v10.2.2...v10.2.3) (2023-02-17)
 
 
