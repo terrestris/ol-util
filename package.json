@@ -55,7 +55,7 @@
     "polygon-splitter": "^0.0.11",
     "proj4": "^2.8.0",
     "shpjs": "^4.0.4",
-    "typescript": "^4.9.3"
+    "typescript": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
