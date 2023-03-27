@@ -87,7 +87,7 @@
     "np": "^7.6.2",
     "ol": "^7.2.2",
     "rimraf": "^4.1.2",
-    "semantic-release": "^20.0.2",
+    "semantic-release": "^21.0.0",
     "shp-write": "^0.3.2",
     "typedoc": "^0.23.24",
     "watch": "1.0.2",
