@@ -24,7 +24,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">MapUtil</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L35">MapUtil/MapUtil.ts:35</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L35">MapUtil/MapUtil.ts:35</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -72,8 +72,6 @@
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Converts a given OpenLayers map to an inkmap spec. Only returns options which can be
 derived from a map (center, scale, projection, layers).</p>
-
-<h3>Returns</h3><p>Promise of the inmkap print spec.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -82,17 +80,16 @@ derived from a map (center, scale, projection, layers).</p>
 <h5><span class="tsd-kind-parameter">olMap</span>: <span class="tsd-signature-type ">Map</span></h5>
 <div class="tsd-comment tsd-typography"><p>The ol map.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">center</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Coordinate</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">layers</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">projection</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">scale</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">center</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Coordinate</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">layers</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">projection</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">scale</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Promise of the inmkap print spec.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L453">MapUtil/MapUtil.ts:453</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L453">MapUtil/MapUtil.ts:453</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getAllLayers" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>All<wbr/>Layers</span><a href="#getAllLayers" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getAllLayers.getAllLayers-1"><span class="tsd-kind-call-signature">get<wbr/>All<wbr/>Layers</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">collection</span>, <span class="tsd-kind-parameter">filter</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span><a href="#getAllLayers.getAllLayers-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns all layers of a collection. Even the hidden ones.</p>
-
-<h3>Returns</h3><p>An array of all Layers.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -120,17 +117,16 @@ derived from a map (center, scale, projection, layers).</p>
 <li>
 <h5><span class="tsd-kind-parameter">olLayer</span>: <span class="tsd-signature-type ">BaseLayer</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4></li></ul></li></ul></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span></h4><p>An array of all Layers.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L115">MapUtil/MapUtil.ts:115</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L115">MapUtil/MapUtil.ts:115</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getInteractionsByName" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Interactions<wbr/>By<wbr/>Name</span><a href="#getInteractionsByName" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getInteractionsByName.getInteractionsByName-1"><span class="tsd-kind-call-signature">get<wbr/>Interactions<wbr/>By<wbr/>Name</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">map</span>, <span class="tsd-kind-parameter">name</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Interaction</span><span class="tsd-signature-symbol">[]</span><a href="#getInteractionsByName.getInteractionsByName-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns all interactions by the given name of a map.</p>
-
-<h3>Returns</h3><p>The list of result interactions.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -143,18 +139,16 @@ derived from a map (center, scale, projection, layers).</p>
 <h5><span class="tsd-kind-parameter">name</span>: <span class="tsd-signature-type">string</span></h5>
 <div class="tsd-comment tsd-typography"><p>The name of the interaction to look for.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Interaction</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Interaction</span><span class="tsd-signature-symbol">[]</span></h4><p>The list of result interactions.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L44">MapUtil/MapUtil.ts:44</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L44">MapUtil/MapUtil.ts:44</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getLayerByFeature" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Layer<wbr/>By<wbr/>Feature</span><a href="#getLayerByFeature" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getLayerByFeature.getLayerByFeature-1"><span class="tsd-kind-call-signature">get<wbr/>Layer<wbr/>By<wbr/>Feature</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">map</span>, <span class="tsd-kind-parameter">feature</span>, <span class="tsd-kind-parameter">namespaces</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">BaseLayer</span><a href="#getLayerByFeature.getLayerByFeature-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the layer from the provided map by the given feature.</p>
-
-<h3>Returns</h3><p>The result layer or undefined if the layer could not
-                   be found.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -171,18 +165,17 @@ derived from a map (center, scale, projection, layers).</p>
 <h5><span class="tsd-kind-parameter">namespaces</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 <div class="tsd-comment tsd-typography"><p>list of supported GeoServer namespaces.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">BaseLayer</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">BaseLayer</span></h4><p>The result layer or undefined if the layer could not
+                   be found.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L201">MapUtil/MapUtil.ts:201</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L201">MapUtil/MapUtil.ts:201</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getLayerByName" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Layer<wbr/>By<wbr/>Name</span><a href="#getLayerByName" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getLayerByName.getLayerByName-1"><span class="tsd-kind-call-signature">get<wbr/>Layer<wbr/>By<wbr/>Name</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">map</span>, <span class="tsd-kind-parameter">name</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">BaseLayer</span><a href="#getLayerByName.getLayerByName-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the layer from the provided map by the given name.</p>
-
-<h3>Returns</h3><p>The result layer or undefined if the layer could not
-                   be found.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -195,9 +188,11 @@ derived from a map (center, scale, projection, layers).</p>
 <h5><span class="tsd-kind-parameter">name</span>: <span class="tsd-signature-type">string</span></h5>
 <div class="tsd-comment tsd-typography"><p>The name to get the layer by.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseLayer</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseLayer</span></h4><p>The result layer or undefined if the layer could not
+                   be found.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L154">MapUtil/MapUtil.ts:154</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L154">MapUtil/MapUtil.ts:154</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getLayerByNameParam" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Layer<wbr/>By<wbr/>Name<wbr/>Param</span><a href="#getLayerByNameParam" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -205,8 +200,6 @@ derived from a map (center, scale, projection, layers).</p>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the layer from the provided map by the given name
 (parameter LAYERS).</p>
-
-<h3>Returns</h3><p>The result layer or undefined if the layer could not be found.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -219,17 +212,16 @@ derived from a map (center, scale, projection, layers).</p>
 <h5><span class="tsd-kind-parameter">name</span>: <span class="tsd-signature-type">string</span></h5>
 <div class="tsd-comment tsd-typography"><p>The name to get the layer by.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">TileLayer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">TileWMS</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">ImageLayer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">ImageWMS</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">TileLayer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">TileWMS</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">ImageLayer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">ImageWMS</span><span class="tsd-signature-symbol">&gt;</span></h4><p>The result layer or undefined if the layer could not be found.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L170">MapUtil/MapUtil.ts:170</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L170">MapUtil/MapUtil.ts:170</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getLayerByOlUid" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Layer<wbr/>By<wbr/>Ol<wbr/>Uid</span><a href="#getLayerByOlUid" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getLayerByOlUid.getLayerByOlUid-1"><span class="tsd-kind-call-signature">get<wbr/>Layer<wbr/>By<wbr/>Ol<wbr/>Uid</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">map</span>, <span class="tsd-kind-parameter">olUid</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">BaseLayer</span><a href="#getLayerByOlUid.getLayerByOlUid-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get a layer by its key (ol_uid).</p>
-
-<h3>Returns</h3><p>The layer.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -240,17 +232,16 @@ derived from a map (center, scale, projection, layers).</p>
 </div></li>
 <li>
 <h5><span class="tsd-kind-parameter">olUid</span>: <span class="tsd-signature-type">string</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">BaseLayer</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">BaseLayer</span></h4><p>The layer.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L139">MapUtil/MapUtil.ts:139</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L139">MapUtil/MapUtil.ts:139</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getLayerPositionInfo" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Layer<wbr/>Position<wbr/>Info</span><a href="#getLayerPositionInfo" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getLayerPositionInfo.getLayerPositionInfo-1"><span class="tsd-kind-call-signature">get<wbr/>Layer<wbr/>Position<wbr/>Info</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">layer</span>, <span class="tsd-kind-parameter">groupLayerOrMap</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../types/MapUtil_MapUtil.LayerPositionInfo.html" class="tsd-signature-type tsd-kind-type-alias">LayerPositionInfo</a><a href="#getLayerPositionInfo.getLayerPositionInfo-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get information about the LayerPosition in the tree.</p>
-
-<h3>Returns</h3><p>The groupLayer containing the layer and the position of the layer in the collection.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -264,17 +255,16 @@ derived from a map (center, scale, projection, layers).</p>
 <div class="tsd-comment tsd-typography"><p>The groupLayer or map
                                                  containing the layer.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="../types/MapUtil_MapUtil.LayerPositionInfo.html" class="tsd-signature-type tsd-kind-type-alias">LayerPositionInfo</a></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <a href="../types/MapUtil_MapUtil.LayerPositionInfo.html" class="tsd-signature-type tsd-kind-type-alias">LayerPositionInfo</a></h4><p>The groupLayer containing the layer and the position of the layer in the collection.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L258">MapUtil/MapUtil.ts:258</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L258">MapUtil/MapUtil.ts:258</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getLayersByGroup" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Layers<wbr/>By<wbr/>Group</span><a href="#getLayersByGroup" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getLayersByGroup.getLayersByGroup-1"><span class="tsd-kind-call-signature">get<wbr/>Layers<wbr/>By<wbr/>Group</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">map</span>, <span class="tsd-kind-parameter">layerGroup</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span><a href="#getLayersByGroup.getLayersByGroup-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns all layers of the specified layer group recursively.</p>
-
-<h3>Returns</h3><p>The (flattened) layers from the group</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -287,17 +277,16 @@ derived from a map (center, scale, projection, layers).</p>
 <h5><span class="tsd-kind-parameter">layerGroup</span>: <span class="tsd-signature-type ">LayerGroup</span></h5>
 <div class="tsd-comment tsd-typography"><p>The group to flatten.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span></h4><p>The (flattened) layers from the group</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L222">MapUtil/MapUtil.ts:222</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L222">MapUtil/MapUtil.ts:222</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getLayersByProperty" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Layers<wbr/>By<wbr/>Property</span><a href="#getLayersByProperty" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getLayersByProperty.getLayersByProperty-1"><span class="tsd-kind-call-signature">get<wbr/>Layers<wbr/>By<wbr/>Property</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">map</span>, <span class="tsd-kind-parameter">key</span>, <span class="tsd-kind-parameter">value</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span><a href="#getLayersByProperty.getLayersByProperty-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the list of layers matching the given pair of properties.</p>
-
-<h3>Returns</h3><p>The array of matching layers.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -314,9 +303,10 @@ derived from a map (center, scale, projection, layers).</p>
 <h5><span class="tsd-kind-parameter">value</span>: <span class="tsd-signature-type">any</span></h5>
 <div class="tsd-comment tsd-typography"><p>The property value.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">BaseLayer</span><span class="tsd-signature-symbol">[]</span></h4><p>The array of matching layers.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L242">MapUtil/MapUtil.ts:242</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L242">MapUtil/MapUtil.ts:242</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getLegendGraphicUrl" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Legend<wbr/>Graphic<wbr/>Url</span><a href="#getLegendGraphicUrl" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -329,8 +319,6 @@ Currently supported Sources:</p>
 <li>ol.source.ImageWms (with url configured)</li>
 <li>ol.source.WMTS (with url configured)</li>
 </ul>
-
-<h3>Returns</h3><p>The getLegendGraphicUrl.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -344,9 +332,10 @@ Currently supported Sources:</p>
 <ul class="tsd-parameters">
 <li class="tsd-parameter-index-signature">
 <h5><span class="tsd-signature-symbol">[</span><span class="tsd-kind-parameter">key</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5></li></ul></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><p>The getLegendGraphicUrl.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L291">MapUtil/MapUtil.ts:291</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L291">MapUtil/MapUtil.ts:291</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getResolutionForScale" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Resolution<wbr/>For<wbr/>Scale</span><a href="#getResolutionForScale" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -357,9 +346,7 @@ units.</p>
 <p>See: <a href="https://gis.stackexchange.com/questions/158435/">https://gis.stackexchange.com/questions/158435/</a>
 how-to-get-current-scale-in-openlayers-3</p>
 
-<h3>Method</h3>
-<h3>Returns</h3><p>The calculated resolution.</p>
-</div>
+<h3>Method</h3></div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
@@ -372,9 +359,10 @@ how-to-get-current-scale-in-openlayers-3</p>
 <h5><span class="tsd-kind-parameter">units</span>: <span class="tsd-signature-type ">Units</span></h5>
 <div class="tsd-comment tsd-typography"><p>The units to use for calculation (m or degrees).</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h4><p>The calculated resolution.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L63">MapUtil/MapUtil.ts:63</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L63">MapUtil/MapUtil.ts:63</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getScaleForResolution" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Scale<wbr/>For<wbr/>Resolution</span><a href="#getScaleForResolution" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -382,9 +370,7 @@ how-to-get-current-scale-in-openlayers-3</p>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the appropriate scale for the given resolution and units.</p>
 
-<h3>Method</h3>
-<h3>Returns</h3><p>The appropriate scale.</p>
-</div>
+<h3>Method</h3></div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
@@ -397,9 +383,10 @@ how-to-get-current-scale-in-openlayers-3</p>
 <div class="tsd-comment tsd-typography"><p>The units the resolution is based on, typically
                       either &#39;m&#39; or &#39;degrees&#39;.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h4><p>The appropriate scale.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L88">MapUtil/MapUtil.ts:88</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L88">MapUtil/MapUtil.ts:88</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getZoomForScale" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Zoom<wbr/>For<wbr/>Scale</span><a href="#getZoomForScale" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -407,9 +394,7 @@ how-to-get-current-scale-in-openlayers-3</p>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the appropriate zoom level for the given scale and units.</p>
 
-<h3>Method</h3>
-<h3>Returns</h3><p>Determined zoom level for the given scale.</p>
-</div>
+<h3>Method</h3></div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
@@ -426,9 +411,10 @@ how-to-get-current-scale-in-openlayers-3</p>
 <div class="tsd-comment tsd-typography"><p>The units the resolutions are based on, typically
                       either &#39;m&#39; or &#39;degrees&#39;. Default is &#39;m&#39;.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>Determined zoom level for the given scale.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L396">MapUtil/MapUtil.ts:396</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L396">MapUtil/MapUtil.ts:396</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="isInScaleRange" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>is<wbr/>In<wbr/>Scale<wbr/>Range</span><a href="#isInScaleRange" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -449,7 +435,7 @@ how-to-get-current-scale-in-openlayers-3</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L440">MapUtil/MapUtil.ts:440</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L440">MapUtil/MapUtil.ts:440</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="layerInResolutionRange" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>layer<wbr/>In<wbr/>Resolution<wbr/>Range</span><a href="#layerInResolutionRange" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -458,12 +444,6 @@ how-to-get-current-scale-in-openlayers-3</p>
 <div class="tsd-comment tsd-typography"><p>Checks whether the resolution of the passed map&#39;s view lies inside of the
 min- and max-resolution of the passed layer, e.g. whether the layer should
 be displayed at the current map view resolution.</p>
-
-<h3>Returns</h3><p>Whether the resolution of the passed map&#39;s view lies
-    inside of the min- and max-resolution of the passed layer, e.g. whether
-    the layer should be displayed at the current map view resolution. Will
-    be <code>false</code> when no <code>layer</code> or no <code>map</code> is passed or if the view of the
-    map is falsy or does not have a resolution (yet).</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -477,17 +457,20 @@ be displayed at the current map view resolution.</p>
 <div class="tsd-comment tsd-typography"><p>The map to get the view resolution for comparison
     from.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><p>Whether the resolution of the passed map&#39;s view lies
+    inside of the min- and max-resolution of the passed layer, e.g. whether
+    the layer should be displayed at the current map view resolution. Will
+    be <code>false</code> when no <code>layer</code> or no <code>map</code> is passed or if the view of the
+    map is falsy or does not have a resolution (yet).</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L350">MapUtil/MapUtil.ts:350</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L350">MapUtil/MapUtil.ts:350</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="roundScale" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>round<wbr/>Scale</span><a href="#roundScale" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="roundScale.roundScale-1"><span class="tsd-kind-call-signature">round<wbr/>Scale</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">scale</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#roundScale.roundScale-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Rounds a scale number depending on its size.</p>
-
-<h3>Returns</h3><p>The roundedScale</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -496,9 +479,10 @@ be displayed at the current map view resolution.</p>
 <h5><span class="tsd-kind-parameter">scale</span>: <span class="tsd-signature-type">number</span></h5>
 <div class="tsd-comment tsd-typography"><p>The exact scale</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>The roundedScale</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L371">MapUtil/MapUtil.ts:371</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L371">MapUtil/MapUtil.ts:371</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="zoomToFeatures" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>zoom<wbr/>To<wbr/>Features</span><a href="#zoomToFeatures" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -519,7 +503,7 @@ be displayed at the current map view resolution.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/MapUtil/MapUtil.ts#L425">MapUtil/MapUtil.ts:425</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/MapUtil/MapUtil.ts#L425">MapUtil/MapUtil.ts:425</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">

@@ -24,7 +24,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">default</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/FeatureUtil/FeatureUtil.ts#L13">FeatureUtil/FeatureUtil.ts:13</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/FeatureUtil/FeatureUtil.ts#L13">FeatureUtil/FeatureUtil.ts:13</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -58,9 +58,6 @@
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Returns the featureType name out of a given feature. It assumes that
 the feature has an ID in the following structure FEATURETYPE.FEATUREID.</p>
-
-<h3>Returns</h3><p>The (unqualified) name of the featureType or undefined if
-                 the name could not be picked.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -70,9 +67,11 @@ the feature has an ID in the following structure FEATURETYPE.FEATUREID.</p>
 <div class="tsd-comment tsd-typography"><p>The feature to obtain the featureType
                             name from.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4><p>The (unqualified) name of the featureType or undefined if
+                 the name could not be picked.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/FeatureUtil/FeatureUtil.ts#L24">FeatureUtil/FeatureUtil.ts:24</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/FeatureUtil/FeatureUtil.ts#L24">FeatureUtil/FeatureUtil.ts:24</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getFeatureTypeNameFromGetFeatureInfoUrl" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Feature<wbr/>Type<wbr/>Name<wbr/>From<wbr/>Get<wbr/>Feature<wbr/>Info<wbr/>Url</span><a href="#getFeatureTypeNameFromGetFeatureInfoUrl" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -81,8 +80,6 @@ the feature has an ID in the following structure FEATURETYPE.FEATUREID.</p>
 <div class="tsd-comment tsd-typography"><p>Extracts the featureType name from given GetFeatureInfo URL.
 This method is mostly useful for raster layers which features could have
 no ID set.</p>
-
-<h3>Returns</h3><p>Obtained featureType name as string.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -96,26 +93,26 @@ no ID set.</p>
 <div class="tsd-comment tsd-typography"><p>Whether the qualified featureType name should be
   returned or not. Default is true.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4><p>Obtained featureType name as string.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/FeatureUtil/FeatureUtil.ts#L41">FeatureUtil/FeatureUtil.ts:41</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/FeatureUtil/FeatureUtil.ts#L41">FeatureUtil/FeatureUtil.ts:41</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="mapFeaturesToGeometries" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>map<wbr/>Features<wbr/>To<wbr/>Geometries</span><a href="#mapFeaturesToGeometries" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="mapFeaturesToGeometries.mapFeaturesToGeometries-1"><span class="tsd-kind-call-signature">map<wbr/>Features<wbr/>To<wbr/>Geometries</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">features</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Geometry</span><span class="tsd-signature-symbol">[]</span><a href="#mapFeaturesToGeometries.mapFeaturesToGeometries-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Maps an array of features to an array of geometries.</p>
-
-<h3>Returns</h3><p>The geometries of the features</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">features</span>: <span class="tsd-signature-type ">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Geometry</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Geometry</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Geometry</span><span class="tsd-signature-symbol">[]</span></h4><p>The geometries of the features</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/FeatureUtil/FeatureUtil.ts#L145">FeatureUtil/FeatureUtil.ts:145</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/FeatureUtil/FeatureUtil.ts#L145">FeatureUtil/FeatureUtil.ts:145</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="resolveAttributeTemplate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>resolve<wbr/>Attribute<wbr/>Template</span><a href="#resolveAttributeTemplate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -125,8 +122,6 @@ no ID set.</p>
 the template &quot;Size of area is {{AREA_SIZE}} km²&quot; would be to resolved
 to &quot;Size of area is 1909 km²&quot; (assuming the feature&#39;s attribute AREA_SIZE
 really exists).</p>
-
-<h3>Returns</h3><p>The resolved template string.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -171,9 +166,10 @@ really exists).</p>
 <div class="tsd-comment tsd-typography"><p>If set to true, template won&#39;t be wrapped into
   <a>-tag and will be returned as URL. Default is false.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><p>The resolved template string.</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/4fc23c6/src/FeatureUtil/FeatureUtil.ts#L74">FeatureUtil/FeatureUtil.ts:74</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/terrestris/ol-util/blob/2cf873e/src/FeatureUtil/FeatureUtil.ts#L74">FeatureUtil/FeatureUtil.ts:74</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
