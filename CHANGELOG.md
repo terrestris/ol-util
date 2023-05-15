@@ -1,3 +1,10 @@
+# [10.3.0](https://github.com/terrestris/ol-util/compare/v10.2.4...v10.3.0) (2023-05-15)
+
+
+### Features
+
+* util to set visiblity for a list of layers ([f250e56](https://github.com/terrestris/ol-util/commit/f250e5624e2bdf5fce70a95b186737c590815710))
+
 ## [10.2.4](https://github.com/terrestris/ol-util/compare/v10.2.3...v10.2.4) (2023-03-07)
 
 
