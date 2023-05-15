@@ -3,6 +3,7 @@ import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 import { isNil } from 'lodash';
 import findIndex from 'lodash/findIndex';
 import _isFinite from 'lodash/isFinite';
+import _isNil from 'lodash/isNil';
 import _isString from 'lodash/isString';
 import OlFeature from 'ol/Feature';
 import OlGeometry from 'ol/geom/Geometry';
@@ -10,6 +11,7 @@ import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
 import OlBaseLayer from 'ol/layer/Base';
 import OlLayerGroup from 'ol/layer/Group';
 import OlLayerImage from 'ol/layer/Image';
+import OlLayer from 'ol/layer/Layer';
 import OlLayerTile from 'ol/layer/Tile';
 import OlMap from 'ol/Map';
 import { toLonLat } from 'ol/proj';
@@ -483,6 +485,28 @@ export class MapUtil {
       scale: scale,
       projection: projection
     };
+  }
+
+  /**
+   * Set visibility for layer having names (if in map)
+   * @param {OlMap} olMap The OpenLayers map.
+   * @param {string[]} layerNames An array of layer names (feature type names can also be used)
+   * @param {boolean} visible if layer should be visible or not
+   */
+  static setVisibilityForLayers(olMap: OlMap, layerNames: string[], visible: boolean) {
+    if (_isNil(olMap)) {
+      return;
+    }
+    if (_isNil(layerNames) || layerNames.length === 0) {
+      return;
+    }
+    layerNames?.forEach(layerName => {
+      let layer = MapUtil.getLayerByName(olMap, layerName) as OlLayer;
+      if (_isNil(layer)) {
+        layer = MapUtil.getLayerByNameParam(olMap, layerName) as OlLayer;
+      }
+      layer?.setVisible(visible);
+    });
   }
 
 }

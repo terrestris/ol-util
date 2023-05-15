@@ -778,4 +778,56 @@ describe('MapUtil', () => {
       expect(inScaleRange).toBe(false);
     });
   });
+
+  describe('#setVisibilityForLayers', () => {
+    it('is defined', () => {
+      expect(MapUtil.setVisibilityForLayers).toBeDefined();
+    });
+
+    it('sets visibility for named layer correctly ', () => {
+      const testName = 'testVisiblityWms';
+      const layer = new OlLayerImage({
+        source: new OlSourceImageWMS({
+          url: 'https://ows.terrestris.de/osm-gray/service',
+          params: {LAYERS: 'OSM-WMS', TILED: true},
+          serverType: 'geoserver'
+        }),
+        properties: {
+          name: testName
+        }
+      });
+
+      map.addLayer(layer);
+
+      MapUtil.setVisibilityForLayers(map, [testName], true);
+      expect(MapUtil.getLayerByName(map, testName)?.getVisible()).toBe(true);
+
+
+      MapUtil.setVisibilityForLayers(map, [testName], false);
+      expect(MapUtil.getLayerByName(map, testName)?.getVisible()).toBe(false);
+    });
+  });
+
+  it('sets visibility for layer correctly which is accessed by feature type name', () => {
+    const testFeatureType = 'TEST:MY_FEATURE_TYPE_NAME';
+    const layer = new OlLayerImage({
+      source: new OlSourceImageWMS({
+        url: 'https://my-test-wms.de/service',
+        params: {LAYERS: testFeatureType}
+      }),
+      properties: {
+        name: 'This layer is just a dummy test layer'
+      }
+    });
+
+    map.addLayer(layer);
+
+    MapUtil.setVisibilityForLayers(map, [testFeatureType], true);
+    expect(MapUtil.getLayerByNameParam(map, testFeatureType)?.getVisible()).toBe(true);
+
+
+    MapUtil.setVisibilityForLayers(map, [testFeatureType], false);
+    expect(MapUtil.getLayerByNameParam(map, testFeatureType)?.getVisible()).toBe(false);
+  });
+
 });
