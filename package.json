@@ -66,7 +66,7 @@
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^10.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.6",
+    "@semantic-release/github": "^9.0.3",
     "@semantic-release/npm": "^10.0.2",
     "@semantic-release/release-notes-generator": "^11.0.1",
     "@terrestris/eslint-config-typescript": "^3.1.0",
