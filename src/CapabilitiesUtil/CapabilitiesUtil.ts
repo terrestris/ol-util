@@ -1,14 +1,13 @@
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';
-import OlWMSCapabilities from 'ol/format/WMSCapabilities';
 import OlLayerImage from 'ol/layer/Image';
 import OlLayerTile from 'ol/layer/Tile';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
+import { parseStringPromise } from 'xml2js';
 
 import LayerUtil from '../LayerUtil/LayerUtil';
-
 /**
  * Helper class to parse capabilities of WMS layers
  *
@@ -30,10 +29,14 @@ class CapabilitiesUtil {
     if (!capabilitiesResponse.ok) {
       throw new Error('Could not get capabilities.');
     }
-
-    const wmsCapabilitiesParser = new OlWMSCapabilities();
     const capabilitiesText = await capabilitiesResponse.text();
-    return wmsCapabilitiesParser.read(capabilitiesText);
+    return await parseStringPromise(capabilitiesText, {
+      trim: true,
+      explicitArray: false,
+      explicitRoot: false,
+      ignoreAttrs: false,
+      mergeAttrs: true
+    });
   }
 
   /**

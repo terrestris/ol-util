@@ -68,17 +68,19 @@ class LayerUtil {
    * @returns {Promise<[number, number, number, number]>} The extent of the layer.
    */
   static async getExtentForLayer(
-    layer:  OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
+    layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
     fetchOpts: RequestInit = {}
   ): Promise<OlExtent> {
     const capabilities = await CapabilitiesUtil.getWmsCapabilitiesByLayer(layer, fetchOpts);
 
-    if (!capabilities?.Capability?.Layer?.Layer) {
+    const capabilitiesLayer = capabilities?.Capability?.Layer?.Layer;
+
+    if (!capabilitiesLayer) {
       throw new Error('Unexpected format of the Capabilities.');
     }
 
     const layerName = layer.getSource()?.getParams().LAYERS;
-    const capabilitiesLayer = capabilities.Capability.Layer.Layer;
+    const version = layer.getSource()?.getParams().VERSION || '1.3.0';
     const layers = capabilitiesLayer.filter((l: any) => {
       return l.Name === layerName;
     });
@@ -87,9 +89,32 @@ class LayerUtil {
       throw new Error('Could not find the desired layer in the Capabilities.');
     }
 
-    const extent: OlExtent = layers[0].EX_GeographicBoundingBox;
+    let extent;
 
-    if (!extent || extent.length !== 4) {
+    if (version === '1.3.0') {
+      const {
+        eastBoundLongitude,
+        northBoundLatitude,
+        southBoundLatitude,
+        westBoundLongitude
+      } = layers[0].EX_GeographicBoundingBox;
+      extent = [
+        westBoundLongitude,
+        southBoundLatitude,
+        eastBoundLongitude,
+        northBoundLatitude,
+      ];
+    } else if (version === '1.1.0' || version === '1.1.1') {
+      const {
+        minx,
+        miny,
+        maxx,
+        maxy
+      } = layers[0].LatLonBoundingBox;
+      extent = [minx, miny, maxx, maxy];
+    }
+
+    if (!extent || extent?.length !== 4) {
       throw new Error('No extent set in the Capabilities.');
     }
 
