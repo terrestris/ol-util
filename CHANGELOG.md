@@ -1,3 +1,11 @@
+## [10.3.1](https://github.com/terrestris/ol-util/compare/v10.3.0...v10.3.1) (2023-06-20)
+
+
+### Bug Fixes
+
+* fix extent determination for getCapabilities requests v1.1.0 or v1.1.1 ([c838b8d](https://github.com/terrestris/ol-util/commit/c838b8d6795c17d312698ce045d4f42d2fe218de))
+* fix instance check ([912b3ab](https://github.com/terrestris/ol-util/commit/912b3ab32e00b7040bc01ec4ef128f0c34b457ac))
+
 # [10.3.0](https://github.com/terrestris/ol-util/compare/v10.2.4...v10.3.0) (2023-05-15)
 
 
