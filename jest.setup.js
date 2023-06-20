@@ -1,3 +1,5 @@
+import 'jest-canvas-mock';
+
 global.fetch = jest.fn();
 
 Object.defineProperty(global, 'ResizeObserver', {

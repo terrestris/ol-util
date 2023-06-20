@@ -177,7 +177,7 @@ export class MapUtil {
     let layerCandidate: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | undefined;
 
     for (let layer of layers) {
-      if (layer instanceof OlLayerTile || layer instanceof OlLayerImage<OlSourceImageWMS>) {
+      if (layer instanceof OlLayerTile || layer instanceof OlLayerImage) {
         const source = layer.getSource();
         if (source instanceof OlSourceImageWMS || source instanceof OlSourceTileWMS) {
           if (layer.getSource().getParams().LAYERS === name) {

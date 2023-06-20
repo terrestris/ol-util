@@ -75,7 +75,7 @@ describe('LayerUtil', () => {
     });
 
     describe('#getExtentForLayer', () => {
-      it('returns the extent of the given layer', async () => {
+      it('returns the extent of the given layer for GetCapabilities request version 1.3.0', async () => {
         const layer = new OlLayerTile({
           source: new OlSourceTileWMS({
             url: 'https://ows.terrestris.de/osm-gray/service?',
@@ -95,7 +95,53 @@ describe('LayerUtil', () => {
               Layer: [{
                 Name: 'OSM-WMS',
                 // eslint-disable-next-line camelcase
-                EX_GeographicBoundingBox: [1, 2, 3, 4]
+                EX_GeographicBoundingBox: {
+                  westBoundLongitude: 1,
+                  southBoundLatitude: 2,
+                  eastBoundLongitude: 3,
+                  northBoundLatitude: 4
+                }
+              }]
+            }
+          }
+        });
+        const getWmsCapabilitiesByLayerSpy = jest.spyOn(CapabilitiesUtil,
+          'getWmsCapabilitiesByLayer').mockImplementation(mockImpl);
+
+        const extent = await LayerUtil.getExtentForLayer(layer);
+
+        expect(extent).toEqual([1, 2, 3, 4]);
+
+        getWmsCapabilitiesByLayerSpy.mockRestore();
+      });
+
+      it('returns the extent of the given layer for GetCapabilities request version 1.1.1', async () => {
+        const layer = new OlLayerTile({
+          source: new OlSourceTileWMS({
+            url: 'https://ows.terrestris.de/osm-gray/service?',
+            params: {
+              LAYERS: 'OSM-WMS',
+              VERSION: '1.1.1'
+            }
+          }),
+          properties: {
+            name: 'OSM-WMS'
+          }
+        });
+
+        const mockImpl = jest.fn();
+        mockImpl.mockReturnValue({
+          Capability: {
+            Layer: {
+              Layer: [{
+                Name: 'OSM-WMS',
+                // eslint-disable-next-line camelcase
+                LatLonBoundingBox: {
+                  minx: 1,
+                  miny: 2,
+                  maxx: 3,
+                  maxy: 4
+                }
               }]
             }
           }
