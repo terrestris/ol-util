@@ -1,11 +1,11 @@
 import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
+import { XMLParser } from 'fast-xml-parser';
 import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';
 import OlLayerImage from 'ol/layer/Image';
 import OlLayerTile from 'ol/layer/Tile';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
-import { parseStringPromise } from 'xml2js';
 
 import LayerUtil from '../LayerUtil/LayerUtil';
 /**
@@ -29,14 +29,20 @@ class CapabilitiesUtil {
     if (!capabilitiesResponse.ok) {
       throw new Error('Could not get capabilities.');
     }
+
+    const url = new URL(capabilitiesUrl);
+    const version = url.searchParams.get('VERSION');
+
     const capabilitiesText = await capabilitiesResponse.text();
-    return await parseStringPromise(capabilitiesText, {
-      trim: true,
-      explicitArray: false,
-      explicitRoot: false,
-      ignoreAttrs: false,
-      mergeAttrs: true
+    const parser = new XMLParser({
+      ignoreDeclaration: true,
+      removeNSPrefix: true,
+      ignoreAttributes: false,
+      attributeNamePrefix: '',
+      trimValues: true
     });
+    const parsed = parser.parse(capabilitiesText);
+    return version === '1.3.0' ? parsed?.WMS_Capabilities : parsed?.WMT_MS_Capabilities;
   }
 
   /**
@@ -83,7 +89,7 @@ class CapabilitiesUtil {
    */
   static getLayersFromWmsCapabilities(
     capabilities: any,
-    nameField: string  = 'Name',
+    nameField: string = 'Name',
     proxyFn?: (proxyUrl: string) => string
   ): OlLayerImage<OlSourceImageWMS>[] {
     const wmsVersion = _get(capabilities, 'version');
