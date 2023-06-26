@@ -1,3 +1,20 @@
+# [11.0.0](https://github.com/terrestris/ol-util/compare/v10.3.1...v11.0.0) (2023-06-26)
+
+
+### Bug Fixes
+
+* adds check for capabilities structure ([a43def5](https://github.com/terrestris/ol-util/commit/a43def5617186b5ba017f36637c9692101b6ad26))
+
+
+### Features
+
+* replace xml2js by fast-xml-parser ([9c69e91](https://github.com/terrestris/ol-util/commit/9c69e91b8bbb610416491157bada62922922a1ae))
+
+
+### BREAKING CHANGES
+
+* the installation of packages timers and stream is not required any more
+
 ## [10.3.1](https://github.com/terrestris/ol-util/compare/v10.3.0...v10.3.1) (2023-06-20)
 
 
