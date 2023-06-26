@@ -96,8 +96,17 @@ class CapabilitiesUtil {
     const layersInCapabilities = _get(capabilities, 'Capability.Layer.Layer');
     const wmsGetMapConfig = _get(capabilities, 'Capability.Request.GetMap');
     const wmsGetFeatureInfoConfig = _get(capabilities, 'Capability.Request.GetFeatureInfo');
-    const getMapUrl = _get(wmsGetMapConfig, 'DCPType[0].HTTP.Get.OnlineResource');
-    const getFeatureInfoUrl = _get(wmsGetFeatureInfoConfig, 'DCPType[0].HTTP.Get.OnlineResource');
+
+    let getMapUrl: string;
+    let getFeatureInfoUrl: string;
+
+    if (Array.isArray(wmsGetMapConfig.DCPType) && Array.isArray(wmsGetFeatureInfoConfig.DCPType)) {
+      getMapUrl = _get(wmsGetMapConfig, 'DCPType[0].HTTP.Get.OnlineResource');
+      getFeatureInfoUrl = _get(wmsGetFeatureInfoConfig, 'DCPType[0].HTTP.Get.OnlineResource');
+    } else {
+      getMapUrl = _get(wmsGetMapConfig, 'DCPType.HTTP.Get.OnlineResource.href');
+      getFeatureInfoUrl = _get(wmsGetFeatureInfoConfig, 'DCPType.HTTP.Get.OnlineResource.href');
+    }
 
     return layersInCapabilities.map((layerObj: any) => {
       const title = _get(layerObj, 'Attribution.Title');
