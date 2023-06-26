@@ -50,13 +50,13 @@
   "dependencies": {
     "@terrestris/base-util": "^1.0.1",
     "@turf/turf": "^6.5.0",
+    "fast-xml-parser": "^4.2.5",
     "geostyler-openlayers-parser": "^4.1.0",
     "lodash": "^4.17.21",
     "polygon-splitter": "^0.0.11",
     "proj4": "^2.8.0",
     "shpjs": "^4.0.4",
-    "typescript": "^5.0.2",
-    "xml2js": "^0.6.0"
+    "typescript": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -75,7 +75,6 @@
     "@types/jest": "^29.2.3",
     "@types/proj4": "^2.5.2",
     "@types/shpjs": "^3.4.2",
-    "@types/xml2js": "^0.4.11",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "coveralls": "^3.1.1",
     "eslint": "^8.28.0",
@@ -92,8 +91,6 @@
     "rimraf": "^5.0.0",
     "semantic-release": "^21.0.0",
     "shp-write": "^0.3.2",
-    "stream": "^0.0.2",
-    "timers": "^0.1.1",
     "typedoc": "^0.24.1",
     "watch": "1.0.2",
     "whatwg-fetch": "^3.6.2"
