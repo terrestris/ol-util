@@ -1,3 +1,15 @@
+# [11.1.0](https://github.com/terrestris/ol-util/compare/v11.0.0...v11.1.0) (2023-07-19)
+
+
+### Bug Fixes
+
+* linting issues ([4e1698e](https://github.com/terrestris/ol-util/commit/4e1698ea3b6ddce0cbc4517a8c4901f00bfcab7e))
+
+
+### Features
+
+* add formatArea for circles ([4a50106](https://github.com/terrestris/ol-util/commit/4a5010620b505c4ab194febe4e0d2aa7a3e51b51))
+
 # [11.0.0](https://github.com/terrestris/ol-util/compare/v10.3.1...v11.0.0) (2023-06-26)
 
 
