@@ -1,8 +1,9 @@
 
+import OlGeomCircle from 'ol/geom/Circle';
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomPolygon from 'ol/geom/Polygon';
 import OlMap from 'ol/Map';
-import { getArea,getLength } from 'ol/sphere';
+import { getArea, getLength } from 'ol/sphere';
 
 /**
  * This class provides some static methods which might be helpful when working
@@ -66,7 +67,7 @@ class MeasureUtil {
   }
 
   /**
-   * Get the area of a OlGeomPolygon.
+   * Get the area of an OlGeomPolygon.
    *
    * @param {OlGeomPolygon} polygon The drawn polygon.
    * @param {OlMap} map An OlMap.
@@ -77,7 +78,10 @@ class MeasureUtil {
    * @return {number} The area of the polygon in square meter.
    */
   static getArea(
-    polygon: OlGeomPolygon, map: OlMap, geodesic: boolean = true, radius: number = 6371008.8
+    polygon: OlGeomPolygon,
+    map: OlMap,
+    geodesic: boolean = true,
+    radius: number = 6371008.8
   ): number {
     if (geodesic) {
       const opts = {
@@ -91,9 +95,38 @@ class MeasureUtil {
   }
 
   /**
-   * Format length output for the tooltip.
+   * Get the estimated area of an OlGeomCircle. The measurement is not perfectly accurate because in OpenLayers
+   * the circle is represented by a limited number of vertices.
    *
-   * @param {OlGeomPolygon} polygon The drawn polygon.
+   * @param {OlGeomCircle} circleGeom The drawn circle.
+   * @param {OlMap} map An OlMap.
+   * @param {boolean} geodesic Is the measurement geodesic (default is true).
+   * @param {number} radius Sphere radius. By default, the radius of the earth
+   *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
+   *
+   * @return {number} The area of the circle in square meter.
+   */
+  static getAreaOfCircle(
+    circleGeom: OlGeomCircle,
+    map: OlMap,
+    geodesic: boolean = true,
+    radius: number = 6371008.8
+  ): number {
+    if (geodesic) {
+      const opts = {
+        projection: map.getView().getProjection().getCode(),
+        radius
+      };
+      return getArea(circleGeom, opts);
+    } else {
+      return Math.PI * Math.pow(circleGeom.getRadius(), 2);
+    }
+  }
+
+  /**
+   * Format area output for the tooltip.
+   *
+   * @param {OlGeomPolygon | OlGeomCircle} geom The drawn geometry (circle or polygon).
    * @param {OlMap} map An OlMap.
    * @param {number} decimalPlacesInToolTips How many decimal places will be
    *   allowed for the measure tooltips.
@@ -102,10 +135,18 @@ class MeasureUtil {
    * @return {string} The formatted area of the polygon.
    */
   static formatArea(
-    polygon: OlGeomPolygon, map: OlMap, decimalPlacesInToolTips: number, geodesic: boolean = true
+    geom: OlGeomPolygon | OlGeomCircle,
+    map: OlMap,
+    decimalPlacesInToolTips: number,
+    geodesic: boolean = true
   ): string {
     const decimalHelper = Math.pow(10, decimalPlacesInToolTips);
-    const area = MeasureUtil.getArea(polygon, map, geodesic);
+    let area;
+    if (geom instanceof OlGeomCircle) {
+      area = MeasureUtil.getAreaOfCircle(geom, map, geodesic);
+    } else {
+      area = MeasureUtil.getArea(geom, map, geodesic);
+    }
     let output;
     if (area > 10000) {
       output = (Math.round(area / 1000000 * decimalHelper) /
