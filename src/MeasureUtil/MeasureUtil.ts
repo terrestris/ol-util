@@ -1,7 +1,7 @@
 
+import OlGeomCircle from 'ol/geom/Circle';
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomPolygon from 'ol/geom/Polygon';
-import OlGeomCircle from 'ol/geom/Circle';
 import OlMap from 'ol/Map';
 import { getArea, getLength } from 'ol/sphere';
 
