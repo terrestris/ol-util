@@ -117,7 +117,8 @@ class MeasureUtil {
         projection: map.getView().getProjection().getCode(),
         radius
       };
-      return getArea(circleGeom, opts);
+      const polygon = new OlGeomPolygon(circleGeom.getFlatCoordinates());
+      return getArea(polygon, opts);
     } else {
       return Math.PI * Math.pow(circleGeom.getRadius(), 2);
     }
