@@ -2,7 +2,9 @@
 import OlGeomCircle from 'ol/geom/Circle';
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomPolygon from 'ol/geom/Polygon';
+import { circular } from 'ol/geom/Polygon';
 import OlMap from 'ol/Map';
+import { toLonLat } from 'ol/proj';
 import { getArea, getLength } from 'ol/sphere';
 
 /**
@@ -114,11 +116,15 @@ class MeasureUtil {
   ): number {
     if (geodesic) {
       const opts = {
-        projection: map.getView().getProjection().getCode(),
+        projection: 'EPSG:4326',
         radius
       };
-      const polygon = new OlGeomPolygon(circleGeom.getFlatCoordinates());
-      return getArea(polygon, opts);
+      const lonLatCenter = toLonLat(circleGeom.getCenter(), map.getView().getProjection());
+
+      const estimatedPolygon = circular(lonLatCenter, circleGeom.getRadius(), 128, radius);
+
+      // todo: check if area is calculated correctly
+      return getArea(estimatedPolygon);
     } else {
       return Math.PI * Math.pow(circleGeom.getRadius(), 2);
     }
