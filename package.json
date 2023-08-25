@@ -11,8 +11,8 @@
     "babel.config.js"
   ],
   "engines": {
-    "node": ">=14",
-    "npm": ">=7"
+    "node": ">=18",
+    "npm": ">=9"
   },
   "scripts": {
     "build": "npm run test && npm run build:dist",
