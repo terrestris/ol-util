@@ -57,7 +57,7 @@
     "polygon-splitter": "^0.0.11",
     "proj4": "^2.8.0",
     "shpjs": "^4.0.4",
-    "typescript": "^5.0.2"
+    "typescript": "^5.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -91,7 +91,7 @@
     "rimraf": "^5.0.0",
     "semantic-release": "^21.0.0",
     "shp-write": "^0.3.2",
-    "typedoc": "^0.24.1",
+    "typedoc": "^0.24.8",
     "watch": "1.0.2",
     "whatwg-fetch": "^3.6.2"
   },
