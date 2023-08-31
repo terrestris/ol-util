@@ -1,3 +1,24 @@
+# [12.0.0](https://github.com/terrestris/ol-util/compare/v11.1.0...v12.0.0) (2023-08-31)
+
+
+### Bug Fixes
+
+* calculation of circle area for metrical and spherical units ([7437a54](https://github.com/terrestris/ol-util/commit/7437a5415f2211acecdd62b228ddedd07c840cf0))
+* fix circle area calculation ([59045eb](https://github.com/terrestris/ol-util/commit/59045ebbac54415d93b345b85a2d3f15d041b8c9))
+* fix getArea for circles ([38a95f7](https://github.com/terrestris/ol-util/commit/38a95f7b5611a713b7e8f2ae294e92c84cde1289))
+
+
+### chore
+
+* allow broader version range as peer dependency ([ce0c20a](https://github.com/terrestris/ol-util/commit/ce0c20a35c2bd3c8eb5e3d14a61b9b4ac5f84347))
+* set required node version to v18 ([b028124](https://github.com/terrestris/ol-util/commit/b028124a9414ab26caea4617948b21e9382ee411))
+
+
+### BREAKING CHANGES
+
+* set peer dependency for OpenLayers to ^7
+* require node v18
+
 # [11.1.0](https://github.com/terrestris/ol-util/compare/v11.0.0...v11.1.0) (2023-07-19)
 
 
