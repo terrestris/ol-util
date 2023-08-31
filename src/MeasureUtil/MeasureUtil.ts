@@ -1,8 +1,10 @@
 
+import _isNil from 'lodash/isNil';
 import OlGeomCircle from 'ol/geom/Circle';
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomPolygon from 'ol/geom/Polygon';
 import OlMap from 'ol/Map';
+import { Units } from 'ol/proj/Units';
 import { getArea, getLength } from 'ol/sphere';
 
 /**
@@ -95,29 +97,32 @@ class MeasureUtil {
   }
 
   /**
-   * Get the estimated area of an OlGeomCircle. The measurement is not perfectly accurate because in OpenLayers
-   * the circle is represented by a limited number of vertices.
+   * Get the estimated area of an OlGeomCircle.
    *
    * @param {OlGeomCircle} circleGeom The drawn circle.
    * @param {OlMap} map An OlMap.
-   * @param {boolean} geodesic Is the measurement geodesic (default is true).
-   * @param {number} radius Sphere radius. By default, the radius of the earth
-   *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
    *
    * @return {number} The area of the circle in square meter.
    */
   static getAreaOfCircle(
     circleGeom: OlGeomCircle,
-    map: OlMap,
-    geodesic: boolean = true,
-    radius: number = 6371008.8
+    map: OlMap
   ): number {
-    if (geodesic) {
-      const opts = {
-        projection: map.getView().getProjection().getCode(),
-        radius
-      };
-      return getArea(circleGeom, opts);
+    if (_isNil(map.getView().getProjection())) {
+      return NaN;
+    }
+    const sphericalUnits: Units[] = ['radians', 'degrees'];
+    const projectionUnits = map.getView().getProjection().getUnits();
+    const useSpherical = sphericalUnits.includes(projectionUnits);
+
+    if (useSpherical) {
+      // see https://math.stackexchange.com/questions/1832110/area-of-a-circle-on-sphere
+      // the radius of the earth - Clarke 1866 authalic Sphere
+      const earthRadius = 6371008.8;
+      const radius = circleGeom.getRadius();
+      let area = 2.0 * Math.PI * Math.pow(earthRadius, 2);
+      area *= (1 - Math.cos(radius / earthRadius));
+      return area;
     } else {
       return Math.PI * Math.pow(circleGeom.getRadius(), 2);
     }
@@ -143,7 +148,7 @@ class MeasureUtil {
     const decimalHelper = Math.pow(10, decimalPlacesInToolTips);
     let area;
     if (geom instanceof OlGeomCircle) {
-      area = MeasureUtil.getAreaOfCircle(geom, map, geodesic);
+      area = MeasureUtil.getAreaOfCircle(geom, map);
     } else {
       area = MeasureUtil.getArea(geom, map, geodesic);
     }

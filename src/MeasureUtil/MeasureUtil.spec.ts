@@ -1,8 +1,10 @@
 /* eslint-env jest*/
 
+import OlGeomCircle from 'ol/geom/Circle';
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomPolygon from 'ol/geom/Polygon';
 import OlMap from 'ol/Map';
+import OlView from 'ol/View';
 
 import {
   MeasureUtil,
@@ -292,6 +294,36 @@ describe('MeasureUtil', () => {
         });
       });
     });
-  });
 
+    describe('#getAreaOfCircle - calculates the area of a circle correctly', () => {
+      it('for metrical units', () => {
+        const map3857 = TestUtil.createMap({
+          view: new OlView({
+            projection: 'EPSG:3857'
+          }),
+          resolutions: []
+        });
+        const radius = 100;
+        const expectedArea = Math.PI * Math.pow(radius, 2);
+        const circle = new OlGeomCircle([0, 0], radius);
+        const result = MeasureUtil.getAreaOfCircle(circle, map3857);
+        expect(result).toBeCloseTo(expectedArea, 6);
+      });
+
+      it('for spherical units', () => {
+        const map4326 = TestUtil.createMap({
+          view: new OlView({
+            projection: 'EPSG:4326'
+          }),
+          resolutions: []
+        });
+        const radius = 100;
+        const expectedArea = Math.PI * Math.pow(radius, 2);
+        const circle = new OlGeomCircle([1, 1], radius);
+        const result = MeasureUtil.getAreaOfCircle(circle, map4326);
+        expect(result).toBeCloseTo(expectedArea);
+      });
+    });
+
+  });
 });
