@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/github/license/terrestris/ol-util?style=flat-square)](https://github.com/terrestris/ol-util/blob/main/LICENSE)
 [![Coverage Status](https://img.shields.io/coverallsCoverage/github/terrestris/ol-util?style=flat-square)](https://coveralls.io/github/terrestris/ol-util?branch=main)
 ![GitHub action build](https://img.shields.io/github/actions/workflow/status/terrestris/ol-util/on-push-main.yml?branch=main&style=flat-square)
-[![Known Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/terrestris/ol-util?style=flat-square)](https://snyk.io/test/github/terrestris/ol-util)
+
 
 A set of helper classes for working with OpenLayers
 
