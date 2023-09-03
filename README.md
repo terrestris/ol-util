@@ -1,9 +1,9 @@
 # ol-util
 
 [![npm version](https://img.shields.io/npm/v/@terrestris/ol-util.svg?style=flat-square)](https://www.npmjs.com/package/@terrestris/ol-util)
-[![GitHub license](https://img.shields.io/github/license/terrestris/ol-util?style=flat-square)](https://github.com/terrestris/ol-util/blob/master/LICENSE)
-[![Coverage Status](https://img.shields.io/coverallsCoverage/github/terrestris/ol-util?style=flat-square)](https://coveralls.io/github/terrestris/ol-util?branch=master)
-![GitHub action build](https://img.shields.io/github/actions/workflow/status/terrestris/ol-util/on-push-master.yml?branch=master&style=flat-square)
+[![GitHub license](https://img.shields.io/github/license/terrestris/ol-util?style=flat-square)](https://github.com/terrestris/ol-util/blob/main/LICENSE)
+[![Coverage Status](https://img.shields.io/coverallsCoverage/github/terrestris/ol-util?style=flat-square)](https://coveralls.io/github/terrestris/ol-util?branch=main)
+![GitHub action build](https://img.shields.io/github/actions/workflow/status/terrestris/ol-util/on-push-main.yml?branch=main&style=flat-square)
 [![Known Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/terrestris/ol-util?style=flat-square)](https://snyk.io/test/github/terrestris/ol-util)
 
 A set of helper classes for working with OpenLayers
