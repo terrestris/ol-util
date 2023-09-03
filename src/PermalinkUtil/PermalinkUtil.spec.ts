@@ -2,6 +2,7 @@
 import OlLayerGroup from 'ol/layer/Group';
 import OlLayerTile from 'ol/layer/Tile';
 import OlMap from 'ol/Map';
+import { useGeographic } from 'ol/proj';
 import OlSourceTile from 'ol/source/Tile';
 
 import TestUtil from '../TestUtil';
@@ -34,6 +35,7 @@ describe('PermalinkUtil', () => {
       });
 
       it('creates a valid permalink', () => {
+        useGeographic();
         map.getView().setCenter([50, 7]);
         map.getView().setZoom(7);
         map.addLayer(new OlLayerTile({

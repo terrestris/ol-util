@@ -10,7 +10,7 @@ import OlLayer from 'ol/layer/Layer';
 import OlLayerTile from 'ol/layer/Tile';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceOSM from 'ol/source/OSM';
-import OlSourceStamen from 'ol/source/Stamen';
+import OlSourceStadiaMaps from 'ol/source/StadiaMaps';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceVector from 'ol/source/Vector';
 import OlSourceWMTS from 'ol/source/WMTS';
@@ -207,7 +207,7 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (LayerUtil.isOlSourceStamen(source)) {
+    } else if (LayerUtil.isOlSourceStadiaMaps(source)) {
       const urls = source.getUrls();
       if (isNil(urls)) {
         return Promise.reject();
@@ -309,8 +309,8 @@ class LayerUtil {
       (u: string) => u.includes('openstreetmap.org')) || false;
   };
 
-  static isOlSourceStamen = (source: UnknownOlSource | null): source is OlSourceStamen => {
-    return source?.attribution?.includes('stamen.com') || false;
+  static isOlSourceStadiaMaps = (source: UnknownOlSource | null): source is OlSourceStadiaMaps => {
+    return source?.attribution?.includes('stadiamaps.com') || false;
   };
 
   static isOlSourceVector = (source: UnknownOlSource | null): source is OlSourceVector => {
