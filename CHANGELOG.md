@@ -1,3 +1,10 @@
+## [12.0.1](https://github.com/terrestris/ol-util/compare/v12.0.0...v12.0.1) (2023-09-03)
+
+
+### Bug Fixes
+
+* remove no longer available snyk badge ([498af80](https://github.com/terrestris/ol-util/commit/498af802642e363ab609b27d7e15d44c0df49a5b))
+
 # [12.0.0](https://github.com/terrestris/ol-util/compare/v11.1.0...v12.0.0) (2023-08-31)
 
 
