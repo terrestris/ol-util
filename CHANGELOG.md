@@ -1,3 +1,15 @@
+# [13.0.0](https://github.com/terrestris/ol-util/compare/v12.0.1...v13.0.0) (2023-09-05)
+
+
+### chore
+
+* bump ol dependency to 8.x ([8398356](https://github.com/terrestris/ol-util/commit/8398356560fe233055eae31f2bedf4707ba0775d))
+
+
+### BREAKING CHANGES
+
+* set ol peer dependency to version 8
+
 ## [12.0.1](https://github.com/terrestris/ol-util/compare/v12.0.0...v12.0.1) (2023-09-03)
 
 
