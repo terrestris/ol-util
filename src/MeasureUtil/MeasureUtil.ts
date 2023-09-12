@@ -22,9 +22,9 @@ class MeasureUtil {
    * @param {OlMap} map An OlMap.
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
    * @param {number} radius Sphere radius. By default, the radius of the earth
-   *                    	is used (Clarke 1866 Authalic Sphere, 6371008.8).
-   * @param {number} decimalPrecision Set the decimal precision before rounding
-   *						length value on non-geodesic map (default value 6)
+   *                    	  is used (Clarke 1866 Authalic Sphere, 6371008.8).
+   * @param {number} decimalPrecision Set the decimal precision on length value
+   *                    	  for non-geodesic map (default value 6)
    *
    * @return {number} The length of line in meters.
    */
