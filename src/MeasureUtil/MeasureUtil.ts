@@ -27,6 +27,7 @@ class MeasureUtil {
    * @return {number} The length of line in meters.
    */
   static getLength(line: OlGeomLineString, map: OlMap, geodesic: boolean = true, radius: number = 6371008.8): number {
+    const decimalPrecision = Math.pow(10, 6);
     if (geodesic) {
       const opts = {
         projection: map.getView().getProjection().getCode(),
@@ -34,7 +35,7 @@ class MeasureUtil {
       };
       return getLength(line, opts);
     } else {
-      return Math.round(line.getLength() * 100) / 100;
+      return Math.round(line.getLength() * decimalPrecision) / decimalPrecision;
     }
   }
 
