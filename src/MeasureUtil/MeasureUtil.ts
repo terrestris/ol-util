@@ -22,12 +22,20 @@ class MeasureUtil {
    * @param {OlMap} map An OlMap.
    * @param {boolean} geodesic Is the measurement geodesic (default is true).
    * @param {number} radius Sphere radius. By default, the radius of the earth
-   *                        is used (Clarke 1866 Authalic Sphere, 6371008.8).
+   *                    	is used (Clarke 1866 Authalic Sphere, 6371008.8).
+   * @param {number} decimalPrecision Set the decimal precision before rounding
+   *						length value on non-geodesic map (default value 6)
    *
    * @return {number} The length of line in meters.
    */
-  static getLength(line: OlGeomLineString, map: OlMap, geodesic: boolean = true, radius: number = 6371008.8): number {
-    const decimalPrecision = Math.pow(10, 6);
+  static getLength(
+  	line: OlGeomLineString,
+  	map: OlMap,
+  	geodesic: boolean = true,
+  	radius: number = 6371008.8,
+  	decimalPrecision: number = 6
+  ): number {
+    const decimalHelper = Math.pow(10, decimalPrecision);
     if (geodesic) {
       const opts = {
         projection: map.getView().getProjection().getCode(),
@@ -35,7 +43,7 @@ class MeasureUtil {
       };
       return getLength(line, opts);
     } else {
-      return Math.round(line.getLength() * decimalPrecision) / decimalPrecision;
+      return Math.round(line.getLength() * decimalHelper) / decimalHelper;
     }
   }
 
