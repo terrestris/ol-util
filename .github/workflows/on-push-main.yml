@@ -97,7 +97,8 @@ jobs:
           output: sbom.json
 
       - name: Commit SBOM 👈
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: sbom.json
-          message: "chore: update sbom.json"
+        run: |
+          git config --global user.name 'terrestris'
+          git config --global user.email 'terrestris@users.noreply.github.com'
+          git diff --quiet || git commit -am "chore: update sbom.json"
+          git push
