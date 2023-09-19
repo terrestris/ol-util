@@ -90,3 +90,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx --package=node@v18-lts -- "npx semantic-release"
+
+      - name: Generate JSON SBOM 🏛️
+        uses: CycloneDX/gh-node-module-generatebom@v1
+        with:
+          output: sbom.json
+
+      - name: Commit SBOM 👈
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: sbom.json
+          message: "chore: update sbom.json"
