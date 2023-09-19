@@ -90,3 +90,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx --package=node@v18-lts -- "npx semantic-release"
+
+      - name: Generate JSON SBOM 🏛️
+        uses: CycloneDX/gh-node-module-generatebom@v1
+        with:
+          output: sbom.json
+
+      - name: Commit SBOM 👈
+        run: |
+          git config --global user.name 'terrestris'
+          git config --global user.email 'terrestris@users.noreply.github.com'
+          git diff --quiet || git commit -am "chore: update sbom.json"
+          git push
