@@ -101,4 +101,4 @@ jobs:
           git config --global user.name 'terrestris'
           git config --global user.email 'terrestris@users.noreply.github.com'
           git diff --quiet || git commit -am "chore: update sbom.json"
-          git push
+          git push origin main
