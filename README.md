@@ -27,3 +27,7 @@ npm i @terrestris/ol-util
 ```sh
 npm run watch:buildto ../react-geo/node_modules/@terrestris/ol-util
 ```
+
+## Software Bill of Materials
+
+You find the SBOM (Software Bill of Materials) in `sbom.json` at root level of the project.
