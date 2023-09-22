@@ -37,6 +37,7 @@ jobs:
       uses: coverallsapp/github-action@main
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -56,6 +57,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
+
       - name: Install dependencies ⏬
         run: npm ci
 
