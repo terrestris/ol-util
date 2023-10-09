@@ -1,3 +1,19 @@
+# [14.0.0](https://github.com/terrestris/ol-util/compare/v13.0.0...v14.0.0) (2023-10-09)
+
+
+### Bug Fixes
+
+* add comment for the decimal precision parameter ([868cd7b](https://github.com/terrestris/ol-util/commit/868cd7b07c592ca942cb228e5f4dd5e7edbfacb7))
+* added getLength decimal precision for non geodesic map ([622c40a](https://github.com/terrestris/ol-util/commit/622c40a28adfe075ceab23b1364a0596d2d71b39))
+* set length decimal precision to function parameters ([eadd2ff](https://github.com/terrestris/ol-util/commit/eadd2ff58acc3f9444542859ef3f787f07bc8eb9))
+
+
+### BREAKING CHANGES
+
+* change default decimal precision to 10^6
+* change default decimal precision to 10^6
+* change default decimal precision to 10^6
+
 # [13.0.0](https://github.com/terrestris/ol-util/compare/v12.0.1...v13.0.0) (2023-09-05)
 
 
