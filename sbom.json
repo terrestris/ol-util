@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:f82323e1-5e0a-402c-8aa5-63b759f1e9db",
+  "serialNumber": "urn:uuid:771ac227-091b-4569-9668-d6fa923cd84b",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-10-09T08:38:02.924Z",
+    "timestamp": "2023-10-09T09:42:37.051Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,11 +14,11 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/ol-util@13.0.0",
+      "bom-ref": "pkg:npm/%40terrestris/ol-util@14.0.0",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "ol-util",
-      "version": "13.0.0",
+      "version": "14.0.0",
       "description": "A set of helper classes for working with openLayers",
       "licenses": [
         {
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/ol-util@13.0.0",
+      "purl": "pkg:npm/%40terrestris/ol-util@14.0.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7614,6 +7614,126 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.3",
+      "author": "Kenta Moriuchi",
+      "group": "@petamoriken",
+      "name": "float16",
+      "version": "3.8.3",
+      "description": "IEEE 754 half-precision floating-point for JavaScript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40petamoriken/float16@3.8.3",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/petamoriken/float16"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/petamoriken/float16/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/petamoriken/float16.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/web-worker@1.2.0",
+      "name": "web-worker",
+      "version": "1.2.0",
+      "description": "Consistent Web Workers in browser and Node.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/web-worker@1.2.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/developit/web-worker"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/developit/web-worker/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/developit/web-worker.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ieee754@1.2.1",
+      "author": "Feross Aboukhadijeh",
+      "name": "ieee754",
+      "version": "1.2.1",
+      "description": "Read/write IEEE754 floating point numbers from/to a Buffer or array-like object",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ieee754@1.2.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/feross/ieee754#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/feross/ieee754/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/feross/ieee754.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/lerc@3.0.0",
+      "author": "Esri",
+      "name": "lerc",
+      "version": "3.0.0",
+      "description": "Rapid decoding of Lerc compressed raster data for any standard pixel type.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lerc@3.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/Esri/lerc"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/esri/lerc/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/Esri/lerc.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/pako@2.1.0",
       "name": "pako",
       "version": "2.1.0",
@@ -7703,95 +7823,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/web-worker@1.2.0",
-      "name": "web-worker",
-      "version": "1.2.0",
-      "description": "Consistent Web Workers in browser and Node.",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/web-worker@1.2.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/developit/web-worker"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/developit/web-worker/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/developit/web-worker.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/pbf@3.2.1",
-      "author": "Konstantin Kaefer",
-      "name": "pbf",
-      "version": "3.2.1",
-      "description": "a low-level, lightweight protocol buffers implementation in JavaScript",
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-3-Clause"
-          }
-        }
-      ],
-      "purl": "pkg:npm/pbf@3.2.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/mapbox/pbf"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/mapbox/pbf/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/mapbox/pbf.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/ieee754@1.2.1",
-      "author": "Feross Aboukhadijeh",
-      "name": "ieee754",
-      "version": "1.2.1",
-      "description": "Read/write IEEE754 floating point numbers from/to a Buffer or array-like object",
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-3-Clause"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ieee754@1.2.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/feross/ieee754#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/feross/ieee754/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/feross/ieee754.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/resolve-protobuf-schema@2.1.0",
       "author": "Mathias Buus",
       "name": "resolve-protobuf-schema",
@@ -7852,91 +7883,31 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.3",
-      "author": "Kenta Moriuchi",
-      "group": "@petamoriken",
-      "name": "float16",
-      "version": "3.8.3",
-      "description": "IEEE 754 half-precision floating-point for JavaScript",
+      "bom-ref": "pkg:npm/pbf@3.2.1",
+      "author": "Konstantin Kaefer",
+      "name": "pbf",
+      "version": "3.2.1",
+      "description": "a low-level, lightweight protocol buffers implementation in JavaScript",
       "licenses": [
         {
           "license": {
-            "id": "MIT"
+            "id": "BSD-3-Clause"
           }
         }
       ],
-      "purl": "pkg:npm/%40petamoriken/float16@3.8.3",
+      "purl": "pkg:npm/pbf@3.2.1",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/petamoriken/float16"
+          "url": "https://github.com/mapbox/pbf"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/petamoriken/float16/issues"
+          "url": "https://github.com/mapbox/pbf/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/petamoriken/float16.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/lerc@3.0.0",
-      "author": "Esri",
-      "name": "lerc",
-      "version": "3.0.0",
-      "description": "Rapid decoding of Lerc compressed raster data for any standard pixel type.",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/lerc@3.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/Esri/lerc"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/esri/lerc/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/Esri/lerc.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/ol@8.1.0",
-      "name": "ol",
-      "version": "8.1.0",
-      "description": "OpenLayers mapping library",
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-2-Clause"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ol@8.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://openlayers.org/"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/openlayers/openlayers/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/openlayers/openlayers.git"
+          "url": "git+ssh://git@github.com/mapbox/pbf.git"
         }
       ]
     },
@@ -7997,6 +7968,35 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/sindresorhus/quick-lru.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ol@8.1.0",
+      "name": "ol",
+      "version": "8.1.0",
+      "description": "OpenLayers mapping library",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ol@8.1.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://openlayers.org/"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/openlayers/openlayers/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/openlayers/openlayers.git"
         }
       ]
     }
@@ -9174,6 +9174,18 @@
       "ref": "pkg:npm/typescript@5.2.2"
     },
     {
+      "ref": "pkg:npm/%40petamoriken/float16@3.8.3"
+    },
+    {
+      "ref": "pkg:npm/web-worker@1.2.0"
+    },
+    {
+      "ref": "pkg:npm/ieee754@1.2.1"
+    },
+    {
+      "ref": "pkg:npm/lerc@3.0.0"
+    },
+    {
       "ref": "pkg:npm/pako@2.1.0"
     },
     {
@@ -9183,29 +9195,13 @@
       "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
     },
     {
-      "ref": "pkg:npm/web-worker@1.2.0"
-    },
-    {
-      "ref": "pkg:npm/ieee754@1.2.1"
-    },
-    {
       "ref": "pkg:npm/resolve-protobuf-schema@2.1.0"
-    },
-    {
-      "ref": "pkg:npm/pbf@3.2.1",
-      "dependsOn": [
-        "pkg:npm/ieee754@1.2.1",
-        "pkg:npm/resolve-protobuf-schema@2.1.0"
-      ]
     },
     {
       "ref": "pkg:npm/xml-utils@1.7.0"
     },
     {
-      "ref": "pkg:npm/%40petamoriken/float16@3.8.3"
-    },
-    {
-      "ref": "pkg:npm/lerc@3.0.0"
+      "ref": "pkg:npm/pbf@3.2.1"
     },
     {
       "ref": "pkg:npm/quick-lru@6.1.2"
@@ -9217,13 +9213,10 @@
       ]
     },
     {
-      "ref": "pkg:npm/ol@8.1.0",
-      "dependsOn": [
-        "pkg:npm/geotiff@2.0.7"
-      ]
+      "ref": "pkg:npm/ol@8.1.0"
     },
     {
-      "ref": "pkg:npm/%40terrestris/ol-util@13.0.0",
+      "ref": "pkg:npm/%40terrestris/ol-util@14.0.0",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@1.0.1",
@@ -9234,14 +9227,17 @@
         "pkg:npm/proj4@2.9.0",
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/typescript@5.2.2",
+        "pkg:npm/%40petamoriken/float16@3.8.3",
+        "pkg:npm/web-worker@1.2.0",
+        "pkg:npm/ieee754@1.2.1",
+        "pkg:npm/lerc@3.0.0",
         "pkg:npm/pako@2.1.0",
         "pkg:npm/parse-headers@2.0.5",
         "pkg:npm/protocol-buffers-schema@3.6.0",
-        "pkg:npm/web-worker@1.2.0",
-        "pkg:npm/pbf@3.2.1",
+        "pkg:npm/resolve-protobuf-schema@2.1.0",
         "pkg:npm/xml-utils@1.7.0",
-        "pkg:npm/%40petamoriken/float16@3.8.3",
-        "pkg:npm/lerc@3.0.0",
+        "pkg:npm/pbf@3.2.1",
+        "pkg:npm/geotiff@2.0.7",
         "pkg:npm/ol@8.1.0"
       ]
     }
