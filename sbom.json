@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:771ac227-091b-4569-9668-d6fa923cd84b",
+  "serialNumber": "urn:uuid:c2802df9-6e94-49b9-9b7a-4ec8eb2b5594",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-10-09T09:42:37.051Z",
+    "timestamp": "2023-10-10T07:22:15.021Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -1752,11 +1752,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/base-util@1.0.1",
+      "bom-ref": "pkg:npm/%40terrestris/base-util@1.0.2",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "base-util",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "A set of helper classes for working with strings, objects, etc.",
       "licenses": [
         {
@@ -1765,7 +1765,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/base-util@1.0.1",
+      "purl": "pkg:npm/%40terrestris/base-util@1.0.2",
       "externalReferences": [
         {
           "type": "website",
@@ -1808,66 +1808,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/%40types/loglevel@1.6.3",
-      "group": "@types",
-      "name": "loglevel",
-      "version": "1.6.3",
-      "description": "Stub TypeScript definitions entry for loglevel, which provides its own types definitions",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40types/loglevel@1.6.3",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/pimterry/loglevel#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/pimterry/loglevel/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/pimterry/loglevel.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/loglevel@1.8.1",
-      "author": "Tim Perry",
-      "name": "loglevel",
-      "version": "1.8.1",
-      "description": "Minimal lightweight logging for JavaScript, adding reliable log level methods to any available console.log methods",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/loglevel@1.8.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/pimterry/loglevel"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/pimterry/loglevel/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/pimterry/loglevel.git"
         }
       ]
     },
@@ -1963,6 +1903,37 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/%40ungap/url-search-params@0.2.2",
+      "author": "Andrea Giammarchi",
+      "group": "@ungap",
+      "name": "url-search-params",
+      "version": "0.2.2",
+      "description": "The URLSearchParams polyfill.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40ungap/url-search-params@0.2.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ungap/url-search-params#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ungap/url-search-params/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ungap/url-search-params.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/lodash@4.17.21",
       "author": "John-David Dalton",
       "name": "lodash",
@@ -1993,10 +1964,40 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/query-string@6.14.1",
+      "bom-ref": "pkg:npm/loglevel@1.8.1",
+      "author": "Tim Perry",
+      "name": "loglevel",
+      "version": "1.8.1",
+      "description": "Minimal lightweight logging for JavaScript, adding reliable log level methods to any available console.log methods",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/loglevel@1.8.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/pimterry/loglevel"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/pimterry/loglevel/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/pimterry/loglevel.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/query-string@7.1.3",
       "author": "Sindre Sorhus",
       "name": "query-string",
-      "version": "6.14.1",
+      "version": "7.1.3",
       "description": "Parse and stringify URL query strings",
       "licenses": [
         {
@@ -2005,7 +2006,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/query-string@6.14.1",
+      "purl": "pkg:npm/query-string@7.1.3",
       "externalReferences": [
         {
           "type": "website",
@@ -2228,36 +2229,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/unshiftio/requires-port.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/url-search-params@1.1.0",
-      "author": "Andrea Giammarchi",
-      "name": "url-search-params",
-      "version": "1.1.0",
-      "description": "Simple polyfill for URLSearchParams standard",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/url-search-params@1.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/WebReflection/url-search-params"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/WebReflection/url-search-params/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/WebReflection/url-search-params.git"
         }
       ]
     },
@@ -7614,12 +7585,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.3",
-      "author": "Kenta Moriuchi",
-      "group": "@petamoriken",
-      "name": "float16",
-      "version": "3.8.3",
-      "description": "IEEE 754 half-precision floating-point for JavaScript",
+      "bom-ref": "pkg:npm/protocol-buffers-schema@3.6.0",
+      "author": "Mathias Buus",
+      "name": "protocol-buffers-schema",
+      "version": "3.6.0",
+      "description": "No nonsense protocol buffers schema parser written in Javascript",
       "licenses": [
         {
           "license": {
@@ -7627,48 +7597,19 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40petamoriken/float16@3.8.3",
+      "purl": "pkg:npm/protocol-buffers-schema@3.6.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/petamoriken/float16"
+          "url": "https://github.com/mafintosh/protocol-buffers-schema"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/petamoriken/float16/issues"
+          "url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/petamoriken/float16.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/web-worker@1.2.0",
-      "name": "web-worker",
-      "version": "1.2.0",
-      "description": "Consistent Web Workers in browser and Node.",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/web-worker@1.2.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/developit/web-worker"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/developit/web-worker/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/developit/web-worker.git"
+          "url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
         }
       ]
     },
@@ -7704,11 +7645,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/lerc@3.0.0",
-      "author": "Esri",
-      "name": "lerc",
-      "version": "3.0.0",
-      "description": "Rapid decoding of Lerc compressed raster data for any standard pixel type.",
+      "bom-ref": "pkg:npm/web-worker@1.2.0",
+      "name": "web-worker",
+      "version": "1.2.0",
+      "description": "Consistent Web Workers in browser and Node.",
       "licenses": [
         {
           "license": {
@@ -7716,19 +7656,80 @@
           }
         }
       ],
-      "purl": "pkg:npm/lerc@3.0.0",
+      "purl": "pkg:npm/web-worker@1.2.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/Esri/lerc"
+          "url": "https://github.com/developit/web-worker"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/esri/lerc/issues"
+          "url": "https://github.com/developit/web-worker/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/Esri/lerc.git"
+          "url": "git+https://github.com/developit/web-worker.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/xml-utils@1.7.0",
+      "author": "Daniel J. Dufour",
+      "name": "xml-utils",
+      "version": "1.7.0",
+      "description": "Parse XML without Blowing Up Your Bundle Size",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC0-1.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/xml-utils@1.7.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/DanielJDufour/xml-utils#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/DanielJDufour/xml-utils/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.3",
+      "author": "Kenta Moriuchi",
+      "group": "@petamoriken",
+      "name": "float16",
+      "version": "3.8.3",
+      "description": "IEEE 754 half-precision floating-point for JavaScript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40petamoriken/float16@3.8.3",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/petamoriken/float16"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/petamoriken/float16/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/petamoriken/float16.git"
         }
       ]
     },
@@ -7793,31 +7794,31 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/protocol-buffers-schema@3.6.0",
-      "author": "Mathias Buus",
-      "name": "protocol-buffers-schema",
-      "version": "3.6.0",
-      "description": "No nonsense protocol buffers schema parser written in Javascript",
+      "bom-ref": "pkg:npm/lerc@3.0.0",
+      "author": "Esri",
+      "name": "lerc",
+      "version": "3.0.0",
+      "description": "Rapid decoding of Lerc compressed raster data for any standard pixel type.",
       "licenses": [
         {
           "license": {
-            "id": "MIT"
+            "id": "Apache-2.0"
           }
         }
       ],
-      "purl": "pkg:npm/protocol-buffers-schema@3.6.0",
+      "purl": "pkg:npm/lerc@3.0.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/mafintosh/protocol-buffers-schema"
+          "url": "https://github.com/Esri/lerc"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+          "url": "https://github.com/esri/lerc/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
+          "url": "git+https://github.com/Esri/lerc.git"
         }
       ]
     },
@@ -7848,36 +7849,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/mafintosh/resolve-protobuf-schema.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/xml-utils@1.7.0",
-      "author": "Daniel J. Dufour",
-      "name": "xml-utils",
-      "version": "1.7.0",
-      "description": "Parse XML without Blowing Up Your Bundle Size",
-      "licenses": [
-        {
-          "license": {
-            "id": "CC0-1.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/xml-utils@1.7.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/DanielJDufour/xml-utils#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/DanielJDufour/xml-utils/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
         }
       ]
     },
@@ -8283,15 +8254,6 @@
       "ref": "pkg:npm/%40types/lodash@4.14.197"
     },
     {
-      "ref": "pkg:npm/loglevel@1.8.1"
-    },
-    {
-      "ref": "pkg:npm/%40types/loglevel@1.6.3",
-      "dependsOn": [
-        "pkg:npm/loglevel@1.8.1"
-      ]
-    },
-    {
       "ref": "pkg:npm/%40types/url-parse@1.4.9"
     },
     {
@@ -8301,7 +8263,13 @@
       "ref": "pkg:npm/%40types/validator@13.11.1"
     },
     {
+      "ref": "pkg:npm/%40ungap/url-search-params@0.2.2"
+    },
+    {
       "ref": "pkg:npm/lodash@4.17.21"
+    },
+    {
+      "ref": "pkg:npm/loglevel@1.8.1"
     },
     {
       "ref": "pkg:npm/decode-uri-component@0.2.2"
@@ -8316,7 +8284,7 @@
       "ref": "pkg:npm/strict-uri-encode@2.0.0"
     },
     {
-      "ref": "pkg:npm/query-string@6.14.1",
+      "ref": "pkg:npm/query-string@7.1.3",
       "dependsOn": [
         "pkg:npm/decode-uri-component@0.2.2",
         "pkg:npm/filter-obj@1.1.0",
@@ -8338,23 +8306,20 @@
       ]
     },
     {
-      "ref": "pkg:npm/url-search-params@1.1.0"
-    },
-    {
       "ref": "pkg:npm/validator@13.11.0"
     },
     {
-      "ref": "pkg:npm/%40terrestris/base-util@1.0.1",
+      "ref": "pkg:npm/%40terrestris/base-util@1.0.2",
       "dependsOn": [
         "pkg:npm/%40types/lodash@4.14.197",
-        "pkg:npm/%40types/loglevel@1.6.3",
         "pkg:npm/%40types/url-parse@1.4.9",
         "pkg:npm/%40types/url-search-params@1.1.0",
         "pkg:npm/%40types/validator@13.11.1",
+        "pkg:npm/%40ungap/url-search-params@0.2.2",
         "pkg:npm/lodash@4.17.21",
-        "pkg:npm/query-string@6.14.1",
+        "pkg:npm/loglevel@1.8.1",
+        "pkg:npm/query-string@7.1.3",
         "pkg:npm/url-parse@1.5.10",
-        "pkg:npm/url-search-params@1.1.0",
         "pkg:npm/validator@13.11.0"
       ]
     },
@@ -9174,16 +9139,19 @@
       "ref": "pkg:npm/typescript@5.2.2"
     },
     {
-      "ref": "pkg:npm/%40petamoriken/float16@3.8.3"
-    },
-    {
-      "ref": "pkg:npm/web-worker@1.2.0"
+      "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
     },
     {
       "ref": "pkg:npm/ieee754@1.2.1"
     },
     {
-      "ref": "pkg:npm/lerc@3.0.0"
+      "ref": "pkg:npm/web-worker@1.2.0"
+    },
+    {
+      "ref": "pkg:npm/xml-utils@1.7.0"
+    },
+    {
+      "ref": "pkg:npm/%40petamoriken/float16@3.8.3"
     },
     {
       "ref": "pkg:npm/pako@2.1.0"
@@ -9192,13 +9160,10 @@
       "ref": "pkg:npm/parse-headers@2.0.5"
     },
     {
-      "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
+      "ref": "pkg:npm/lerc@3.0.0"
     },
     {
       "ref": "pkg:npm/resolve-protobuf-schema@2.1.0"
-    },
-    {
-      "ref": "pkg:npm/xml-utils@1.7.0"
     },
     {
       "ref": "pkg:npm/pbf@3.2.1"
@@ -9219,7 +9184,7 @@
       "ref": "pkg:npm/%40terrestris/ol-util@14.0.0",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
-        "pkg:npm/%40terrestris/base-util@1.0.1",
+        "pkg:npm/%40terrestris/base-util@1.0.2",
         "pkg:npm/%40turf/turf@6.5.0",
         "pkg:npm/fast-xml-parser@4.3.2",
         "pkg:npm/geostyler-openlayers-parser@4.2.1",
@@ -9227,15 +9192,15 @@
         "pkg:npm/proj4@2.9.0",
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/typescript@5.2.2",
-        "pkg:npm/%40petamoriken/float16@3.8.3",
-        "pkg:npm/web-worker@1.2.0",
+        "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/ieee754@1.2.1",
-        "pkg:npm/lerc@3.0.0",
+        "pkg:npm/web-worker@1.2.0",
+        "pkg:npm/xml-utils@1.7.0",
+        "pkg:npm/%40petamoriken/float16@3.8.3",
         "pkg:npm/pako@2.1.0",
         "pkg:npm/parse-headers@2.0.5",
-        "pkg:npm/protocol-buffers-schema@3.6.0",
+        "pkg:npm/lerc@3.0.0",
         "pkg:npm/resolve-protobuf-schema@2.1.0",
-        "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/pbf@3.2.1",
         "pkg:npm/geotiff@2.0.7",
         "pkg:npm/ol@8.1.0"
