@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:1af3f3e9-e229-486e-8b12-ce6f8bf783fc",
+  "serialNumber": "urn:uuid:0169ae97-f250-47a1-8781-703410fa1c15",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-10-17T07:14:03.091Z",
+    "timestamp": "2023-10-18T06:43:47.135Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7585,65 +7585,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/web-worker@1.2.0",
-      "name": "web-worker",
-      "version": "1.2.0",
-      "description": "Consistent Web Workers in browser and Node.",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/web-worker@1.2.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/developit/web-worker"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/developit/web-worker/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/developit/web-worker.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/xml-utils@1.7.0",
-      "author": "Daniel J. Dufour",
-      "name": "xml-utils",
-      "version": "1.7.0",
-      "description": "Parse XML without Blowing Up Your Bundle Size",
-      "licenses": [
-        {
-          "license": {
-            "id": "CC0-1.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/xml-utils@1.7.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/DanielJDufour/xml-utils#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/DanielJDufour/xml-utils/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.3",
       "author": "Kenta Moriuchi",
       "group": "@petamoriken",
@@ -7849,6 +7790,65 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/mafintosh/resolve-protobuf-schema.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/web-worker@1.2.0",
+      "name": "web-worker",
+      "version": "1.2.0",
+      "description": "Consistent Web Workers in browser and Node.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/web-worker@1.2.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/developit/web-worker"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/developit/web-worker/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/developit/web-worker.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/xml-utils@1.7.0",
+      "author": "Daniel J. Dufour",
+      "name": "xml-utils",
+      "version": "1.7.0",
+      "description": "Parse XML without Blowing Up Your Bundle Size",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC0-1.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/xml-utils@1.7.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/DanielJDufour/xml-utils#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/DanielJDufour/xml-utils/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
         }
       ]
     },
@@ -9139,12 +9139,6 @@
       "ref": "pkg:npm/typescript@5.2.2"
     },
     {
-      "ref": "pkg:npm/web-worker@1.2.0"
-    },
-    {
-      "ref": "pkg:npm/xml-utils@1.7.0"
-    },
-    {
       "ref": "pkg:npm/%40petamoriken/float16@3.8.3"
     },
     {
@@ -9164,6 +9158,12 @@
     },
     {
       "ref": "pkg:npm/resolve-protobuf-schema@2.1.0"
+    },
+    {
+      "ref": "pkg:npm/web-worker@1.2.0"
+    },
+    {
+      "ref": "pkg:npm/xml-utils@1.7.0"
     },
     {
       "ref": "pkg:npm/pbf@3.2.1"
@@ -9192,8 +9192,6 @@
         "pkg:npm/proj4@2.9.1",
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/typescript@5.2.2",
-        "pkg:npm/web-worker@1.2.0",
-        "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/%40petamoriken/float16@3.8.3",
         "pkg:npm/ieee754@1.2.1",
         "pkg:npm/lerc@3.0.0",
@@ -9201,6 +9199,8 @@
         "pkg:npm/parse-headers@2.0.5",
         "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/resolve-protobuf-schema@2.1.0",
+        "pkg:npm/web-worker@1.2.0",
+        "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/pbf@3.2.1",
         "pkg:npm/geotiff@2.0.7",
         "pkg:npm/ol@8.1.0"
