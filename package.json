@@ -56,8 +56,7 @@
     "lodash": "^4.17.21",
     "polygon-splitter": "^0.0.11",
     "proj4": "^2.9.0",
-    "shpjs": "^4.0.4",
-    "typescript": "^5.2.2"
+    "shpjs": "^4.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",
@@ -91,6 +90,7 @@
     "semantic-release": "^22.0.5",
     "shp-write": "^0.3.2",
     "typedoc": "^0.25.0",
+    "typescript": "^5.2.2",
     "watch": "1.0.2",
     "whatwg-fetch": "^3.6.18"
   },
