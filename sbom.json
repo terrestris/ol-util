@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:5e862029-290f-49bf-a694-a6571b3f098e",
+  "serialNumber": "urn:uuid:8a6167b2-9ff9-44dc-96b9-9f24fcac3014",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-12-13T08:03:58.555Z",
+    "timestamp": "2023-12-18T08:03:05.854Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -1783,11 +1783,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40types/lodash@4.14.197",
+      "bom-ref": "pkg:npm/%40types/lodash@4.14.202",
       "group": "@types",
       "name": "lodash",
-      "version": "4.14.197",
-      "description": "TypeScript definitions for Lo-Dash",
+      "version": "4.14.202",
+      "description": "TypeScript definitions for lodash",
       "licenses": [
         {
           "license": {
@@ -1795,7 +1795,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/lodash@4.14.197",
+      "purl": "pkg:npm/%40types/lodash@4.14.202",
       "externalReferences": [
         {
           "type": "website",
@@ -6784,9 +6784,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-openlayers-parser@4.2.1",
+      "bom-ref": "pkg:npm/geostyler-openlayers-parser@4.3.0",
       "name": "geostyler-openlayers-parser",
-      "version": "4.2.1",
+      "version": "4.3.0",
       "description": "GeoStyler Style Parser implementation for OpenLayers styles",
       "licenses": [
         {
@@ -6795,7 +6795,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-openlayers-parser@4.2.1",
+      "purl": "pkg:npm/geostyler-openlayers-parser@4.3.0",
       "externalReferences": [
         {
           "type": "website",
@@ -6843,10 +6843,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-style@7.3.1",
+      "bom-ref": "pkg:npm/geostyler-style@8.1.0",
       "name": "geostyler-style",
-      "version": "7.3.1",
-      "description": "[![Greenkeeper badge](https://badges.greenkeeper.io/geostyler/geostyler-style.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.com/geostyler/geostyler-style.svg?branch=master)](https://travis-ci.com/geostyler/geostyler-style)",
+      "version": "8.1.0",
+      "description": "[![Lint & Docs (main)](https://github.com/geostyler/geostyler-style/actions/workflows/on-push-master.yml/badge.svg)](https://github.com/geostyler/geostyler-style/actions/workflows/on-push-master.yml) [![Create & publish versioned documentation](https://github.com/geostyler/geostyler-style/actions/workflows/on-publish.yml/badge.svg)](https://github.com/geostyler/geostyler-style/actions/workflows/on-publish.yml) [![License](https://img.shields.io/github/license/geostyler/geostyler-style)](https://github.com/geostyler/geostyler-style/blob/master/LICENSE)",
       "licenses": [
         {
           "license": {
@@ -6854,7 +6854,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-style@7.3.1",
+      "purl": "pkg:npm/geostyler-style@8.1.0",
       "externalReferences": [
         {
           "type": "website",
@@ -8221,7 +8221,7 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40types/lodash@4.14.197"
+      "ref": "pkg:npm/%40types/lodash@4.14.202"
     },
     {
       "ref": "pkg:npm/%40types/url-parse@1.4.9"
@@ -8281,7 +8281,7 @@
     {
       "ref": "pkg:npm/%40terrestris/base-util@1.1.0",
       "dependsOn": [
-        "pkg:npm/%40types/lodash@4.14.197",
+        "pkg:npm/%40types/lodash@4.14.202",
         "pkg:npm/%40types/url-parse@1.4.9",
         "pkg:npm/%40types/url-search-params@1.1.0",
         "pkg:npm/%40types/validator@13.11.1",
@@ -8987,13 +8987,13 @@
       "ref": "pkg:npm/css-font-parser@2.0.0"
     },
     {
-      "ref": "pkg:npm/geostyler-style@7.3.1"
+      "ref": "pkg:npm/geostyler-style@8.1.0"
     },
     {
-      "ref": "pkg:npm/geostyler-openlayers-parser@4.2.1",
+      "ref": "pkg:npm/geostyler-openlayers-parser@4.3.0",
       "dependsOn": [
         "pkg:npm/css-font-parser@2.0.0",
-        "pkg:npm/geostyler-style@7.3.1"
+        "pkg:npm/geostyler-style@8.1.0"
       ]
     },
     {
@@ -9154,7 +9154,7 @@
         "pkg:npm/%40terrestris/base-util@1.1.0",
         "pkg:npm/%40turf/turf@6.5.0",
         "pkg:npm/fast-xml-parser@4.3.2",
-        "pkg:npm/geostyler-openlayers-parser@4.2.1",
+        "pkg:npm/geostyler-openlayers-parser@4.3.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.9.2",
         "pkg:npm/shpjs@4.0.4",
