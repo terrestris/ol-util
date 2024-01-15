@@ -87,7 +87,7 @@
     "jest-environment-jsdom": "^29.6.4",
     "ol": "^8.0.0",
     "rimraf": "^5.0.1",
-    "semantic-release": "^22.0.5",
+    "semantic-release": "^23.0.0",
     "shp-write": "^0.3.2",
     "typedoc": "^0.25.0",
     "typescript": "^5.2.2",
