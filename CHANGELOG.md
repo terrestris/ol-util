@@ -1,3 +1,15 @@
+# [15.0.0](https://github.com/terrestris/ol-util/compare/v14.0.0...v15.0.0) (2024-01-18)
+
+
+### chore
+
+* update to ol 8.2.0 ([1416bc9](https://github.com/terrestris/ol-util/commit/1416bc9db4a715c627ae2d87766a4145dce02f63))
+
+
+### BREAKING CHANGES
+
+* updated peer dependency for ol since some typings become more strict
+
 # [14.0.0](https://github.com/terrestris/ol-util/compare/v13.0.0...v14.0.0) (2023-10-09)
 
 
