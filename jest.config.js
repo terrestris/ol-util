@@ -11,7 +11,7 @@ module.exports = {
     '^.+\\.ts$': '<rootDir>/node_modules/babel-jest'
   },
   transformIgnorePatterns: [
-    '<rootDir>/node_modules/(?!(ol|@babel|jest-runtime|@terrestris))'
+    '<rootDir>/node_modules/(?!(ol|@babel|jest-runtime|@terrestris|color-space|color-rgba|color-name|color-parse))'
   ],
   testRegex: '/src/.*\\.spec.(ts|js)$',
   collectCoverageFrom: [

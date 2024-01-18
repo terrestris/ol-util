@@ -1,4 +1,5 @@
 import { FeatureCollection } from 'geojson';
+import OlFeature from 'ol/Feature';
 import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import OlLayerVector from 'ol/layer/Vector';
 import OlMap from 'ol/Map';
@@ -49,7 +50,7 @@ export class FileUtil {
    */
   static addGeojsonLayer(json: string | FeatureCollection | FeatureCollection[], map: OlMap) {
     const format = new OlFormatGeoJSON();
-    const features = format.readFeatures(json);
+    const features = format.readFeatures(json) as OlFeature[];
     const layer = new OlLayerVector({
       source: new OlSourceVector({
         features: features

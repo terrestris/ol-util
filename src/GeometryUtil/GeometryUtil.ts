@@ -270,7 +270,7 @@ class GeometryUtil {
         return feature;
       });
     const unionGeometry = pp.reduce((prev, next) => union(prev, next) ?? prev);
-    return geoJsonFormat.readFeature(unionGeometry).getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
+    return (geoJsonFormat.readFeature(unionGeometry) as OlFeature).getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
   }
 
   /**
@@ -324,7 +324,7 @@ class GeometryUtil {
     const geojson2 = geoJsonFormat.writeGeometryObject(polygon2) as GeoJSONPolygon;
     const intersection = difference(geojson1, geojson2);
     const feature = geoJsonFormat.readFeature(intersection);
-    return feature.getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
+    return (feature as OlFeature).getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
   }
 
   /**
@@ -388,7 +388,7 @@ class GeometryUtil {
       return;
     }
     const feature = geoJsonFormat.readFeature(intersection);
-    return feature.getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
+    return (feature as OlFeature).getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
   }
 }
 export default GeometryUtil;

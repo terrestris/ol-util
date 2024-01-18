@@ -85,7 +85,7 @@
     "jest": "^29.6.4",
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.6.4",
-    "ol": "^8.0.0",
+    "ol": "^8.2.0",
     "rimraf": "^5.0.1",
     "semantic-release": "^22.0.5",
     "shp-write": "^0.3.2",
@@ -95,6 +95,6 @@
     "whatwg-fetch": "^3.6.18"
   },
   "peerDependencies": {
-    "ol": "^8"
+    "ol": ">=8.2.0"
   }
 }
