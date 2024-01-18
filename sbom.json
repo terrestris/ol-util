@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:5bb129b6-73b9-4f99-85fe-df353b9ece53",
+  "serialNumber": "urn:uuid:5e806c74-94bc-464b-95cc-1015bf8184da",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-01-16T08:46:09.116Z",
+    "timestamp": "2024-01-18T14:23:23.372Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,11 +14,11 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/ol-util@14.0.0",
+      "bom-ref": "pkg:npm/%40terrestris/ol-util@15.0.0",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "ol-util",
-      "version": "14.0.0",
+      "version": "15.0.0",
       "description": "A set of helper classes for working with openLayers",
       "licenses": [
         {
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/ol-util@14.0.0",
+      "purl": "pkg:npm/%40terrestris/ol-util@15.0.0",
       "externalReferences": [
         {
           "type": "website",
@@ -1543,10 +1543,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/tar@6.1.15",
+      "bom-ref": "pkg:npm/tar@6.2.0",
       "author": "GitHub Inc.",
       "name": "tar",
-      "version": "6.1.15",
+      "version": "6.2.0",
       "description": "tar for node",
       "licenses": [
         {
@@ -1555,7 +1555,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/tar@6.1.15",
+      "purl": "pkg:npm/tar@6.2.0",
       "externalReferences": [
         {
           "type": "website",
@@ -1813,10 +1813,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40types/url-parse@1.4.9",
+      "bom-ref": "pkg:npm/%40types/url-parse@1.4.11",
       "group": "@types",
       "name": "url-parse",
-      "version": "1.4.9",
+      "version": "1.4.11",
       "description": "TypeScript definitions for url-parse",
       "licenses": [
         {
@@ -1825,7 +1825,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/url-parse@1.4.9",
+      "purl": "pkg:npm/%40types/url-parse@1.4.11",
       "externalReferences": [
         {
           "type": "website",
@@ -1843,10 +1843,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40types/url-search-params@1.1.0",
+      "bom-ref": "pkg:npm/%40types/url-search-params@1.1.2",
       "group": "@types",
       "name": "url-search-params",
-      "version": "1.1.0",
+      "version": "1.1.2",
       "description": "TypeScript definitions for url-search-params",
       "licenses": [
         {
@@ -1855,11 +1855,11 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/url-search-params@1.1.0",
+      "purl": "pkg:npm/%40types/url-search-params@1.1.2",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped#readme"
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/url-search-params"
         },
         {
           "type": "issue-tracker",
@@ -1873,11 +1873,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40types/validator@13.11.1",
+      "bom-ref": "pkg:npm/%40types/validator@13.11.8",
       "group": "@types",
       "name": "validator",
-      "version": "13.11.1",
-      "description": "TypeScript definitions for validator.js",
+      "version": "13.11.8",
+      "description": "TypeScript definitions for validator",
       "licenses": [
         {
           "license": {
@@ -1885,7 +1885,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/validator@13.11.1",
+      "purl": "pkg:npm/%40types/validator@13.11.8",
       "externalReferences": [
         {
           "type": "website",
@@ -3192,10 +3192,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/deep-equal@1.1.1",
+      "bom-ref": "pkg:npm/deep-equal@1.1.2",
       "author": "James Halliday",
       "name": "deep-equal",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "description": "node's assert.deepEqual algorithm",
       "licenses": [
         {
@@ -3204,19 +3204,19 @@
           }
         }
       ],
-      "purl": "pkg:npm/deep-equal@1.1.1",
+      "purl": "pkg:npm/deep-equal@1.1.2",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/substack/node-deep-equal#readme"
+          "url": "https://github.com/inspect-js/node-deep-equal#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/substack/node-deep-equal/issues"
+          "url": "https://github.com/inspect-js/node-deep-equal/issues"
         },
         {
           "type": "vcs",
-          "url": "git+ssh://git@github.com/substack/node-deep-equal.git"
+          "url": "git+ssh://git@github.com/inspect-js/node-deep-equal.git"
         }
       ]
     },
@@ -3252,10 +3252,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/call-bind@1.0.2",
+      "bom-ref": "pkg:npm/call-bind@1.0.5",
       "author": "Jordan Harband",
       "name": "call-bind",
-      "version": "1.0.2",
+      "version": "1.0.5",
       "description": "Robustly `.call.bind()` a function",
       "licenses": [
         {
@@ -3264,7 +3264,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/call-bind@1.0.2",
+      "purl": "pkg:npm/call-bind@1.0.5",
       "externalReferences": [
         {
           "type": "website",
@@ -3282,10 +3282,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/function-bind@1.1.1",
+      "bom-ref": "pkg:npm/function-bind@1.1.2",
       "author": "Raynos",
       "name": "function-bind",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "description": "Implementation of Function.prototype.bind",
       "licenses": [
         {
@@ -3294,7 +3294,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/function-bind@1.1.1",
+      "purl": "pkg:npm/function-bind@1.1.2",
       "externalReferences": [
         {
           "type": "website",
@@ -3306,16 +3306,16 @@
         },
         {
           "type": "vcs",
-          "url": "git://github.com/Raynos/function-bind.git"
+          "url": "git+https://github.com/Raynos/function-bind.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/get-intrinsic@1.2.1",
+      "bom-ref": "pkg:npm/get-intrinsic@1.2.2",
       "author": "Jordan Harband",
       "name": "get-intrinsic",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "description": "Get and robustly cache all JS language-level intrinsics at first require time",
       "licenses": [
         {
@@ -3324,7 +3324,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/get-intrinsic@1.2.1",
+      "purl": "pkg:npm/get-intrinsic@1.2.2",
       "externalReferences": [
         {
           "type": "website",
@@ -3337,36 +3337,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/ljharb/get-intrinsic.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/has@1.0.3",
-      "author": "Thiago de Arruda",
-      "name": "has",
-      "version": "1.0.3",
-      "description": "Object.prototype.hasOwnProperty.call shortcut",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/has@1.0.3",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/tarruda/has"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/tarruda/has/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/tarruda/has.git"
         }
       ]
     },
@@ -3427,6 +3397,156 @@
         {
           "type": "vcs",
           "url": "git://github.com/inspect-js/has-symbols.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/hasown@2.0.0",
+      "author": "Jordan Harband",
+      "name": "hasown",
+      "version": "2.0.0",
+      "description": "A robust, ES3 compatible, \"has own property\" predicate.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/hasown@2.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/inspect-js/hasOwn#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/inspect-js/hasOwn/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/inspect-js/hasOwn.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/set-function-length@1.2.0",
+      "author": "Jordan Harband",
+      "name": "set-function-length",
+      "version": "1.2.0",
+      "description": "Set a function's length property",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/set-function-length@1.2.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ljharb/set-function-length#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ljharb/set-function-length/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ljharb/set-function-length.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/define-data-property@1.1.1",
+      "author": "Jordan Harband",
+      "name": "define-data-property",
+      "version": "1.1.1",
+      "description": "Define a data property on an object. Will fall back to assignment in an engine without descriptors.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/define-data-property@1.1.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ljharb/define-data-property#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ljharb/define-data-property/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ljharb/define-data-property.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/gopd@1.0.1",
+      "author": "Jordan Harband",
+      "name": "gopd",
+      "version": "1.0.1",
+      "description": "`Object.getOwnPropertyDescriptor`, but accounts for IE's broken implementation.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/gopd@1.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ljharb/gopd#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ljharb/gopd/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ljharb/gopd.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/has-property-descriptors@1.0.1",
+      "author": "Jordan Harband",
+      "name": "has-property-descriptors",
+      "version": "1.0.1",
+      "description": "Does the environment have full property descriptor support? Handles IE 8's broken defineProperty/gOPD.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/has-property-descriptors@1.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/inspect-js/has-property-descriptors#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/inspect-js/has-property-descriptors/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/inspect-js/has-property-descriptors.git"
         }
       ]
     },
@@ -3552,10 +3672,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/define-properties@1.2.0",
+      "bom-ref": "pkg:npm/define-properties@1.2.1",
       "author": "Jordan Harband",
       "name": "define-properties",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "description": "Define multiple non-enumerable properties at once. Uses `Object.defineProperty` when available; falls back to standard assignment in older engines.",
       "licenses": [
         {
@@ -3564,7 +3684,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/define-properties@1.2.0",
+      "purl": "pkg:npm/define-properties@1.2.1",
       "externalReferences": [
         {
           "type": "website",
@@ -3577,36 +3697,6 @@
         {
           "type": "vcs",
           "url": "git://github.com/ljharb/define-properties.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/has-property-descriptors@1.0.0",
-      "author": "Jordan Harband",
-      "name": "has-property-descriptors",
-      "version": "1.0.0",
-      "description": "Does the environment have full property descriptor support? Handles IE 8's broken defineProperty/gOPD.",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/has-property-descriptors@1.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/inspect-js/has-property-descriptors#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/inspect-js/has-property-descriptors/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/inspect-js/has-property-descriptors.git"
         }
       ]
     },
@@ -3642,10 +3732,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/regexp.prototype.flags@1.5.0",
+      "bom-ref": "pkg:npm/regexp.prototype.flags@1.5.1",
       "author": "Jordan Harband",
       "name": "regexp.prototype.flags",
-      "version": "1.5.0",
+      "version": "1.5.1",
       "description": "ES6 spec-compliant RegExp.prototype.flags shim.",
       "licenses": [
         {
@@ -3654,7 +3744,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/regexp.prototype.flags@1.5.0",
+      "purl": "pkg:npm/regexp.prototype.flags@1.5.1",
       "externalReferences": [
         {
           "type": "website",
@@ -3667,6 +3757,36 @@
         {
           "type": "vcs",
           "url": "git://github.com/es-shims/RegExp.prototype.flags.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/set-function-name@2.0.1",
+      "author": "Jordan Harband",
+      "name": "set-function-name",
+      "version": "2.0.1",
+      "description": "Set a function's name property",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/set-function-name@2.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ljharb/set-function-name#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ljharb/set-function-name/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ljharb/set-function-name.git"
         }
       ]
     },
@@ -4837,10 +4957,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/polygon-clipping@0.15.3",
+      "bom-ref": "pkg:npm/polygon-clipping@0.15.7",
       "author": "Mike Fogel",
       "name": "polygon-clipping",
-      "version": "0.15.3",
+      "version": "0.15.7",
       "description": "Apply boolean Polygon clipping operations (intersection, union, difference, xor) to your Polygons & MultiPolygons.",
       "licenses": [
         {
@@ -4849,7 +4969,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/polygon-clipping@0.15.3",
+      "purl": "pkg:npm/polygon-clipping@0.15.7",
       "externalReferences": [
         {
           "type": "website",
@@ -4862,6 +4982,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/mfogel/polygon-clipping.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/robust-predicates@3.0.2",
+      "author": "Vladimir Agafonkin",
+      "name": "robust-predicates",
+      "version": "3.0.2",
+      "description": "Fast robust predicates for computational geometry",
+      "licenses": [
+        {
+          "license": {
+            "id": "Unlicense"
+          }
+        }
+      ],
+      "purl": "pkg:npm/robust-predicates@3.0.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/mourner/robust-predicates#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/mourner/robust-predicates/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/mourner/robust-predicates.git"
         }
       ]
     },
@@ -7555,11 +7705,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.3",
+      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
       "author": "Kenta Moriuchi",
       "group": "@petamoriken",
       "name": "float16",
-      "version": "3.8.3",
+      "version": "3.8.4",
       "description": "IEEE 754 half-precision floating-point for JavaScript",
       "licenses": [
         {
@@ -7568,7 +7718,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40petamoriken/float16@3.8.3",
+      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
       "externalReferences": [
         {
           "type": "website",
@@ -7586,31 +7736,151 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/ieee754@1.2.1",
-      "author": "Feross Aboukhadijeh",
-      "name": "ieee754",
-      "version": "1.2.1",
-      "description": "Read/write IEEE754 floating point numbers from/to a Buffer or array-like object",
+      "bom-ref": "pkg:npm/color-name@1.1.3",
+      "author": "DY",
+      "name": "color-name",
+      "version": "1.1.3",
+      "description": "A list of color names and its values",
       "licenses": [
         {
           "license": {
-            "id": "BSD-3-Clause"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/ieee754@1.2.1",
+      "purl": "pkg:npm/color-name@1.1.3",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/feross/ieee754#readme"
+          "url": "https://github.com/dfcreative/color-name"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/feross/ieee754/issues"
+          "url": "https://github.com/dfcreative/color-name/issues"
         },
         {
           "type": "vcs",
-          "url": "git://github.com/feross/ieee754.git"
+          "url": "git+ssh://git@github.com/dfcreative/color-name.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-parse@2.0.0",
+      "author": "Dmitry Ivanov",
+      "name": "color-parse",
+      "version": "2.0.0",
+      "description": "Color string parser",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-parse@2.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-parse"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-parse/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-parse.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-rgba@3.0.0",
+      "author": "Dmitry Iv",
+      "name": "color-rgba",
+      "version": "3.0.0",
+      "description": "Convert color string (or parseable argument) to RGBA array",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-rgba@3.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-rgba#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-rgba/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-rgba.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-space@2.0.1",
+      "author": "Dmitry Ivanov",
+      "name": "color-space",
+      "version": "2.0.1",
+      "description": "Collection of color space conversions",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-space@2.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-space#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-space/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/colorjs/color-space.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/geotiff@2.1.1",
+      "author": "Fabian Schindler",
+      "name": "geotiff",
+      "version": "2.1.1",
+      "description": "GeoTIFF image decoding in JavaScript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/geotiff@2.1.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/geotiffjs/geotiff.js#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/geotiffjs/geotiff.js/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/geotiffjs/geotiff.js.git"
         }
       ]
     },
@@ -7705,6 +7975,155 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/quick-lru@6.1.2",
+      "author": "Sindre Sorhus",
+      "name": "quick-lru",
+      "version": "6.1.2",
+      "description": "Simple “Least Recently Used” (LRU) cache",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/quick-lru@6.1.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/sindresorhus/quick-lru#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/sindresorhus/quick-lru/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/sindresorhus/quick-lru.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/web-worker@1.3.0",
+      "name": "web-worker",
+      "version": "1.3.0",
+      "description": "Consistent Web Workers in browser and Node.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/web-worker@1.3.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/developit/web-worker"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/developit/web-worker/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/developit/web-worker.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/xml-utils@1.7.0",
+      "author": "Daniel J. Dufour",
+      "name": "xml-utils",
+      "version": "1.7.0",
+      "description": "Parse XML without Blowing Up Your Bundle Size",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC0-1.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/xml-utils@1.7.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/DanielJDufour/xml-utils#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/DanielJDufour/xml-utils/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/zstddec@0.1.0",
+      "author": "Don McCurdy",
+      "name": "zstddec",
+      "version": "0.1.0",
+      "description": "ZSTD (Zstandard) decoder for Web and Node.js, using WebAssembly",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT AND BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/zstddec@0.1.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/donmccurdy/zstddec#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/donmccurdy/zstddec/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/donmccurdy/zstddec.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ieee754@1.2.1",
+      "author": "Feross Aboukhadijeh",
+      "name": "ieee754",
+      "version": "1.2.1",
+      "description": "Read/write IEEE754 floating point numbers from/to a Buffer or array-like object",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ieee754@1.2.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/feross/ieee754#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/feross/ieee754/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/feross/ieee754.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/protocol-buffers-schema@3.6.0",
       "author": "Mathias Buus",
       "name": "protocol-buffers-schema",
@@ -7765,65 +8184,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/web-worker@1.2.0",
-      "name": "web-worker",
-      "version": "1.2.0",
-      "description": "Consistent Web Workers in browser and Node.",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/web-worker@1.2.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/developit/web-worker"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/developit/web-worker/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/developit/web-worker.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/xml-utils@1.7.0",
-      "author": "Daniel J. Dufour",
-      "name": "xml-utils",
-      "version": "1.7.0",
-      "description": "Parse XML without Blowing Up Your Bundle Size",
-      "licenses": [
-        {
-          "license": {
-            "id": "CC0-1.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/xml-utils@1.7.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/DanielJDufour/xml-utils#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/DanielJDufour/xml-utils/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/pbf@3.2.1",
       "author": "Konstantin Kaefer",
       "name": "pbf",
@@ -7854,69 +8214,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geotiff@2.0.7",
-      "author": "Fabian Schindler",
-      "name": "geotiff",
-      "version": "2.0.7",
-      "description": "GeoTIFF image decoding in JavaScript",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/geotiff@2.0.7",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/geotiffjs/geotiff.js#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/geotiffjs/geotiff.js/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/geotiffjs/geotiff.js.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/quick-lru@6.1.2",
-      "author": "Sindre Sorhus",
-      "name": "quick-lru",
-      "version": "6.1.2",
-      "description": "Simple “Least Recently Used” (LRU) cache",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/quick-lru@6.1.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/quick-lru#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/quick-lru/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/quick-lru.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/ol@8.1.0",
+      "bom-ref": "pkg:npm/ol@8.2.0",
       "name": "ol",
-      "version": "8.1.0",
+      "version": "8.2.0",
       "description": "OpenLayers mapping library",
       "licenses": [
         {
@@ -7925,7 +8225,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/ol@8.1.0",
+      "purl": "pkg:npm/ol@8.2.0",
       "externalReferences": [
         {
           "type": "website",
@@ -8197,7 +8497,7 @@
       "ref": "pkg:npm/mkdirp@1.0.4"
     },
     {
-      "ref": "pkg:npm/tar@6.1.15",
+      "ref": "pkg:npm/tar@6.2.0",
       "dependsOn": [
         "pkg:npm/chownr@2.0.0",
         "pkg:npm/fs-minipass@2.1.0",
@@ -8217,20 +8517,20 @@
         "pkg:npm/npmlog@5.0.1",
         "pkg:npm/rimraf@3.0.2",
         "pkg:npm/semver@7.5.4",
-        "pkg:npm/tar@6.1.15"
+        "pkg:npm/tar@6.2.0"
       ]
     },
     {
       "ref": "pkg:npm/%40types/lodash@4.14.202"
     },
     {
-      "ref": "pkg:npm/%40types/url-parse@1.4.9"
+      "ref": "pkg:npm/%40types/url-parse@1.4.11"
     },
     {
-      "ref": "pkg:npm/%40types/url-search-params@1.1.0"
+      "ref": "pkg:npm/%40types/url-search-params@1.1.2"
     },
     {
-      "ref": "pkg:npm/%40types/validator@13.11.1"
+      "ref": "pkg:npm/%40types/validator@13.11.8"
     },
     {
       "ref": "pkg:npm/%40ungap/url-search-params@0.2.2"
@@ -8282,9 +8582,9 @@
       "ref": "pkg:npm/%40terrestris/base-util@1.1.0",
       "dependsOn": [
         "pkg:npm/%40types/lodash@4.14.202",
-        "pkg:npm/%40types/url-parse@1.4.9",
-        "pkg:npm/%40types/url-search-params@1.1.0",
-        "pkg:npm/%40types/validator@13.11.1",
+        "pkg:npm/%40types/url-parse@1.4.11",
+        "pkg:npm/%40types/url-search-params@1.1.2",
+        "pkg:npm/%40types/validator@13.11.8",
         "pkg:npm/%40ungap/url-search-params@0.2.2",
         "pkg:npm/lodash@4.17.21",
         "pkg:npm/loglevel@1.8.1",
@@ -8412,10 +8712,7 @@
       "ref": "pkg:npm/%40turf/clean-coords@6.5.0"
     },
     {
-      "ref": "pkg:npm/function-bind@1.1.1"
-    },
-    {
-      "ref": "pkg:npm/has@1.0.3"
+      "ref": "pkg:npm/function-bind@1.1.2"
     },
     {
       "ref": "pkg:npm/has-proto@1.0.1"
@@ -8424,18 +8721,41 @@
       "ref": "pkg:npm/has-symbols@1.0.3"
     },
     {
-      "ref": "pkg:npm/get-intrinsic@1.2.1",
+      "ref": "pkg:npm/hasown@2.0.0"
+    },
+    {
+      "ref": "pkg:npm/get-intrinsic@1.2.2",
       "dependsOn": [
-        "pkg:npm/has@1.0.3",
         "pkg:npm/has-proto@1.0.1",
-        "pkg:npm/has-symbols@1.0.3"
+        "pkg:npm/has-symbols@1.0.3",
+        "pkg:npm/hasown@2.0.0"
       ]
     },
     {
-      "ref": "pkg:npm/call-bind@1.0.2",
+      "ref": "pkg:npm/gopd@1.0.1"
+    },
+    {
+      "ref": "pkg:npm/has-property-descriptors@1.0.1"
+    },
+    {
+      "ref": "pkg:npm/define-data-property@1.1.1",
       "dependsOn": [
-        "pkg:npm/function-bind@1.1.1",
-        "pkg:npm/get-intrinsic@1.2.1"
+        "pkg:npm/gopd@1.0.1",
+        "pkg:npm/has-property-descriptors@1.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/set-function-length@1.2.0",
+      "dependsOn": [
+        "pkg:npm/define-data-property@1.1.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/call-bind@1.0.5",
+      "dependsOn": [
+        "pkg:npm/function-bind@1.1.2",
+        "pkg:npm/get-intrinsic@1.2.2",
+        "pkg:npm/set-function-length@1.2.0"
       ]
     },
     {
@@ -8444,7 +8764,7 @@
     {
       "ref": "pkg:npm/is-arguments@1.1.1",
       "dependsOn": [
-        "pkg:npm/call-bind@1.0.2",
+        "pkg:npm/call-bind@1.0.5",
         "pkg:npm/has-tostringtag@1.0.0"
       ]
     },
@@ -8455,47 +8775,49 @@
       "ref": "pkg:npm/is-regex@1.1.4"
     },
     {
-      "ref": "pkg:npm/has-property-descriptors@1.0.0"
-    },
-    {
       "ref": "pkg:npm/object-keys@1.1.1"
     },
     {
-      "ref": "pkg:npm/define-properties@1.2.0",
+      "ref": "pkg:npm/define-properties@1.2.1",
       "dependsOn": [
-        "pkg:npm/has-property-descriptors@1.0.0",
         "pkg:npm/object-keys@1.1.1"
       ]
     },
     {
       "ref": "pkg:npm/object-is@1.1.5",
       "dependsOn": [
-        "pkg:npm/define-properties@1.2.0"
+        "pkg:npm/define-properties@1.2.1"
       ]
     },
     {
       "ref": "pkg:npm/functions-have-names@1.2.3"
     },
     {
-      "ref": "pkg:npm/regexp.prototype.flags@1.5.0",
+      "ref": "pkg:npm/set-function-name@2.0.1",
       "dependsOn": [
         "pkg:npm/functions-have-names@1.2.3"
       ]
     },
     {
-      "ref": "pkg:npm/deep-equal@1.1.1",
+      "ref": "pkg:npm/regexp.prototype.flags@1.5.1",
+      "dependsOn": [
+        "pkg:npm/set-function-name@2.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/deep-equal@1.1.2",
       "dependsOn": [
         "pkg:npm/is-arguments@1.1.1",
         "pkg:npm/is-date-object@1.0.5",
         "pkg:npm/is-regex@1.1.4",
         "pkg:npm/object-is@1.1.5",
-        "pkg:npm/regexp.prototype.flags@1.5.0"
+        "pkg:npm/regexp.prototype.flags@1.5.1"
       ]
     },
     {
       "ref": "pkg:npm/geojson-equality@0.1.6",
       "dependsOn": [
-        "pkg:npm/deep-equal@1.1.1"
+        "pkg:npm/deep-equal@1.1.2"
       ]
     },
     {
@@ -8669,18 +8991,22 @@
       ]
     },
     {
+      "ref": "pkg:npm/robust-predicates@3.0.2"
+    },
+    {
       "ref": "pkg:npm/splaytree@3.1.2"
     },
     {
-      "ref": "pkg:npm/polygon-clipping@0.15.3",
+      "ref": "pkg:npm/polygon-clipping@0.15.7",
       "dependsOn": [
+        "pkg:npm/robust-predicates@3.0.2",
         "pkg:npm/splaytree@3.1.2"
       ]
     },
     {
       "ref": "pkg:npm/%40turf/difference@6.5.0",
       "dependsOn": [
-        "pkg:npm/polygon-clipping@0.15.3"
+        "pkg:npm/polygon-clipping@0.15.7"
       ]
     },
     {
@@ -9106,10 +9432,22 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40petamoriken/float16@3.8.3"
+      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
     },
     {
-      "ref": "pkg:npm/ieee754@1.2.1"
+      "ref": "pkg:npm/color-name@1.1.3"
+    },
+    {
+      "ref": "pkg:npm/color-parse@2.0.0"
+    },
+    {
+      "ref": "pkg:npm/color-space@2.0.1"
+    },
+    {
+      "ref": "pkg:npm/color-rgba@3.0.0",
+      "dependsOn": [
+        "pkg:npm/color-space@2.0.1"
+      ]
     },
     {
       "ref": "pkg:npm/lerc@3.0.0"
@@ -9121,34 +9459,46 @@
       "ref": "pkg:npm/parse-headers@2.0.5"
     },
     {
+      "ref": "pkg:npm/quick-lru@6.1.2"
+    },
+    {
+      "ref": "pkg:npm/web-worker@1.3.0"
+    },
+    {
+      "ref": "pkg:npm/xml-utils@1.7.0"
+    },
+    {
+      "ref": "pkg:npm/zstddec@0.1.0"
+    },
+    {
+      "ref": "pkg:npm/geotiff@2.1.1",
+      "dependsOn": [
+        "pkg:npm/lerc@3.0.0",
+        "pkg:npm/pako@2.1.0",
+        "pkg:npm/parse-headers@2.0.5",
+        "pkg:npm/quick-lru@6.1.2",
+        "pkg:npm/web-worker@1.3.0",
+        "pkg:npm/xml-utils@1.7.0",
+        "pkg:npm/zstddec@0.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/ieee754@1.2.1"
+    },
+    {
       "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
     },
     {
       "ref": "pkg:npm/resolve-protobuf-schema@2.1.0"
     },
     {
-      "ref": "pkg:npm/web-worker@1.2.0"
-    },
-    {
-      "ref": "pkg:npm/xml-utils@1.7.0"
-    },
-    {
       "ref": "pkg:npm/pbf@3.2.1"
     },
     {
-      "ref": "pkg:npm/quick-lru@6.1.2"
+      "ref": "pkg:npm/ol@8.2.0"
     },
     {
-      "ref": "pkg:npm/geotiff@2.0.7",
-      "dependsOn": [
-        "pkg:npm/quick-lru@6.1.2"
-      ]
-    },
-    {
-      "ref": "pkg:npm/ol@8.1.0"
-    },
-    {
-      "ref": "pkg:npm/%40terrestris/ol-util@14.0.0",
+      "ref": "pkg:npm/%40terrestris/ol-util@15.0.0",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@1.1.0",
@@ -9158,18 +9508,16 @@
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.10.0",
         "pkg:npm/shpjs@4.0.4",
-        "pkg:npm/%40petamoriken/float16@3.8.3",
+        "pkg:npm/%40petamoriken/float16@3.8.4",
+        "pkg:npm/color-name@1.1.3",
+        "pkg:npm/color-parse@2.0.0",
+        "pkg:npm/color-rgba@3.0.0",
+        "pkg:npm/geotiff@2.1.1",
         "pkg:npm/ieee754@1.2.1",
-        "pkg:npm/lerc@3.0.0",
-        "pkg:npm/pako@2.1.0",
-        "pkg:npm/parse-headers@2.0.5",
         "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/resolve-protobuf-schema@2.1.0",
-        "pkg:npm/web-worker@1.2.0",
-        "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/pbf@3.2.1",
-        "pkg:npm/geotiff@2.0.7",
-        "pkg:npm/ol@8.1.0"
+        "pkg:npm/ol@8.2.0"
       ]
     }
   ]
