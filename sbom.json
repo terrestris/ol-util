@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:5e806c74-94bc-464b-95cc-1015bf8184da",
+  "serialNumber": "urn:uuid:1a17c4c8-67d2-4c52-b722-922721069260",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-01-18T14:23:23.372Z",
+    "timestamp": "2024-01-24T08:40:49.049Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7705,37 +7705,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
-      "author": "Kenta Moriuchi",
-      "group": "@petamoriken",
-      "name": "float16",
-      "version": "3.8.4",
-      "description": "IEEE 754 half-precision floating-point for JavaScript",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/petamoriken/float16"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/petamoriken/float16/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/petamoriken/float16.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-name@1.1.3",
       "author": "DY",
       "name": "color-name",
@@ -7856,6 +7825,65 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/web-worker@1.3.0",
+      "name": "web-worker",
+      "version": "1.3.0",
+      "description": "Consistent Web Workers in browser and Node.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/web-worker@1.3.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/developit/web-worker"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/developit/web-worker/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/developit/web-worker.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/xml-utils@1.7.0",
+      "author": "Daniel J. Dufour",
+      "name": "xml-utils",
+      "version": "1.7.0",
+      "description": "Parse XML without Blowing Up Your Bundle Size",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC0-1.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/xml-utils@1.7.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/DanielJDufour/xml-utils#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/DanielJDufour/xml-utils/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/geotiff@2.1.1",
       "author": "Fabian Schindler",
       "name": "geotiff",
@@ -7881,6 +7909,37 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/geotiffjs/geotiff.js.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
+      "author": "Kenta Moriuchi",
+      "group": "@petamoriken",
+      "name": "float16",
+      "version": "3.8.4",
+      "description": "IEEE 754 half-precision floating-point for JavaScript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/petamoriken/float16"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/petamoriken/float16/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/petamoriken/float16.git"
         }
       ]
     },
@@ -8000,65 +8059,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/sindresorhus/quick-lru.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/web-worker@1.3.0",
-      "name": "web-worker",
-      "version": "1.3.0",
-      "description": "Consistent Web Workers in browser and Node.",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/web-worker@1.3.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/developit/web-worker"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/developit/web-worker/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/developit/web-worker.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/xml-utils@1.7.0",
-      "author": "Daniel J. Dufour",
-      "name": "xml-utils",
-      "version": "1.7.0",
-      "description": "Parse XML without Blowing Up Your Bundle Size",
-      "licenses": [
-        {
-          "license": {
-            "id": "CC0-1.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/xml-utils@1.7.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/DanielJDufour/xml-utils#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/DanielJDufour/xml-utils/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
         }
       ]
     },
@@ -9432,9 +9432,6 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
-    },
-    {
       "ref": "pkg:npm/color-name@1.1.3"
     },
     {
@@ -9450,6 +9447,15 @@
       ]
     },
     {
+      "ref": "pkg:npm/web-worker@1.3.0"
+    },
+    {
+      "ref": "pkg:npm/xml-utils@1.7.0"
+    },
+    {
+      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
+    },
+    {
       "ref": "pkg:npm/lerc@3.0.0"
     },
     {
@@ -9462,23 +9468,16 @@
       "ref": "pkg:npm/quick-lru@6.1.2"
     },
     {
-      "ref": "pkg:npm/web-worker@1.3.0"
-    },
-    {
-      "ref": "pkg:npm/xml-utils@1.7.0"
-    },
-    {
       "ref": "pkg:npm/zstddec@0.1.0"
     },
     {
       "ref": "pkg:npm/geotiff@2.1.1",
       "dependsOn": [
+        "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/pako@2.1.0",
         "pkg:npm/parse-headers@2.0.5",
         "pkg:npm/quick-lru@6.1.2",
-        "pkg:npm/web-worker@1.3.0",
-        "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/zstddec@0.1.0"
       ]
     },
@@ -9508,10 +9507,11 @@
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.10.0",
         "pkg:npm/shpjs@4.0.4",
-        "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/color-name@1.1.3",
         "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-rgba@3.0.0",
+        "pkg:npm/web-worker@1.3.0",
+        "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/geotiff@2.1.1",
         "pkg:npm/ieee754@1.2.1",
         "pkg:npm/protocol-buffers-schema@3.6.0",
