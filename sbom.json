@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:ccf2087c-447c-454f-a83e-046105ba8be4",
+  "serialNumber": "urn:uuid:1687d8f5-b4cf-42b5-a10b-83a623bf28eb",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-01-30T08:32:18.128Z",
+    "timestamp": "2024-01-31T08:23:34.041Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6874,10 +6874,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@4.3.3",
+      "bom-ref": "pkg:npm/fast-xml-parser@4.3.4",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "4.3.3",
+      "version": "4.3.4",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -6886,7 +6886,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@4.3.3",
+      "purl": "pkg:npm/fast-xml-parser@4.3.4",
       "externalReferences": [
         {
           "type": "website",
@@ -7705,67 +7705,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
-      "author": "Kenta Moriuchi",
-      "group": "@petamoriken",
-      "name": "float16",
-      "version": "3.8.4",
-      "description": "IEEE 754 half-precision floating-point for JavaScript",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/petamoriken/float16"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/petamoriken/float16/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/petamoriken/float16.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/xml-utils@1.7.0",
-      "author": "Daniel J. Dufour",
-      "name": "xml-utils",
-      "version": "1.7.0",
-      "description": "Parse XML without Blowing Up Your Bundle Size",
-      "licenses": [
-        {
-          "license": {
-            "id": "CC0-1.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/xml-utils@1.7.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/DanielJDufour/xml-utils#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/DanielJDufour/xml-utils/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-name@1.1.3",
       "author": "DY",
       "name": "color-name",
@@ -7881,6 +7820,67 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/colorjs/color-space.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/quick-lru@6.1.2",
+      "author": "Sindre Sorhus",
+      "name": "quick-lru",
+      "version": "6.1.2",
+      "description": "Simple “Least Recently Used” (LRU) cache",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/quick-lru@6.1.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/sindresorhus/quick-lru#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/sindresorhus/quick-lru/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/sindresorhus/quick-lru.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
+      "author": "Kenta Moriuchi",
+      "group": "@petamoriken",
+      "name": "float16",
+      "version": "3.8.4",
+      "description": "IEEE 754 half-precision floating-point for JavaScript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/petamoriken/float16"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/petamoriken/float16/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/petamoriken/float16.git"
         }
       ]
     },
@@ -8005,36 +8005,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/quick-lru@6.1.2",
-      "author": "Sindre Sorhus",
-      "name": "quick-lru",
-      "version": "6.1.2",
-      "description": "Simple “Least Recently Used” (LRU) cache",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/quick-lru@6.1.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/quick-lru#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/quick-lru/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/quick-lru.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/web-worker@1.3.0",
       "name": "web-worker",
       "version": "1.3.0",
@@ -8059,6 +8029,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/developit/web-worker.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/xml-utils@1.7.0",
+      "author": "Daniel J. Dufour",
+      "name": "xml-utils",
+      "version": "1.7.0",
+      "description": "Parse XML without Blowing Up Your Bundle Size",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC0-1.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/xml-utils@1.7.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/DanielJDufour/xml-utils#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/DanielJDufour/xml-utils/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/DanielJDufour/xml-utils.git"
         }
       ]
     },
@@ -9304,7 +9304,7 @@
       "ref": "pkg:npm/strnum@1.0.5"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@4.3.3",
+      "ref": "pkg:npm/fast-xml-parser@4.3.4",
       "dependsOn": [
         "pkg:npm/strnum@1.0.5"
       ]
@@ -9432,12 +9432,6 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
-    },
-    {
-      "ref": "pkg:npm/xml-utils@1.7.0"
-    },
-    {
       "ref": "pkg:npm/color-name@1.1.3"
     },
     {
@@ -9453,6 +9447,12 @@
       ]
     },
     {
+      "ref": "pkg:npm/quick-lru@6.1.2"
+    },
+    {
+      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
+    },
+    {
       "ref": "pkg:npm/lerc@3.0.0"
     },
     {
@@ -9462,10 +9462,10 @@
       "ref": "pkg:npm/parse-headers@2.0.5"
     },
     {
-      "ref": "pkg:npm/quick-lru@6.1.2"
+      "ref": "pkg:npm/web-worker@1.3.0"
     },
     {
-      "ref": "pkg:npm/web-worker@1.3.0"
+      "ref": "pkg:npm/xml-utils@1.7.0"
     },
     {
       "ref": "pkg:npm/zstddec@0.1.0"
@@ -9476,8 +9476,8 @@
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/pako@2.1.0",
         "pkg:npm/parse-headers@2.0.5",
-        "pkg:npm/quick-lru@6.1.2",
         "pkg:npm/web-worker@1.3.0",
+        "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/zstddec@0.1.0"
       ]
     },
@@ -9502,16 +9502,16 @@
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@1.1.0",
         "pkg:npm/%40turf/turf@6.5.0",
-        "pkg:npm/fast-xml-parser@4.3.3",
+        "pkg:npm/fast-xml-parser@4.3.4",
         "pkg:npm/geostyler-openlayers-parser@4.3.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.10.0",
         "pkg:npm/shpjs@4.0.4",
-        "pkg:npm/%40petamoriken/float16@3.8.4",
-        "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/color-name@1.1.3",
         "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-rgba@3.0.0",
+        "pkg:npm/quick-lru@6.1.2",
+        "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/geotiff@2.1.1",
         "pkg:npm/ieee754@1.2.1",
         "pkg:npm/protocol-buffers-schema@3.6.0",
