@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:1687d8f5-b4cf-42b5-a10b-83a623bf28eb",
+  "serialNumber": "urn:uuid:41aad424-e3ee-4b22-a824-f4bdbe182006",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-01-31T08:23:34.041Z",
+    "timestamp": "2024-02-02T14:25:57.802Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7705,11 +7705,12 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-name@1.1.3",
-      "author": "DY",
-      "name": "color-name",
-      "version": "1.1.3",
-      "description": "A list of color names and its values",
+      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
+      "author": "Kenta Moriuchi",
+      "group": "@petamoriken",
+      "name": "float16",
+      "version": "3.8.4",
+      "description": "IEEE 754 half-precision floating-point for JavaScript",
       "licenses": [
         {
           "license": {
@@ -7717,49 +7718,19 @@
           }
         }
       ],
-      "purl": "pkg:npm/color-name@1.1.3",
+      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/dfcreative/color-name"
+          "url": "https://github.com/petamoriken/float16"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/dfcreative/color-name/issues"
+          "url": "https://github.com/petamoriken/float16/issues"
         },
         {
           "type": "vcs",
-          "url": "git+ssh://git@github.com/dfcreative/color-name.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-parse@2.0.0",
-      "author": "Dmitry Ivanov",
-      "name": "color-parse",
-      "version": "2.0.0",
-      "description": "Color string parser",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-parse@2.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-parse"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-parse/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-parse.git"
+          "url": "git+https://github.com/petamoriken/float16.git"
         }
       ]
     },
@@ -7795,6 +7766,66 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/color-parse@2.0.0",
+      "author": "Dmitry Ivanov",
+      "name": "color-parse",
+      "version": "2.0.0",
+      "description": "Color string parser",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-parse@2.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-parse"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-parse/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-parse.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-name@1.1.3",
+      "author": "DY",
+      "name": "color-name",
+      "version": "1.1.3",
+      "description": "A list of color names and its values",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-name@1.1.3",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/dfcreative/color-name"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/dfcreative/color-name/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/dfcreative/color-name.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/color-space@2.0.1",
       "author": "Dmitry Ivanov",
       "name": "color-space",
@@ -7825,62 +7856,30 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/quick-lru@6.1.2",
-      "author": "Sindre Sorhus",
-      "name": "quick-lru",
-      "version": "6.1.2",
-      "description": "Simple “Least Recently Used” (LRU) cache",
+      "bom-ref": "pkg:npm/web-worker@1.3.0",
+      "name": "web-worker",
+      "version": "1.3.0",
+      "description": "Consistent Web Workers in browser and Node.",
       "licenses": [
         {
           "license": {
-            "id": "MIT"
+            "id": "Apache-2.0"
           }
         }
       ],
-      "purl": "pkg:npm/quick-lru@6.1.2",
+      "purl": "pkg:npm/web-worker@1.3.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/sindresorhus/quick-lru#readme"
+          "url": "https://github.com/developit/web-worker"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/quick-lru/issues"
+          "url": "https://github.com/developit/web-worker/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/quick-lru.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
-      "author": "Kenta Moriuchi",
-      "group": "@petamoriken",
-      "name": "float16",
-      "version": "3.8.4",
-      "description": "IEEE 754 half-precision floating-point for JavaScript",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/petamoriken/float16"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/petamoriken/float16/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/petamoriken/float16.git"
+          "url": "git+https://github.com/developit/web-worker.git"
         }
       ]
     },
@@ -8005,30 +8004,31 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/web-worker@1.3.0",
-      "name": "web-worker",
-      "version": "1.3.0",
-      "description": "Consistent Web Workers in browser and Node.",
+      "bom-ref": "pkg:npm/quick-lru@6.1.2",
+      "author": "Sindre Sorhus",
+      "name": "quick-lru",
+      "version": "6.1.2",
+      "description": "Simple “Least Recently Used” (LRU) cache",
       "licenses": [
         {
           "license": {
-            "id": "Apache-2.0"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/web-worker@1.3.0",
+      "purl": "pkg:npm/quick-lru@6.1.2",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/developit/web-worker"
+          "url": "https://github.com/sindresorhus/quick-lru#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/developit/web-worker/issues"
+          "url": "https://github.com/sindresorhus/quick-lru/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/developit/web-worker.git"
+          "url": "git+https://github.com/sindresorhus/quick-lru.git"
         }
       ]
     },
@@ -9432,10 +9432,16 @@
       ]
     },
     {
+      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
+    },
+    {
       "ref": "pkg:npm/color-name@1.1.3"
     },
     {
-      "ref": "pkg:npm/color-parse@2.0.0"
+      "ref": "pkg:npm/color-parse@2.0.0",
+      "dependsOn": [
+        "pkg:npm/color-name@1.1.3"
+      ]
     },
     {
       "ref": "pkg:npm/color-space@2.0.1"
@@ -9443,14 +9449,12 @@
     {
       "ref": "pkg:npm/color-rgba@3.0.0",
       "dependsOn": [
+        "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-space@2.0.1"
       ]
     },
     {
-      "ref": "pkg:npm/quick-lru@6.1.2"
-    },
-    {
-      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
+      "ref": "pkg:npm/web-worker@1.3.0"
     },
     {
       "ref": "pkg:npm/lerc@3.0.0"
@@ -9462,7 +9466,7 @@
       "ref": "pkg:npm/parse-headers@2.0.5"
     },
     {
-      "ref": "pkg:npm/web-worker@1.3.0"
+      "ref": "pkg:npm/quick-lru@6.1.2"
     },
     {
       "ref": "pkg:npm/xml-utils@1.7.0"
@@ -9476,7 +9480,7 @@
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/pako@2.1.0",
         "pkg:npm/parse-headers@2.0.5",
-        "pkg:npm/web-worker@1.3.0",
+        "pkg:npm/quick-lru@6.1.2",
         "pkg:npm/xml-utils@1.7.0",
         "pkg:npm/zstddec@0.1.0"
       ]
@@ -9507,11 +9511,9 @@
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.10.0",
         "pkg:npm/shpjs@4.0.4",
-        "pkg:npm/color-name@1.1.3",
-        "pkg:npm/color-parse@2.0.0",
-        "pkg:npm/color-rgba@3.0.0",
-        "pkg:npm/quick-lru@6.1.2",
         "pkg:npm/%40petamoriken/float16@3.8.4",
+        "pkg:npm/color-rgba@3.0.0",
+        "pkg:npm/web-worker@1.3.0",
         "pkg:npm/geotiff@2.1.1",
         "pkg:npm/ieee754@1.2.1",
         "pkg:npm/protocol-buffers-schema@3.6.0",
