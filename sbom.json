@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:f5044afe-8d1d-4426-b4b9-f1ad556e7220",
+  "serialNumber": "urn:uuid:b2963d15-cb77-4dcb-9fe9-cc3e2061cfd0",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-02-14T08:15:28.339Z",
+    "timestamp": "2024-02-15T08:08:08.884Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7735,36 +7735,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-rgba@3.0.0",
-      "author": "Dmitry Iv",
-      "name": "color-rgba",
-      "version": "3.0.0",
-      "description": "Convert color string (or parseable argument) to RGBA array",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-rgba@3.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-rgba#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-rgba/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-rgba.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-parse@2.0.0",
       "author": "Dmitry Ivanov",
       "name": "color-parse",
@@ -7795,6 +7765,36 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/color-rgba@3.0.0",
+      "author": "Dmitry Iv",
+      "name": "color-rgba",
+      "version": "3.0.0",
+      "description": "Convert color string (or parseable argument) to RGBA array",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-rgba@3.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-rgba#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-rgba/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-rgba.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/color-space@2.0.1",
       "author": "Dmitry Ivanov",
       "name": "color-space",
@@ -7820,36 +7820,6 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/colorjs/color-space.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/ieee754@1.2.1",
-      "author": "Feross Aboukhadijeh",
-      "name": "ieee754",
-      "version": "1.2.1",
-      "description": "Read/write IEEE754 floating point numbers from/to a Buffer or array-like object",
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-3-Clause"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ieee754@1.2.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/feross/ieee754#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/feross/ieee754/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/feross/ieee754.git"
         }
       ]
     },
@@ -8119,6 +8089,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/donmccurdy/zstddec.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ieee754@1.2.1",
+      "author": "Feross Aboukhadijeh",
+      "name": "ieee754",
+      "version": "1.2.1",
+      "description": "Read/write IEEE754 floating point numbers from/to a Buffer or array-like object",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ieee754@1.2.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/feross/ieee754#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/feross/ieee754/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/feross/ieee754.git"
         }
       ]
     },
@@ -9443,12 +9443,8 @@
     {
       "ref": "pkg:npm/color-rgba@3.0.0",
       "dependsOn": [
-        "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-space@2.0.1"
       ]
-    },
-    {
-      "ref": "pkg:npm/ieee754@1.2.1"
     },
     {
       "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
@@ -9487,6 +9483,9 @@
       ]
     },
     {
+      "ref": "pkg:npm/ieee754@1.2.1"
+    },
+    {
       "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
     },
     {
@@ -9510,10 +9509,11 @@
         "pkg:npm/proj4@2.10.0",
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/color-name@1.1.3",
+        "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-rgba@3.0.0",
-        "pkg:npm/ieee754@1.2.1",
         "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/geotiff@2.1.1",
+        "pkg:npm/ieee754@1.2.1",
         "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/resolve-protobuf-schema@2.1.0",
         "pkg:npm/pbf@3.2.1",
