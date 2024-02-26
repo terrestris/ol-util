@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:b2963d15-cb77-4dcb-9fe9-cc3e2061cfd0",
+  "serialNumber": "urn:uuid:ed6e2f91-2f8f-4740-b5f5-b8b5887ba707",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-02-15T08:08:08.884Z",
+    "timestamp": "2024-02-26T08:08:51.104Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6874,10 +6874,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@4.3.4",
+      "bom-ref": "pkg:npm/fast-xml-parser@4.3.5",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "4.3.4",
+      "version": "4.3.5",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -6886,7 +6886,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@4.3.4",
+      "purl": "pkg:npm/fast-xml-parser@4.3.5",
       "externalReferences": [
         {
           "type": "website",
@@ -7705,6 +7705,37 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
+      "author": "Kenta Moriuchi",
+      "group": "@petamoriken",
+      "name": "float16",
+      "version": "3.8.4",
+      "description": "IEEE 754 half-precision floating-point for JavaScript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/petamoriken/float16"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/petamoriken/float16/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/petamoriken/float16.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/color-name@1.1.3",
       "author": "DY",
       "name": "color-name",
@@ -7820,37 +7851,6 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/colorjs/color-space.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/%40petamoriken/float16@3.8.4",
-      "author": "Kenta Moriuchi",
-      "group": "@petamoriken",
-      "name": "float16",
-      "version": "3.8.4",
-      "description": "IEEE 754 half-precision floating-point for JavaScript",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40petamoriken/float16@3.8.4",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/petamoriken/float16"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/petamoriken/float16/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/petamoriken/float16.git"
         }
       ]
     },
@@ -9304,7 +9304,7 @@
       "ref": "pkg:npm/strnum@1.0.5"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@4.3.4",
+      "ref": "pkg:npm/fast-xml-parser@4.3.5",
       "dependsOn": [
         "pkg:npm/strnum@1.0.5"
       ]
@@ -9432,6 +9432,9 @@
       ]
     },
     {
+      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
+    },
+    {
       "ref": "pkg:npm/color-name@1.1.3"
     },
     {
@@ -9445,9 +9448,6 @@
       "dependsOn": [
         "pkg:npm/color-space@2.0.1"
       ]
-    },
-    {
-      "ref": "pkg:npm/%40petamoriken/float16@3.8.4"
     },
     {
       "ref": "pkg:npm/lerc@3.0.0"
@@ -9503,15 +9503,15 @@
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@1.1.0",
         "pkg:npm/%40turf/turf@6.5.0",
-        "pkg:npm/fast-xml-parser@4.3.4",
+        "pkg:npm/fast-xml-parser@4.3.5",
         "pkg:npm/geostyler-openlayers-parser@4.3.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.10.0",
         "pkg:npm/shpjs@4.0.4",
+        "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/color-name@1.1.3",
         "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-rgba@3.0.0",
-        "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/geotiff@2.1.1",
         "pkg:npm/ieee754@1.2.1",
         "pkg:npm/protocol-buffers-schema@3.6.0",
