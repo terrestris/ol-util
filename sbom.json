@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:e738fd29-9eae-4bfc-9eee-7670f1543e08",
+  "serialNumber": "urn:uuid:bbb8ba1c-f4bd-45d4-bfd1-96a232b328ab",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-02-29T10:55:28.208Z",
+    "timestamp": "2024-03-01T13:35:55.730Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,11 +14,11 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/ol-util@15.0.0",
+      "bom-ref": "pkg:npm/%40terrestris/ol-util@15.0.1",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "ol-util",
-      "version": "15.0.0",
+      "version": "15.0.1",
       "description": "A set of helper classes for working with openLayers",
       "licenses": [
         {
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/ol-util@15.0.0",
+      "purl": "pkg:npm/%40terrestris/ol-util@15.0.1",
       "externalReferences": [
         {
           "type": "website",
@@ -1453,10 +1453,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/semver@7.5.4",
+      "bom-ref": "pkg:npm/semver@7.6.0",
       "author": "GitHub Inc.",
       "name": "semver",
-      "version": "7.5.4",
+      "version": "7.6.0",
       "description": "The semantic version parser used by npm.",
       "licenses": [
         {
@@ -1465,7 +1465,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/semver@7.5.4",
+      "purl": "pkg:npm/semver@7.6.0",
       "externalReferences": [
         {
           "type": "website",
@@ -1873,10 +1873,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40types/validator@13.11.8",
+      "bom-ref": "pkg:npm/%40types/validator@13.11.9",
       "group": "@types",
       "name": "validator",
-      "version": "13.11.8",
+      "version": "13.11.9",
       "description": "TypeScript definitions for validator",
       "licenses": [
         {
@@ -1885,7 +1885,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/validator@13.11.8",
+      "purl": "pkg:npm/%40types/validator@13.11.9",
       "externalReferences": [
         {
           "type": "website",
@@ -1964,10 +1964,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/loglevel@1.8.1",
+      "bom-ref": "pkg:npm/loglevel@1.9.1",
       "author": "Tim Perry",
       "name": "loglevel",
-      "version": "1.8.1",
+      "version": "1.9.1",
       "description": "Minimal lightweight logging for JavaScript, adding reliable log level methods to any available console.log methods",
       "licenses": [
         {
@@ -1976,7 +1976,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/loglevel@1.8.1",
+      "purl": "pkg:npm/loglevel@1.9.1",
       "externalReferences": [
         {
           "type": "website",
@@ -3252,10 +3252,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/call-bind@1.0.5",
+      "bom-ref": "pkg:npm/call-bind@1.0.7",
       "author": "Jordan Harband",
       "name": "call-bind",
-      "version": "1.0.5",
+      "version": "1.0.7",
       "description": "Robustly `.call.bind()` a function",
       "licenses": [
         {
@@ -3264,7 +3264,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/call-bind@1.0.5",
+      "purl": "pkg:npm/call-bind@1.0.7",
       "externalReferences": [
         {
           "type": "website",
@@ -3277,6 +3277,96 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/ljharb/call-bind.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/es-define-property@1.0.0",
+      "author": "Jordan Harband",
+      "name": "es-define-property",
+      "version": "1.0.0",
+      "description": "`Object.defineProperty`, but not IE 8's broken one.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/es-define-property@1.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ljharb/es-define-property#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ljharb/es-define-property/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ljharb/es-define-property.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/get-intrinsic@1.2.4",
+      "author": "Jordan Harband",
+      "name": "get-intrinsic",
+      "version": "1.2.4",
+      "description": "Get and robustly cache all JS language-level intrinsics at first require time",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/get-intrinsic@1.2.4",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ljharb/get-intrinsic#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ljharb/get-intrinsic/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ljharb/get-intrinsic.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/es-errors@1.3.0",
+      "author": "Jordan Harband",
+      "name": "es-errors",
+      "version": "1.3.0",
+      "description": "A simple cache for a few of the JS Error constructors.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/es-errors@1.3.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/ljharb/es-errors#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ljharb/es-errors/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ljharb/es-errors.git"
         }
       ]
     },
@@ -3312,40 +3402,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/get-intrinsic@1.2.2",
-      "author": "Jordan Harband",
-      "name": "get-intrinsic",
-      "version": "1.2.2",
-      "description": "Get and robustly cache all JS language-level intrinsics at first require time",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/get-intrinsic@1.2.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/ljharb/get-intrinsic#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/ljharb/get-intrinsic/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/ljharb/get-intrinsic.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/has-proto@1.0.1",
+      "bom-ref": "pkg:npm/has-proto@1.0.3",
       "author": "Jordan Harband",
       "name": "has-proto",
-      "version": "1.0.1",
+      "version": "1.0.3",
       "description": "Does this environment have the ability to get the [[Prototype]] of an object on creation with `__proto__`?",
       "licenses": [
         {
@@ -3354,7 +3414,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/has-proto@1.0.1",
+      "purl": "pkg:npm/has-proto@1.0.3",
       "externalReferences": [
         {
           "type": "website",
@@ -3402,10 +3462,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/hasown@2.0.0",
+      "bom-ref": "pkg:npm/hasown@2.0.1",
       "author": "Jordan Harband",
       "name": "hasown",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "description": "A robust, ES3 compatible, \"has own property\" predicate.",
       "licenses": [
         {
@@ -3414,7 +3474,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/hasown@2.0.0",
+      "purl": "pkg:npm/hasown@2.0.1",
       "externalReferences": [
         {
           "type": "website",
@@ -3432,10 +3492,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/set-function-length@1.2.0",
+      "bom-ref": "pkg:npm/set-function-length@1.2.1",
       "author": "Jordan Harband",
       "name": "set-function-length",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "description": "Set a function's length property",
       "licenses": [
         {
@@ -3444,7 +3504,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/set-function-length@1.2.0",
+      "purl": "pkg:npm/set-function-length@1.2.1",
       "externalReferences": [
         {
           "type": "website",
@@ -3462,10 +3522,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/define-data-property@1.1.1",
+      "bom-ref": "pkg:npm/define-data-property@1.1.4",
       "author": "Jordan Harband",
       "name": "define-data-property",
-      "version": "1.1.1",
+      "version": "1.1.4",
       "description": "Define a data property on an object. Will fall back to assignment in an engine without descriptors.",
       "licenses": [
         {
@@ -3474,7 +3534,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/define-data-property@1.1.1",
+      "purl": "pkg:npm/define-data-property@1.1.4",
       "externalReferences": [
         {
           "type": "website",
@@ -3522,10 +3582,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/has-property-descriptors@1.0.1",
+      "bom-ref": "pkg:npm/has-property-descriptors@1.0.2",
       "author": "Jordan Harband",
       "name": "has-property-descriptors",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Does the environment have full property descriptor support? Handles IE 8's broken defineProperty/gOPD.",
       "licenses": [
         {
@@ -3534,7 +3594,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/has-property-descriptors@1.0.1",
+      "purl": "pkg:npm/has-property-descriptors@1.0.2",
       "externalReferences": [
         {
           "type": "website",
@@ -3552,10 +3612,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/has-tostringtag@1.0.0",
+      "bom-ref": "pkg:npm/has-tostringtag@1.0.2",
       "author": "Jordan Harband",
       "name": "has-tostringtag",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "description": "Determine if the JS environment has `Symbol.toStringTag` support. Supports spec, or shams.",
       "licenses": [
         {
@@ -3564,7 +3624,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/has-tostringtag@1.0.0",
+      "purl": "pkg:npm/has-tostringtag@1.0.2",
       "externalReferences": [
         {
           "type": "website",
@@ -3642,10 +3702,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/object-is@1.1.5",
+      "bom-ref": "pkg:npm/object-is@1.1.6",
       "author": "Jordan Harband",
       "name": "object-is",
-      "version": "1.1.5",
+      "version": "1.1.6",
       "description": "ES2015-compliant shim for Object.is - differentiates between -0 and +0",
       "licenses": [
         {
@@ -3654,7 +3714,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/object-is@1.1.5",
+      "purl": "pkg:npm/object-is@1.1.6",
       "externalReferences": [
         {
           "type": "website",
@@ -3732,10 +3792,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/regexp.prototype.flags@1.5.1",
+      "bom-ref": "pkg:npm/regexp.prototype.flags@1.5.2",
       "author": "Jordan Harband",
       "name": "regexp.prototype.flags",
-      "version": "1.5.1",
+      "version": "1.5.2",
       "description": "ES6 spec-compliant RegExp.prototype.flags shim.",
       "licenses": [
         {
@@ -3744,7 +3804,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/regexp.prototype.flags@1.5.1",
+      "purl": "pkg:npm/regexp.prototype.flags@1.5.2",
       "externalReferences": [
         {
           "type": "website",
@@ -3762,10 +3822,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/set-function-name@2.0.1",
+      "bom-ref": "pkg:npm/set-function-name@2.0.2",
       "author": "Jordan Harband",
       "name": "set-function-name",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "description": "Set a function's name property",
       "licenses": [
         {
@@ -3774,7 +3834,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/set-function-name@2.0.1",
+      "purl": "pkg:npm/set-function-name@2.0.2",
       "externalReferences": [
         {
           "type": "website",
@@ -7796,36 +7856,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-rgba@3.0.0",
-      "author": "Dmitry Iv",
-      "name": "color-rgba",
-      "version": "3.0.0",
-      "description": "Convert color string (or parseable argument) to RGBA array",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-rgba@3.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-rgba#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-rgba/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-rgba.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-space@2.0.1",
       "author": "Dmitry Ivanov",
       "name": "color-space",
@@ -7856,10 +7886,40 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geotiff@2.1.1",
+      "bom-ref": "pkg:npm/color-rgba@3.0.0",
+      "author": "Dmitry Iv",
+      "name": "color-rgba",
+      "version": "3.0.0",
+      "description": "Convert color string (or parseable argument) to RGBA array",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-rgba@3.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-rgba#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-rgba/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-rgba.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/geotiff@2.1.3",
       "author": "Fabian Schindler",
       "name": "geotiff",
-      "version": "2.1.1",
+      "version": "2.1.3",
       "description": "GeoTIFF image decoding in JavaScript",
       "licenses": [
         {
@@ -7868,7 +7928,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geotiff@2.1.1",
+      "purl": "pkg:npm/geotiff@2.1.3",
       "externalReferences": [
         {
           "type": "website",
@@ -8470,7 +8530,7 @@
       ]
     },
     {
-      "ref": "pkg:npm/semver@7.5.4",
+      "ref": "pkg:npm/semver@7.6.0",
       "dependsOn": [
         "pkg:npm/lru-cache@6.0.0"
       ]
@@ -8516,7 +8576,7 @@
         "pkg:npm/nopt@5.0.0",
         "pkg:npm/npmlog@5.0.1",
         "pkg:npm/rimraf@3.0.2",
-        "pkg:npm/semver@7.5.4",
+        "pkg:npm/semver@7.6.0",
         "pkg:npm/tar@6.2.0"
       ]
     },
@@ -8530,7 +8590,7 @@
       "ref": "pkg:npm/%40types/url-search-params@1.1.2"
     },
     {
-      "ref": "pkg:npm/%40types/validator@13.11.8"
+      "ref": "pkg:npm/%40types/validator@13.11.9"
     },
     {
       "ref": "pkg:npm/%40ungap/url-search-params@0.2.2"
@@ -8539,7 +8599,7 @@
       "ref": "pkg:npm/lodash@4.17.21"
     },
     {
-      "ref": "pkg:npm/loglevel@1.8.1"
+      "ref": "pkg:npm/loglevel@1.9.1"
     },
     {
       "ref": "pkg:npm/decode-uri-component@0.2.2"
@@ -8584,10 +8644,10 @@
         "pkg:npm/%40types/lodash@4.14.202",
         "pkg:npm/%40types/url-parse@1.4.11",
         "pkg:npm/%40types/url-search-params@1.1.2",
-        "pkg:npm/%40types/validator@13.11.8",
+        "pkg:npm/%40types/validator@13.11.9",
         "pkg:npm/%40ungap/url-search-params@0.2.2",
         "pkg:npm/lodash@4.17.21",
-        "pkg:npm/loglevel@1.8.1",
+        "pkg:npm/loglevel@1.9.1",
         "pkg:npm/query-string@7.1.3",
         "pkg:npm/url-parse@1.5.10",
         "pkg:npm/validator@13.11.0"
@@ -8712,60 +8772,70 @@
       "ref": "pkg:npm/%40turf/clean-coords@6.5.0"
     },
     {
+      "ref": "pkg:npm/es-errors@1.3.0"
+    },
+    {
       "ref": "pkg:npm/function-bind@1.1.2"
     },
     {
-      "ref": "pkg:npm/has-proto@1.0.1"
+      "ref": "pkg:npm/has-proto@1.0.3"
     },
     {
       "ref": "pkg:npm/has-symbols@1.0.3"
     },
     {
-      "ref": "pkg:npm/hasown@2.0.0"
+      "ref": "pkg:npm/hasown@2.0.1"
     },
     {
-      "ref": "pkg:npm/get-intrinsic@1.2.2",
+      "ref": "pkg:npm/get-intrinsic@1.2.4",
       "dependsOn": [
-        "pkg:npm/has-proto@1.0.1",
+        "pkg:npm/es-errors@1.3.0",
+        "pkg:npm/function-bind@1.1.2",
+        "pkg:npm/has-proto@1.0.3",
         "pkg:npm/has-symbols@1.0.3",
-        "pkg:npm/hasown@2.0.0"
+        "pkg:npm/hasown@2.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/es-define-property@1.0.0",
+      "dependsOn": [
+        "pkg:npm/get-intrinsic@1.2.4"
       ]
     },
     {
       "ref": "pkg:npm/gopd@1.0.1"
     },
     {
-      "ref": "pkg:npm/has-property-descriptors@1.0.1"
-    },
-    {
-      "ref": "pkg:npm/define-data-property@1.1.1",
+      "ref": "pkg:npm/define-data-property@1.1.4",
       "dependsOn": [
-        "pkg:npm/gopd@1.0.1",
-        "pkg:npm/has-property-descriptors@1.0.1"
+        "pkg:npm/gopd@1.0.1"
       ]
     },
     {
-      "ref": "pkg:npm/set-function-length@1.2.0",
+      "ref": "pkg:npm/has-property-descriptors@1.0.2"
+    },
+    {
+      "ref": "pkg:npm/set-function-length@1.2.1",
       "dependsOn": [
-        "pkg:npm/define-data-property@1.1.1"
+        "pkg:npm/define-data-property@1.1.4",
+        "pkg:npm/has-property-descriptors@1.0.2"
       ]
     },
     {
-      "ref": "pkg:npm/call-bind@1.0.5",
+      "ref": "pkg:npm/call-bind@1.0.7",
       "dependsOn": [
-        "pkg:npm/function-bind@1.1.2",
-        "pkg:npm/get-intrinsic@1.2.2",
-        "pkg:npm/set-function-length@1.2.0"
+        "pkg:npm/es-define-property@1.0.0",
+        "pkg:npm/set-function-length@1.2.1"
       ]
     },
     {
-      "ref": "pkg:npm/has-tostringtag@1.0.0"
+      "ref": "pkg:npm/has-tostringtag@1.0.2"
     },
     {
       "ref": "pkg:npm/is-arguments@1.1.1",
       "dependsOn": [
-        "pkg:npm/call-bind@1.0.5",
-        "pkg:npm/has-tostringtag@1.0.0"
+        "pkg:npm/call-bind@1.0.7",
+        "pkg:npm/has-tostringtag@1.0.2"
       ]
     },
     {
@@ -8784,7 +8854,7 @@
       ]
     },
     {
-      "ref": "pkg:npm/object-is@1.1.5",
+      "ref": "pkg:npm/object-is@1.1.6",
       "dependsOn": [
         "pkg:npm/define-properties@1.2.1"
       ]
@@ -8793,15 +8863,15 @@
       "ref": "pkg:npm/functions-have-names@1.2.3"
     },
     {
-      "ref": "pkg:npm/set-function-name@2.0.1",
+      "ref": "pkg:npm/set-function-name@2.0.2",
       "dependsOn": [
         "pkg:npm/functions-have-names@1.2.3"
       ]
     },
     {
-      "ref": "pkg:npm/regexp.prototype.flags@1.5.1",
+      "ref": "pkg:npm/regexp.prototype.flags@1.5.2",
       "dependsOn": [
-        "pkg:npm/set-function-name@2.0.1"
+        "pkg:npm/set-function-name@2.0.2"
       ]
     },
     {
@@ -8810,8 +8880,8 @@
         "pkg:npm/is-arguments@1.1.1",
         "pkg:npm/is-date-object@1.0.5",
         "pkg:npm/is-regex@1.1.4",
-        "pkg:npm/object-is@1.1.5",
-        "pkg:npm/regexp.prototype.flags@1.5.1"
+        "pkg:npm/object-is@1.1.6",
+        "pkg:npm/regexp.prototype.flags@1.5.2"
       ]
     },
     {
@@ -9444,10 +9514,7 @@
       "ref": "pkg:npm/color-space@2.0.1"
     },
     {
-      "ref": "pkg:npm/color-rgba@3.0.0",
-      "dependsOn": [
-        "pkg:npm/color-space@2.0.1"
-      ]
+      "ref": "pkg:npm/color-rgba@3.0.0"
     },
     {
       "ref": "pkg:npm/lerc@3.0.0"
@@ -9471,7 +9538,7 @@
       "ref": "pkg:npm/zstddec@0.1.0"
     },
     {
-      "ref": "pkg:npm/geotiff@2.1.1",
+      "ref": "pkg:npm/geotiff@2.1.3",
       "dependsOn": [
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/pako@2.1.0",
@@ -9498,7 +9565,7 @@
       "ref": "pkg:npm/ol@8.2.0"
     },
     {
-      "ref": "pkg:npm/%40terrestris/ol-util@15.0.0",
+      "ref": "pkg:npm/%40terrestris/ol-util@15.0.1",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@1.1.0",
@@ -9511,8 +9578,9 @@
         "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/color-name@1.1.3",
         "pkg:npm/color-parse@2.0.0",
+        "pkg:npm/color-space@2.0.1",
         "pkg:npm/color-rgba@3.0.0",
-        "pkg:npm/geotiff@2.1.1",
+        "pkg:npm/geotiff@2.1.3",
         "pkg:npm/ieee754@1.2.1",
         "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/resolve-protobuf-schema@2.1.0",
