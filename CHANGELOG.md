@@ -1,3 +1,10 @@
+## [15.0.1](https://github.com/terrestris/ol-util/compare/v15.0.0...v15.0.1) (2024-03-01)
+
+
+### Bug Fixes
+
+* adds required peer dependencies for ts-eslint ([3665caa](https://github.com/terrestris/ol-util/commit/3665caadfa28af2a55902ccd0095473b97ede8a1))
+
 # [15.0.0](https://github.com/terrestris/ol-util/compare/v14.0.0...v15.0.0) (2024-01-18)
 
 
