@@ -1,12 +1,12 @@
 import _isNil from 'lodash/isNil';
-import { equalTo, like, or } from 'ol/format/filter';
-import OlFormatFilter from 'ol/format/filter/Filter';
+import { and, equalTo, like, or } from 'ol/format/filter';
+import OlFilter from 'ol/format/filter/Filter';
 import OlFormatWFS, { WriteGetFeatureOptions } from 'ol/format/WFS';
 
 export type AttributeSearchSettings = {
-  type: 'number' | 'int' | 'string';
   exactSearch?: boolean;
   matchCase?: boolean;
+  type: 'number' | 'int' | 'string';
 };
 
 /**
@@ -38,16 +38,18 @@ export type AttributeDetails = {
 };
 
 export type SearchConfig = {
+  attributeDetails: AttributeDetails;
   featureNS: string;
-  featureTypes?: string[];
   featurePrefix: string;
+  featureTypes?: string[];
+  filter?: OlFilter;
   geometryName?: string;
   maxFeatures?: number;
+  olFilterOnly?: boolean;
   outputFormat?: string;
+  propertyNames?: string[];
   srsName?: string;
   wfsFormatOptions?: string;
-  attributeDetails: AttributeDetails;
-  propertyNames?: string[];
 };
 
 /**
@@ -61,31 +63,32 @@ class WfsFilterUtil {
    * Creates a filter for a given feature type considering configured
    * search attributes, mapped features types to an array of attribute details and the
    * current search term.
-   * Currently, supports EQUALTO and LIKE filters only, which can be combined with
+   * Currently, supports EQUAL_TO and LIKE filters only, which can be combined with
    * OR filter if searchAttributes array contains multiple values though.
    *
+   * @param featureType
    * @param {string} searchTerm Search value.
    * @param attributeDetails
    *   attributes that should be searched through.
-   * @return {OlFormatFilter} Filter to be used with WFS GetFeature requests.
+   * @return {OlFilter} Filter to be used with WFS GetFeature requests.
    * @private
    */
   static createWfsFilter(
     featureType: string,
     searchTerm: string,
     attributeDetails: AttributeDetails
-  ): OlFormatFilter | null {
+  ): OlFilter | undefined {
 
     const details = attributeDetails[featureType];
 
-    if (!details) {
-      return null;
+    if (_isNil(details)) {
+      return;
     }
 
     const attributes = Object.keys(details);
 
     if (attributes.length === 0) {
-      return null;
+      return;
     }
 
     const propertyFilters = attributes
@@ -120,19 +123,34 @@ class WfsFilterUtil {
    */
   static getCombinedRequests(searchConfig: SearchConfig, searchTerm: string): Element | undefined {
     const {
+      attributeDetails,
       featureNS,
       featurePrefix,
       featureTypes,
+      filter,
       geometryName,
       maxFeatures,
+      olFilterOnly,
       outputFormat,
-      srsName,
-      attributeDetails,
-      propertyNames
+      propertyNames,
+      srsName
     } = searchConfig;
 
     const requests = featureTypes?.map((featureType: string): any => {
-      const filter = WfsFilterUtil.createWfsFilter(featureType, searchTerm, attributeDetails);
+      let combinedFilter: OlFilter | undefined;
+
+      // existing OlFilter should be applied to attribute
+      if (olFilterOnly && !_isNil(filter)) {
+        combinedFilter = filter;
+      } else {
+        const attributeFilter = WfsFilterUtil.createWfsFilter(featureType, searchTerm, attributeDetails);
+        if (!_isNil(filter) && !_isNil(attributeFilter)) {
+          combinedFilter = and(attributeFilter, filter);
+        } else {
+          combinedFilter = attributeFilter;
+        }
+      }
+
       const wfsFormatOpts: WriteGetFeatureOptions = {
         featureNS,
         featurePrefix,
@@ -146,8 +164,8 @@ class WfsFilterUtil {
       if (!_isNil(propertyNames)) {
         wfsFormatOpts.propertyNames = propertyNames;
       }
-      if (!_isNil(filter)) {
-        wfsFormatOpts.filter = filter;
+      if (!_isNil(combinedFilter)) {
+        wfsFormatOpts.filter = combinedFilter;
       }
 
       const wfsFormat: OlFormatWFS = new OlFormatWFS(wfsFormatOpts);

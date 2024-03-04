@@ -1,5 +1,6 @@
 /* eslint-env jest*/
 import EqualTo from 'ol/format/filter/EqualTo';
+import GreaterThanOrEqualTo from 'ol/format/filter/GreaterThanOrEqualTo';
 import IsLike from 'ol/format/filter/IsLike';
 import Or from 'ol/format/filter/Or';
 
@@ -58,9 +59,9 @@ describe('WfsFilterUtil', () => {
         expect(WfsFilterUtil.createWfsFilter).toBeDefined();
       });
 
-      it('returns null if no search attributes for the provided feature type are found', () => {
+      it('returns undefined if no search attributes for the provided feature type are found', () => {
         const got = WfsFilterUtil.createWfsFilter(featureType, stringSearchTerm, {});
-        expect(got).toBeNull();
+        expect(got).toBeUndefined();
       });
 
       it('returns simple LIKE filter if only one attribute is provided and ' +
@@ -144,6 +145,58 @@ describe('WfsFilterUtil', () => {
           expect(query.children[2].tagName).toBe('Filter');
           expect(query.children[2].getElementsByTagName('Literal')[0].innerHTML).toBe(`*${searchTerm}*`);
         });
+        filterSpy.mockRestore();
+      });
+
+      it('use OL filter instance if olFilterOnly property is set to true', () => {
+        const filterSpy = jest.spyOn(WfsFilterUtil, 'createWfsFilter');
+        const searchTerm: string = 'peter';
+        const searchTerm2: number = 5;
+
+        const olFilter = new GreaterThanOrEqualTo('testProperty', searchTerm2);
+        const testConfig: SearchConfig = {
+          ...searchConfig,
+          filter: olFilter,
+          olFilterOnly: true
+        };
+
+        const res = WfsFilterUtil.getCombinedRequests(testConfig, searchTerm);
+        expect(res?.tagName).toBe('GetFeature');
+        expect(res.querySelectorAll('Query').length).toBe(searchConfig.featureTypes!.length);
+        expect(filterSpy).toHaveBeenCalledTimes(0);
+        res.querySelectorAll('Query').forEach(query => {
+          expect(query.children[2].tagName).toBe('Filter');
+          expect(query.children[2].getElementsByTagName('Literal')[0].innerHTML).toEqual(`${searchTerm2}`);
+          expect(query.getElementsByTagName('PropertyIsGreaterThanOrEqualTo')[0]).toBeDefined();
+        });
+        filterSpy.mockRestore();
+      });
+
+      it('creates WFS GetFeature request body containing queries and combined filters for each feature type', () => {
+        const filterSpy = jest.spyOn(WfsFilterUtil, 'createWfsFilter');
+        const searchTerm: string = 'peter';
+        const searchTerm2: number = 5;
+        const olFilter = new GreaterThanOrEqualTo('anotherTestAttribute', searchTerm2);
+        const testConfig: SearchConfig = {
+          ...searchConfig,
+          filter: olFilter
+        };
+        testConfig.attributeDetails.featureType[attrName] = stringExactFalse;
+        const got = WfsFilterUtil.getCombinedRequests(testConfig, searchTerm) as Element;
+        expect(got?.tagName).toBe('GetFeature');
+        expect(got.querySelectorAll('Query').length).toBe(searchConfig.featureTypes!.length);
+        expect(filterSpy).toHaveBeenCalledTimes(searchConfig.featureTypes!.length);
+        got.querySelectorAll('Query').forEach(query => {
+          expect(query.children[2].tagName).toBe('Filter');
+          expect(query.children[2].getElementsByTagName('Literal')[0].innerHTML).toBe(`*${searchTerm}*`);
+          expect(query.children[2].getElementsByTagName('And')[0]).toBeDefined();
+          expect(
+            query.children[2].getElementsByTagName('And')[0].
+              getElementsByTagName('PropertyIsGreaterThanOrEqualTo')[0].
+              getElementsByTagName('Literal')[0].innerHTML
+          ).toEqual(`${searchTerm2}`);
+        });
+        filterSpy.mockRestore();
       });
     });
   });
