@@ -1,3 +1,16 @@
+# [16.0.0](https://github.com/terrestris/ol-util/compare/v15.0.1...v16.0.0) (2024-03-05)
+
+
+### Features
+
+* allow olFilter instances in WfsFilterUtil ([1e01896](https://github.com/terrestris/ol-util/commit/1e0189610cc888fdd20319ee74572868df14a652))
+
+
+### BREAKING CHANGES
+
+* createWfsFilter returs an OLFilter instance / undefined
+now
+
 ## [15.0.1](https://github.com/terrestris/ol-util/compare/v15.0.0...v15.0.1) (2024-03-01)
 
 
