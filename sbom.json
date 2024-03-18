@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:9cf960ca-4292-4586-91e7-c449a969a9f3",
+  "serialNumber": "urn:uuid:2445da12-399a-4b85-8ba0-0bf5c11b463e",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-03-13T08:07:43.011Z",
+    "timestamp": "2024-03-18T08:04:28.195Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6934,10 +6934,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@4.3.5",
+      "bom-ref": "pkg:npm/fast-xml-parser@4.3.6",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "4.3.5",
+      "version": "4.3.6",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -6946,7 +6946,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@4.3.5",
+      "purl": "pkg:npm/fast-xml-parser@4.3.6",
       "externalReferences": [
         {
           "type": "website",
@@ -7796,36 +7796,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-parse@2.0.0",
-      "author": "Dmitry Ivanov",
-      "name": "color-parse",
-      "version": "2.0.0",
-      "description": "Color string parser",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-parse@2.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-parse"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-parse/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-parse.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-name@1.1.3",
       "author": "DY",
       "name": "color-name",
@@ -7881,6 +7851,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/colorjs/color-rgba.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-parse@2.0.0",
+      "author": "Dmitry Ivanov",
+      "name": "color-parse",
+      "version": "2.0.0",
+      "description": "Color string parser",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-parse@2.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-parse"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-parse/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-parse.git"
         }
       ]
     },
@@ -9374,7 +9374,7 @@
       "ref": "pkg:npm/strnum@1.0.5"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@4.3.5",
+      "ref": "pkg:npm/fast-xml-parser@4.3.6",
       "dependsOn": [
         "pkg:npm/strnum@1.0.5"
       ]
@@ -9508,10 +9508,7 @@
       "ref": "pkg:npm/color-name@1.1.3"
     },
     {
-      "ref": "pkg:npm/color-parse@2.0.0",
-      "dependsOn": [
-        "pkg:npm/color-name@1.1.3"
-      ]
+      "ref": "pkg:npm/color-parse@2.0.0"
     },
     {
       "ref": "pkg:npm/color-space@2.0.1"
@@ -9519,6 +9516,7 @@
     {
       "ref": "pkg:npm/color-rgba@3.0.0",
       "dependsOn": [
+        "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-space@2.0.1"
       ]
     },
@@ -9576,13 +9574,13 @@
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@1.1.0",
         "pkg:npm/%40turf/turf@6.5.0",
-        "pkg:npm/fast-xml-parser@4.3.5",
+        "pkg:npm/fast-xml-parser@4.3.6",
         "pkg:npm/geostyler-openlayers-parser@4.3.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.10.0",
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/%40petamoriken/float16@3.8.4",
-        "pkg:npm/color-parse@2.0.0",
+        "pkg:npm/color-name@1.1.3",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/geotiff@2.1.3",
         "pkg:npm/ieee754@1.2.1",
