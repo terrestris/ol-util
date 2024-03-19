@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:8e895195-0196-49bd-9a1d-13cfdae57e55",
+  "serialNumber": "urn:uuid:99ab7d5e-24df-4bed-b3c2-6309127f294d",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-03-18T08:12:39.641Z",
+    "timestamp": "2024-03-19T08:11:41.056Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7826,6 +7826,36 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/color-rgba@3.0.0",
+      "author": "Dmitry Iv",
+      "name": "color-rgba",
+      "version": "3.0.0",
+      "description": "Convert color string (or parseable argument) to RGBA array",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-rgba@3.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-rgba#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-rgba/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-rgba.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/color-parse@2.0.0",
       "author": "Dmitry Ivanov",
       "name": "color-parse",
@@ -7881,36 +7911,6 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/colorjs/color-space.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-rgba@3.0.0",
-      "author": "Dmitry Iv",
-      "name": "color-rgba",
-      "version": "3.0.0",
-      "description": "Convert color string (or parseable argument) to RGBA array",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-rgba@3.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-rgba#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-rgba/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-rgba.git"
         }
       ]
     },
@@ -9514,7 +9514,11 @@
       "ref": "pkg:npm/color-space@2.0.1"
     },
     {
-      "ref": "pkg:npm/color-rgba@3.0.0"
+      "ref": "pkg:npm/color-rgba@3.0.0",
+      "dependsOn": [
+        "pkg:npm/color-parse@2.0.0",
+        "pkg:npm/color-space@2.0.1"
+      ]
     },
     {
       "ref": "pkg:npm/lerc@3.0.0"
@@ -9577,8 +9581,6 @@
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/color-name@1.1.3",
-        "pkg:npm/color-parse@2.0.0",
-        "pkg:npm/color-space@2.0.1",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/geotiff@2.1.3",
         "pkg:npm/ieee754@1.2.1",
