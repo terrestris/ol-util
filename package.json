@@ -96,6 +96,6 @@
     "whatwg-fetch": "^3.6.18"
   },
   "peerDependencies": {
-    "ol": ">=8.2.0"
+    "ol": ">=9"
   }
 }
