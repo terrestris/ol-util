@@ -1,3 +1,15 @@
+# [17.0.0](https://github.com/terrestris/ol-util/compare/v16.0.0...v17.0.0) (2024-04-02)
+
+
+### Features
+
+* update ol peer dependency ([#1359](https://github.com/terrestris/ol-util/issues/1359)) ([48d513d](https://github.com/terrestris/ol-util/commit/48d513d9eb16d026b7302e6b76d0da9f9ea33cf6))
+
+
+### BREAKING CHANGES
+
+* Updates the ol peerDependency to version 9
+
 # [16.0.0](https://github.com/terrestris/ol-util/compare/v15.0.1...v16.0.0) (2024-03-05)
 
 
