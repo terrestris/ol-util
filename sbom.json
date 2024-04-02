@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:99ab7d5e-24df-4bed-b3c2-6309127f294d",
+  "serialNumber": "urn:uuid:79200303-9c7f-4cbe-9047-3cd7d6076a4e",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-03-19T08:11:41.056Z",
+    "timestamp": "2024-04-02T13:01:50.849Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7232,9 +7232,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/proj4@2.10.0",
+      "bom-ref": "pkg:npm/proj4@2.11.0",
       "name": "proj4",
-      "version": "2.10.0",
+      "version": "2.11.0",
       "description": "Proj4js is a JavaScript library to transform point coordinates from one coordinate system to another, including datum transformations.",
       "licenses": [
         {
@@ -7243,7 +7243,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/proj4@2.10.0",
+      "purl": "pkg:npm/proj4@2.11.0",
       "externalReferences": [
         {
           "type": "website",
@@ -9424,7 +9424,7 @@
       "ref": "pkg:npm/wkt-parser@1.3.3"
     },
     {
-      "ref": "pkg:npm/proj4@2.10.0",
+      "ref": "pkg:npm/proj4@2.11.0",
       "dependsOn": [
         "pkg:npm/mgrs@1.0.0",
         "pkg:npm/wkt-parser@1.3.3"
@@ -9577,7 +9577,7 @@
         "pkg:npm/fast-xml-parser@4.3.6",
         "pkg:npm/geostyler-openlayers-parser@4.3.0",
         "pkg:npm/polygon-splitter@0.0.11",
-        "pkg:npm/proj4@2.10.0",
+        "pkg:npm/proj4@2.11.0",
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/color-name@1.1.3",
