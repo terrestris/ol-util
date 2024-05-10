@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:29a5f0ab-dead-461e-a93a-65776f0aebe0",
+  "serialNumber": "urn:uuid:1f4c856c-9f5b-492d-986a-aade1b4bf4fd",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-05-02T07:02:41.587Z",
+    "timestamp": "2024-05-10T07:55:51.703Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,11 +14,11 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/ol-util@17.0.0",
+      "bom-ref": "pkg:npm/%40terrestris/ol-util@17.0.1",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "ol-util",
-      "version": "17.0.0",
+      "version": "17.0.1",
       "description": "A set of helper classes for working with openLayers",
       "licenses": [
         {
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/ol-util@17.0.0",
+      "purl": "pkg:npm/%40terrestris/ol-util@17.0.1",
       "externalReferences": [
         {
           "type": "website",
@@ -7796,36 +7796,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-name@1.1.3",
-      "author": "DY",
-      "name": "color-name",
-      "version": "1.1.3",
-      "description": "A list of color names and its values",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-name@1.1.3",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/dfcreative/color-name"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/dfcreative/color-name/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/dfcreative/color-name.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-parse@2.0.0",
       "author": "Dmitry Ivanov",
       "name": "color-parse",
@@ -7851,6 +7821,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/colorjs/color-parse.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-name@1.1.3",
+      "author": "DY",
+      "name": "color-name",
+      "version": "1.1.3",
+      "description": "A list of color names and its values",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-name@1.1.3",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/dfcreative/color-name"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/dfcreative/color-name/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/dfcreative/color-name.git"
         }
       ]
     },
@@ -9508,7 +9508,10 @@
       "ref": "pkg:npm/color-name@1.1.3"
     },
     {
-      "ref": "pkg:npm/color-parse@2.0.0"
+      "ref": "pkg:npm/color-parse@2.0.0",
+      "dependsOn": [
+        "pkg:npm/color-name@1.1.3"
+      ]
     },
     {
       "ref": "pkg:npm/color-space@2.0.1"
@@ -9568,7 +9571,7 @@
       "ref": "pkg:npm/ol@9.1.0"
     },
     {
-      "ref": "pkg:npm/%40terrestris/ol-util@17.0.0",
+      "ref": "pkg:npm/%40terrestris/ol-util@17.0.1",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@1.1.0",
@@ -9579,7 +9582,6 @@
         "pkg:npm/proj4@2.11.0",
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/%40petamoriken/float16@3.8.4",
-        "pkg:npm/color-name@1.1.3",
         "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/geotiff@2.1.3",
