@@ -1,5 +1,6 @@
 /* eslint-env jest*/
 
+import { getUid } from 'ol';
 import OlFeature from 'ol/Feature';
 import OlGeomPoint from 'ol/geom/Point';
 import OlInteractionDragRotateAndZoom from 'ol/interaction/DragRotateAndZoom';
@@ -142,6 +143,32 @@ describe('MapUtil', () => {
       const calculateScale = MapUtil.getResolutionForScale(testScale, unit);
       expect(calculateScale).toBeDefined();
       expect(MapUtil.getScaleForResolution(calculateScale!, unit)).toBe(testScale);
+    });
+  });
+
+  describe('#getLayerByOlUid', () => {
+    it('returns layer by Uid', () => {
+      const firstLayer = map.getLayers().item(0);
+      const firstLayerUid = getUid(firstLayer);
+      const got = MapUtil.getLayerByOlUid(map, firstLayerUid);
+      expect(got).toBe(firstLayer);
+    });
+    it('returns layer by uid, when map has many layers', () => {
+      const firstLayer = map.getLayers().item(0);
+      const firstLayerUid = getUid(firstLayer);
+      expect(map.getLayers().getLength()).toBe(1);
+      let added = 0; // add 10 layers
+      while (added < 10) {
+        map.addLayer(new OlLayerTile());
+        added++;
+      }
+      const got = MapUtil.getLayerByOlUid(map, firstLayerUid);
+      expect(map.getLayers().getLength()).toBe(11);
+      expect(got).toBe(firstLayer);
+    });
+    it('returns undefined for unknown uid', () => {
+      const got = MapUtil.getLayerByOlUid(map, 'made-up-uid-123');
+      expect(got).toBe(undefined);
     });
   });
 
