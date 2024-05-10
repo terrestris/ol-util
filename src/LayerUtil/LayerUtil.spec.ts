@@ -75,45 +75,98 @@ describe('LayerUtil', () => {
     });
 
     describe('#getExtentForLayer', () => {
-      it('returns the extent of the given layer for GetCapabilities request version 1.3.0', async () => {
-        const layer = new OlLayerTile({
-          source: new OlSourceTileWMS({
-            url: 'https://ows.terrestris.de/osm-gray/service?',
-            params: {
-              LAYERS: 'OSM-WMS'
+      it('returns the extent of the given layer for GetCapabilities request version 1.3.0 (multiple layers)',
+        async () => {
+          const layer = new OlLayerTile({
+            source: new OlSourceTileWMS({
+              url: 'https://ows.terrestris.de/osm-gray/service?',
+              params: {
+                LAYERS: 'OSM-WMS'
+              }
+            }),
+            properties: {
+              name: 'OSM-WMS'
             }
-          }),
-          properties: {
-            name: 'OSM-WMS'
-          }
-        });
+          });
 
-        const mockImpl = jest.fn();
-        mockImpl.mockReturnValue({
-          Capability: {
-            Layer: {
-              Layer: [{
-                Name: 'OSM-WMS',
-                // eslint-disable-next-line camelcase
-                EX_GeographicBoundingBox: {
-                  westBoundLongitude: 1,
-                  southBoundLatitude: 2,
-                  eastBoundLongitude: 3,
-                  northBoundLatitude: 4
+          const mockImpl = jest.fn();
+          mockImpl.mockReturnValue({
+            Capability: {
+              Layer: {
+                Layer: [{
+                  Name: 'OSM-WMS',
+                  // eslint-disable-next-line camelcase
+                  EX_GeographicBoundingBox: {
+                    westBoundLongitude: 1,
+                    southBoundLatitude: 2,
+                    eastBoundLongitude: 3,
+                    northBoundLatitude: 4
+                  }
+                }, {
+                  Name: 'Peter',
+                  // eslint-disable-next-line camelcase
+                  EX_GeographicBoundingBox: {
+                    westBoundLongitude: 5,
+                    southBoundLatitude: 6,
+                    eastBoundLongitude: 7,
+                    northBoundLatitude: 8
+                  }
+                }]
+              }
+            }
+          });
+          const getWmsCapabilitiesByLayerSpy = jest.spyOn(CapabilitiesUtil,
+            'getWmsCapabilitiesByLayer').mockImplementation(mockImpl);
+
+          const extent = await LayerUtil.getExtentForLayer(layer);
+
+          expect(extent).toEqual([1, 2, 3, 4]);
+
+          getWmsCapabilitiesByLayerSpy.mockRestore();
+        }
+      );
+
+      it('returns the extent of the given layer for GetCapabilities request version 1.3.0 (single layer)',
+        async () => {
+          const layer = new OlLayerTile({
+            source: new OlSourceTileWMS({
+              url: 'https://ows.terrestris.de/osm-gray/service?',
+              params: {
+                LAYERS: 'OSM-WMS'
+              }
+            }),
+            properties: {
+              name: 'OSM-WMS'
+            }
+          });
+
+          const mockImpl = jest.fn();
+          mockImpl.mockReturnValue({
+            Capability: {
+              Layer: {
+                Layer: {
+                  Name: 'OSM-WMS',
+                  // eslint-disable-next-line camelcase
+                  EX_GeographicBoundingBox: {
+                    westBoundLongitude: 1,
+                    southBoundLatitude: 2,
+                    eastBoundLongitude: 3,
+                    northBoundLatitude: 4
+                  }
                 }
-              }]
+              }
             }
-          }
-        });
-        const getWmsCapabilitiesByLayerSpy = jest.spyOn(CapabilitiesUtil,
-          'getWmsCapabilitiesByLayer').mockImplementation(mockImpl);
+          });
+          const getWmsCapabilitiesByLayerSpy = jest.spyOn(CapabilitiesUtil,
+            'getWmsCapabilitiesByLayer').mockImplementation(mockImpl);
 
-        const extent = await LayerUtil.getExtentForLayer(layer);
+          const extent = await LayerUtil.getExtentForLayer(layer);
 
-        expect(extent).toEqual([1, 2, 3, 4]);
+          expect(extent).toEqual([1, 2, 3, 4]);
 
-        getWmsCapabilitiesByLayerSpy.mockRestore();
-      });
+          getWmsCapabilitiesByLayerSpy.mockRestore();
+        }
+      );
 
       it('returns the extent of the given layer for GetCapabilities request version 1.1.1', async () => {
         const layer = new OlLayerTile({

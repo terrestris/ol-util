@@ -73,15 +73,19 @@ class LayerUtil {
   ): Promise<OlExtent> {
     const capabilities = await CapabilitiesUtil.getWmsCapabilitiesByLayer(layer, fetchOpts);
 
-    const capabilitiesLayer = capabilities?.Capability?.Layer?.Layer;
+    let layerNodes = capabilities?.Capability?.Layer?.Layer;
 
-    if (!capabilitiesLayer) {
+    if (!layerNodes) {
       throw new Error('Unexpected format of the Capabilities.');
+    }
+
+    if (!Array.isArray(layerNodes)) {
+      layerNodes = [layerNodes];
     }
 
     const layerName = layer.getSource()?.getParams().LAYERS;
     const version = layer.getSource()?.getParams().VERSION || '1.3.0';
-    const layers = capabilitiesLayer.filter((l: any) => {
+    const layers = layerNodes.filter((l: any) => {
       return l.Name === layerName;
     });
 
