@@ -24,6 +24,8 @@ import { getUid } from 'ol/util';
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import LayerUtil from '../LayerUtil/LayerUtil';
 
+export type WMSLayer = OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>;
+
 export type LayerPositionInfo = {
   position?: number;
   groupLayer?: OlLayerGroup;
@@ -139,10 +141,7 @@ export class MapUtil {
    * @return {OlBaseLayer|undefined} The layer.
    */
   static getLayerByOlUid = (map: OlMap, olUid: string): OlBaseLayer | undefined => {
-    const layers = MapUtil.getAllLayers(map);
-    return layers.find((l) => {
-      return olUid === getUid(l).toString();
-    });
+    return MapUtil.getAllLayers(map, l => olUid === getUid(l).toString())[0];
   };
 
   /**
@@ -154,10 +153,7 @@ export class MapUtil {
    *                    be found.
    */
   static getLayerByName(map: OlMap, name: string): OlBaseLayer {
-    const layers = MapUtil.getAllLayers(map);
-    return layers.filter((layer) => {
-      return layer.get('name') === name;
-    })[0];
+    return MapUtil.getAllLayers(map, l => l.get('name') === name)[0];
   }
 
   /**
@@ -172,23 +168,12 @@ export class MapUtil {
   static getLayerByNameParam(
     map: OlMap,
     name: string
-  ): OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | undefined {
-    let layers = MapUtil.getAllLayers(map);
-    let layerCandidate: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | undefined;
-
-    for (let layer of layers) {
-      if (layer instanceof OlLayerTile || layer instanceof OlLayerImage) {
-        const source = layer.getSource();
-        if (source instanceof OlSourceImageWMS || source instanceof OlSourceTileWMS) {
-          if (layer.getSource().getParams().LAYERS === name) {
-            layerCandidate = layer;
-            break;
-          }
-        }
-      }
-    }
-
-    return layerCandidate;
+  ): WMSLayer | undefined {
+    const layer =  MapUtil.getAllLayers(map, l => {
+      return (l instanceof OlLayerTile || l instanceof OlLayerImage) &&
+      l.getSource().getParams().LAYERS === name;
+    })[0];
+    return layer as WMSLayer;
   }
 
   /**
@@ -242,8 +227,7 @@ export class MapUtil {
    * @return {OlBaseLayer[]} The array of matching layers.
    */
   static getLayersByProperty(map: OlMap, key: string, value: any) {
-    const mapLayers = MapUtil.getAllLayers(map);
-    return mapLayers.filter(l => l.get(key) === value);
+    return MapUtil.getAllLayers(map, l => l.get(key) === value);
   }
 
   /**
