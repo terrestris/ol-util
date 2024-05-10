@@ -1,3 +1,10 @@
+## [17.0.1](https://github.com/terrestris/ol-util/compare/v17.0.0...v17.0.1) (2024-05-10)
+
+
+### Bug Fixes
+
+* update getExtentForLayer ([8475afa](https://github.com/terrestris/ol-util/commit/8475afa68d52f88fb74334be40ce5bc0cc348fd7))
+
 # [17.0.0](https://github.com/terrestris/ol-util/compare/v16.0.0...v17.0.0) (2024-04-02)
 
 
