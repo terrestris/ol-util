@@ -10,22 +10,17 @@ import OlGeometry from 'ol/geom/Geometry';
 import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
 import OlBaseLayer from 'ol/layer/Base';
 import OlLayerGroup from 'ol/layer/Group';
-import OlLayerImage from 'ol/layer/Image';
 import OlLayer from 'ol/layer/Layer';
-import OlLayerTile from 'ol/layer/Tile';
 import OlMap from 'ol/Map';
 import { toLonLat } from 'ol/proj';
 import { METERS_PER_UNIT, Units } from 'ol/proj/Units';
-import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceWMTS from 'ol/source/WMTS';
 import { getUid } from 'ol/util';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import LayerUtil from '../LayerUtil/LayerUtil';
-import { WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
-
-export type WMSLayer = OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>;
+import { isWmsLayer, WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
 
 export type LayerPositionInfo = {
   position?: number;
@@ -101,7 +96,7 @@ export class MapUtil {
       logger.info('Currently only \'degrees\' and \'m\' units are supported.');
       return undefined;
     }
-    var inchesPerMeter = 39.37;
+    const inchesPerMeter = 39.37;
 
     return (_isString(resolution) ? parseFloat(resolution) : resolution) * mpu * inchesPerMeter * dpi;
   }
@@ -163,18 +158,17 @@ export class MapUtil {
    *
    * @param {OlMap} map The map to use for lookup.
    * @param {string} name The name to get the layer by.
-   * @return {OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>|undefined}
+   * @return {WmsLayer|undefined}
    * The result layer or undefined if the layer could not be found.
    */
   static getLayerByNameParam(
     map: OlMap,
     name: string
-  ): WMSLayer | undefined {
+  ): WmsLayer | undefined {
     const layer =  MapUtil.getAllLayers(map, l => {
-      return (l instanceof OlLayerTile || l instanceof OlLayerImage) &&
-      l.getSource().getParams().LAYERS === name;
+      return isWmsLayer(l) && l.getSource()?.getParams().LAYERS === name;
     })[0];
-    return layer as WMSLayer;
+    return layer as WmsLayer;
   }
 
   /**
@@ -223,11 +217,11 @@ export class MapUtil {
    *
    * @param {OlMap} map The map to use for lookup.
    * @param {string} key The property key.
-   * @param {Object} value The property value.
+   * @param {any} value The property value.
    *
    * @return {OlBaseLayer[]} The array of matching layers.
    */
-  static getLayersByProperty(map: OlMap, key: string, value: any) {
+  static getLayersByProperty(map: OlMap, key: string, value: any): OlBaseLayer[] {
     return MapUtil.getAllLayers(map, l => l.get(key) === value);
   }
 
