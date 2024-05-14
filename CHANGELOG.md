@@ -1,3 +1,18 @@
+# [18.0.0](https://github.com/terrestris/ol-util/compare/v17.0.1...v18.0.0) (2024-05-14)
+
+
+### Features
+
+* add wms layer type utils ([adb1ca4](https://github.com/terrestris/ol-util/commit/adb1ca490a43a903ce764cb02d6b493a285fb702))
+* remove duplicate `WMSLayer` type ([fa82fdd](https://github.com/terrestris/ol-util/commit/fa82fddbeeaf0cdc84fecce5e4599156d7d39993))
+
+
+### BREAKING CHANGES
+
+* removes the `WMSLayer` type from `MapUtils`. Use `WmsLayer` from typeUtils instead.
+* removes the `LayerUtil.isOlSource(source)` etc. functions in favor of
+`instanceof` checks
+
 ## [17.0.1](https://github.com/terrestris/ol-util/compare/v17.0.0...v17.0.1) (2024-05-10)
 
 
