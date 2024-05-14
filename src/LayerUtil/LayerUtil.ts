@@ -16,18 +16,8 @@ import OlSourceVector from 'ol/source/Vector';
 import OlSourceWMTS from 'ol/source/WMTS';
 
 import CapabilitiesUtil from '../CapabilitiesUtil/CapabilitiesUtil';
+import { WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
 import { InkmapGeoJsonLayer, InkmapLayer } from './InkmapTypes';
-
-interface UnknownOlSource {
-  getImageLoadFunction?: any;
-  getTileGrid?: any;
-  getFeatures?: any;
-  getMatrixSet?: any;
-  getUrls?: any;
-  attribution?: any;
-  getLegendUrl?: any;
-  getParams?: any;
-}
 
 /**
  * Helper class for layer interaction.
@@ -39,23 +29,24 @@ class LayerUtil {
   /**
    * Returns the configured URL of the given layer.
    *
-   * @param { OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | OlLayerTile<OlSourceWMTS>} layer The layer
+   * @param { WmsLayer | WmtsLayer } layer The layer
    *   to get the URL from.
    * @returns {string} The layer URL.
    */
   static getLayerUrl = (
-    layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS> | OlLayerTile<OlSourceWMTS>
+    layer: WmsLayer | WmtsLayer
   ): string => {
     const layerSource = layer.getSource();
 
-    if (LayerUtil.isOlSourceTileWMS(layerSource)) {
+    if (!layerSource) {
+      return '';
+    } else if (layerSource instanceof OlSourceTileWMS) {
       return layerSource.getUrls()?.[0] ?? '';
-    } else if (LayerUtil.isOlSourceImageWMS(layerSource)) {
+    } else if (layerSource instanceof OlSourceImageWMS) {
       return layerSource.getUrl() ?? '';
-    } else if (LayerUtil.isOlSourceWMTS(layerSource)) {
+    } else {
       return layerSource.getUrls()?.[0] ?? '';
     }
-    return '';
   };
 
   /**
@@ -132,7 +123,7 @@ class LayerUtil {
   static async mapOlLayerToInkmap(
     olLayer: OlLayer
   ): Promise<InkmapLayer> {
-    const source = olLayer.getSource() as UnknownOlSource;
+    const source = olLayer.getSource();
     if (!olLayer.getVisible()) {
       // do not include invisible layers
       return Promise.reject();
@@ -141,14 +132,14 @@ class LayerUtil {
     const legendUrl = olLayer.get('legendUrl');
     const layerName = olLayer.get('name');
     let time;
-    if (LayerUtil.isOlSourceTileWMS(source) || LayerUtil.isOlSourceImageWMS(source)) {
+    if (source instanceof OlSourceTileWMS || source instanceof OlSourceImageWMS) {
       time = source.getParams().TIME;
     }
 
     // todo: introduce config object which hold possible additional configurations
     const attributionString = LayerUtil.getLayerAttributionsText(olLayer, ' ,', true);
 
-    if (LayerUtil.isOlSourceTileWMS(source)) {
+    if (source instanceof OlSourceTileWMS) {
       return {
         type: 'WMS',
         url: source.getUrls()?.[0] ?? '',
@@ -162,7 +153,7 @@ class LayerUtil {
           ...(time && { time })
         }
       };
-    } else if (LayerUtil.isOlSourceImageWMS(source)) {
+    } else if (source instanceof OlSourceImageWMS) {
       return {
         type: 'WMS',
         url: source.getUrl() ?? '',
@@ -176,7 +167,7 @@ class LayerUtil {
           ...(time && { time })
         }
       };
-    } else if (LayerUtil.isOlSourceWMTS(source)) {
+    } else if (source instanceof OlSourceWMTS) {
       const olTileGrid = source.getTileGrid();
       const resolutions = olTileGrid?.getResolutions();
       const matrixIds = resolutions?.map((res: number, idx: number) => idx);
@@ -201,7 +192,7 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (LayerUtil.isOlSourceOSM(source)) {
+    } else if (source instanceof OlSourceOSM) {
       return {
         type: 'XYZ',
         url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -211,7 +202,7 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (LayerUtil.isOlSourceStadiaMaps(source)) {
+    } else if (source instanceof OlSourceStadiaMaps) {
       const urls = source.getUrls();
       if (isNil(urls)) {
         return Promise.reject();
@@ -225,7 +216,7 @@ class LayerUtil {
         legendUrl,
         layerName
       };
-    } else if (LayerUtil.isOlSourceVector(source)) {
+    } else if (source instanceof OlSourceVector) {
       const geojson = new OlFormatGeoJSON().writeFeaturesObject(source.getFeatures());
       const parser = new OpenLayersParser();
       const geojsonLayerConfig: InkmapGeoJsonLayer = {
@@ -299,32 +290,6 @@ class LayerUtil {
     }
     return attributionString;
   };
-
-  static isOlSourceTileWMS = (source: UnknownOlSource | null): source is OlSourceTileWMS => {
-    return source?.getTileGrid && !source?.getMatrixSet || false;
-  };
-
-  static isOlSourceImageWMS = (source: UnknownOlSource | null): source is OlSourceImageWMS => {
-    return source?.getImageLoadFunction || false;
-  };
-
-  static isOlSourceOSM = (source: UnknownOlSource | null): source is OlSourceOSM => {
-    return source?.getUrls && source.getUrls().find(
-      (u: string) => u.includes('openstreetmap.org')) || false;
-  };
-
-  static isOlSourceStadiaMaps = (source: UnknownOlSource | null): source is OlSourceStadiaMaps => {
-    return source?.attribution?.includes('stadiamaps.com') || false;
-  };
-
-  static isOlSourceVector = (source: UnknownOlSource | null): source is OlSourceVector => {
-    return source?.getFeatures || false;
-  };
-
-  static isOlSourceWMTS = (source: UnknownOlSource | null): source is OlSourceWMTS => {
-    return source?.getTileGrid && source?.getMatrixSet || false;
-  };
-
 }
 
 export default LayerUtil;

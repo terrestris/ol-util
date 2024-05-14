@@ -23,6 +23,7 @@ import { getUid } from 'ol/util';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import LayerUtil from '../LayerUtil/LayerUtil';
+import { WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
 
 export type WMSLayer = OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>;
 
@@ -268,32 +269,20 @@ export class MapUtil {
    *  - ol.source.ImageWms (with url configured)
    *  - ol.source.WMTS (with url configured)
    *
-   * @param {OlLayerTile<OlSourceTileWMS>
-   * | OlLayerImage<OlSourceImageWMS>
-   * | OlLayerImage<OlSourceImageWMS>} layer The layer that you want to have a legendUrl for.
+   * @param {WmsLayer | WmtsLayer} layer The layer that you want to have a legendUrl for.
    * @param {Object} extraParams
    * @return {string} The getLegendGraphicUrl.
    */
   static getLegendGraphicUrl(
-    layer:
-      | OlLayerTile<OlSourceTileWMS>
-      | OlLayerImage<OlSourceImageWMS>
-      | OlLayerTile<OlSourceWMTS>,
+    layer: WmsLayer | WmtsLayer,
     extraParams: {
       [key: string]: string | number;
     } = {}
   ): string {
     const source = layer.getSource();
 
-    if (
-      !source ||
-      !(
-        source instanceof OlSourceTileWMS ||
-        source instanceof OlSourceImageWMS ||
-        source instanceof OlSourceWMTS
-      )
-    ) {
-      throw new Error('Layer has no or unexpected source.');
+    if (!source) {
+      throw new Error('Layer has no source.');
     }
 
     if (source instanceof OlSourceWMTS) {
