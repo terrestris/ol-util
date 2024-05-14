@@ -3,11 +3,10 @@ import { XMLParser } from 'fast-xml-parser';
 import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';
 import OlLayerImage from 'ol/layer/Image';
-import OlLayerTile from 'ol/layer/Tile';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
-import OlSourceTileWMS from 'ol/source/TileWMS';
 
 import LayerUtil from '../LayerUtil/LayerUtil';
+import { WmsLayer } from '../typeUtils/typeUtils';
 /**
  * Helper class to parse capabilities of WMS layers
  *
@@ -48,13 +47,13 @@ class CapabilitiesUtil {
   /**
    * Fetches and parses the WMS Capabilities document for the given layer.
    *
-   * @param {import("../types").WMSLayer} layer The layer to the get the Capabilites for.
+   * @param {WmsLayer} layer The layer to the get the Capabilites for.
    * @param {RequestInit} fetchOpts Optional fetch options to make use of
    *                                while requesting the Capabilities.
    * @return {Promise<any>} An object representing the WMS capabilities.
    */
   static async getWmsCapabilitiesByLayer(
-    layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
+    layer: WmsLayer,
     fetchOpts: RequestInit = {}
   ): Promise<any> {
     const capabilitiesUrl = this.getCapabilitiesUrl(layer);
@@ -67,7 +66,7 @@ class CapabilitiesUtil {
    * @param {import("../types").WMSLayer} layer The layer to the get the Capabilities URL for.
    * @return {string} The Capabilities URL.
    */
-  static getCapabilitiesUrl(layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>) {
+  static getCapabilitiesUrl(layer: WmsLayer) {
     const layerSource = layer.getSource();
     const layerBaseUrl = LayerUtil.getLayerUrl(layer);
     const wmsVersion = layerSource?.getParams()?.VERSION || '1.3.0';

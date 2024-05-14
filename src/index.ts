@@ -1,25 +1,12 @@
-import AnimateUtil from './AnimateUtil/AnimateUtil';
-import CapabilitiesUtil from './CapabilitiesUtil/CapabilitiesUtil';
-import FeatureUtil from './FeatureUtil/FeatureUtil';
-import FileUtil from './FileUtil/FileUtil';
-import GeometryUtil from './GeometryUtil/GeometryUtil';
-import LayerUtil from './LayerUtil/LayerUtil';
-import MapUtil from './MapUtil/MapUtil';
-import MeasureUtil from './MeasureUtil/MeasureUtil';
-import PermalinkUtil from './PermalinkUtil/PermalinkUtil';
-import ProjectionUtil from './ProjectionUtil/ProjectionUtil';
-import WfsFilterUtil from './WfsFilterUtil/WfsFilterUtil';
-
-export {
-  AnimateUtil,
-  CapabilitiesUtil,
-  FeatureUtil,
-  FileUtil,
-  GeometryUtil,
-  LayerUtil,
-  MapUtil,
-  MeasureUtil,
-  PermalinkUtil,
-  ProjectionUtil,
-  WfsFilterUtil
-};
+export {default as AnimateUtil} from './AnimateUtil/AnimateUtil';
+export {default as CapabilitiesUtil} from './CapabilitiesUtil/CapabilitiesUtil';
+export {default as FeatureUtil} from './FeatureUtil/FeatureUtil';
+export {default as FileUtil} from './FileUtil/FileUtil';
+export {default as GeometryUtil} from './GeometryUtil/GeometryUtil';
+export {default as LayerUtil} from './LayerUtil/LayerUtil';
+export {default as MapUtil} from './MapUtil/MapUtil';
+export {default as MeasureUtil} from './MeasureUtil/MeasureUtil';
+export {default as PermalinkUtil} from './PermalinkUtil/PermalinkUtil';
+export {default as ProjectionUtil} from './ProjectionUtil/ProjectionUtil';
+export * from './typeUtils/typeUtils';
+export {default as WfsFilterUtil} from './WfsFilterUtil/WfsFilterUtil';
