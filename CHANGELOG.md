@@ -1,3 +1,10 @@
+## [18.0.1](https://github.com/terrestris/ol-util/compare/v18.0.0...v18.0.1) (2024-05-16)
+
+
+### Bug Fixes
+
+* use WmsLayer type in getExtent function ([ad0b70a](https://github.com/terrestris/ol-util/commit/ad0b70a4906af80b41f0614dd72fa31e8b16b757))
+
 # [18.0.0](https://github.com/terrestris/ol-util/compare/v17.0.1...v18.0.0) (2024-05-14)
 
 
