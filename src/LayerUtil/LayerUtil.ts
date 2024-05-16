@@ -53,13 +53,13 @@ class LayerUtil {
    * Returns the extent of the given layer as defined in the
    * appropriate Capabilities document.
    *
-   * @param { OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>} layer
+   * @param {WmsLayer} layer
    * @param {RequestInit} fetchOpts Optional fetch options to make use of
    *                                while requesting the Capabilities.
    * @returns {Promise<[number, number, number, number]>} The extent of the layer.
    */
   static async getExtentForLayer(
-    layer: OlLayerTile<OlSourceTileWMS> | OlLayerImage<OlSourceImageWMS>,
+    layer: WmsLayer,
     fetchOpts: RequestInit = {}
   ): Promise<OlExtent> {
     const capabilities = await CapabilitiesUtil.getWmsCapabilitiesByLayer(layer, fetchOpts);
