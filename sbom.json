@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:e990c903-fd5f-43e9-a5ed-880d1ba94c3f",
+  "serialNumber": "urn:uuid:ac6c1d13-27c0-41a8-bc3e-6fc1c21c6035",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-05-17T07:43:55.164Z",
+    "timestamp": "2024-05-21T07:13:30.073Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6934,10 +6934,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@4.3.6",
+      "bom-ref": "pkg:npm/fast-xml-parser@4.4.0",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "4.3.6",
+      "version": "4.4.0",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -6946,7 +6946,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@4.3.6",
+      "purl": "pkg:npm/fast-xml-parser@4.4.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7826,36 +7826,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-rgba@3.0.0",
-      "author": "Dmitry Iv",
-      "name": "color-rgba",
-      "version": "3.0.0",
-      "description": "Convert color string (or parseable argument) to RGBA array",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-rgba@3.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-rgba#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-rgba/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-rgba.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-parse@2.0.0",
       "author": "Dmitry Ivanov",
       "name": "color-parse",
@@ -7881,6 +7851,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/colorjs/color-parse.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-rgba@3.0.0",
+      "author": "Dmitry Iv",
+      "name": "color-rgba",
+      "version": "3.0.0",
+      "description": "Convert color string (or parseable argument) to RGBA array",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-rgba@3.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-rgba#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-rgba/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-rgba.git"
         }
       ]
     },
@@ -9374,7 +9374,7 @@
       "ref": "pkg:npm/strnum@1.0.5"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@4.3.6",
+      "ref": "pkg:npm/fast-xml-parser@4.4.0",
       "dependsOn": [
         "pkg:npm/strnum@1.0.5"
       ]
@@ -9516,7 +9516,6 @@
     {
       "ref": "pkg:npm/color-rgba@3.0.0",
       "dependsOn": [
-        "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-space@2.0.1"
       ]
     },
@@ -9574,13 +9573,14 @@
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@1.1.0",
         "pkg:npm/%40turf/turf@6.5.0",
-        "pkg:npm/fast-xml-parser@4.3.6",
+        "pkg:npm/fast-xml-parser@4.4.0",
         "pkg:npm/geostyler-openlayers-parser@4.3.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.11.0",
         "pkg:npm/shpjs@4.0.4",
         "pkg:npm/%40petamoriken/float16@3.8.4",
         "pkg:npm/color-name@1.1.3",
+        "pkg:npm/color-parse@2.0.0",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/geotiff@2.1.3",
         "pkg:npm/ieee754@1.2.1",
