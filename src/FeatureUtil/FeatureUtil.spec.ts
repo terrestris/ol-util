@@ -5,7 +5,7 @@ import OlFeature from 'ol/Feature';
 import OlGeometry from 'ol/geom/Geometry';
 import OlGeomPoint from 'ol/geom/Point';
 
-import { FeatureUtil, } from '../index';
+import { FeatureUtil } from '../index';
 
 describe('FeatureUtil', () => {
   let coords: Coordinate;
