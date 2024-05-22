@@ -1,7 +1,7 @@
 /* eslint-env jest*/
 
+import shpwrite, { OutputType } from '@mapbox/shp-write';
 import OlMap from 'ol/Map';
-import shpwrite from 'shp-write';
 
 import {
   FileUtil
@@ -9,7 +9,7 @@ import {
 import TestUtil from '../TestUtil';
 import geoJson from './federal-states-ger.json';
 
-const geoJson2 = {
+const geoJson2: GeoJSON.FeatureCollection = {
   type: 'FeatureCollection',
   features: [{
     type: 'Feature',
@@ -26,12 +26,6 @@ const geoJson2 = {
 describe('FileUtil', () => {
   const geoJsonFile = new File([JSON.stringify(geoJson)], 'geo.json', {
     type: 'application/json',
-    lastModified: new Date().getMilliseconds()
-  });
-
-  const shpBuffer = shpwrite.zip(geoJson2);
-  const shpFile = new File([new Blob([shpBuffer])], 'geo.zip', {
-    type: 'application/zip',
     lastModified: new Date().getMilliseconds()
   });
 
@@ -83,8 +77,19 @@ describe('FileUtil', () => {
     });
 
     describe('#addShpLayerFromFile', () => {
-      it('reads the shp file and adds a layer to the map', () => {
+      it('reads the shp file and adds a layer to the map', async () => {
+        const shpBuffer = await shpwrite.zip<'arraybuffer'>(geoJson2, {
+          outputType: 'arraybuffer',
+          compression: 'STORE'
+        });
+
+        const shpFile = new File([new Blob([shpBuffer])], 'geo.zip', {
+          type: 'application/zip',
+          lastModified: new Date().getMilliseconds()
+        });
+
         expect.assertions(6);
+
         return new Promise((resolve) => {
           const layers = map.getLayers();
           layers.on('add', (event) => {

@@ -1,3 +1,4 @@
+import { FeatureLike as OlFeatureLike } from 'ol/Feature';
 import OlBaseLayer from 'ol/layer/Base';
 import OlImageLayer from 'ol/layer/Image';
 import OlLayer from 'ol/layer/Layer';
@@ -13,7 +14,7 @@ export type WmsLayer = OlImageLayer<OlImageWMS> | OlTileLayer<OlTileWMS> | OlLay
 
 export type WmtsLayer = OlLayerTile<OlSourceWMTS>;
 
-export type WfsLayer = OlVectorLayer<OlSourceVector>;
+export type WfsLayer = OlVectorLayer<OlFeatureLike>;
 
 export function isWmsLayer(layer: OlBaseLayer): layer is WmsLayer {
   if (layer instanceof OlLayer) {
