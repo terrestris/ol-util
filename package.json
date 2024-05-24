@@ -20,6 +20,7 @@
   "author": "terrestris GmbH & Co. KG <info@terrestris.de>",
   "main": "dist/index.js",
   "module": "src/index.ts",
+  "type": "module",
   "browser": "dist/index.js",
   "files": [
     "src",
@@ -35,8 +36,8 @@
     "lint": "eslint -c .eslintrc --ext .ts src/",
     "lint:fix": "eslint -c .eslintrc --ext .ts src/ --fix",
     "prepare": "husky",
-    "test": "jest --maxWorkers=4 --coverage",
-    "test:watch": "jest --watchAll",
+    "test": "jest --maxWorkers=4 --coverage -c jest.config.mjs",
+    "test:watch": "jest --watchAll -c jest.config.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "watch:buildto": "node watchBuild.js"
   },

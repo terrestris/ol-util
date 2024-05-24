@@ -1,6 +1,6 @@
-module.exports = {
+export default {
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.mjs'],
   moduleFileExtensions: [
     'ts',
     'js',
@@ -8,7 +8,8 @@ module.exports = {
   ],
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-    '^.+\\.ts$': '<rootDir>/node_modules/babel-jest'
+    '^.+\\.ts$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.mjs$': '<rootDir>/node_modules/babel-jest'
   },
   transformIgnorePatterns: [
     '<rootDir>/node_modules/(?!(ol|@babel|jest-runtime|@terrestris|color-space|color-rgba|color-name|' +
