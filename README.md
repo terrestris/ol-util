@@ -14,6 +14,8 @@ A set of helper classes for working with OpenLayers
 npm i @terrestris/ol-util
 ```
 
+Be aware that ol-util uses a ESM build, so make sure your downstream application's bundler includes it when transpiling.
+
 ## API Documentation
 
 * Latest: [https://terrestris.github.io/ol-util/latest/index.html](https://terrestris.github.io/ol-util/latest/index.html)
