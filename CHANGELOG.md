@@ -1,3 +1,17 @@
+# [19.0.0](https://github.com/terrestris/ol-util/compare/v18.0.1...v19.0.0) (2024-05-24)
+
+
+### Features
+
+* update readme ([#1430](https://github.com/terrestris/ol-util/issues/1430)) ([9ed0617](https://github.com/terrestris/ol-util/commit/9ed061732bee41f58d375370a513ca98415e6c5f))
+
+
+### BREAKING CHANGES
+
+* ol-util now produces a ESM build, so downstream
+apps need to include it in their bundler when transpiling for
+the browser.
+
 ## [18.0.1](https://github.com/terrestris/ol-util/compare/v18.0.0...v18.0.1) (2024-05-16)
 
 
