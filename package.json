@@ -82,7 +82,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "ol": "^9.2.2",
     "rimraf": "^5.0.7",
-    "semantic-release": "^23.1.1",
+    "semantic-release": "^24.0.0",
     "typedoc": "^0.25.13",
     "typescript": "^5.4.5",
     "watch": "1.0.2",
