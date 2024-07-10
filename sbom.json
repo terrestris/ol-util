@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:47acf9cd-75e1-4cfd-adfa-a5de04298414",
+  "serialNumber": "urn:uuid:0a1b2f7e-97e5-4c03-ac42-73a7686911cb",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-07-09T07:13:23.436Z",
+    "timestamp": "2024-07-10T07:11:15.662Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7170,10 +7170,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/shpjs@5.0.1",
+      "bom-ref": "pkg:npm/shpjs@5.0.2",
       "author": "Calvin Metcalf",
       "name": "shpjs",
-      "version": "5.0.1",
+      "version": "5.0.2",
       "description": "A binary shapefile loader, for javascript. Not many caveats",
       "licenses": [
         {
@@ -7182,7 +7182,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/shpjs@5.0.1",
+      "purl": "pkg:npm/shpjs@5.0.2",
       "externalReferences": [
         {
           "type": "website",
@@ -9291,7 +9291,7 @@
       ]
     },
     {
-      "ref": "pkg:npm/shpjs@5.0.1",
+      "ref": "pkg:npm/shpjs@5.0.2",
       "dependsOn": [
         "pkg:npm/jszip@3.10.1",
         "pkg:npm/parsedbf@1.1.1"
@@ -9371,7 +9371,7 @@
         "pkg:npm/geostyler-openlayers-parser@4.3.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.11.0",
-        "pkg:npm/shpjs@5.0.1",
+        "pkg:npm/shpjs@5.0.2",
         "pkg:npm/%40petamoriken/float16@3.8.7",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/ieee754@1.2.1",
