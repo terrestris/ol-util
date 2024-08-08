@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:bf591253-f4a3-40c1-985e-991b59ee8538",
+  "serialNumber": "urn:uuid:9e32b47d-bc10-4296-b96b-b1d5e25d832b",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-08-05T07:16:47.134Z",
+    "timestamp": "2024-08-08T07:04:43.218Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7616,6 +7616,36 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/color-space@2.0.1",
+      "author": "Dmitry Ivanov",
+      "name": "color-space",
+      "version": "2.0.1",
+      "description": "Collection of color space conversions",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-space@2.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-space#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-space/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/colorjs/color-space.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/color-rgba@3.0.0",
       "author": "Dmitry Iv",
       "name": "color-rgba",
@@ -7701,36 +7731,6 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/colorjs/color-name.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-space@2.0.1",
-      "author": "Dmitry Ivanov",
-      "name": "color-space",
-      "version": "2.0.1",
-      "description": "Collection of color space conversions",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-space@2.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-space#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-space/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/colorjs/color-space.git"
         }
       ]
     },
@@ -9301,6 +9301,9 @@
       "ref": "pkg:npm/%40petamoriken/float16@3.8.7"
     },
     {
+      "ref": "pkg:npm/color-space@2.0.1"
+    },
+    {
       "ref": "pkg:npm/color-name@2.0.0"
     },
     {
@@ -9310,13 +9313,9 @@
       ]
     },
     {
-      "ref": "pkg:npm/color-space@2.0.1"
-    },
-    {
       "ref": "pkg:npm/color-rgba@3.0.0",
       "dependsOn": [
-        "pkg:npm/color-parse@2.0.2",
-        "pkg:npm/color-space@2.0.1"
+        "pkg:npm/color-parse@2.0.2"
       ]
     },
     {
@@ -9373,6 +9372,7 @@
         "pkg:npm/proj4@2.11.0",
         "pkg:npm/shpjs@5.0.2",
         "pkg:npm/%40petamoriken/float16@3.8.7",
+        "pkg:npm/color-space@2.0.1",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/ieee754@1.2.1",
         "pkg:npm/lerc@3.0.0",
