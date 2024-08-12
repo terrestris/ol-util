@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:cb3a38dd-9dc8-4f8e-b322-ac4bd64eaeda",
+  "serialNumber": "urn:uuid:2a8b3539-65da-4441-9fea-47e343cfe0be",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-08-12T07:19:01.998Z",
+    "timestamp": "2024-08-12T15:24:32.069Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,11 +14,11 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/ol-util@19.0.0",
+      "bom-ref": "pkg:npm/%40terrestris/ol-util@19.0.1",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "ol-util",
-      "version": "19.0.0",
+      "version": "19.0.1",
       "description": "A set of helper classes for working with openLayers",
       "licenses": [
         {
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/ol-util@19.0.0",
+      "purl": "pkg:npm/%40terrestris/ol-util@19.0.1",
       "externalReferences": [
         {
           "type": "website",
@@ -9362,7 +9362,7 @@
       "ref": "pkg:npm/ol@9.2.4"
     },
     {
-      "ref": "pkg:npm/%40terrestris/ol-util@19.0.0",
+      "ref": "pkg:npm/%40terrestris/ol-util@19.0.1",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
         "pkg:npm/%40terrestris/base-util@2.0.0",
