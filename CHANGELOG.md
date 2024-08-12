@@ -1,3 +1,10 @@
+## [19.0.1](https://github.com/terrestris/ol-util/compare/v19.0.0...v19.0.1) (2024-08-12)
+
+
+### Bug Fixes
+
+* fixes the function so it accepts packages that do not return an array ([ab08107](https://github.com/terrestris/ol-util/commit/ab08107af852fa1ae01831738e8fdf8b89a47ada))
+
 # [19.0.0](https://github.com/terrestris/ol-util/compare/v18.0.1...v19.0.0) (2024-05-24)
 
 

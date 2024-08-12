@@ -1,6 +1,6 @@
 {
   "name": "@terrestris/ol-util",
-  "version": "19.0.0",
+  "version": "19.0.1",
   "description": "A set of helper classes for working with openLayers",
   "keywords": [
     "openlayers",
