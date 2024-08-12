@@ -110,7 +110,6 @@ class CapabilitiesUtil {
     if (!(layersInCapabilities instanceof Array)) {
       layersInCapabilities = [layersInCapabilities];
     }
-    console.log(layersInCapabilities, layersInCapabilities instanceof Array);
 
     return layersInCapabilities.map((layerObj: any) => {
       const title = _get(layerObj, 'Attribution.Title');
