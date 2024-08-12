@@ -92,7 +92,7 @@ class CapabilitiesUtil {
     proxyFn?: (proxyUrl: string) => string
   ): OlLayerImage<OlSourceImageWMS>[] {
     const wmsVersion = _get(capabilities, 'version');
-    const layersInCapabilities = _get(capabilities, 'Capability.Layer.Layer');
+    let layersInCapabilities = _get(capabilities, 'Capability.Layer.Layer');
     const wmsGetMapConfig = _get(capabilities, 'Capability.Request.GetMap');
     const wmsGetFeatureInfoConfig = _get(capabilities, 'Capability.Request.GetFeatureInfo');
 
@@ -106,6 +106,11 @@ class CapabilitiesUtil {
       getMapUrl = _get(wmsGetMapConfig, 'DCPType.HTTP.Get.OnlineResource.href');
       getFeatureInfoUrl = _get(wmsGetFeatureInfoConfig, 'DCPType.HTTP.Get.OnlineResource.href');
     }
+
+    if (!(layersInCapabilities instanceof Array)) {
+      layersInCapabilities = [layersInCapabilities];
+    }
+    console.log(layersInCapabilities, layersInCapabilities instanceof Array);
 
     return layersInCapabilities.map((layerObj: any) => {
       const title = _get(layerObj, 'Attribution.Title');
