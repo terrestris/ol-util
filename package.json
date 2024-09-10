@@ -70,7 +70,7 @@
     "@types/jest": "^29.5.12",
     "@types/proj4": "^2.5.5",
     "@types/shpjs": "^3.4.7",
-    "@typescript-eslint/eslint-plugin": "7.17.0",
+    "@typescript-eslint/eslint-plugin": "8.5.0",
     "@typescript-eslint/parser": "7.18.0",
     "eslint": "^8.48.0",
     "eslint-plugin-simple-import-sort": "^12.1.0",
