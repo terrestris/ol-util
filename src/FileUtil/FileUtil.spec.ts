@@ -1,7 +1,10 @@
 /* eslint-env jest*/
 
-import shpwrite, { OutputType } from '@mapbox/shp-write';
+import shpwrite from '@mapbox/shp-write';
+import OlGeomPoint from 'ol/geom/Point';
+import OlLayerVector from 'ol/layer/Vector';
 import OlMap from 'ol/Map';
+import OlSourceVector from 'ol/source/Vector';
 
 import {
   FileUtil
@@ -50,9 +53,9 @@ describe('FileUtil', () => {
         return new Promise((resolve) => {
           const layers = map.getLayers();
           layers.on('add', (event) => {
-            const layer = event.element;
+            const layer = event.element as OlLayerVector<OlSourceVector>;
             expect(layers.getLength()).toBe(2);
-            expect(layer.getSource().getFeatures().length).toBe(16);
+            expect(layer.getSource()?.getFeatures().length).toBe(16);
             resolve(true);
           });
           FileUtil.addGeojsonLayer(JSON.stringify(geoJson), map);
@@ -66,9 +69,9 @@ describe('FileUtil', () => {
         return new Promise((resolve) => {
           const layers = map.getLayers();
           layers.on('add', (event) => {
-            const layer = event.element;
+            const layer = event.element as OlLayerVector<OlSourceVector>;
             expect(layers.getLength()).toBe(2);
-            expect(layer.getSource().getFeatures().length).toBe(16);
+            expect(layer.getSource()?.getFeatures().length).toBe(16);
             resolve(true);
           });
           FileUtil.addGeojsonLayerFromFile(geoJsonFile, map);
@@ -93,14 +96,14 @@ describe('FileUtil', () => {
         return new Promise((resolve) => {
           const layers = map.getLayers();
           layers.on('add', (event) => {
-            const layer = event.element;
+            const layer = event.element as OlLayerVector<OlSourceVector>;
             expect(layers.getLength()).toBe(2);
 
-            var features = layer.getSource().getFeatures();
-            expect(features.length).toBe(1);
-            var feat = features[0];
-            var coords = feat.getGeometry().getCoordinates();
-            var properties = feat.getProperties();
+            const features = layer.getSource()?.getFeatures();
+            expect(features?.length).toBe(1);
+            const feat = features?.[0];
+            const coords = (feat?.getGeometry() as OlGeomPoint)?.getCoordinates();
+            const properties = feat?.getProperties() || {};
 
             expect(coords[0]).toBe(47);
             expect(coords[1]).toBe(-11);

@@ -162,9 +162,9 @@ describe('WfsFilterUtil', () => {
 
         const res = WfsFilterUtil.getCombinedRequests(testConfig, searchTerm);
         expect(res?.tagName).toBe('GetFeature');
-        expect(res.querySelectorAll('Query').length).toBe(searchConfig.featureTypes!.length);
+        expect(res?.querySelectorAll('Query').length).toBe(searchConfig.featureTypes!.length);
         expect(filterSpy).toHaveBeenCalledTimes(0);
-        res.querySelectorAll('Query').forEach(query => {
+        res?.querySelectorAll('Query').forEach(query => {
           expect(query.children[2].tagName).toBe('Filter');
           expect(query.children[2].getElementsByTagName('Literal')[0].innerHTML).toEqual(`${searchTerm2}`);
           expect(query.getElementsByTagName('PropertyIsGreaterThanOrEqualTo')[0]).toBeDefined();

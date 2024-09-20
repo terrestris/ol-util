@@ -61,9 +61,11 @@ describe('isWmsLayer', () => {
   describe('Combinations of wms like layers with wms like sources', () => {
     const layers = getWmsLikeLayers();
     const sources = getWmsSources();
-    Object.keys(layers).forEach((layerClass) => {
-      Object.keys(sources).forEach((sourceClass) => {
+    Object.keys(layers).forEach(layerClass => {
+      Object.keys(sources).forEach(sourceClass => {
+        // @ts-ignore
         const layer = layers[layerClass];
+        // @ts-ignore
         const source = sources[sourceClass];
         layer.setSource(source);
 
@@ -77,9 +79,11 @@ describe('isWmsLayer', () => {
   describe('Combinations of some non-wms like layers with some non-wms like sources', () => {
     const layers = getNonWmsLikeLayers();
     const sources = getNonWmsSources();
-    Object.keys(layers).forEach((layerClass) => {
-      Object.keys(sources).forEach((sourceClass) => {
+    Object.keys(layers).forEach(layerClass => {
+      Object.keys(sources).forEach(sourceClass => {
+        // @ts-ignore
         const layer = layers[layerClass];
+        // @ts-ignore
         const source = sources[sourceClass];
         layer.setSource(source);
 
@@ -114,7 +118,9 @@ describe('isWmsLayer', () => {
     const sources = getNonWmsSources();
     Object.keys(layers).forEach((layerClass) => {
       Object.keys(sources).forEach((sourceClass) => {
+        // @ts-ignore
         const layer = layers[layerClass];
+        // @ts-ignore
         const source = sources[sourceClass];
         layer.setSource(source);
 

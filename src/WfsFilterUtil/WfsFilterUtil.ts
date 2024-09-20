@@ -1,7 +1,7 @@
-import _isNil from 'lodash/isNil';
-import { and, equalTo, like, or } from 'ol/format/filter';
-import OlFilter from 'ol/format/filter/Filter';
-import OlFormatWFS, { WriteGetFeatureOptions } from 'ol/format/WFS';
+import _isNil from 'lodash/isNil.js';
+import { and, equalTo, like, or } from 'ol/format/filter.js';
+import OlFilter from 'ol/format/filter/Filter.js';
+import OlFormatWFS, { WriteGetFeatureOptions } from 'ol/format/WFS.js';
 
 export type AttributeSearchSettings = {
   exactSearch?: boolean;
@@ -82,13 +82,13 @@ class WfsFilterUtil {
     const details = attributeDetails[featureType];
 
     if (_isNil(details)) {
-      return;
+      return undefined;
     }
 
     const attributes = Object.keys(details);
 
     if (attributes.length === 0) {
-      return;
+      return undefined;
     }
 
     const propertyFilters = attributes
@@ -173,7 +173,7 @@ class WfsFilterUtil {
     });
 
     if (_isNil(requests)) {
-      return;
+      return undefined;
     }
     const request = requests[0];
     requests.forEach((req, idx) => {
