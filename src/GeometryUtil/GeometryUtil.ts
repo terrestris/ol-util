@@ -1,12 +1,16 @@
 import buffer from '@turf/buffer';
 import difference from '@turf/difference';
 import intersect from '@turf/intersect';
-import { flatten } from '@turf/turf';
+import { featureCollection, flatten } from '@turf/turf';
 import union from '@turf/union';
-import { Feature } from 'geojson';
-import { isNil } from 'lodash';
+import {
+  Feature as GeoJSONFeature,
+  MultiPolygon as GeoJSONMultiPolygon,
+  Polygon as GeoJSONPolygon
+} from 'geojson';
+import isNil from 'lodash/isNil';
 import OlFeature from 'ol/Feature';
-import OlFormatGeoJSON, { GeoJSONMultiPolygon, GeoJSONPolygon } from 'ol/format/GeoJSON';
+import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import OlGeometry from 'ol/geom/Geometry';
 import OlGeomLineString from 'ol/geom/LineString';
 import OlGeomMultiLineString from 'ol/geom/MultiLineString';
@@ -104,7 +108,7 @@ class GeometryUtil {
 
     const flattened = flatten(result);
 
-    return flattened.features.map(geojsonFeature => {
+    return flattened.features.map((geojsonFeature: any) => {
       return geoJsonFormat.readGeometry(geojsonFeature.geometry) as OlGeomPolygon;
     });
   }
@@ -153,10 +157,13 @@ class GeometryUtil {
       featureProjection: projection
     });
     const geoJson = geoJsonFormat.writeGeometryObject(geometry);
+    if (geoJson.type === 'GeometryCollection') {
+      return;
+    }
     const buffered = buffer(geoJson, radius, {
       units: 'meters'
     });
-    return geoJsonFormat.readGeometry(buffered.geometry);
+    return geoJsonFormat.readGeometry(buffered?.geometry);
   }
 
   /**
@@ -256,20 +263,15 @@ class GeometryUtil {
 
     const pp = polygons
       .map((p: OlGeomPolygon | OlGeomMultiPolygon) => {
-        let polygon;
         if (p instanceof OlGeomMultiPolygon) {
-          polygon = geoJsonFormat.writeGeometryObject(p) as GeoJSONMultiPolygon;
+          return geoJsonFormat.writeFeatureObject(new OlFeature(p)) as GeoJSONFeature<GeoJSONMultiPolygon>;
         } else {
-          polygon = geoJsonFormat.writeGeometryObject(p) as GeoJSONPolygon;
+          return geoJsonFormat.writeFeatureObject(new OlFeature(p)) as GeoJSONFeature<GeoJSONPolygon>;
         }
-        const feature: Feature<GeoJSONPolygon | GeoJSONMultiPolygon> = {
-          geometry: polygon,
-          properties: {},
-          type: 'Feature'
-        };
-        return feature;
       });
-    const unionGeometry = pp.reduce((prev, next) => union(prev, next) ?? prev);
+
+    const unionGeometry = union(featureCollection<GeoJSONMultiPolygon | GeoJSONPolygon>(pp));
+
     return (geoJsonFormat.readFeature(unionGeometry) as OlFeature).getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
   }
 
@@ -316,13 +318,16 @@ class GeometryUtil {
     polygon2: OlGeomPolygon,
     projection: ProjectionLike = 'EPSG:3857'
   ): OlGeomMultiPolygon | OlGeomPolygon {
-    const geoJsonFormat = new OlFormatGeoJSON({
+    const geoJsonFormat = new OlFormatGeoJSON<OlFeature<OlGeomPolygon>>({
       dataProjection: 'EPSG:4326',
       featureProjection: projection
     });
-    const geojson1 = geoJsonFormat.writeGeometryObject(polygon1) as GeoJSONPolygon;
-    const geojson2 = geoJsonFormat.writeGeometryObject(polygon2) as GeoJSONPolygon;
-    const intersection = difference(geojson1, geojson2);
+    const geojson1 = geoJsonFormat.writeFeatureObject(new OlFeature(polygon1)) as GeoJSONFeature<GeoJSONPolygon>;
+    const geojson2 = geoJsonFormat.writeFeatureObject(new OlFeature(polygon2)) as GeoJSONFeature<GeoJSONPolygon>;
+
+    const coll = featureCollection([geojson1, geojson2]);
+
+    const intersection = difference(coll);
     const feature = geoJsonFormat.readFeature(intersection);
     return (feature as OlFeature).getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
   }
@@ -348,7 +353,7 @@ class GeometryUtil {
   ): OlGeomMultiPolygon | OlGeomPolygon | OlFeature<OlGeomPolygon|OlGeomMultiPolygon> | undefined {
     const intersectionGeometry = GeometryUtil.geometryIntersection(toGeom(polygon1), toGeom(polygon2), projection);
     if (isNil(intersectionGeometry)) {
-      return;
+      return undefined;
     }
     if (polygon1 instanceof OlFeature && polygon2 instanceof OlFeature) {
       return new OlFeature(intersectionGeometry);
@@ -378,15 +383,18 @@ class GeometryUtil {
       featureProjection: projection
     });
     const geojson1 = polygon1 instanceof OlGeomMultiPolygon ?
-      geoJsonFormat.writeGeometryObject(polygon1) as GeoJSONMultiPolygon :
-      geoJsonFormat.writeGeometryObject(polygon1) as GeoJSONPolygon;
+      geoJsonFormat.writeFeatureObject(new OlFeature(polygon1)) as GeoJSONFeature<GeoJSONMultiPolygon> :
+      geoJsonFormat.writeFeatureObject(new OlFeature(polygon1)) as GeoJSONFeature<GeoJSONPolygon>;
     const geojson2 = polygon2 instanceof OlGeomMultiPolygon ?
-      geoJsonFormat.writeGeometryObject(polygon2) as GeoJSONMultiPolygon :
-      geoJsonFormat.writeGeometryObject(polygon2) as GeoJSONPolygon;
-    const intersection = intersect(geojson1, geojson2);
+      geoJsonFormat.writeFeatureObject(new OlFeature(polygon2)) as GeoJSONFeature<GeoJSONMultiPolygon> :
+      geoJsonFormat.writeFeatureObject(new OlFeature(polygon2)) as GeoJSONFeature<GeoJSONPolygon>;
+
+    const intersection = intersect(featureCollection<GeoJSONMultiPolygon | GeoJSONPolygon>([geojson1, geojson2]));
+
     if (!intersection) {
-      return;
+      return undefined;
     }
+
     const feature = geoJsonFormat.readFeature(intersection);
     return (feature as OlFeature).getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
   }

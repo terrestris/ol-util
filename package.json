@@ -22,6 +22,7 @@
   "module": "src/index.ts",
   "type": "module",
   "browser": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "src",
     "dist",
@@ -44,13 +45,13 @@
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.11",
     "@terrestris/base-util": "^2.0.0",
-    "@turf/turf": "^6.5.0",
+    "@turf/turf": "^7.1.0",
     "fast-xml-parser": "^4.4.0",
-    "geostyler-openlayers-parser": "^4.3.0",
+    "geostyler-openlayers-parser": "^5.0.0",
     "lodash": "^4.17.21",
     "polygon-splitter": "^0.0.11",
     "proj4": "^2.11.0",
-    "shpjs": "^5.0.1"
+    "shpjs": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",
@@ -68,8 +69,10 @@
     "@terrestris/eslint-config-typescript": "5.0.0",
     "@types/geojson": "^7946.0.14",
     "@types/jest": "^29.5.12",
+    "@types/lodash": "^4.17.7",
     "@types/proj4": "^2.5.5",
     "@types/shpjs": "^3.4.7",
+    "@types/url-parse": "^1.4.11",
     "@typescript-eslint/eslint-plugin": "7.17.0",
     "@typescript-eslint/parser": "7.18.0",
     "eslint": "^8.48.0",
@@ -80,7 +83,7 @@
     "jest": "^29.7.0",
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.7.0",
-    "ol": "^9.2.2",
+    "ol": "^10.1.0",
     "rimraf": "^6.0.0",
     "semantic-release": "^24.0.0",
     "typedoc": "^0.26.2",
@@ -89,7 +92,7 @@
     "whatwg-fetch": "^3.6.20"
   },
   "peerDependencies": {
-    "ol": ">=9"
+    "ol": ">=10"
   },
   "engines": {
     "node": ">=20",

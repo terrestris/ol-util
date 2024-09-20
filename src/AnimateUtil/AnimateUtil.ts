@@ -1,12 +1,12 @@
 import _isFunction from 'lodash/isFunction';
 import _isNil from 'lodash/isNil';
 import OlFeature from 'ol/Feature';
-import { FeatureLike as OlFeatureLike } from 'ol/Feature';
 import OlGeometry from 'ol/geom/Geometry';
 import OlLayerVector from 'ol/layer/Vector';
 import OlMap from 'ol/Map';
 import { unByKey } from 'ol/Observable';
 import { getVectorContext } from 'ol/render';
+import OlSourceVector from 'ol/source/Vector';
 import OlStyle from 'ol/style/Style';
 
 /**
@@ -33,7 +33,7 @@ class AnimateUtil {
    */
   static moveFeature(
     map: OlMap,
-    layer: OlLayerVector<OlFeatureLike>,
+    layer: OlLayerVector<OlSourceVector>,
     featureToMove: OlFeature<OlGeometry>,
     duration: number,
     pixel: number,

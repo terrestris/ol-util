@@ -13,7 +13,8 @@ export default {
   },
   transformIgnorePatterns: [
     '<rootDir>/node_modules/(?!(ol|@babel|jest-runtime|@terrestris|color-space|color-rgba|color-name|' +
-    'color-parse|shpjs|filter-obj|split-on-first|decode-uri-component|query-string))'
+    'color-parse|shpjs|filter-obj|split-on-first|decode-uri-component|query-string|geostyler-openlayers-parser|' +
+    'geostyler-style))'
   ],
   testRegex: '/src/.*\\.spec.(ts|js)$',
   collectCoverageFrom: [
