@@ -22,6 +22,7 @@
   "module": "src/index.ts",
   "type": "module",
   "browser": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "src",
     "dist",
