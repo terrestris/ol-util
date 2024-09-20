@@ -1,3 +1,21 @@
+# [20.0.0](https://github.com/terrestris/ol-util/compare/v19.0.1...v20.0.0) (2024-09-20)
+
+
+### Bug Fixes
+
+* specify types path ([a9067ac](https://github.com/terrestris/ol-util/commit/a9067ac5822aa47d3ddf0c69360fca13af3e06e0))
+* update to latest api of ol and turfjs ([ba75f88](https://github.com/terrestris/ol-util/commit/ba75f88c4788bef533f415d6d8df23bc72533dd1))
+
+
+### chore
+
+* update to ol 10 ([6aca6b3](https://github.com/terrestris/ol-util/commit/6aca6b35ad86ac81108a71bcbe6e64f87c12bf85))
+
+
+### BREAKING CHANGES
+
+* required peer dependency for ol is now >=10
+
 ## [19.0.1](https://github.com/terrestris/ol-util/compare/v19.0.0...v19.0.1) (2024-08-12)
 
 
