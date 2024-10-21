@@ -1,4 +1,4 @@
-export type InkmapWmsLayer = {
+export interface InkmapWmsLayer {
   type: 'WMS';
   url: string;
   opacity?: number;
@@ -8,9 +8,9 @@ export type InkmapWmsLayer = {
   legendUrl?: string;
   layerName?: string;
   customParams?: any;
-};
+}
 
-export type InkmapWmtsLayer = {
+export interface InkmapWmtsLayer {
   type: 'WMTS';
   url: string;
   opacity?: number;
@@ -23,18 +23,18 @@ export type InkmapWmtsLayer = {
   requestEncoding?: string;
   legendUrl?: string;
   layerName?: string;
-};
+}
 
-export type InkmapGeoJsonLayer = {
+export interface InkmapGeoJsonLayer {
   type: 'GeoJSON';
   attribution?: string;
   style: any;
   geojson: any;
   legendUrl?: string;
   layerName?: string;
-};
+}
 
-export type InkmapWfsLayer = {
+export interface InkmapWfsLayer {
   type: 'WFS';
   url: string;
   attribution?: string;
@@ -42,9 +42,9 @@ export type InkmapWfsLayer = {
   projection?: string;
   legendUrl?: string;
   layerName?: string;
-};
+}
 
-export type InkmapOsmLayer = {
+export interface InkmapOsmLayer {
   type: 'XYZ';
   url: string;
   opacity?: number;
@@ -60,22 +60,22 @@ export type InkmapOsmLayer = {
   geojson?: any;
   legendUrl?: string;
   layerName?: string;
-};
+}
 
 export type InkmapLayer = InkmapWmsLayer | InkmapWmtsLayer | InkmapGeoJsonLayer | InkmapWfsLayer | InkmapOsmLayer;
 
-export type ScaleBarSpec = {
+export interface ScaleBarSpec {
   position: 'bottom-left' | 'bottom-right';
   units: string;
-};
+}
 
-export type InkmapProjectionDefinition = {
+export interface InkmapProjectionDefinition {
   name: string;
   bbox: [number, number, number, number];
   proj4: string;
-};
+}
 
-export type InkmapPrintSpec = {
+export interface InkmapPrintSpec {
   layers: InkmapLayer[];
   size: [number, number] | [number, number, string];
   center: [number, number];
@@ -86,4 +86,4 @@ export type InkmapPrintSpec = {
   projection: string;
   projectionDefinitions?: InkmapProjectionDefinition[];
   attributions: boolean | 'top-left' | 'bottom-left' | 'bottom-right' | 'top-right';
-};
+}

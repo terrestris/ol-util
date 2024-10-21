@@ -1,13 +1,13 @@
 import _isNil from 'lodash/isNil.js';
-import { and, equalTo, like, or } from 'ol/format/filter.js';
 import OlFilter from 'ol/format/filter/Filter.js';
+import { and, equalTo, like, or } from 'ol/format/filter.js';
 import OlFormatWFS, { WriteGetFeatureOptions } from 'ol/format/WFS.js';
 
-export type AttributeSearchSettings = {
+export interface AttributeSearchSettings {
   exactSearch?: boolean;
   matchCase?: boolean;
   type: 'number' | 'int' | 'string';
-};
+}
 
 /**
  * A nested object mapping feature types to an object of their attribute details.
@@ -31,13 +31,9 @@ export type AttributeSearchSettings = {
  *   }
  *   ```
  */
-export type AttributeDetails = {
-  [featureType: string]: {
-    [attributeName: string]: AttributeSearchSettings;
-  };
-};
+export type AttributeDetails = Record<string, Record<string, AttributeSearchSettings>>;
 
-export type SearchConfig = {
+export interface SearchConfig {
   attributeDetails: AttributeDetails;
   featureNS: string;
   featurePrefix: string;
@@ -50,7 +46,7 @@ export type SearchConfig = {
   propertyNames?: string[];
   srsName?: string;
   wfsFormatOptions?: string;
-};
+}
 
 /**
  * Helper class for building filters to be used with WFS GetFeature requests.

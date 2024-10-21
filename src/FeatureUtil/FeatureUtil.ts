@@ -1,9 +1,10 @@
-import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
 import _isArray from 'lodash/isArray';
 import _isNil from 'lodash/isNil';
 import _isString from 'lodash/isString';
 import OlFeature from 'ol/Feature';
 import OlGeometry from 'ol/geom/Geometry';
+
+import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
 
 /**
  * Helper class for working with OpenLayers features.
@@ -78,13 +79,13 @@ class FeatureUtil {
     valueAdjust = (key: string, val: any) => val,
     leaveAsUrl = false
   ) {
-    let attributeTemplatePrefix = '\\{\\{';
-    let attributeTemplateSuffix = '\\}\\}';
+    const attributeTemplatePrefix = '\\{\\{';
+    const attributeTemplateSuffix = '\\}\\}';
     let resolved;
 
     // Find any character between two braces (including the braces in the result)
-    let regExp = new RegExp(attributeTemplatePrefix + '(.*?)' + attributeTemplateSuffix, 'g');
-    let regExpRes = _isString(template) ? template.match(regExp) : null;
+    const regExp = new RegExp(attributeTemplatePrefix + '(.*?)' + attributeTemplateSuffix, 'g');
+    const regExpRes = _isString(template) ? template.match(regExp) : null;
 
     // If we have a regex result, it means we found a placeholder in the
     // template and have to replace the placeholder with its appropriate value.
@@ -98,9 +99,9 @@ class FeatureUtil {
         // set the output value to the value of "noValueFoundText".
         let noMatchCnt = 0;
 
-        for (let [key, value] of Object.entries(feature.getProperties())) {
+        for (const [key, value] of Object.entries(feature.getProperties())) {
           // Remove the suffixes and find the matching attribute column.
-          let attributeName = res.slice(2, res.length - 2);
+          const attributeName = res.slice(2, res.length - 2);
 
           if (attributeName.toLowerCase() === key.toLowerCase()) {
             template = template.replace(res, valueAdjust(key, value));
