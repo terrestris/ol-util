@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:7083395b-b432-4f8d-b582-a32f224da375",
+  "serialNumber": "urn:uuid:026d7c36-ee4b-4351-8827-effc1cd5f6fb",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-10-21T08:20:26.465Z",
+    "timestamp": "2024-10-21T09:50:13.858Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,11 +14,11 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/ol-util@20.0.0",
+      "bom-ref": "pkg:npm/%40terrestris/ol-util@21.0.0",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "ol-util",
-      "version": "20.0.0",
+      "version": "21.0.0",
       "description": "A set of helper classes for working with openLayers",
       "licenses": [
         {
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/ol-util@20.0.0",
+      "purl": "pkg:npm/%40terrestris/ol-util@21.0.0",
       "externalReferences": [
         {
           "type": "website",
@@ -1722,11 +1722,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/base-util@2.0.0",
+      "bom-ref": "pkg:npm/%40terrestris/base-util@3.0.0",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "base-util",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "description": "A set of helper classes for working with strings, objects, etc.",
       "licenses": [
         {
@@ -1735,7 +1735,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/base-util@2.0.0",
+      "purl": "pkg:npm/%40terrestris/base-util@3.0.0",
       "externalReferences": [
         {
           "type": "website",
@@ -1844,10 +1844,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/query-string@9.1.0",
+      "bom-ref": "pkg:npm/query-string@9.1.1",
       "author": "Sindre Sorhus",
       "name": "query-string",
-      "version": "9.1.0",
+      "version": "9.1.1",
       "description": "Parse and stringify URL query strings",
       "licenses": [
         {
@@ -1856,7 +1856,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/query-string@9.1.0",
+      "purl": "pkg:npm/query-string@9.1.1",
       "externalReferences": [
         {
           "type": "website",
@@ -2238,10 +2238,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/tslib@2.7.0",
+      "bom-ref": "pkg:npm/tslib@2.8.0",
       "author": "Microsoft Corp.",
       "name": "tslib",
-      "version": "2.7.0",
+      "version": "2.8.0",
       "description": "Runtime library for TypeScript helper functions",
       "licenses": [
         {
@@ -2250,7 +2250,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/tslib@2.7.0",
+      "purl": "pkg:npm/tslib@2.8.0",
       "externalReferences": [
         {
           "type": "website",
@@ -6533,19 +6533,19 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/css-font-parser@2.0.0",
+      "bom-ref": "pkg:npm/css-font-parser@2.0.1",
       "author": "Bram Stein",
       "name": "css-font-parser",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "description": "A parser for the CSS font value",
       "licenses": [
         {
           "license": {
-            "name": "BSD"
+            "id": "BSD-3-Clause"
           }
         }
       ],
-      "purl": "pkg:npm/css-font-parser@2.0.0",
+      "purl": "pkg:npm/css-font-parser@2.0.1",
       "externalReferences": [
         {
           "type": "website",
@@ -7990,7 +7990,7 @@
       "ref": "pkg:npm/split-on-first@3.0.0"
     },
     {
-      "ref": "pkg:npm/query-string@9.1.0",
+      "ref": "pkg:npm/query-string@9.1.1",
       "dependsOn": [
         "pkg:npm/decode-uri-component@0.4.1",
         "pkg:npm/filter-obj@5.1.0",
@@ -8014,12 +8014,12 @@
       "ref": "pkg:npm/validator@13.12.0"
     },
     {
-      "ref": "pkg:npm/%40terrestris/base-util@2.0.0",
+      "ref": "pkg:npm/%40terrestris/base-util@3.0.0",
       "dependsOn": [
         "pkg:npm/%40ungap/url-search-params@0.2.2",
         "pkg:npm/lodash@4.17.21",
         "pkg:npm/loglevel@1.9.2",
-        "pkg:npm/query-string@9.1.0",
+        "pkg:npm/query-string@9.1.1",
         "pkg:npm/url-parse@1.5.10",
         "pkg:npm/validator@13.12.0"
       ]
@@ -8028,13 +8028,13 @@
       "ref": "pkg:npm/%40types/geojson@7946.0.14"
     },
     {
-      "ref": "pkg:npm/tslib@2.7.0"
+      "ref": "pkg:npm/tslib@2.8.0"
     },
     {
       "ref": "pkg:npm/%40turf/helpers@7.1.0",
       "dependsOn": [
         "pkg:npm/%40types/geojson@7946.0.14",
-        "pkg:npm/tslib@2.7.0"
+        "pkg:npm/tslib@2.8.0"
       ]
     },
     {
@@ -8699,7 +8699,7 @@
       ]
     },
     {
-      "ref": "pkg:npm/css-font-parser@2.0.0"
+      "ref": "pkg:npm/css-font-parser@2.0.1"
     },
     {
       "ref": "pkg:npm/geostyler-style@9.1.0"
@@ -8707,7 +8707,7 @@
     {
       "ref": "pkg:npm/geostyler-openlayers-parser@5.0.0",
       "dependsOn": [
-        "pkg:npm/css-font-parser@2.0.0",
+        "pkg:npm/css-font-parser@2.0.1",
         "pkg:npm/geostyler-style@9.1.0"
       ]
     },
@@ -8867,10 +8867,10 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40terrestris/ol-util@20.0.0",
+      "ref": "pkg:npm/%40terrestris/ol-util@21.0.0",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
-        "pkg:npm/%40terrestris/base-util@2.0.0",
+        "pkg:npm/%40terrestris/base-util@3.0.0",
         "pkg:npm/%40turf/turf@7.1.0",
         "pkg:npm/fast-xml-parser@4.5.0",
         "pkg:npm/geostyler-openlayers-parser@5.0.0",
