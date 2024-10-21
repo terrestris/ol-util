@@ -1,3 +1,15 @@
+# [21.0.0](https://github.com/terrestris/ol-util/compare/v20.0.0...v21.0.0) (2024-10-21)
+
+
+### chore
+
+* bump eslint to v9 ([17fbc94](https://github.com/terrestris/ol-util/commit/17fbc9496404b7e488ebf29569822292478d78dd))
+
+
+### BREAKING CHANGES
+
+* bump eslint to v9
+
 # [20.0.0](https://github.com/terrestris/ol-util/compare/v19.0.1...v20.0.0) (2024-09-20)
 
 
