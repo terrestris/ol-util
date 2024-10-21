@@ -1,9 +1,10 @@
-import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 import { XMLParser } from 'fast-xml-parser';
 import _get from 'lodash/get';
 import _isFunction from 'lodash/isFunction';
 import OlLayerImage from 'ol/layer/Image';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
+
+import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 
 import LayerUtil from '../LayerUtil/LayerUtil';
 import { WmsLayer } from '../typeUtils/typeUtils';

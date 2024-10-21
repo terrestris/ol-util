@@ -53,13 +53,9 @@ export class PermalinkUtil {
     const link = new URL(window.location.href);
 
     if (customAttributes.length > 0) {
-      const customLayerAttributes: {
-        [key: string]: any;
-      }[] = [];
+      const customLayerAttributes: Record<string, any>[] = [];
       layers.forEach((layer) => {
-        const config: {
-          [key: string]: any;
-        } = {};
+        const config: Record<string, any> = {};
         customAttributes.forEach((attribute) => {
           if (!_isNil(layer.get(attribute))) {
             config[attribute] = layer.get(attribute);

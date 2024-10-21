@@ -1,7 +1,6 @@
 import OlBaseLayer from 'ol/layer/Base';
 import OlImageLayer from 'ol/layer/Image';
 import OlLayer from 'ol/layer/Layer';
-import OlLayerTile from 'ol/layer/Tile';
 import OlTileLayer from 'ol/layer/Tile';
 import OlVectorLayer from 'ol/layer/Vector';
 import OlImageWMS from 'ol/source/ImageWMS';
@@ -11,7 +10,7 @@ import OlSourceWMTS from 'ol/source/WMTS';
 
 export type WmsLayer = OlImageLayer<OlImageWMS> | OlTileLayer<OlTileWMS> | OlLayer<OlImageWMS | OlTileWMS>;
 
-export type WmtsLayer = OlLayerTile<OlSourceWMTS>;
+export type WmtsLayer = OlTileLayer<OlSourceWMTS>;
 
 export type WfsLayer = OlVectorLayer<OlSourceVector>;
 

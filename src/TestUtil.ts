@@ -47,7 +47,7 @@ export class TestUtil {
     if (!div) {
       return;
     }
-    let parent = div.parentNode;
+    const parent = div.parentNode;
     if (parent) {
       parent.removeChild(div);
     }
@@ -61,10 +61,10 @@ export class TestUtil {
    * @return {OlMap} The ol map.
    */
   static createMap = (mapOpts?: MapOptions & { resolutions: number[] }) => {
-    let source = new OlSourceVector();
-    let layer = new OlLayerVector({source: source});
-    let targetDiv = TestUtil.mountMapDiv();
-    let defaultMapOpts = {
+    const source = new OlSourceVector();
+    const layer = new OlLayerVector({source: source});
+    const targetDiv = TestUtil.mountMapDiv();
+    const defaultMapOpts = {
       target: targetDiv,
       layers: [layer],
       view: new OlView({
@@ -102,16 +102,14 @@ export class TestUtil {
    * @param {boolean} dragging Whether the map is being dragged or not.
    */
   static simulatePointerEvent = (map: OlMap, type: string, x: number, y: number, shift: boolean, dragging: boolean) => {
-    let viewport = map.getViewport();
+    const viewport = map.getViewport();
     // Calculated in case body has top < 0 (test runner with small window).
-    let position = viewport.getBoundingClientRect();
-    const event = new MouseEvent(type);
-    // @ts-ignore
-    event.clientX = position.left + x + TestUtil.mapDivWidth / 2;
-    // @ts-ignore
-    event.clientY = position.top + y + TestUtil.mapDivHeight / 2;
-    // @ts-ignore
-    event.shiftKey = shift;
+    const position = viewport.getBoundingClientRect();
+    const event = new MouseEvent(type, {
+      clientX: position.left + x + TestUtil.mapDivWidth / 2,
+      clientY: position.top + y + TestUtil.mapDivHeight / 2,
+      shiftKey: shift
+    });
     map.handleMapBrowserEvent(new OlMapBrowserEvent(type, map, event, dragging));
   };
 
@@ -121,9 +119,7 @@ export class TestUtil {
    * @param {Object} properties The properties to set.
    * @return {OlLayerVector<OlSourceVector>} The layer.
    */
-  static createVectorLayer = (properties?: {
-    [key: string]: any;
-  }) => {
+  static createVectorLayer = (properties?: Record<string, any>) => {
     const source = new OlSourceVector();
     const layer = new OlLayerVector({source: source});
 

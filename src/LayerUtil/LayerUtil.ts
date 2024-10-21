@@ -1,11 +1,10 @@
-import Logger from '@terrestris/base-util/dist/Logger';
-import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
 import OpenLayersParser from 'geostyler-openlayers-parser';
 import { isNil } from 'lodash';
 import _uniq from 'lodash/uniq';
 import { Extent as OlExtent } from 'ol/extent';
 import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import OlLayer from 'ol/layer/Layer';
+import OlLayerVector from 'ol/layer/Vector';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceOSM from 'ol/source/OSM';
 import OlSourceStadiaMaps from 'ol/source/StadiaMaps';
@@ -13,8 +12,14 @@ import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceVector from 'ol/source/Vector';
 import OlSourceWMTS from 'ol/source/WMTS';
 
+import { StyleLike as OlStyleLike } from 'ol/style/Style';
+
+import Logger from '@terrestris/base-util/dist/Logger';
+import StringUtil from '@terrestris/base-util/dist/StringUtil/StringUtil';
+
 import CapabilitiesUtil from '../CapabilitiesUtil/CapabilitiesUtil';
 import { WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
+
 import { InkmapGeoJsonLayer, InkmapLayer } from './InkmapTypes';
 
 /**
@@ -226,12 +231,9 @@ class LayerUtil {
         layerName
       };
 
-      let olStyle = null;
-      // @ts-ignore
-      if (olLayer.getStyle) {
-        // @ts-ignore
-        olStyle = olLayer.getStyle();
-      }
+      // should be a vector layer since source type is OlSourceVector
+      const olVectorLayer = olLayer as OlLayerVector<OlSourceVector>;
+      const olStyle = olVectorLayer.getStyle() as OlStyleLike;
 
       // todo: support style function / different styles per feature
       // const styles = source.getFeatures()?.map(f => f.getStyle());
@@ -274,7 +276,7 @@ class LayerUtil {
       return '';
     }
     const attributionsFn = layer.getSource()?.getAttributions();
-    // @ts-ignore
+    // @ts-expect-error attributionsFn may expect correct ViewStateLayerStateExtent object
     let attributions = attributionsFn ? attributionsFn(undefined) : null;
 
     let attributionString;

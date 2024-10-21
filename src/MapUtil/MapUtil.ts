@@ -1,5 +1,3 @@
-import logger from '@terrestris/base-util/dist/Logger';
-import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 import { isNil } from 'lodash';
 import findIndex from 'lodash/findIndex';
 import _isFinite from 'lodash/isFinite';
@@ -18,14 +16,17 @@ import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlSourceWMTS from 'ol/source/WMTS';
 import { getUid } from 'ol/util';
 
+import logger from '@terrestris/base-util/dist/Logger';
+import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
+
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import LayerUtil from '../LayerUtil/LayerUtil';
 import { isWmsLayer, WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
 
-export type LayerPositionInfo = {
+export interface LayerPositionInfo {
   position?: number;
   groupLayer?: OlLayerGroup;
-};
+}
 
 /**
  * Helper class for the OpenLayers map.
@@ -61,7 +62,7 @@ export class MapUtil {
    * @return {number} The calculated resolution.
    */
   static getResolutionForScale(scale: number | string, units: Units): number | undefined {
-    let dpi = 25.4 / 0.28;
+    const dpi = 25.4 / 0.28;
     let mpu;
     if (units === 'm') {
       mpu = METERS_PER_UNIT.m;
@@ -71,7 +72,7 @@ export class MapUtil {
       logger.info('Currently only \'degrees\' and \'m\' units are supported.');
       return undefined;
     }
-    let inchesPerMeter = 39.37;
+    const inchesPerMeter = 39.37;
 
     return (_isString(scale) ? parseFloat(scale) : scale) / (mpu * inchesPerMeter * dpi);
   }
@@ -181,11 +182,11 @@ export class MapUtil {
    *                    be found.
    */
   static getLayerByFeature(map: OlMap, feature: OlFeature<OlGeometry>, namespaces: string[]): OlBaseLayer | undefined {
-    let featureTypeName = FeatureUtil.getFeatureTypeName(feature);
+    const featureTypeName = FeatureUtil.getFeatureTypeName(feature);
 
-    for (let namespace of namespaces) {
-      let qualifiedFeatureTypeName = `${namespace}:${featureTypeName}`;
-      let layer = MapUtil.getLayerByNameParam(map, qualifiedFeatureTypeName);
+    for (const namespace of namespaces) {
+      const qualifiedFeatureTypeName = `${namespace}:${featureTypeName}`;
+      const layer = MapUtil.getLayerByNameParam(map, qualifiedFeatureTypeName);
       if (layer) {
         return layer;
       }
@@ -269,9 +270,7 @@ export class MapUtil {
    */
   static getLegendGraphicUrl(
     layer: WmsLayer | WmtsLayer,
-    extraParams: {
-      [key: string]: string | number;
-    } = {}
+    extraParams: Record<string, string | number> = {}
   ): string {
     const source = layer.getSource();
 
@@ -371,11 +370,11 @@ export class MapUtil {
       return 0;
     }
 
-    let calculatedResolution = MapUtil.getResolutionForScale(scale, units);
+    const calculatedResolution = MapUtil.getResolutionForScale(scale, units);
     if (!_isFinite(calculatedResolution)) {
       throw new Error('Can not determine unit / scale from map');
     }
-    let closestVal = resolutions.reduce((prev, curr) => {
+    const closestVal = resolutions.reduce((prev, curr) => {
       return Math.abs(curr - calculatedResolution!) < Math.abs(prev - calculatedResolution!)
         ? curr
         : prev;

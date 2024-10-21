@@ -4,15 +4,15 @@ import _isString from 'lodash/isString';
 import { register } from 'ol/proj/proj4';
 import proj4, { ProjectionDefinition } from 'proj4';
 
-export type CrsDefinition = {
+export interface CrsDefinition {
   crsCode: string;
   definition: string | ProjectionDefinition;
-};
+}
 
-export type CrsMapping = {
+export interface CrsMapping {
   alias: string;
   mappedCode: string;
-};
+}
 
 /**
  * Default proj4 CRS definitions.
