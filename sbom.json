@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:4f8b0e39-f62c-432a-8684-d51d5235a78c",
+  "serialNumber": "urn:uuid:d5872f72-41bb-434d-abd3-ecdadcdf310c",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-10-23T07:09:18.152Z",
+    "timestamp": "2024-10-28T08:04:25.198Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6898,9 +6898,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/proj4@2.12.1",
+      "bom-ref": "pkg:npm/proj4@2.14.0",
       "name": "proj4",
-      "version": "2.12.1",
+      "version": "2.14.0",
       "description": "Proj4js is a JavaScript library to transform point coordinates from one coordinate system to another, including datum transformations.",
       "licenses": [
         {
@@ -6909,7 +6909,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/proj4@2.12.1",
+      "purl": "pkg:npm/proj4@2.14.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7133,36 +7133,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-space@2.0.1",
-      "author": "Dmitry Ivanov",
-      "name": "color-space",
-      "version": "2.0.1",
-      "description": "Collection of color space conversions",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-space@2.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-space#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-space/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/colorjs/color-space.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-rgba@3.0.0",
       "author": "Dmitry Iv",
       "name": "color-rgba",
@@ -7248,6 +7218,36 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/colorjs/color-name.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-space@2.0.1",
+      "author": "Dmitry Ivanov",
+      "name": "color-space",
+      "version": "2.0.1",
+      "description": "Collection of color space conversions",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-space@2.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-space#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-space/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/colorjs/color-space.git"
         }
       ]
     },
@@ -8767,7 +8767,7 @@
       "ref": "pkg:npm/wkt-parser@1.3.3"
     },
     {
-      "ref": "pkg:npm/proj4@2.12.1",
+      "ref": "pkg:npm/proj4@2.14.0",
       "dependsOn": [
         "pkg:npm/mgrs@1.0.0",
         "pkg:npm/wkt-parser@1.3.3"
@@ -8793,9 +8793,6 @@
       "ref": "pkg:npm/%40types/rbush@3.0.3"
     },
     {
-      "ref": "pkg:npm/color-space@2.0.1"
-    },
-    {
       "ref": "pkg:npm/color-name@2.0.0"
     },
     {
@@ -8805,9 +8802,13 @@
       ]
     },
     {
+      "ref": "pkg:npm/color-space@2.0.1"
+    },
+    {
       "ref": "pkg:npm/color-rgba@3.0.0",
       "dependsOn": [
-        "pkg:npm/color-parse@2.0.2"
+        "pkg:npm/color-parse@2.0.2",
+        "pkg:npm/color-space@2.0.1"
       ]
     },
     {
@@ -8874,11 +8875,10 @@
         "pkg:npm/fast-xml-parser@4.5.0",
         "pkg:npm/geostyler-openlayers-parser@5.0.0",
         "pkg:npm/polygon-splitter@0.0.11",
-        "pkg:npm/proj4@2.12.1",
+        "pkg:npm/proj4@2.14.0",
         "pkg:npm/shpjs@6.1.0",
         "pkg:npm/%40petamoriken/float16@3.8.7",
         "pkg:npm/%40types/rbush@3.0.3",
-        "pkg:npm/color-space@2.0.1",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/parse-headers@2.0.5",
