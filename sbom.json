@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:8dc1efd9-a35e-4737-92b9-efab60a0d8a8",
+  "serialNumber": "urn:uuid:f87b097e-cf5a-43d9-a09d-f2bb52ad525d",
   "version": 1,
   "metadata": {
-    "timestamp": "2024-11-26T12:55:36.022Z",
+    "timestamp": "2024-12-03T08:33:50.027Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6898,9 +6898,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/proj4@2.14.0",
+      "bom-ref": "pkg:npm/proj4@2.15.0",
       "name": "proj4",
-      "version": "2.14.0",
+      "version": "2.15.0",
       "description": "Proj4js is a JavaScript library to transform point coordinates from one coordinate system to another, including datum transformations.",
       "licenses": [
         {
@@ -6909,7 +6909,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/proj4@2.14.0",
+      "purl": "pkg:npm/proj4@2.15.0",
       "externalReferences": [
         {
           "type": "website",
@@ -6957,9 +6957,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/wkt-parser@1.3.3",
+      "bom-ref": "pkg:npm/wkt-parser@1.4.0",
       "name": "wkt-parser",
-      "version": "1.3.3",
+      "version": "1.4.0",
       "description": "wkt-parser ===",
       "licenses": [
         {
@@ -6968,7 +6968,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/wkt-parser@1.3.3",
+      "purl": "pkg:npm/wkt-parser@1.4.0",
       "externalReferences": [
         {
           "type": "website",
@@ -8764,13 +8764,13 @@
       "ref": "pkg:npm/mgrs@1.0.0"
     },
     {
-      "ref": "pkg:npm/wkt-parser@1.3.3"
+      "ref": "pkg:npm/wkt-parser@1.4.0"
     },
     {
-      "ref": "pkg:npm/proj4@2.14.0",
+      "ref": "pkg:npm/proj4@2.15.0",
       "dependsOn": [
         "pkg:npm/mgrs@1.0.0",
-        "pkg:npm/wkt-parser@1.3.3"
+        "pkg:npm/wkt-parser@1.4.0"
       ]
     },
     {
@@ -8875,7 +8875,7 @@
         "pkg:npm/fast-xml-parser@4.5.0",
         "pkg:npm/geostyler-openlayers-parser@5.0.0",
         "pkg:npm/polygon-splitter@0.0.11",
-        "pkg:npm/proj4@2.14.0",
+        "pkg:npm/proj4@2.15.0",
         "pkg:npm/shpjs@6.1.0",
         "pkg:npm/%40petamoriken/float16@3.8.7",
         "pkg:npm/%40types/rbush@3.0.3",
