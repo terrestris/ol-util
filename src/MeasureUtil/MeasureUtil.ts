@@ -95,7 +95,6 @@ class MeasureUtil {
       return polygon.getArea();
     }
   }
-
   /**
    * Get the estimated area of an OlGeomCircle.
    *
@@ -153,10 +152,10 @@ class MeasureUtil {
       area = MeasureUtil.getArea(geom, map, geodesic);
     }
     let output;
-    if (area > 10000) {
+    if (area > 100000) {
       output = (Math.round(area / 1000000 * decimalHelper) /
                 decimalHelper) + ' km<sup>2</sup>';
-    } else if (area > 0.01) {
+    } else if (area > 1) {
       output = (Math.round(area * decimalHelper) / decimalHelper) +
                 ' m<sup>2</sup>';
     } else {
