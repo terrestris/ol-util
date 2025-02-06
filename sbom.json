@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:85a12d4d-d365-4e8a-b685-38a5c003fa2f",
+  "serialNumber": "urn:uuid:b90a10b2-7de8-4c1e-a699-623ba267e736",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-02-05T08:03:59.148Z",
+    "timestamp": "2025-02-06T08:32:59.420Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -47,11 +47,11 @@
   "components": [
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
+      "bom-ref": "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
       "author": "Dane Springmeyer",
       "group": "@mapbox",
       "name": "node-pre-gyp",
-      "version": "1.0.11",
+      "version": "2.0.0",
       "description": "Node.js native addon binary install tool",
       "licenses": [
         {
@@ -60,7 +60,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
+      "purl": "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
       "externalReferences": [
         {
           "type": "website",
@@ -73,6 +73,35 @@
         {
           "type": "vcs",
           "url": "git://github.com/mapbox/node-pre-gyp.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/consola@3.4.0",
+      "name": "consola",
+      "version": "3.4.0",
+      "description": "Elegant Console Wrapper",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/consola@3.4.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/unjs/consola#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/unjs/consola/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/unjs/consola.git"
         }
       ]
     },
@@ -108,10 +137,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/https-proxy-agent@5.0.1",
+      "bom-ref": "pkg:npm/https-proxy-agent@7.0.6",
       "author": "Nathan Rajlich",
       "name": "https-proxy-agent",
-      "version": "5.0.1",
+      "version": "7.0.6",
       "description": "An HTTP(s) proxy `http.Agent` implementation for HTTPS",
       "licenses": [
         {
@@ -120,28 +149,28 @@
           }
         }
       ],
-      "purl": "pkg:npm/https-proxy-agent@5.0.1",
+      "purl": "pkg:npm/https-proxy-agent@7.0.6",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/TooTallNate/node-https-proxy-agent#readme"
+          "url": "https://github.com/TooTallNate/proxy-agents#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/TooTallNate/node-https-proxy-agent/issues"
+          "url": "https://github.com/TooTallNate/proxy-agents/issues"
         },
         {
           "type": "vcs",
-          "url": "git://github.com/TooTallNate/node-https-proxy-agent.git"
+          "url": "git+https://github.com/TooTallNate/proxy-agents.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/agent-base@6.0.2",
+      "bom-ref": "pkg:npm/agent-base@7.1.3",
       "author": "Nathan Rajlich",
       "name": "agent-base",
-      "version": "6.0.2",
+      "version": "7.1.3",
       "description": "Turn a function into an `http.Agent` instance",
       "licenses": [
         {
@@ -150,19 +179,19 @@
           }
         }
       ],
-      "purl": "pkg:npm/agent-base@6.0.2",
+      "purl": "pkg:npm/agent-base@7.1.3",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/TooTallNate/node-agent-base#readme"
+          "url": "https://github.com/TooTallNate/proxy-agents#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/TooTallNate/node-agent-base/issues"
+          "url": "https://github.com/TooTallNate/proxy-agents/issues"
         },
         {
           "type": "vcs",
-          "url": "git://github.com/TooTallNate/node-agent-base.git"
+          "url": "git+https://github.com/TooTallNate/proxy-agents.git"
         }
       ]
     },
@@ -222,66 +251,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/vercel/ms.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/make-dir@3.1.0",
-      "author": "Sindre Sorhus",
-      "name": "make-dir",
-      "version": "3.1.0",
-      "description": "Make a directory and its parents if needed - Think `mkdir -p`",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/make-dir@3.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/make-dir#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/make-dir/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/make-dir.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/semver@6.3.1",
-      "author": "GitHub Inc.",
-      "name": "semver",
-      "version": "6.3.1",
-      "description": "The semantic version parser used by npm.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/semver@6.3.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/npm/node-semver#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/node-semver/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/node-semver.git"
         }
       ]
     },
@@ -407,10 +376,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/nopt@5.0.0",
-      "author": "Isaac Z. Schlueter",
+      "bom-ref": "pkg:npm/nopt@8.1.0",
+      "author": "GitHub Inc.",
       "name": "nopt",
-      "version": "5.0.0",
+      "version": "8.1.0",
       "description": "Option parsing for Node, supporting types, shorthands, etc. Used by npm.",
       "licenses": [
         {
@@ -419,7 +388,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/nopt@5.0.0",
+      "purl": "pkg:npm/nopt@8.1.0",
       "externalReferences": [
         {
           "type": "website",
@@ -437,10 +406,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/abbrev@1.1.1",
-      "author": "Isaac Z. Schlueter",
+      "bom-ref": "pkg:npm/abbrev@3.0.0",
+      "author": "GitHub Inc.",
       "name": "abbrev",
-      "version": "1.1.1",
+      "version": "3.0.0",
       "description": "Like ruby's abbrev module, but in js",
       "licenses": [
         {
@@ -449,59 +418,29 @@
           }
         }
       ],
-      "purl": "pkg:npm/abbrev@1.1.1",
+      "purl": "pkg:npm/abbrev@3.0.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/isaacs/abbrev-js#readme"
+          "url": "https://github.com/npm/abbrev-js#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/isaacs/abbrev-js/issues"
+          "url": "https://github.com/npm/abbrev-js/issues"
         },
         {
           "type": "vcs",
-          "url": "git+ssh://git@github.com/isaacs/abbrev-js.git"
+          "url": "git+https://github.com/npm/abbrev-js.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/npmlog@5.0.1",
-      "author": "Isaac Z. Schlueter",
-      "name": "npmlog",
-      "version": "5.0.1",
-      "description": "logger for npm",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/npmlog@5.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/npm/npmlog#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/npmlog/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/npmlog.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/are-we-there-yet@2.0.0",
+      "bom-ref": "pkg:npm/semver@7.6.3",
       "author": "GitHub Inc.",
-      "name": "are-we-there-yet",
-      "version": "2.0.0",
-      "description": "Keep track of the overall completion of many disparate processes",
+      "name": "semver",
+      "version": "7.6.3",
+      "description": "The semantic version parser used by npm.",
       "licenses": [
         {
           "license": {
@@ -509,295 +448,29 @@
           }
         }
       ],
-      "purl": "pkg:npm/are-we-there-yet@2.0.0",
+      "purl": "pkg:npm/semver@7.6.3",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/npm/are-we-there-yet"
+          "url": "https://github.com/npm/node-semver#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/npm/are-we-there-yet/issues"
+          "url": "https://github.com/npm/node-semver/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/npm/are-we-there-yet.git"
+          "url": "git+https://github.com/npm/node-semver.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/delegates@1.0.0",
-      "name": "delegates",
-      "version": "1.0.0",
-      "description": "delegate methods and accessors to another property",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/delegates@1.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/visionmedia/node-delegates#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/visionmedia/node-delegates/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/visionmedia/node-delegates.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/readable-stream@3.6.2",
-      "name": "readable-stream",
-      "version": "3.6.2",
-      "description": "Streams3, a user-land copy of the stream library from Node.js",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/readable-stream@3.6.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/nodejs/readable-stream#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/nodejs/readable-stream/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/nodejs/readable-stream.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/inherits@2.0.4",
-      "name": "inherits",
-      "version": "2.0.4",
-      "description": "Browser-friendly inheritance fully compatible with standard node.js inherits()",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/inherits@2.0.4",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/inherits#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/inherits/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/inherits.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/string_decoder@1.1.1",
-      "name": "string_decoder",
-      "version": "1.1.1",
-      "description": "The string_decoder module from Node core",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/string_decoder@1.1.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/nodejs/string_decoder"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/nodejs/string_decoder/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/nodejs/string_decoder.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/safe-buffer@5.1.2",
-      "author": "Feross Aboukhadijeh",
-      "name": "safe-buffer",
-      "version": "5.1.2",
-      "description": "Safer Node.js Buffer API",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/safe-buffer@5.1.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/feross/safe-buffer"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/feross/safe-buffer/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/feross/safe-buffer.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/util-deprecate@1.0.2",
-      "author": "Nathan Rajlich",
-      "name": "util-deprecate",
-      "version": "1.0.2",
-      "description": "The Node.js `util.deprecate()` function with browser support",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/util-deprecate@1.0.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/TooTallNate/util-deprecate"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/TooTallNate/util-deprecate/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/TooTallNate/util-deprecate.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/console-control-strings@1.1.0",
-      "author": "Rebecca Turner",
-      "name": "console-control-strings",
-      "version": "1.1.0",
-      "description": "A library of cross-platform tested terminal/console command strings for doing things like color and cursor positioning.  This is a subset of both ansi and vt100.  All control codes included work on both Windows & Unix-like OSes, except where noted.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/console-control-strings@1.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/iarna/console-control-strings#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/iarna/console-control-strings/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/iarna/console-control-strings.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/gauge@3.0.2",
-      "author": "Rebecca Turner",
-      "name": "gauge",
-      "version": "3.0.2",
-      "description": "A terminal based horizontal guage",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/gauge@3.0.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/npm/gauge"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/gauge/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/iarna/gauge.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/aproba@2.0.0",
-      "author": "Rebecca Turner",
-      "name": "aproba",
-      "version": "2.0.0",
-      "description": "A ridiculously light-weight argument validator (now browser friendly)",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/aproba@2.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/iarna/aproba"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/iarna/aproba/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/iarna/aproba.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-support@1.1.3",
+      "bom-ref": "pkg:npm/tar@7.4.3",
       "author": "Isaac Z. Schlueter",
-      "name": "color-support",
-      "version": "1.1.3",
-      "description": "A module which will endeavor to guess your terminal's level of color support.",
+      "name": "tar",
+      "version": "7.4.3",
+      "description": "tar for node",
       "licenses": [
         {
           "license": {
@@ -805,29 +478,30 @@
           }
         }
       ],
-      "purl": "pkg:npm/color-support@1.1.3",
+      "purl": "pkg:npm/tar@7.4.3",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/isaacs/color-support#readme"
+          "url": "https://github.com/isaacs/node-tar#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/isaacs/color-support/issues"
+          "url": "https://github.com/isaacs/node-tar/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/isaacs/color-support.git"
+          "url": "git+https://github.com/isaacs/node-tar.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/has-unicode@2.0.1",
-      "author": "Rebecca Turner",
-      "name": "has-unicode",
-      "version": "2.0.1",
-      "description": "Try to guess if your terminal supports unicode",
+      "bom-ref": "pkg:npm/%40isaacs/fs-minipass@4.0.1",
+      "author": "Isaac Z. Schlueter",
+      "group": "@isaacs",
+      "name": "fs-minipass",
+      "version": "4.0.1",
+      "description": "fs read and write streams based on minipass",
       "licenses": [
         {
           "license": {
@@ -835,29 +509,89 @@
           }
         }
       ],
-      "purl": "pkg:npm/has-unicode@2.0.1",
+      "purl": "pkg:npm/%40isaacs/fs-minipass@4.0.1",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/iarna/has-unicode"
+          "url": "https://github.com/npm/fs-minipass#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/iarna/has-unicode/issues"
+          "url": "https://github.com/npm/fs-minipass/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/iarna/has-unicode.git"
+          "url": "git+https://github.com/npm/fs-minipass.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/object-assign@4.1.1",
-      "author": "Sindre Sorhus",
-      "name": "object-assign",
-      "version": "4.1.1",
-      "description": "ES2015 `Object.assign()` ponyfill",
+      "bom-ref": "pkg:npm/minipass@7.1.2",
+      "author": "Isaac Z. Schlueter",
+      "name": "minipass",
+      "version": "7.1.2",
+      "description": "minimal implementation of a PassThrough stream",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/minipass@7.1.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/minipass#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/minipass/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/isaacs/minipass.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/chownr@3.0.0",
+      "author": "Isaac Z. Schlueter",
+      "name": "chownr",
+      "version": "3.0.0",
+      "description": "like `chown -R`",
+      "licenses": [
+        {
+          "license": {
+            "id": "BlueOak-1.0.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/chownr@3.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/chownr#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/chownr/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/isaacs/chownr.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/minizlib@3.0.1",
+      "author": "Isaac Z. Schlueter",
+      "name": "minizlib",
+      "version": "3.0.1",
+      "description": "A small fast zlib stream built on [minipass](http://npm.im/minipass) and Node.js's zlib binding.",
       "licenses": [
         {
           "license": {
@@ -865,28 +599,298 @@
           }
         }
       ],
-      "purl": "pkg:npm/object-assign@4.1.1",
+      "purl": "pkg:npm/minizlib@3.0.1",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/sindresorhus/object-assign#readme"
+          "url": "https://github.com/isaacs/minizlib#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/object-assign/issues"
+          "url": "https://github.com/isaacs/minizlib/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/object-assign.git"
+          "url": "git+https://github.com/isaacs/minizlib.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/signal-exit@3.0.7",
+      "bom-ref": "pkg:npm/rimraf@5.0.10",
+      "author": "Isaac Z. Schlueter",
+      "name": "rimraf",
+      "version": "5.0.10",
+      "description": "A deep deletion module for node (like `rm -rf`)",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/rimraf@5.0.10",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/rimraf#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/rimraf/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/isaacs/rimraf.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/glob@10.4.5",
+      "author": "Isaac Z. Schlueter",
+      "name": "glob",
+      "version": "10.4.5",
+      "description": "the most correct and second fastest glob implementation in JavaScript",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/glob@10.4.5",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/node-glob#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/node-glob/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/isaacs/node-glob.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/foreground-child@3.3.0",
+      "author": "Isaac Z. Schlueter",
+      "name": "foreground-child",
+      "version": "3.3.0",
+      "description": "Run a child as if it's the foreground process. Give it stdio. Exit when it exits.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/foreground-child@3.3.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/tapjs/foreground-child#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/tapjs/foreground-child/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/tapjs/foreground-child.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/cross-spawn@7.0.6",
+      "author": "André Cruz",
+      "name": "cross-spawn",
+      "version": "7.0.6",
+      "description": "Cross platform child_process#spawn and child_process#spawnSync",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/cross-spawn@7.0.6",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/moxystudio/node-cross-spawn"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/moxystudio/node-cross-spawn/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/moxystudio/node-cross-spawn.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/path-key@3.1.1",
+      "author": "Sindre Sorhus",
+      "name": "path-key",
+      "version": "3.1.1",
+      "description": "Get the PATH environment variable key cross-platform",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/path-key@3.1.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/sindresorhus/path-key#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/sindresorhus/path-key/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/sindresorhus/path-key.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/shebang-command@2.0.0",
+      "author": "Kevin Mårtensson",
+      "name": "shebang-command",
+      "version": "2.0.0",
+      "description": "Get the command from a shebang",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/shebang-command@2.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/kevva/shebang-command#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/kevva/shebang-command/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/kevva/shebang-command.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/shebang-regex@3.0.0",
+      "author": "Sindre Sorhus",
+      "name": "shebang-regex",
+      "version": "3.0.0",
+      "description": "Regular expression for matching a shebang line",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/shebang-regex@3.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/sindresorhus/shebang-regex#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/sindresorhus/shebang-regex/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/sindresorhus/shebang-regex.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/which@2.0.2",
+      "author": "Isaac Z. Schlueter",
+      "name": "which",
+      "version": "2.0.2",
+      "description": "Like which(1) unix command. Find the first instance of an executable in the PATH.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/which@2.0.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/node-which#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/node-which/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/isaacs/node-which.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/isexe@2.0.0",
+      "author": "Isaac Z. Schlueter",
+      "name": "isexe",
+      "version": "2.0.0",
+      "description": "Minimal module to check if a file is executable.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/isexe@2.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/isexe#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/isexe/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/isaacs/isexe.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/signal-exit@4.1.0",
       "author": "Ben Coe",
       "name": "signal-exit",
-      "version": "3.0.7",
+      "version": "4.1.0",
       "description": "when you want to fire an event no matter how a process exits.",
       "licenses": [
         {
@@ -895,11 +899,11 @@
           }
         }
       ],
-      "purl": "pkg:npm/signal-exit@3.0.7",
+      "purl": "pkg:npm/signal-exit@4.1.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/tapjs/signal-exit"
+          "url": "https://github.com/tapjs/signal-exit#readme"
         },
         {
           "type": "issue-tracker",
@@ -908,6 +912,217 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/tapjs/signal-exit.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/jackspeak@3.4.3",
+      "author": "Isaac Z. Schlueter",
+      "name": "jackspeak",
+      "version": "3.4.3",
+      "description": "A very strict and proper argument parser.",
+      "licenses": [
+        {
+          "license": {
+            "id": "BlueOak-1.0.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/jackspeak@3.4.3",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/jackspeak#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/jackspeak/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/isaacs/jackspeak.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40isaacs/cliui@8.0.2",
+      "author": "Ben Coe",
+      "group": "@isaacs",
+      "name": "cliui",
+      "version": "8.0.2",
+      "description": "easily create complex multi-column command-line-interfaces",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40isaacs/cliui@8.0.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/yargs/cliui#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/yargs/cliui/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/yargs/cliui.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/string-width@5.1.2",
+      "author": "Sindre Sorhus",
+      "name": "string-width",
+      "version": "5.1.2",
+      "description": "Get the visual width of a string - the number of columns required to display it",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/string-width@5.1.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/sindresorhus/string-width#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/sindresorhus/string-width/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/sindresorhus/string-width.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/eastasianwidth@0.2.0",
+      "author": "Masaki Komagata",
+      "name": "eastasianwidth",
+      "version": "0.2.0",
+      "description": "Get East Asian Width from a character.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/eastasianwidth@0.2.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/komagata/eastasianwidth#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/komagata/eastasianwidth/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/komagata/eastasianwidth.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/emoji-regex@9.2.2",
+      "author": "Mathias Bynens",
+      "name": "emoji-regex",
+      "version": "9.2.2",
+      "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/emoji-regex@9.2.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://mths.be/emoji-regex"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/mathiasbynens/emoji-regex/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/mathiasbynens/emoji-regex.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/strip-ansi@7.1.0",
+      "author": "Sindre Sorhus",
+      "name": "strip-ansi",
+      "version": "7.1.0",
+      "description": "Strip ANSI escape codes from a string",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/strip-ansi@7.1.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/chalk/strip-ansi#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/chalk/strip-ansi/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/chalk/strip-ansi.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ansi-regex@6.1.0",
+      "author": "Sindre Sorhus",
+      "name": "ansi-regex",
+      "version": "6.1.0",
+      "description": "Regular expression for matching ANSI escape codes",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ansi-regex@6.1.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/chalk/ansi-regex#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/chalk/ansi-regex/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/chalk/ansi-regex.git"
         }
       ]
     },
@@ -1063,250 +1278,190 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/wide-align@1.1.5",
-      "author": "Rebecca Turner",
-      "name": "wide-align",
-      "version": "1.1.5",
-      "description": "A wide-character aware text alignment function for use on the console or with fixed width fonts.",
+      "bom-ref": "pkg:npm/wrap-ansi@8.1.0",
+      "author": "Sindre Sorhus",
+      "name": "wrap-ansi",
+      "version": "8.1.0",
+      "description": "Wordwrap a string with ANSI escape codes",
       "licenses": [
         {
           "license": {
-            "id": "ISC"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/wide-align@1.1.5",
+      "purl": "pkg:npm/wrap-ansi@8.1.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/iarna/wide-align#readme"
+          "url": "https://github.com/chalk/wrap-ansi#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/iarna/wide-align/issues"
+          "url": "https://github.com/chalk/wrap-ansi/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/iarna/wide-align.git"
+          "url": "git+https://github.com/chalk/wrap-ansi.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/set-blocking@2.0.0",
-      "author": "Ben Coe",
-      "name": "set-blocking",
-      "version": "2.0.0",
-      "description": "set blocking stdio and stderr ensuring that terminal output does not truncate",
+      "bom-ref": "pkg:npm/ansi-styles@6.2.1",
+      "author": "Sindre Sorhus",
+      "name": "ansi-styles",
+      "version": "6.2.1",
+      "description": "ANSI escape codes for styling strings in the terminal",
       "licenses": [
         {
           "license": {
-            "id": "ISC"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/set-blocking@2.0.0",
+      "purl": "pkg:npm/ansi-styles@6.2.1",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/yargs/set-blocking#readme"
+          "url": "https://github.com/chalk/ansi-styles#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/yargs/set-blocking/issues"
+          "url": "https://github.com/chalk/ansi-styles/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/yargs/set-blocking.git"
+          "url": "git+https://github.com/chalk/ansi-styles.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/rimraf@3.0.2",
-      "author": "Isaac Z. Schlueter",
-      "name": "rimraf",
-      "version": "3.0.2",
-      "description": "A deep deletion module for node (like `rm -rf`)",
+      "bom-ref": "pkg:npm/wrap-ansi@7.0.0",
+      "author": "Sindre Sorhus",
+      "name": "wrap-ansi",
+      "version": "7.0.0",
+      "description": "Wordwrap a string with ANSI escape codes",
       "licenses": [
         {
           "license": {
-            "id": "ISC"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/rimraf@3.0.2",
+      "purl": "pkg:npm/wrap-ansi@7.0.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/isaacs/rimraf#readme"
+          "url": "https://github.com/chalk/wrap-ansi#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/isaacs/rimraf/issues"
+          "url": "https://github.com/chalk/wrap-ansi/issues"
         },
         {
           "type": "vcs",
-          "url": "git://github.com/isaacs/rimraf.git"
+          "url": "git+https://github.com/chalk/wrap-ansi.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/glob@7.2.3",
-      "author": "Isaac Z. Schlueter",
-      "name": "glob",
-      "version": "7.2.3",
-      "description": "a little globber",
+      "bom-ref": "pkg:npm/ansi-styles@4.3.0",
+      "author": "Sindre Sorhus",
+      "name": "ansi-styles",
+      "version": "4.3.0",
+      "description": "ANSI escape codes for styling strings in the terminal",
       "licenses": [
         {
           "license": {
-            "id": "ISC"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/glob@7.2.3",
+      "purl": "pkg:npm/ansi-styles@4.3.0",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/isaacs/node-glob#readme"
+          "url": "https://github.com/chalk/ansi-styles#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-glob/issues"
+          "url": "https://github.com/chalk/ansi-styles/issues"
         },
         {
           "type": "vcs",
-          "url": "git://github.com/isaacs/node-glob.git"
+          "url": "git+https://github.com/chalk/ansi-styles.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fs.realpath@1.0.0",
-      "author": "Isaac Z. Schlueter",
-      "name": "fs.realpath",
-      "version": "1.0.0",
-      "description": "Use node's fs.realpath, but fall back to the JS implementation if the native one fails",
+      "bom-ref": "pkg:npm/color-convert@2.0.1",
+      "author": "Heather Arthur",
+      "name": "color-convert",
+      "version": "2.0.1",
+      "description": "Plain color conversion functions",
       "licenses": [
         {
           "license": {
-            "id": "ISC"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/fs.realpath@1.0.0",
+      "purl": "pkg:npm/color-convert@2.0.1",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/isaacs/fs.realpath#readme"
+          "url": "https://github.com/Qix-/color-convert#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/isaacs/fs.realpath/issues"
+          "url": "https://github.com/Qix-/color-convert/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/isaacs/fs.realpath.git"
+          "url": "git+https://github.com/Qix-/color-convert.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/inflight@1.0.6",
-      "author": "Isaac Z. Schlueter",
-      "name": "inflight",
-      "version": "1.0.6",
-      "description": "Add callbacks to requests in flight to avoid async duplication",
+      "bom-ref": "pkg:npm/color-name@1.1.4",
+      "author": "DY",
+      "name": "color-name",
+      "version": "1.1.4",
+      "description": "A list of color names and its values",
       "licenses": [
         {
           "license": {
-            "id": "ISC"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/inflight@1.0.6",
+      "purl": "pkg:npm/color-name@1.1.4",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/isaacs/inflight"
+          "url": "https://github.com/colorjs/color-name"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/isaacs/inflight/issues"
+          "url": "https://github.com/colorjs/color-name/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/npm/inflight.git"
+          "url": "git+ssh://git@github.com/colorjs/color-name.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/once@1.4.0",
-      "author": "Isaac Z. Schlueter",
-      "name": "once",
-      "version": "1.4.0",
-      "description": "Run a function exactly one time",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/once@1.4.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/once#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/once/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/once.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/wrappy@1.0.2",
-      "author": "Isaac Z. Schlueter",
-      "name": "wrappy",
-      "version": "1.0.2",
-      "description": "Callback wrapping utility",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/wrappy@1.0.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/npm/wrappy"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/wrappy/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/wrappy.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/minimatch@3.1.2",
+      "bom-ref": "pkg:npm/minimatch@9.0.5",
       "author": "Isaac Z. Schlueter",
       "name": "minimatch",
-      "version": "3.1.2",
+      "version": "9.0.5",
       "description": "a glob matcher in javascript",
       "licenses": [
         {
@@ -1315,7 +1470,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/minimatch@3.1.2",
+      "purl": "pkg:npm/minimatch@9.0.5",
       "externalReferences": [
         {
           "type": "website",
@@ -1333,10 +1488,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/brace-expansion@1.1.11",
+      "bom-ref": "pkg:npm/brace-expansion@2.0.1",
       "author": "Julian Gruber",
       "name": "brace-expansion",
-      "version": "1.1.11",
+      "version": "2.0.1",
       "description": "Brace expansion as known from sh/bash",
       "licenses": [
         {
@@ -1345,7 +1500,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/brace-expansion@1.1.11",
+      "purl": "pkg:npm/brace-expansion@2.0.1",
       "externalReferences": [
         {
           "type": "website",
@@ -1393,131 +1548,71 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/concat-map@0.0.1",
-      "author": "James Halliday",
-      "name": "concat-map",
-      "version": "0.0.1",
-      "description": "concatenative mapdashery",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/concat-map@0.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/substack/node-concat-map#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/substack/node-concat-map/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/substack/node-concat-map.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/path-is-absolute@1.0.1",
-      "author": "Sindre Sorhus",
-      "name": "path-is-absolute",
+      "bom-ref": "pkg:npm/package-json-from-dist@1.0.1",
+      "author": "Isaac Z. Schlueter",
+      "name": "package-json-from-dist",
       "version": "1.0.1",
-      "description": "Node.js 0.12 path.isAbsolute() ponyfill",
+      "description": "Load the local package.json from either src or dist folder",
       "licenses": [
         {
           "license": {
-            "id": "MIT"
+            "id": "BlueOak-1.0.0"
           }
         }
       ],
-      "purl": "pkg:npm/path-is-absolute@1.0.1",
+      "purl": "pkg:npm/package-json-from-dist@1.0.1",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/sindresorhus/path-is-absolute#readme"
+          "url": "https://github.com/isaacs/package-json-from-dist#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/path-is-absolute/issues"
+          "url": "https://github.com/isaacs/package-json-from-dist/issues"
         },
         {
           "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/path-is-absolute.git"
+          "url": "git+https://github.com/isaacs/package-json-from-dist.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/semver@7.6.3",
-      "author": "GitHub Inc.",
-      "name": "semver",
-      "version": "7.6.3",
-      "description": "The semantic version parser used by npm.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/semver@7.6.3",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/npm/node-semver#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/node-semver/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/node-semver.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/tar@6.2.1",
-      "author": "GitHub Inc.",
-      "name": "tar",
-      "version": "6.2.1",
-      "description": "tar for node",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/tar@6.2.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-tar#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-tar/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/node-tar.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/chownr@2.0.0",
+      "bom-ref": "pkg:npm/path-scurry@1.11.1",
       "author": "Isaac Z. Schlueter",
-      "name": "chownr",
-      "version": "2.0.0",
-      "description": "like `chown -R`",
+      "name": "path-scurry",
+      "version": "1.11.1",
+      "description": "walk paths fast and efficiently",
+      "licenses": [
+        {
+          "license": {
+            "id": "BlueOak-1.0.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/path-scurry@1.11.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/path-scurry#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/path-scurry/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/isaacs/path-scurry.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/lru-cache@10.4.3",
+      "author": "Isaac Z. Schlueter",
+      "name": "lru-cache",
+      "version": "10.4.3",
+      "description": "A cache object that deletes the least-recently-used items.",
       "licenses": [
         {
           "license": {
@@ -1525,177 +1620,27 @@
           }
         }
       ],
-      "purl": "pkg:npm/chownr@2.0.0",
+      "purl": "pkg:npm/lru-cache@10.4.3",
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/isaacs/chownr#readme"
+          "url": "https://github.com/isaacs/node-lru-cache#readme"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/isaacs/chownr/issues"
+          "url": "https://github.com/isaacs/node-lru-cache/issues"
         },
         {
           "type": "vcs",
-          "url": "git://github.com/isaacs/chownr.git"
+          "url": "git://github.com/isaacs/node-lru-cache.git"
         }
       ]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fs-minipass@2.1.0",
-      "author": "Isaac Z. Schlueter",
-      "name": "fs-minipass",
-      "version": "2.1.0",
-      "description": "fs read and write streams based on minipass",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/fs-minipass@2.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/npm/fs-minipass#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/fs-minipass/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/fs-minipass.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/minipass@3.3.6",
-      "author": "Isaac Z. Schlueter",
-      "name": "minipass",
-      "version": "3.3.6",
-      "description": "minimal implementation of a PassThrough stream",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/minipass@3.3.6",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/minipass#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/minipass/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/minipass.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/yallist@4.0.0",
-      "author": "Isaac Z. Schlueter",
-      "name": "yallist",
-      "version": "4.0.0",
-      "description": "Yet Another Linked List",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/yallist@4.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/yallist#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/yallist/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/yallist.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/minipass@5.0.0",
-      "author": "Isaac Z. Schlueter",
-      "name": "minipass",
-      "version": "5.0.0",
-      "description": "minimal implementation of a PassThrough stream",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/minipass@5.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/minipass#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/minipass/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/minipass.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/minizlib@2.1.2",
-      "author": "Isaac Z. Schlueter",
-      "name": "minizlib",
-      "version": "2.1.2",
-      "description": "A small fast zlib stream built on [minipass](http://npm.im/minipass) and Node.js's zlib binding.",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/minizlib@2.1.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/minizlib#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/minizlib/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/minizlib.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/mkdirp@1.0.4",
+      "bom-ref": "pkg:npm/mkdirp@3.0.1",
       "name": "mkdirp",
-      "version": "1.0.4",
+      "version": "3.0.1",
       "description": "Recursively mkdir, like `mkdir -p`",
       "licenses": [
         {
@@ -1704,7 +1649,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/mkdirp@1.0.4",
+      "purl": "pkg:npm/mkdirp@3.0.1",
       "externalReferences": [
         {
           "type": "website",
@@ -1717,6 +1662,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/isaacs/node-mkdirp.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/yallist@5.0.0",
+      "author": "Isaac Z. Schlueter",
+      "name": "yallist",
+      "version": "5.0.0",
+      "description": "Yet Another Linked List",
+      "licenses": [
+        {
+          "license": {
+            "id": "BlueOak-1.0.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/yallist@5.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/yallist#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/yallist/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/isaacs/yallist.git"
         }
       ]
     },
@@ -2208,10 +2183,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40types/geojson@7946.0.15",
+      "bom-ref": "pkg:npm/%40types/geojson@7946.0.16",
       "group": "@types",
       "name": "geojson",
-      "version": "7946.0.15",
+      "version": "7946.0.16",
       "description": "TypeScript definitions for geojson",
       "licenses": [
         {
@@ -2220,7 +2195,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/geojson@7946.0.15",
+      "purl": "pkg:npm/%40types/geojson@7946.0.16",
       "externalReferences": [
         {
           "type": "website",
@@ -6869,6 +6844,155 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/fs.realpath@1.0.0",
+      "author": "Isaac Z. Schlueter",
+      "name": "fs.realpath",
+      "version": "1.0.0",
+      "description": "Use node's fs.realpath, but fall back to the JS implementation if the native one fails",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/fs.realpath@1.0.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/fs.realpath#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/fs.realpath/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/isaacs/fs.realpath.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/inflight@1.0.6",
+      "author": "Isaac Z. Schlueter",
+      "name": "inflight",
+      "version": "1.0.6",
+      "description": "Add callbacks to requests in flight to avoid async duplication",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/inflight@1.0.6",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/inflight"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/inflight/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/npm/inflight.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/once@1.4.0",
+      "author": "Isaac Z. Schlueter",
+      "name": "once",
+      "version": "1.4.0",
+      "description": "Run a function exactly one time",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/once@1.4.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/once#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/once/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/isaacs/once.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/wrappy@1.0.2",
+      "author": "Isaac Z. Schlueter",
+      "name": "wrappy",
+      "version": "1.0.2",
+      "description": "Callback wrapping utility",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/wrappy@1.0.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/npm/wrappy"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/npm/wrappy/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/npm/wrappy.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/inherits@2.0.4",
+      "name": "inherits",
+      "version": "2.0.4",
+      "description": "Browser-friendly inheritance fully compatible with standard node.js inherits()",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:npm/inherits@2.0.4",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/isaacs/inherits#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/isaacs/inherits/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/isaacs/inherits.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/minimatch@5.1.6",
       "author": "Isaac Z. Schlueter",
       "name": "minimatch",
@@ -6894,36 +7018,6 @@
         {
           "type": "vcs",
           "url": "git://github.com/isaacs/minimatch.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/brace-expansion@2.0.1",
-      "author": "Julian Gruber",
-      "name": "brace-expansion",
-      "version": "2.0.1",
-      "description": "Brace expansion as known from sh/bash",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/brace-expansion@2.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/juliangruber/brace-expansion"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/juliangruber/brace-expansion/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/juliangruber/brace-expansion.git"
         }
       ]
     },
@@ -7134,6 +7228,36 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/%40pkgjs/parseargs@0.11.0",
+      "group": "@pkgjs",
+      "name": "parseargs",
+      "version": "0.11.0",
+      "description": "Polyfill of future proposal for `util.parseArgs()`",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40pkgjs/parseargs@0.11.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/pkgjs/parseargs#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/pkgjs/parseargs/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/pkgjs/parseargs.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/%40types/rbush@4.0.0",
       "group": "@types",
       "name": "rbush",
@@ -7159,36 +7283,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-space@2.0.1",
-      "author": "Dmitry Ivanov",
-      "name": "color-space",
-      "version": "2.0.1",
-      "description": "Collection of color space conversions",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-space@2.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-space#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-space/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/colorjs/color-space.git"
         }
       ]
     },
@@ -7284,6 +7378,36 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/color-space@2.0.1",
+      "author": "Dmitry Ivanov",
+      "name": "color-space",
+      "version": "2.0.1",
+      "description": "Collection of color space conversions",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-space@2.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-space#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-space/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/colorjs/color-space.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/lerc@3.0.0",
       "author": "Esri",
       "name": "lerc",
@@ -7344,36 +7468,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/protocol-buffers-schema@3.6.0",
-      "author": "Mathias Buus",
-      "name": "protocol-buffers-schema",
-      "version": "3.6.0",
-      "description": "No nonsense protocol buffers schema parser written in Javascript",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/protocol-buffers-schema@3.6.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/mafintosh/protocol-buffers-schema"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/quick-lru@6.1.2",
       "author": "Sindre Sorhus",
       "name": "quick-lru",
@@ -7429,6 +7523,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/mafintosh/resolve-protobuf-schema.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/protocol-buffers-schema@3.6.0",
+      "author": "Mathias Buus",
+      "name": "protocol-buffers-schema",
+      "version": "3.6.0",
+      "description": "No nonsense protocol buffers schema parser written in Javascript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/protocol-buffers-schema@3.6.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/mafintosh/protocol-buffers-schema"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
         }
       ]
     },
@@ -7732,7 +7856,13 @@
   ],
   "dependencies": [
     {
+      "ref": "pkg:npm/consola@3.4.0"
+    },
+    {
       "ref": "pkg:npm/detect-libc@2.0.3"
+    },
+    {
+      "ref": "pkg:npm/agent-base@7.1.3"
     },
     {
       "ref": "pkg:npm/ms@2.1.3"
@@ -7744,24 +7874,10 @@
       ]
     },
     {
-      "ref": "pkg:npm/agent-base@6.0.2",
+      "ref": "pkg:npm/https-proxy-agent@7.0.6",
       "dependsOn": [
+        "pkg:npm/agent-base@7.1.3",
         "pkg:npm/debug@4.3.7"
-      ]
-    },
-    {
-      "ref": "pkg:npm/https-proxy-agent@5.0.1",
-      "dependsOn": [
-        "pkg:npm/agent-base@6.0.2"
-      ]
-    },
-    {
-      "ref": "pkg:npm/semver@6.3.1"
-    },
-    {
-      "ref": "pkg:npm/make-dir@3.1.0",
-      "dependsOn": [
-        "pkg:npm/semver@6.3.1"
       ]
     },
     {
@@ -7784,64 +7900,90 @@
       ]
     },
     {
-      "ref": "pkg:npm/abbrev@1.1.1"
+      "ref": "pkg:npm/abbrev@3.0.0"
     },
     {
-      "ref": "pkg:npm/nopt@5.0.0",
+      "ref": "pkg:npm/nopt@8.1.0",
       "dependsOn": [
-        "pkg:npm/abbrev@1.1.1"
+        "pkg:npm/abbrev@3.0.0"
       ]
     },
     {
-      "ref": "pkg:npm/delegates@1.0.0"
+      "ref": "pkg:npm/semver@7.6.3"
     },
     {
-      "ref": "pkg:npm/inherits@2.0.4"
+      "ref": "pkg:npm/minipass@7.1.2"
     },
     {
-      "ref": "pkg:npm/safe-buffer@5.1.2"
-    },
-    {
-      "ref": "pkg:npm/string_decoder@1.1.1",
+      "ref": "pkg:npm/%40isaacs/fs-minipass@4.0.1",
       "dependsOn": [
-        "pkg:npm/safe-buffer@5.1.2"
+        "pkg:npm/minipass@7.1.2"
       ]
     },
     {
-      "ref": "pkg:npm/util-deprecate@1.0.2"
+      "ref": "pkg:npm/chownr@3.0.0"
     },
     {
-      "ref": "pkg:npm/readable-stream@3.6.2",
+      "ref": "pkg:npm/path-key@3.1.1"
+    },
+    {
+      "ref": "pkg:npm/shebang-regex@3.0.0"
+    },
+    {
+      "ref": "pkg:npm/shebang-command@2.0.0",
       "dependsOn": [
-        "pkg:npm/inherits@2.0.4",
-        "pkg:npm/string_decoder@1.1.1",
-        "pkg:npm/util-deprecate@1.0.2"
+        "pkg:npm/shebang-regex@3.0.0"
       ]
     },
     {
-      "ref": "pkg:npm/are-we-there-yet@2.0.0",
+      "ref": "pkg:npm/isexe@2.0.0"
+    },
+    {
+      "ref": "pkg:npm/which@2.0.2",
       "dependsOn": [
-        "pkg:npm/delegates@1.0.0",
-        "pkg:npm/readable-stream@3.6.2"
+        "pkg:npm/isexe@2.0.0"
       ]
     },
     {
-      "ref": "pkg:npm/console-control-strings@1.1.0"
+      "ref": "pkg:npm/cross-spawn@7.0.6",
+      "dependsOn": [
+        "pkg:npm/path-key@3.1.1",
+        "pkg:npm/shebang-command@2.0.0",
+        "pkg:npm/which@2.0.2"
+      ]
     },
     {
-      "ref": "pkg:npm/aproba@2.0.0"
+      "ref": "pkg:npm/signal-exit@4.1.0"
     },
     {
-      "ref": "pkg:npm/color-support@1.1.3"
+      "ref": "pkg:npm/foreground-child@3.3.0",
+      "dependsOn": [
+        "pkg:npm/cross-spawn@7.0.6",
+        "pkg:npm/signal-exit@4.1.0"
+      ]
     },
     {
-      "ref": "pkg:npm/has-unicode@2.0.1"
+      "ref": "pkg:npm/eastasianwidth@0.2.0"
     },
     {
-      "ref": "pkg:npm/object-assign@4.1.1"
+      "ref": "pkg:npm/emoji-regex@9.2.2"
     },
     {
-      "ref": "pkg:npm/signal-exit@3.0.7"
+      "ref": "pkg:npm/ansi-regex@6.1.0"
+    },
+    {
+      "ref": "pkg:npm/strip-ansi@7.1.0",
+      "dependsOn": [
+        "pkg:npm/ansi-regex@6.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/string-width@5.1.2",
+      "dependsOn": [
+        "pkg:npm/eastasianwidth@0.2.0",
+        "pkg:npm/emoji-regex@9.2.2",
+        "pkg:npm/strip-ansi@7.1.0"
+      ]
     },
     {
       "ref": "pkg:npm/emoji-regex@8.0.0"
@@ -7867,139 +8009,125 @@
       ]
     },
     {
-      "ref": "pkg:npm/wide-align@1.1.5"
+      "ref": "pkg:npm/ansi-styles@6.2.1"
     },
     {
-      "ref": "pkg:npm/gauge@3.0.2",
+      "ref": "pkg:npm/wrap-ansi@8.1.0",
       "dependsOn": [
-        "pkg:npm/aproba@2.0.0",
-        "pkg:npm/color-support@1.1.3",
-        "pkg:npm/has-unicode@2.0.1",
-        "pkg:npm/object-assign@4.1.1",
-        "pkg:npm/signal-exit@3.0.7",
+        "pkg:npm/ansi-styles@6.2.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/color-name@1.1.4"
+    },
+    {
+      "ref": "pkg:npm/color-convert@2.0.1",
+      "dependsOn": [
+        "pkg:npm/color-name@1.1.4"
+      ]
+    },
+    {
+      "ref": "pkg:npm/ansi-styles@4.3.0",
+      "dependsOn": [
+        "pkg:npm/color-convert@2.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/wrap-ansi@7.0.0",
+      "dependsOn": [
+        "pkg:npm/ansi-styles@4.3.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40isaacs/cliui@8.0.2",
+      "dependsOn": [
+        "pkg:npm/string-width@5.1.2",
         "pkg:npm/string-width@4.2.3",
-        "pkg:npm/wide-align@1.1.5"
+        "pkg:npm/wrap-ansi@8.1.0",
+        "pkg:npm/wrap-ansi@7.0.0"
       ]
     },
     {
-      "ref": "pkg:npm/set-blocking@2.0.0"
-    },
-    {
-      "ref": "pkg:npm/npmlog@5.0.1",
+      "ref": "pkg:npm/jackspeak@3.4.3",
       "dependsOn": [
-        "pkg:npm/are-we-there-yet@2.0.0",
-        "pkg:npm/console-control-strings@1.1.0",
-        "pkg:npm/gauge@3.0.2",
-        "pkg:npm/set-blocking@2.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/fs.realpath@1.0.0"
-    },
-    {
-      "ref": "pkg:npm/wrappy@1.0.2"
-    },
-    {
-      "ref": "pkg:npm/once@1.4.0",
-      "dependsOn": [
-        "pkg:npm/wrappy@1.0.2"
-      ]
-    },
-    {
-      "ref": "pkg:npm/inflight@1.0.6",
-      "dependsOn": [
-        "pkg:npm/once@1.4.0"
+        "pkg:npm/%40isaacs/cliui@8.0.2"
       ]
     },
     {
       "ref": "pkg:npm/balanced-match@1.0.2"
     },
     {
-      "ref": "pkg:npm/concat-map@0.0.1"
-    },
-    {
-      "ref": "pkg:npm/brace-expansion@1.1.11",
+      "ref": "pkg:npm/brace-expansion@2.0.1",
       "dependsOn": [
-        "pkg:npm/balanced-match@1.0.2",
-        "pkg:npm/concat-map@0.0.1"
+        "pkg:npm/balanced-match@1.0.2"
       ]
     },
     {
-      "ref": "pkg:npm/minimatch@3.1.2",
+      "ref": "pkg:npm/minimatch@9.0.5",
       "dependsOn": [
-        "pkg:npm/brace-expansion@1.1.11"
+        "pkg:npm/brace-expansion@2.0.1"
       ]
     },
     {
-      "ref": "pkg:npm/path-is-absolute@1.0.1"
+      "ref": "pkg:npm/package-json-from-dist@1.0.1"
     },
     {
-      "ref": "pkg:npm/glob@7.2.3",
+      "ref": "pkg:npm/lru-cache@10.4.3"
+    },
+    {
+      "ref": "pkg:npm/path-scurry@1.11.1",
       "dependsOn": [
-        "pkg:npm/fs.realpath@1.0.0",
-        "pkg:npm/inflight@1.0.6",
-        "pkg:npm/minimatch@3.1.2",
-        "pkg:npm/path-is-absolute@1.0.1"
+        "pkg:npm/lru-cache@10.4.3"
       ]
     },
     {
-      "ref": "pkg:npm/rimraf@3.0.2",
+      "ref": "pkg:npm/glob@10.4.5",
       "dependsOn": [
-        "pkg:npm/glob@7.2.3"
+        "pkg:npm/foreground-child@3.3.0",
+        "pkg:npm/jackspeak@3.4.3",
+        "pkg:npm/minimatch@9.0.5",
+        "pkg:npm/package-json-from-dist@1.0.1",
+        "pkg:npm/path-scurry@1.11.1"
       ]
     },
     {
-      "ref": "pkg:npm/semver@7.6.3"
-    },
-    {
-      "ref": "pkg:npm/chownr@2.0.0"
-    },
-    {
-      "ref": "pkg:npm/yallist@4.0.0"
-    },
-    {
-      "ref": "pkg:npm/minipass@3.3.6",
+      "ref": "pkg:npm/rimraf@5.0.10",
       "dependsOn": [
-        "pkg:npm/yallist@4.0.0"
+        "pkg:npm/glob@10.4.5"
       ]
     },
     {
-      "ref": "pkg:npm/fs-minipass@2.1.0",
+      "ref": "pkg:npm/minizlib@3.0.1",
       "dependsOn": [
-        "pkg:npm/minipass@3.3.6"
+        "pkg:npm/rimraf@5.0.10"
       ]
     },
     {
-      "ref": "pkg:npm/minipass@5.0.0"
+      "ref": "pkg:npm/mkdirp@3.0.1"
     },
     {
-      "ref": "pkg:npm/minizlib@2.1.2"
+      "ref": "pkg:npm/yallist@5.0.0"
     },
     {
-      "ref": "pkg:npm/mkdirp@1.0.4"
-    },
-    {
-      "ref": "pkg:npm/tar@6.2.1",
+      "ref": "pkg:npm/tar@7.4.3",
       "dependsOn": [
-        "pkg:npm/chownr@2.0.0",
-        "pkg:npm/fs-minipass@2.1.0",
-        "pkg:npm/minipass@5.0.0",
-        "pkg:npm/minizlib@2.1.2",
-        "pkg:npm/mkdirp@1.0.4"
+        "pkg:npm/%40isaacs/fs-minipass@4.0.1",
+        "pkg:npm/chownr@3.0.0",
+        "pkg:npm/minizlib@3.0.1",
+        "pkg:npm/mkdirp@3.0.1",
+        "pkg:npm/yallist@5.0.0"
       ]
     },
     {
-      "ref": "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
+      "ref": "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
       "dependsOn": [
+        "pkg:npm/consola@3.4.0",
         "pkg:npm/detect-libc@2.0.3",
-        "pkg:npm/https-proxy-agent@5.0.1",
-        "pkg:npm/make-dir@3.1.0",
+        "pkg:npm/https-proxy-agent@7.0.6",
         "pkg:npm/node-fetch@2.7.0",
-        "pkg:npm/nopt@5.0.0",
-        "pkg:npm/npmlog@5.0.1",
-        "pkg:npm/rimraf@3.0.2",
+        "pkg:npm/nopt@8.1.0",
         "pkg:npm/semver@7.6.3",
-        "pkg:npm/tar@6.2.1"
+        "pkg:npm/tar@7.4.3"
       ]
     },
     {
@@ -8056,7 +8184,7 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40types/geojson@7946.0.15"
+      "ref": "pkg:npm/%40types/geojson@7946.0.16"
     },
     {
       "ref": "pkg:npm/tslib@2.8.1"
@@ -8064,7 +8192,7 @@
     {
       "ref": "pkg:npm/%40turf/helpers@7.2.0",
       "dependsOn": [
-        "pkg:npm/%40types/geojson@7946.0.15",
+        "pkg:npm/%40types/geojson@7946.0.16",
         "pkg:npm/tslib@2.8.1"
       ]
     },
@@ -8774,17 +8902,35 @@
       ]
     },
     {
-      "ref": "pkg:npm/brace-expansion@2.0.1"
+      "ref": "pkg:npm/fs.realpath@1.0.0"
     },
     {
-      "ref": "pkg:npm/minimatch@5.1.6",
+      "ref": "pkg:npm/wrappy@1.0.2"
+    },
+    {
+      "ref": "pkg:npm/once@1.4.0",
       "dependsOn": [
-        "pkg:npm/brace-expansion@2.0.1"
+        "pkg:npm/wrappy@1.0.2"
       ]
+    },
+    {
+      "ref": "pkg:npm/inflight@1.0.6",
+      "dependsOn": [
+        "pkg:npm/once@1.4.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/inherits@2.0.4"
+    },
+    {
+      "ref": "pkg:npm/minimatch@5.1.6"
     },
     {
       "ref": "pkg:npm/glob@8.1.0",
       "dependsOn": [
+        "pkg:npm/fs.realpath@1.0.0",
+        "pkg:npm/inflight@1.0.6",
+        "pkg:npm/inherits@2.0.4",
         "pkg:npm/minimatch@5.1.6"
       ]
     },
@@ -8825,10 +8971,10 @@
       "ref": "pkg:npm/%40petamoriken/float16@3.8.7"
     },
     {
-      "ref": "pkg:npm/%40types/rbush@4.0.0"
+      "ref": "pkg:npm/%40pkgjs/parseargs@0.11.0"
     },
     {
-      "ref": "pkg:npm/color-space@2.0.1"
+      "ref": "pkg:npm/%40types/rbush@4.0.0"
     },
     {
       "ref": "pkg:npm/color-name@2.0.0"
@@ -8840,9 +8986,13 @@
       ]
     },
     {
+      "ref": "pkg:npm/color-space@2.0.1"
+    },
+    {
       "ref": "pkg:npm/color-rgba@3.0.0",
       "dependsOn": [
-        "pkg:npm/color-parse@2.0.2"
+        "pkg:npm/color-parse@2.0.2",
+        "pkg:npm/color-space@2.0.1"
       ]
     },
     {
@@ -8852,13 +9002,16 @@
       "ref": "pkg:npm/parse-headers@2.0.5"
     },
     {
-      "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
-    },
-    {
       "ref": "pkg:npm/quick-lru@6.1.2"
     },
     {
-      "ref": "pkg:npm/resolve-protobuf-schema@2.1.0"
+      "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
+    },
+    {
+      "ref": "pkg:npm/resolve-protobuf-schema@2.1.0",
+      "dependsOn": [
+        "pkg:npm/protocol-buffers-schema@3.6.0"
+      ]
     },
     {
       "ref": "pkg:npm/web-worker@1.3.0"
@@ -8903,7 +9056,7 @@
     {
       "ref": "pkg:npm/%40terrestris/ol-util@21.0.0",
       "dependsOn": [
-        "pkg:npm/%40mapbox/node-pre-gyp@1.0.11",
+        "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
         "pkg:npm/%40terrestris/base-util@3.0.0",
         "pkg:npm/%40turf/turf@7.2.0",
         "pkg:npm/fast-xml-parser@4.5.1",
@@ -8912,12 +9065,11 @@
         "pkg:npm/proj4@2.15.0",
         "pkg:npm/shpjs@6.1.0",
         "pkg:npm/%40petamoriken/float16@3.8.7",
+        "pkg:npm/%40pkgjs/parseargs@0.11.0",
         "pkg:npm/%40types/rbush@4.0.0",
-        "pkg:npm/color-space@2.0.1",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/parse-headers@2.0.5",
-        "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/quick-lru@6.1.2",
         "pkg:npm/resolve-protobuf-schema@2.1.0",
         "pkg:npm/web-worker@1.3.0",
