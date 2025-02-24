@@ -46,7 +46,7 @@
     "@mapbox/node-pre-gyp": "^2.0.0",
     "@terrestris/base-util": "^3.0.0",
     "@turf/turf": "^7.1.0",
-    "fast-xml-parser": "^4.4.0",
+    "fast-xml-parser": "^5.0.6",
     "geostyler-openlayers-parser": "^5.0.0",
     "lodash": "^4.17.21",
     "polygon-splitter": "^0.0.11",
