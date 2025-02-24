@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:26a9d484-6d43-415b-a017-02775c71ea26",
+  "serialNumber": "urn:uuid:9a902667-643c-4514-89c8-2c9cd837c81c",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-02-18T08:15:33.391Z",
+    "timestamp": "2025-02-24T09:12:28.974Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6450,10 +6450,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@4.5.1",
+      "bom-ref": "pkg:npm/fast-xml-parser@5.0.6",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "4.5.1",
+      "version": "5.0.6",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -6462,7 +6462,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@4.5.1",
+      "purl": "pkg:npm/fast-xml-parser@5.0.6",
       "externalReferences": [
         {
           "type": "website",
@@ -6480,10 +6480,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/strnum@1.0.5",
+      "bom-ref": "pkg:npm/strnum@2.0.4",
       "author": "Amit Gupta",
       "name": "strnum",
-      "version": "1.0.5",
+      "version": "2.0.4",
       "description": "Parse String to Number based on configuration",
       "licenses": [
         {
@@ -6492,7 +6492,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/strnum@1.0.5",
+      "purl": "pkg:npm/strnum@2.0.4",
       "externalReferences": [
         {
           "type": "website",
@@ -8853,12 +8853,12 @@
       ]
     },
     {
-      "ref": "pkg:npm/strnum@1.0.5"
+      "ref": "pkg:npm/strnum@2.0.4"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@4.5.1",
+      "ref": "pkg:npm/fast-xml-parser@5.0.6",
       "dependsOn": [
-        "pkg:npm/strnum@1.0.5"
+        "pkg:npm/strnum@2.0.4"
       ]
     },
     {
@@ -9056,7 +9056,7 @@
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
         "pkg:npm/%40terrestris/base-util@3.0.0",
         "pkg:npm/%40turf/turf@7.2.0",
-        "pkg:npm/fast-xml-parser@4.5.1",
+        "pkg:npm/fast-xml-parser@5.0.6",
         "pkg:npm/geostyler-openlayers-parser@5.0.1",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.15.0",
