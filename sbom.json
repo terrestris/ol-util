@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:0cd70ec9-bc44-46fb-92c4-df70142acf55",
+  "serialNumber": "urn:uuid:15b27ca6-57e8-4979-8ca2-3974f3dd7d3e",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-03-12T07:30:20.604Z",
+    "timestamp": "2025-03-13T08:16:12.661Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6540,9 +6540,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.0.1",
+      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.0.2",
       "name": "geostyler-openlayers-parser",
-      "version": "5.0.1",
+      "version": "5.0.2",
       "description": "GeoStyler Style Parser implementation for OpenLayers styles",
       "licenses": [
         {
@@ -6551,7 +6551,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-openlayers-parser@5.0.1",
+      "purl": "pkg:npm/geostyler-openlayers-parser@5.0.2",
       "externalReferences": [
         {
           "type": "website",
@@ -6599,9 +6599,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-style@9.2.0",
+      "bom-ref": "pkg:npm/geostyler-style@10.0.0",
       "name": "geostyler-style",
-      "version": "9.2.0",
+      "version": "10.0.0",
       "description": "[![Lint & Docs (main)](https://github.com/geostyler/geostyler-style/actions/workflows/on-push-main.yml/badge.svg)](https://github.com/geostyler/geostyler-style/actions/workflows/on-push-main.yml) [![Create & publish versioned documentation](https://github.com/geostyler/geostyler-style/actions/workflows/on-publish.yml/badge.svg)](https://github.com/geostyler/geostyler-style/actions/workflows/on-publish.yml) [![License](https://img.shields.io/github/license/geostyler/geostyler-style)](https://github.com/geostyler/geostyler-style/blob/main/LICENSE)",
       "licenses": [
         {
@@ -6610,7 +6610,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-style@9.2.0",
+      "purl": "pkg:npm/geostyler-style@10.0.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7318,36 +7318,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-space@2.3.1",
-      "author": "Dmitry Ivanov",
-      "name": "color-space",
-      "version": "2.3.1",
-      "description": "Collection of color space conversions",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-space@2.3.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-space#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-space/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-space.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/color-rgba@3.0.0",
       "author": "Dmitry Iv",
       "name": "color-rgba",
@@ -7433,6 +7403,36 @@
         {
           "type": "vcs",
           "url": "git+ssh://git@github.com/colorjs/color-name.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-space@2.3.1",
+      "author": "Dmitry Ivanov",
+      "name": "color-space",
+      "version": "2.3.1",
+      "description": "Collection of color space conversions",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/color-space@2.3.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/colorjs/color-space#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colorjs/color-space/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colorjs/color-space.git"
         }
       ]
     },
@@ -8901,13 +8901,13 @@
       "ref": "pkg:npm/css-font-parser@2.0.1"
     },
     {
-      "ref": "pkg:npm/geostyler-style@9.2.0"
+      "ref": "pkg:npm/geostyler-style@10.0.0"
     },
     {
-      "ref": "pkg:npm/geostyler-openlayers-parser@5.0.1",
+      "ref": "pkg:npm/geostyler-openlayers-parser@5.0.2",
       "dependsOn": [
         "pkg:npm/css-font-parser@2.0.1",
-        "pkg:npm/geostyler-style@9.2.0"
+        "pkg:npm/geostyler-style@10.0.0"
       ]
     },
     {
@@ -9013,9 +9013,6 @@
       "ref": "pkg:npm/%40types/rbush@4.0.0"
     },
     {
-      "ref": "pkg:npm/color-space@2.3.1"
-    },
-    {
       "ref": "pkg:npm/color-name@2.0.0"
     },
     {
@@ -9025,9 +9022,13 @@
       ]
     },
     {
+      "ref": "pkg:npm/color-space@2.3.1"
+    },
+    {
       "ref": "pkg:npm/color-rgba@3.0.0",
       "dependsOn": [
-        "pkg:npm/color-parse@2.0.2"
+        "pkg:npm/color-parse@2.0.2",
+        "pkg:npm/color-space@2.3.1"
       ]
     },
     {
@@ -9092,14 +9093,13 @@
         "pkg:npm/%40terrestris/base-util@3.0.0",
         "pkg:npm/%40turf/turf@7.2.0",
         "pkg:npm/fast-xml-parser@5.0.8",
-        "pkg:npm/geostyler-openlayers-parser@5.0.1",
+        "pkg:npm/geostyler-openlayers-parser@5.0.2",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.15.0",
         "pkg:npm/shpjs@6.1.0",
         "pkg:npm/%40petamoriken/float16@3.9.1",
         "pkg:npm/%40pkgjs/parseargs@0.11.0",
         "pkg:npm/%40types/rbush@4.0.0",
-        "pkg:npm/color-space@2.3.1",
         "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/parse-headers@2.0.5",
