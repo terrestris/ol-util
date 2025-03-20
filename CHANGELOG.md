@@ -1,3 +1,10 @@
+# [21.1.0](https://github.com/terrestris/ol-util/compare/v21.0.0...v21.1.0) (2025-03-20)
+
+
+### Features
+
+* introduce util to create polygon from an OpenLayers extent ([5583a79](https://github.com/terrestris/ol-util/commit/5583a791a1c21b47a1f1a4a2279287420e3a7308))
+
 # [21.0.0](https://github.com/terrestris/ol-util/compare/v20.0.0...v21.0.0) (2024-10-21)
 
 
