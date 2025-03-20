@@ -9,6 +9,7 @@ import {
   Polygon as GeoJSONPolygon
 } from 'geojson';
 import isNil from 'lodash/isNil';
+import { Extent as OlExtent } from 'ol/extent';
 import OlFeature from 'ol/Feature';
 import OlFormatGeoJSON from 'ol/format/GeoJSON';
 import OlGeometry from 'ol/geom/Geometry';
@@ -397,6 +398,22 @@ class GeometryUtil {
 
     const feature = geoJsonFormat.readFeature(intersection);
     return (feature as OlFeature).getGeometry() as OlGeomMultiPolygon | OlGeomPolygon;
+  }
+
+  static getPolygonFromExtent(extent?: OlExtent | null): OlGeomPolygon | undefined {
+    if (isNil(extent) || extent?.length !== 4) {
+      return;
+    }
+    const [minX, minY, maxX, maxY] = extent;
+    return new OlGeomPolygon([
+      [
+        [minX, minY],
+        [minX, maxY],
+        [maxX, maxY],
+        [maxX, minY],
+        [minX, minY]
+      ]
+    ]);
   }
 }
 export default GeometryUtil;

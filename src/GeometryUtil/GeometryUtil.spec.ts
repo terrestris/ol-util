@@ -9,6 +9,7 @@ import OlGeomMultiPoint from 'ol/geom/MultiPoint';
 import OlGeomMultiPolygon from 'ol/geom/MultiPolygon';
 import OlGeomPoint from 'ol/geom/Point';
 import OlGeomPolygon from 'ol/geom/Polygon';
+import { Extent as OlExtent } from 'ol/extent';
 
 import GeometryUtil from './GeometryUtil';
 import {
@@ -603,6 +604,31 @@ describe('GeometryUtil', () => {
           const intersectionGeometry = GeometryUtil.intersection(poly1, poly2, 'EPSG:4326');
           expect(intersectionGeometry).toBeUndefined();
         });
+      });
+    });
+
+    describe('#getPolygonFromExtent', () => {
+      it('is defined', () => {
+        expect(GeometryUtil.getPolygonFromExtent).toBeDefined();
+      });
+
+      it('returns a polygon for a valid extent', () => {
+        const extent: OlExtent = [0, 0, 10, 10];
+        const polygon = GeometryUtil.getPolygonFromExtent(extent);
+        expect(polygon).toBeInstanceOf(OlGeomPolygon);
+        expect(polygon?.getCoordinates()).toEqual([[[0, 0], [0, 10], [10, 10], [10, 0], [0, 0]]]);
+      });
+
+      it('returns undefined for an extent with less than 4 values', () => {
+        const extent: OlExtent = [0, 0, 10];
+        const polygon = GeometryUtil.getPolygonFromExtent(extent);
+        expect(polygon).toBeUndefined();
+      });
+
+      it('returns undefined for a nil extent', () => {
+        const extent = null;
+        const polygon = GeometryUtil.getPolygonFromExtent(extent);
+        expect(polygon).toBeUndefined();
       });
     });
   });
