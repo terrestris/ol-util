@@ -123,7 +123,7 @@ class FeatureUtil {
 
     // Fallback if no feature attribute is found.
     if (!resolved) {
-      resolved = `${feature.getId()}`;
+      resolved = `${feature.getId() ?? feature.get('id')}`;
     }
 
     if (!leaveAsUrl) {
