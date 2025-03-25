@@ -1,3 +1,10 @@
+## [21.1.1](https://github.com/terrestris/ol-util/compare/v21.1.0...v21.1.1) (2025-03-25)
+
+
+### Bug Fixes
+
+* use id property as fallback when getId() is undefined ([ee534d2](https://github.com/terrestris/ol-util/commit/ee534d20f4cb518e625dfb1177123cfe034b7185))
+
 # [21.1.0](https://github.com/terrestris/ol-util/compare/v21.0.0...v21.1.0) (2025-03-20)
 
 
