@@ -8,19 +8,19 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [20.x, 22.x]
 
     steps:
-    - name: Checkout sources
-      uses: actions/checkout@v3
+    - name: Checkout sources 🔰
+      uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Setup Node.js 🧮 in version ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
 
     - name: Cache Node.js modules 💾
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.npm
         key: "${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}"
@@ -29,7 +29,7 @@ jobs:
           ${{ runner.OS }}-
 
     - name: Install dependencies ⏬
-      run: npm install
+      run: npm ci
 
     - name: Run tests 🩺
       run: npm run check
