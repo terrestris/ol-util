@@ -860,19 +860,20 @@ describe('MapUtil', () => {
 
   describe('#calculateScaleAndCenterForExtent', () => {
     it('returns scale and center for a valid extent', () => {
-      const extent = [0, 0, 100, 100];
+      const extent = Array.from({ length: 4 }, () => Math.random() * 1E3).sort();
       const view = new OlView({
         projection: 'EPSG:3857',
         resolutions: [1, 0.5, 0.25]
       });
       const olMap = new OlMap({view});
       view.setResolution(1);
-      view.setCenter([50, 50]);
 
       const result = MapUtil.calculateScaleAndCenterForExtent(olMap, extent);
 
       expect(result).toBeDefined();
-      expect(result?.center).toEqual([50, 50]);
+      expect(result!.center).toBeDefined();
+      expect(Math.abs(result!.center[0] - (extent[2] + extent[0]) / 2) < 1E-9).toBe(true);
+      expect(Math.abs(result!.center[1] - (extent[3] + extent[1]) / 2) < 1E-9).toBe(true);
       expect(result?.scale).toBeGreaterThan(0);
     });
 
