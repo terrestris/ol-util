@@ -488,7 +488,10 @@ export class MapUtil {
     const resolution = view.getResolutionForExtent(extent);
     const unit = view.getProjection().getUnits() as Units;
     const scale = MapUtil.getScaleForResolution(resolution, unit);
-    const center = olMap.getView().getCenter();
+    const center: OlCoordinate = [
+      (extent[0] + extent[2]) / 2,
+      (extent[1] + extent[3]) / 2
+    ];
     if (_isNil(unit) || _isNil(center) || _isNil(scale) || !_isFinite(scale)) {
       logger.error('Can not determine unit / scale from map');
       return;
