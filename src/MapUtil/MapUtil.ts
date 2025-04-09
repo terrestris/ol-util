@@ -3,6 +3,8 @@ import findIndex from 'lodash/findIndex';
 import _isFinite from 'lodash/isFinite';
 import _isNil from 'lodash/isNil';
 import _isString from 'lodash/isString';
+import { Coordinate as OlCoordinate } from 'ol/coordinate';
+import { Extent as OlExtent } from 'ol/extent';
 import OlFeature from 'ol/Feature';
 import OlGeometry from 'ol/geom/Geometry';
 import OlGeomGeometryCollection from 'ol/geom/GeometryCollection';
@@ -473,6 +475,31 @@ export class MapUtil {
       }
       layer?.setVisible(visible);
     });
+  }
+
+  static calculateScaleAndCenterForExtent(olMap: OlMap, extent: OlExtent): {
+    center: OlCoordinate;
+    scale: number;
+  } | undefined {
+    if (_isNil(olMap) || _isNil(extent) || extent.length !== 4) {
+      return;
+    }
+    const view = olMap.getView();
+    const resolution = view.getResolutionForExtent(extent);
+    const unit = view.getProjection().getUnits() as Units;
+    const scale = MapUtil.getScaleForResolution(resolution, unit);
+    const center: OlCoordinate = [
+      (extent[0] + extent[2]) / 2,
+      (extent[1] + extent[3]) / 2
+    ];
+    if (_isNil(unit) || _isNil(center) || _isNil(scale) || !_isFinite(scale)) {
+      logger.error('Can not determine unit / scale from map');
+      return;
+    }
+    return {
+      center,
+      scale
+    };
   }
 
 }

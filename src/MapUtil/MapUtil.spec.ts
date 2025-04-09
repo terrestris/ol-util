@@ -13,6 +13,7 @@ import { Units as OlUnits } from 'ol/proj/Units';
 import OlSourceImageWMS from 'ol/source/ImageWMS';
 import OlSourceTileWMS from 'ol/source/TileWMS';
 import OlView from 'ol/View';
+import { Extent as OlExtent } from 'ol/extent';
 
 import { MapUtil } from '../index';
 import TestUtil from '../TestUtil';
@@ -857,4 +858,51 @@ describe('MapUtil', () => {
     expect(MapUtil.getLayerByNameParam(map, testFeatureType)?.getVisible()).toBe(false);
   });
 
+  describe('#calculateScaleAndCenterForExtent', () => {
+    it('returns scale and center for a valid extent', () => {
+      const extent = Array.from({ length: 4 }, () => Math.random() * 1E3).sort();
+      const view = new OlView({
+        projection: 'EPSG:3857',
+        resolutions: [1, 0.5, 0.25]
+      });
+      const olMap = new OlMap({view});
+      view.setResolution(1);
+
+      const result = MapUtil.calculateScaleAndCenterForExtent(olMap, extent);
+
+      expect(result).toBeDefined();
+      expect(result!.center).toBeDefined();
+      expect(Math.abs(result!.center[0] - (extent[2] + extent[0]) / 2) < 1E-9).toBe(true);
+      expect(Math.abs(result!.center[1] - (extent[3] + extent[1]) / 2) < 1E-9).toBe(true);
+      expect(result?.scale).toBeGreaterThan(0);
+    });
+
+    it('returns undefined if map is null', () => {
+      const extent = [0, 0, 100, 100];
+      const result = MapUtil.calculateScaleAndCenterForExtent(null as unknown as OlMap, extent);
+
+      expect(result).toBeUndefined();
+    });
+
+    it('returns undefined for invalid extent', () => {
+      const extent = [0, 0, 100];
+      const result = MapUtil.calculateScaleAndCenterForExtent(null as unknown as OlMap, extent);
+      expect(result).toBeUndefined();
+
+      const result2 = MapUtil.calculateScaleAndCenterForExtent(null as unknown as OlMap, []);
+      expect(result2).toBeUndefined();
+    });
+
+    it('returns undefined if extent is null', () => {
+      const view = new OlView({
+        projection: 'EPSG:3857',
+        resolutions: [1, 0.5, 0.25]
+      });
+      const olMap = new OlMap({view});
+
+      const result = MapUtil.calculateScaleAndCenterForExtent(olMap, null as unknown as OlExtent);
+
+      expect(result).toBeUndefined();
+    });
+  });
 });
