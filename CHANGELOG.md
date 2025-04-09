@@ -1,3 +1,15 @@
+# [21.2.0](https://github.com/terrestris/ol-util/compare/v21.1.1...v21.2.0) (2025-04-09)
+
+
+### Bug Fixes
+
+* **ol:** update ol to v10.5.0 ([88319fc](https://github.com/terrestris/ol-util/commit/88319fc14cc94c76dcbc37c20f354a2a8063c06a))
+
+
+### Features
+
+* adds support for node v22 ([47f323a](https://github.com/terrestris/ol-util/commit/47f323ac945a332156cd7568d7113dad2377c261))
+
 ## [21.1.1](https://github.com/terrestris/ol-util/compare/v21.1.0...v21.1.1) (2025-03-25)
 
 
