@@ -886,8 +886,10 @@ describe('MapUtil', () => {
     it('returns undefined for invalid extent', () => {
       const extent = [0, 0, 100];
       const result = MapUtil.calculateScaleAndCenterForExtent(null as unknown as OlMap, extent);
-
       expect(result).toBeUndefined();
+
+      const result2 = MapUtil.calculateScaleAndCenterForExtent(null as unknown as OlMap, []);
+      expect(result2).toBeUndefined();
     });
 
     it('returns undefined if extent is null', () => {
