@@ -105,7 +105,7 @@ export class TestUtil {
     const viewport = map.getViewport();
     // Calculated in case body has top < 0 (test runner with small window).
     const position = viewport.getBoundingClientRect();
-    const event = new MouseEvent(type, {
+    const event = new PointerEvent(type, {
       clientX: position.left + x + TestUtil.mapDivWidth / 2,
       clientY: position.top + y + TestUtil.mapDivHeight / 2,
       shiftKey: shift
