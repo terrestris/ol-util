@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:7624e242-392f-401a-ad98-f961fcc58d9b",
+  "serialNumber": "urn:uuid:195d6fd5-86df-4704-aab8-9c8a16f31c1a",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-08T08:32:08.557Z",
+    "timestamp": "2025-04-09T10:43:44.851Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,11 +14,11 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/ol-util@21.1.1",
+      "bom-ref": "pkg:npm/%40terrestris/ol-util@21.2.0",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "ol-util",
-      "version": "21.1.1",
+      "version": "21.2.0",
       "description": "A set of helper classes for working with openLayers",
       "licenses": [
         {
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/ol-util@21.1.1",
+      "purl": "pkg:npm/%40terrestris/ol-util@21.2.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7318,126 +7318,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/color-space@2.3.1",
-      "author": "Dmitry Ivanov",
-      "name": "color-space",
-      "version": "2.3.1",
-      "description": "Collection of color space conversions",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-space@2.3.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-space#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-space/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-space.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-rgba@3.0.0",
-      "author": "Dmitry Iv",
-      "name": "color-rgba",
-      "version": "3.0.0",
-      "description": "Convert color string (or parseable argument) to RGBA array",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-rgba@3.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-rgba#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-rgba/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-rgba.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-parse@2.0.2",
-      "author": "Dmitry Ivanov",
-      "name": "color-parse",
-      "version": "2.0.2",
-      "description": "Color string parser",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-parse@2.0.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-parse"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-parse/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/colorjs/color-parse.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-name@2.0.0",
-      "author": "DY",
-      "name": "color-name",
-      "version": "2.0.0",
-      "description": "A list of color names and its values",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-name@2.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-name"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-name/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/colorjs/color-name.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/lerc@3.0.0",
       "author": "Esri",
       "name": "lerc",
@@ -7766,9 +7646,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/ol@10.4.0",
+      "bom-ref": "pkg:npm/ol@10.5.0",
       "name": "ol",
-      "version": "10.4.0",
+      "version": "10.5.0",
       "description": "OpenLayers mapping library",
       "licenses": [
         {
@@ -7777,7 +7657,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/ol@10.4.0",
+      "purl": "pkg:npm/ol@10.5.0",
       "externalReferences": [
         {
           "type": "website",
@@ -9013,24 +8893,6 @@
       "ref": "pkg:npm/%40types/rbush@4.0.0"
     },
     {
-      "ref": "pkg:npm/color-space@2.3.1"
-    },
-    {
-      "ref": "pkg:npm/color-name@2.0.0"
-    },
-    {
-      "ref": "pkg:npm/color-parse@2.0.2",
-      "dependsOn": [
-        "pkg:npm/color-name@2.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/color-rgba@3.0.0",
-      "dependsOn": [
-        "pkg:npm/color-parse@2.0.2"
-      ]
-    },
-    {
       "ref": "pkg:npm/lerc@3.0.0"
     },
     {
@@ -9079,14 +8941,14 @@
       ]
     },
     {
-      "ref": "pkg:npm/ol@10.4.0",
+      "ref": "pkg:npm/ol@10.5.0",
       "dependsOn": [
         "pkg:npm/earcut@3.0.1",
         "pkg:npm/rbush@4.0.1"
       ]
     },
     {
-      "ref": "pkg:npm/%40terrestris/ol-util@21.1.1",
+      "ref": "pkg:npm/%40terrestris/ol-util@21.2.0",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
         "pkg:npm/%40terrestris/base-util@3.0.0",
@@ -9099,8 +8961,6 @@
         "pkg:npm/%40petamoriken/float16@3.9.1",
         "pkg:npm/%40pkgjs/parseargs@0.11.0",
         "pkg:npm/%40types/rbush@4.0.0",
-        "pkg:npm/color-space@2.3.1",
-        "pkg:npm/color-rgba@3.0.0",
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/parse-headers@2.0.5",
         "pkg:npm/protocol-buffers-schema@3.6.0",
@@ -9111,7 +8971,7 @@
         "pkg:npm/zstddec@0.1.0",
         "pkg:npm/pbf@4.0.1",
         "pkg:npm/geotiff@2.1.3",
-        "pkg:npm/ol@10.4.0"
+        "pkg:npm/ol@10.5.0"
       ]
     }
   ]
