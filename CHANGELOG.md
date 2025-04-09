@@ -1,3 +1,16 @@
+# [21.3.0](https://github.com/terrestris/ol-util/compare/v21.2.0...v21.3.0) (2025-04-09)
+
+
+### Bug Fixes
+
+* adds test case for empty array ([33a03ff](https://github.com/terrestris/ol-util/commit/33a03ffbe11a240b81de995e654a54f446bf4f22))
+* use random floating numbers (sorted) for check ([546910d](https://github.com/terrestris/ol-util/commit/546910d37ea8f447a0973f4a5c31e059d4c3ee75))
+
+
+### Features
+
+* add util to calculate center and scale to fit in mapview ([578c70b](https://github.com/terrestris/ol-util/commit/578c70bb2c38661a4f432bfed79ce1b8f6bac7be))
+
 # [21.2.0](https://github.com/terrestris/ol-util/compare/v21.1.1...v21.2.0) (2025-04-09)
 
 
