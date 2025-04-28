@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:95c69494-8351-4795-a477-2489eeb2bfcc",
+  "serialNumber": "urn:uuid:b19ca8da-3ed5-4193-a630-434b45a0ed39",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-28T08:25:12.955Z",
+    "timestamp": "2025-04-28T08:34:30.683Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7227,36 +7227,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40pkgjs/parseargs@0.11.0",
-      "group": "@pkgjs",
-      "name": "parseargs",
-      "version": "0.11.0",
-      "description": "Polyfill of future proposal for `util.parseArgs()`",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40pkgjs/parseargs@0.11.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/pkgjs/parseargs#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/pkgjs/parseargs/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/pkgjs/parseargs.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/%40petamoriken/float16@3.9.1",
       "author": "Kenta Moriuchi",
       "group": "@petamoriken",
@@ -7283,6 +7253,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/petamoriken/float16.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40pkgjs/parseargs@0.11.0",
+      "group": "@pkgjs",
+      "name": "parseargs",
+      "version": "0.11.0",
+      "description": "Polyfill of future proposal for `util.parseArgs()`",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40pkgjs/parseargs@0.11.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/pkgjs/parseargs#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/pkgjs/parseargs/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/pkgjs/parseargs.git"
         }
       ]
     },
@@ -8884,10 +8884,10 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40pkgjs/parseargs@0.11.0"
+      "ref": "pkg:npm/%40petamoriken/float16@3.9.1"
     },
     {
-      "ref": "pkg:npm/%40petamoriken/float16@3.9.1"
+      "ref": "pkg:npm/%40pkgjs/parseargs@0.11.0"
     },
     {
       "ref": "pkg:npm/%40types/rbush@4.0.0"
@@ -8958,8 +8958,8 @@
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.15.0",
         "pkg:npm/shpjs@6.1.0",
-        "pkg:npm/%40pkgjs/parseargs@0.11.0",
         "pkg:npm/%40petamoriken/float16@3.9.1",
+        "pkg:npm/%40pkgjs/parseargs@0.11.0",
         "pkg:npm/%40types/rbush@4.0.0",
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/parse-headers@2.0.5",
