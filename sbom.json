@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:ef8a637f-a403-4b49-af8b-ece62cd53e10",
+  "serialNumber": "urn:uuid:644bc122-afa7-48ab-89dd-ae9918e89add",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-05-15T13:57:39.613Z",
+    "timestamp": "2025-05-20T07:38:07.759Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6540,9 +6540,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.1.0",
+      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.1.1",
       "name": "geostyler-openlayers-parser",
-      "version": "5.1.0",
+      "version": "5.1.1",
       "description": "GeoStyler Style Parser implementation for OpenLayers styles",
       "licenses": [
         {
@@ -6551,7 +6551,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-openlayers-parser@5.1.0",
+      "purl": "pkg:npm/geostyler-openlayers-parser@5.1.1",
       "externalReferences": [
         {
           "type": "website",
@@ -7053,9 +7053,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/proj4@2.16.2",
+      "bom-ref": "pkg:npm/proj4@2.17.0",
       "name": "proj4",
-      "version": "2.16.2",
+      "version": "2.17.0",
       "description": "Proj4js is a JavaScript library to transform point coordinates from one coordinate system to another, including datum transformations.",
       "licenses": [
         {
@@ -7064,7 +7064,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/proj4@2.16.2",
+      "purl": "pkg:npm/proj4@2.17.0",
       "externalReferences": [
         {
           "type": "website",
@@ -8814,7 +8814,7 @@
       "ref": "pkg:npm/geostyler-style@10.0.0"
     },
     {
-      "ref": "pkg:npm/geostyler-openlayers-parser@5.1.0",
+      "ref": "pkg:npm/geostyler-openlayers-parser@5.1.1",
       "dependsOn": [
         "pkg:npm/css-font-parser@2.0.1",
         "pkg:npm/geostyler-style@10.0.0"
@@ -8897,7 +8897,7 @@
       "ref": "pkg:npm/wkt-parser@1.5.2"
     },
     {
-      "ref": "pkg:npm/proj4@2.16.2",
+      "ref": "pkg:npm/proj4@2.17.0",
       "dependsOn": [
         "pkg:npm/geographiclib-geodesic@2.1.1",
         "pkg:npm/mgrs@1.0.0",
@@ -8988,9 +8988,9 @@
         "pkg:npm/%40terrestris/base-util@3.0.0",
         "pkg:npm/%40turf/turf@7.2.0",
         "pkg:npm/fast-xml-parser@5.2.3",
-        "pkg:npm/geostyler-openlayers-parser@5.1.0",
+        "pkg:npm/geostyler-openlayers-parser@5.1.1",
         "pkg:npm/polygon-splitter@0.0.11",
-        "pkg:npm/proj4@2.16.2",
+        "pkg:npm/proj4@2.17.0",
         "pkg:npm/shpjs@6.1.0",
         "pkg:npm/%40petamoriken/float16@3.9.1",
         "pkg:npm/%40pkgjs/parseargs@0.11.0",
