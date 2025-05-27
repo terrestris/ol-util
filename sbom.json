@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:94418345-9d4a-4174-8a41-360bcf7b4f9e",
+  "serialNumber": "urn:uuid:203faef7-29b9-4299-8c53-2be96e4a8758",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-05-22T07:11:21.015Z",
+    "timestamp": "2025-05-27T08:21:48.552Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7257,6 +7257,36 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/%40pkgjs/parseargs@0.11.0",
+      "group": "@pkgjs",
+      "name": "parseargs",
+      "version": "0.11.0",
+      "description": "Polyfill of future proposal for `util.parseArgs()`",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40pkgjs/parseargs@0.11.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/pkgjs/parseargs#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/pkgjs/parseargs/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+ssh://git@github.com/pkgjs/parseargs.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/%40petamoriken/float16@3.9.1",
       "author": "Kenta Moriuchi",
       "group": "@petamoriken",
@@ -7283,36 +7313,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/petamoriken/float16.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/%40pkgjs/parseargs@0.11.0",
-      "group": "@pkgjs",
-      "name": "parseargs",
-      "version": "0.11.0",
-      "description": "Polyfill of future proposal for `util.parseArgs()`",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40pkgjs/parseargs@0.11.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/pkgjs/parseargs#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/pkgjs/parseargs/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/pkgjs/parseargs.git"
         }
       ]
     },
@@ -7408,36 +7408,6 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/protocol-buffers-schema@3.6.0",
-      "author": "Mathias Buus",
-      "name": "protocol-buffers-schema",
-      "version": "3.6.0",
-      "description": "No nonsense protocol buffers schema parser written in Javascript",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/protocol-buffers-schema@3.6.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/mafintosh/protocol-buffers-schema"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "bom-ref": "pkg:npm/quick-lru@6.1.2",
       "author": "Sindre Sorhus",
       "name": "quick-lru",
@@ -7463,6 +7433,36 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/sindresorhus/quick-lru.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/protocol-buffers-schema@3.6.0",
+      "author": "Mathias Buus",
+      "name": "protocol-buffers-schema",
+      "version": "3.6.0",
+      "description": "No nonsense protocol buffers schema parser written in Javascript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/protocol-buffers-schema@3.6.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/mafintosh/protocol-buffers-schema"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
         }
       ]
     },
@@ -8918,10 +8918,10 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40petamoriken/float16@3.9.1"
+      "ref": "pkg:npm/%40pkgjs/parseargs@0.11.0"
     },
     {
-      "ref": "pkg:npm/%40pkgjs/parseargs@0.11.0"
+      "ref": "pkg:npm/%40petamoriken/float16@3.9.1"
     },
     {
       "ref": "pkg:npm/%40types/rbush@4.0.0"
@@ -8933,10 +8933,10 @@
       "ref": "pkg:npm/parse-headers@2.0.5"
     },
     {
-      "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
+      "ref": "pkg:npm/quick-lru@6.1.2"
     },
     {
-      "ref": "pkg:npm/quick-lru@6.1.2"
+      "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
     },
     {
       "ref": "pkg:npm/resolve-protobuf-schema@2.1.0"
@@ -8992,13 +8992,13 @@
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.17.0",
         "pkg:npm/shpjs@6.1.0",
-        "pkg:npm/%40petamoriken/float16@3.9.1",
         "pkg:npm/%40pkgjs/parseargs@0.11.0",
+        "pkg:npm/%40petamoriken/float16@3.9.1",
         "pkg:npm/%40types/rbush@4.0.0",
         "pkg:npm/lerc@3.0.0",
         "pkg:npm/parse-headers@2.0.5",
-        "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/quick-lru@6.1.2",
+        "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/resolve-protobuf-schema@2.1.0",
         "pkg:npm/web-worker@1.5.0",
         "pkg:npm/xml-utils@1.10.1",
