@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:7a1a39e5-05dc-46b3-9bc2-6dbe738db03a",
+  "serialNumber": "urn:uuid:6aa34a9f-2553-4186-81aa-6e96b3ada6a4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-07-24T06:59:01.031Z",
+    "timestamp": "2025-07-28T07:43:28.591Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -7053,9 +7053,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/proj4@2.17.0",
+      "bom-ref": "pkg:npm/proj4@2.19.10",
       "name": "proj4",
-      "version": "2.17.0",
+      "version": "2.19.10",
       "description": "Proj4js is a JavaScript library to transform point coordinates from one coordinate system to another, including datum transformations.",
       "licenses": [
         {
@@ -7064,7 +7064,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/proj4@2.17.0",
+      "purl": "pkg:npm/proj4@2.19.10",
       "externalReferences": [
         {
           "type": "website",
@@ -7077,36 +7077,6 @@
         {
           "type": "vcs",
           "url": "git://github.com/proj4js/proj4js.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/geographiclib-geodesic@2.1.1",
-      "author": "Charles Karney",
-      "name": "geographiclib-geodesic",
-      "version": "2.1.1",
-      "description": "JavaScript implementation of geodesic routines in GeographicLib",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/geographiclib-geodesic@2.1.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/geographiclib/geographiclib-js#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/geographiclib/geographiclib-js/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/geographiclib/geographiclib-js.git"
         }
       ]
     },
@@ -8888,18 +8858,14 @@
       ]
     },
     {
-      "ref": "pkg:npm/geographiclib-geodesic@2.1.1"
-    },
-    {
       "ref": "pkg:npm/mgrs@1.0.0"
     },
     {
       "ref": "pkg:npm/wkt-parser@1.5.2"
     },
     {
-      "ref": "pkg:npm/proj4@2.17.0",
+      "ref": "pkg:npm/proj4@2.19.10",
       "dependsOn": [
-        "pkg:npm/geographiclib-geodesic@2.1.1",
         "pkg:npm/mgrs@1.0.0",
         "pkg:npm/wkt-parser@1.5.2"
       ]
@@ -8990,7 +8956,7 @@
         "pkg:npm/fast-xml-parser@5.2.5",
         "pkg:npm/geostyler-openlayers-parser@5.1.2",
         "pkg:npm/polygon-splitter@0.0.11",
-        "pkg:npm/proj4@2.17.0",
+        "pkg:npm/proj4@2.19.10",
         "pkg:npm/shpjs@6.1.0",
         "pkg:npm/%40petamoriken/float16@3.9.1",
         "pkg:npm/%40pkgjs/parseargs@0.11.0",
