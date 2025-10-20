@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:019e2856-be9d-488e-9a9c-a46b8c9f22bb",
+  "serialNumber": "urn:uuid:dc2a26cd-c975-48bc-bc08-e47de5a65f8f",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-10-20T08:01:38.113Z",
+    "timestamp": "2025-10-20T08:09:47.982Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -1697,11 +1697,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/base-util@3.0.0",
+      "bom-ref": "pkg:npm/%40terrestris/base-util@4.0.0",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "base-util",
-      "version": "3.0.0",
+      "version": "4.0.0",
       "description": "A set of helper classes for working with strings, objects, etc.",
       "licenses": [
         {
@@ -1710,7 +1710,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/base-util@3.0.0",
+      "purl": "pkg:npm/%40terrestris/base-util@4.0.0",
       "externalReferences": [
         {
           "type": "website",
@@ -8083,7 +8083,7 @@
       "ref": "pkg:npm/validator@13.12.0"
     },
     {
-      "ref": "pkg:npm/%40terrestris/base-util@3.0.0",
+      "ref": "pkg:npm/%40terrestris/base-util@4.0.0",
       "dependsOn": [
         "pkg:npm/%40ungap/url-search-params@0.2.2",
         "pkg:npm/lodash@4.17.21",
@@ -8951,7 +8951,7 @@
       "ref": "pkg:npm/%40terrestris/ol-util@21.3.0",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
-        "pkg:npm/%40terrestris/base-util@3.0.0",
+        "pkg:npm/%40terrestris/base-util@4.0.0",
         "pkg:npm/%40turf/turf@7.2.0",
         "pkg:npm/fast-xml-parser@5.3.0",
         "pkg:npm/geostyler-openlayers-parser@5.2.0",
