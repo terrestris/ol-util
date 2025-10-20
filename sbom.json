@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:9cf5e0cc-cdb4-4e06-8a6a-40e4e5881b15",
+  "serialNumber": "urn:uuid:019e2856-be9d-488e-9a9c-a46b8c9f22bb",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-10-06T12:42:59.622Z",
+    "timestamp": "2025-10-20T08:01:38.113Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6480,10 +6480,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@5.2.5",
+      "bom-ref": "pkg:npm/fast-xml-parser@5.3.0",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "5.2.5",
+      "version": "5.3.0",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -6492,7 +6492,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@5.2.5",
+      "purl": "pkg:npm/fast-xml-parser@5.3.0",
       "externalReferences": [
         {
           "type": "website",
@@ -6540,9 +6540,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.1.2",
+      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.2.0",
       "name": "geostyler-openlayers-parser",
-      "version": "5.1.2",
+      "version": "5.2.0",
       "description": "GeoStyler Style Parser implementation for OpenLayers styles",
       "licenses": [
         {
@@ -6551,7 +6551,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-openlayers-parser@5.1.2",
+      "purl": "pkg:npm/geostyler-openlayers-parser@5.2.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7141,10 +7141,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/shpjs@6.1.0",
+      "bom-ref": "pkg:npm/shpjs@6.2.0",
       "author": "Calvin Metcalf",
       "name": "shpjs",
-      "version": "6.1.0",
+      "version": "6.2.0",
       "description": "Load shapefiles in pure JavaScript",
       "licenses": [
         {
@@ -7153,7 +7153,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/shpjs@6.1.0",
+      "purl": "pkg:npm/shpjs@6.2.0",
       "externalReferences": [
         {
           "type": "website",
@@ -8772,7 +8772,7 @@
       "ref": "pkg:npm/strnum@2.1.0"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@5.2.5",
+      "ref": "pkg:npm/fast-xml-parser@5.3.0",
       "dependsOn": [
         "pkg:npm/strnum@2.1.0"
       ]
@@ -8784,7 +8784,7 @@
       "ref": "pkg:npm/geostyler-style@10.3.0"
     },
     {
-      "ref": "pkg:npm/geostyler-openlayers-parser@5.1.2",
+      "ref": "pkg:npm/geostyler-openlayers-parser@5.2.0",
       "dependsOn": [
         "pkg:npm/css-font-parser@2.0.1",
         "pkg:npm/geostyler-style@10.3.0"
@@ -8877,7 +8877,7 @@
       "ref": "pkg:npm/parsedbf@2.0.0"
     },
     {
-      "ref": "pkg:npm/shpjs@6.1.0",
+      "ref": "pkg:npm/shpjs@6.2.0",
       "dependsOn": [
         "pkg:npm/but-unzip@0.1.4",
         "pkg:npm/parsedbf@2.0.0"
@@ -8953,11 +8953,11 @@
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
         "pkg:npm/%40terrestris/base-util@3.0.0",
         "pkg:npm/%40turf/turf@7.2.0",
-        "pkg:npm/fast-xml-parser@5.2.5",
-        "pkg:npm/geostyler-openlayers-parser@5.1.2",
+        "pkg:npm/fast-xml-parser@5.3.0",
+        "pkg:npm/geostyler-openlayers-parser@5.2.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.19.10",
-        "pkg:npm/shpjs@6.1.0",
+        "pkg:npm/shpjs@6.2.0",
         "pkg:npm/%40petamoriken/float16@3.9.1",
         "pkg:npm/%40pkgjs/parseargs@0.11.0",
         "pkg:npm/%40types/rbush@4.0.0",
