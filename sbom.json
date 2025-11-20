@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:d6a97a34-e594-4001-94d2-da6ee7b3a428",
+  "serialNumber": "urn:uuid:565efe48-a95c-4582-a459-515f10de9b66",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-10-27T08:39:07.221Z",
+    "timestamp": "2025-11-20T09:24:47.915Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -2029,10 +2029,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/validator@13.12.0",
+      "bom-ref": "pkg:npm/validator@13.15.20",
       "author": "Chris O'Hara",
       "name": "validator",
-      "version": "13.12.0",
+      "version": "13.15.20",
       "description": "String validation and sanitization",
       "licenses": [
         {
@@ -2041,7 +2041,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/validator@13.12.0",
+      "purl": "pkg:npm/validator@13.15.20",
       "externalReferences": [
         {
           "type": "website",
@@ -6480,10 +6480,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@5.3.0",
+      "bom-ref": "pkg:npm/fast-xml-parser@5.3.1",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "5.3.0",
+      "version": "5.3.1",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -6492,7 +6492,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@5.3.0",
+      "purl": "pkg:npm/fast-xml-parser@5.3.1",
       "externalReferences": [
         {
           "type": "website",
@@ -8080,7 +8080,7 @@
       ]
     },
     {
-      "ref": "pkg:npm/validator@13.12.0"
+      "ref": "pkg:npm/validator@13.15.20"
     },
     {
       "ref": "pkg:npm/%40terrestris/base-util@4.0.0",
@@ -8090,7 +8090,7 @@
         "pkg:npm/loglevel@1.9.2",
         "pkg:npm/query-string@9.1.1",
         "pkg:npm/url-parse@1.5.10",
-        "pkg:npm/validator@13.12.0"
+        "pkg:npm/validator@13.15.20"
       ]
     },
     {
@@ -8772,7 +8772,7 @@
       "ref": "pkg:npm/strnum@2.1.0"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@5.3.0",
+      "ref": "pkg:npm/fast-xml-parser@5.3.1",
       "dependsOn": [
         "pkg:npm/strnum@2.1.0"
       ]
@@ -8953,7 +8953,7 @@
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.0",
         "pkg:npm/%40terrestris/base-util@4.0.0",
         "pkg:npm/%40turf/turf@7.2.0",
-        "pkg:npm/fast-xml-parser@5.3.0",
+        "pkg:npm/fast-xml-parser@5.3.1",
         "pkg:npm/geostyler-openlayers-parser@5.2.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.19.10",
