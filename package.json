@@ -78,7 +78,7 @@
     "@types/url-parse": "^1.4.11",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.10.0",
-    "eslint": "^9.13.0",
+    "eslint": "^10.0.0",
     "eslint-plugin-import": "^2.31.0",
     "fs-extra": "11.3.3",
     "gh-pages": "^6.1.1",
