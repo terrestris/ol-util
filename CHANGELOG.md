@@ -1,3 +1,11 @@
+## [21.3.1](https://github.com/terrestris/ol-util/compare/v21.3.0...v21.3.1) (2026-02-18)
+
+
+### Bug Fixes
+
+* fix extraction of legend url ([#2068](https://github.com/terrestris/ol-util/issues/2068)) ([06e2f49](https://github.com/terrestris/ol-util/commit/06e2f490e97f6f09bde616db7dc664967ef5d5d0))
+* fix release workflow ([71dac6d](https://github.com/terrestris/ol-util/commit/71dac6daa47068638dfc63d8a9e22d2154a9e253))
+
 # [21.3.0](https://github.com/terrestris/ol-util/compare/v21.2.0...v21.3.0) (2025-04-09)
 
 
