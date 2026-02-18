@@ -116,7 +116,9 @@ class CapabilitiesUtil {
       const title = _get(layerObj, 'Attribution.Title');
       const onlineResource = _get(layerObj, 'Attribution.OnlineResource');
       const attributions = [onlineResource ? `<a target="_blank" href="${onlineResource}">${title}</a>` : title];
-      const legendUrl = _get(layerObj, 'Style[0].LegendURL[0].OnlineResource');
+      const legendUrl = _get(layerObj, 'Style.LegendURL.OnlineResource.href') ||
+        // unsure whether the old path works for some services, so it is included as a fallback here
+        _get(layerObj, 'Style[0].LegendURL[0].OnlineResource');
 
       return new OlLayerImage({
         opacity: 1,
