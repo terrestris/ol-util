@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:37615f00-86f8-48c2-a04a-6231d31dc84c",
+  "serialNumber": "urn:uuid:f6b251e6-2683-444a-9ab0-43fe1cc5aa9e",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-12-01T08:10:32.851Z",
+    "timestamp": "2026-02-25T07:57:19.293Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,11 +14,11 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "pkg:npm/%40terrestris/ol-util@21.3.0",
+      "bom-ref": "pkg:npm/%40terrestris/ol-util@21.3.1",
       "author": "terrestris GmbH & Co. KG",
       "group": "@terrestris",
       "name": "ol-util",
-      "version": "21.3.0",
+      "version": "21.3.1",
       "description": "A set of helper classes for working with openLayers",
       "licenses": [
         {
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40terrestris/ol-util@21.3.0",
+      "purl": "pkg:npm/%40terrestris/ol-util@21.3.1",
       "externalReferences": [
         {
           "type": "website",
@@ -197,10 +197,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/debug@4.4.1",
+      "bom-ref": "pkg:npm/debug@4.4.3",
       "author": "Josh Junon",
       "name": "debug",
-      "version": "4.4.1",
+      "version": "4.4.3",
       "description": "Lightweight debugging utility for Node.js and the browser",
       "licenses": [
         {
@@ -209,7 +209,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/debug@4.4.1",
+      "purl": "pkg:npm/debug@4.4.3",
       "externalReferences": [
         {
           "type": "website",
@@ -466,19 +466,19 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/tar@7.4.3",
+      "bom-ref": "pkg:npm/tar@7.5.6",
       "author": "Isaac Z. Schlueter",
       "name": "tar",
-      "version": "7.4.3",
+      "version": "7.5.6",
       "description": "tar for node",
       "licenses": [
         {
           "license": {
-            "id": "ISC"
+            "id": "BlueOak-1.0.0"
           }
         }
       ],
-      "purl": "pkg:npm/tar@7.4.3",
+      "purl": "pkg:npm/tar@7.5.6",
       "externalReferences": [
         {
           "type": "website",
@@ -587,10 +587,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/minizlib@3.0.1",
+      "bom-ref": "pkg:npm/minizlib@3.1.0",
       "author": "Isaac Z. Schlueter",
       "name": "minizlib",
-      "version": "3.0.1",
+      "version": "3.1.0",
       "description": "A small fast zlib stream built on [minipass](http://npm.im/minipass) and Node.js's zlib binding.",
       "licenses": [
         {
@@ -599,7 +599,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/minizlib@3.0.1",
+      "purl": "pkg:npm/minizlib@3.1.0",
       "externalReferences": [
         {
           "type": "website",
@@ -612,1056 +612,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/isaacs/minizlib.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/rimraf@5.0.10",
-      "author": "Isaac Z. Schlueter",
-      "name": "rimraf",
-      "version": "5.0.10",
-      "description": "A deep deletion module for node (like `rm -rf`)",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/rimraf@5.0.10",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/rimraf#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/rimraf/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/rimraf.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/glob@10.4.5",
-      "author": "Isaac Z. Schlueter",
-      "name": "glob",
-      "version": "10.4.5",
-      "description": "the most correct and second fastest glob implementation in JavaScript",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/glob@10.4.5",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-glob#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-glob/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/node-glob.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/foreground-child@3.3.1",
-      "author": "Isaac Z. Schlueter",
-      "name": "foreground-child",
-      "version": "3.3.1",
-      "description": "Run a child as if it's the foreground process. Give it stdio. Exit when it exits.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/foreground-child@3.3.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/tapjs/foreground-child#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/tapjs/foreground-child/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/tapjs/foreground-child.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/cross-spawn@7.0.6",
-      "author": "André Cruz",
-      "name": "cross-spawn",
-      "version": "7.0.6",
-      "description": "Cross platform child_process#spawn and child_process#spawnSync",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/cross-spawn@7.0.6",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/moxystudio/node-cross-spawn"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/moxystudio/node-cross-spawn/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/moxystudio/node-cross-spawn.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/path-key@3.1.1",
-      "author": "Sindre Sorhus",
-      "name": "path-key",
-      "version": "3.1.1",
-      "description": "Get the PATH environment variable key cross-platform",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/path-key@3.1.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/path-key#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/path-key/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/path-key.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/shebang-command@2.0.0",
-      "author": "Kevin Mårtensson",
-      "name": "shebang-command",
-      "version": "2.0.0",
-      "description": "Get the command from a shebang",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/shebang-command@2.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/kevva/shebang-command#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/kevva/shebang-command/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/kevva/shebang-command.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/shebang-regex@3.0.0",
-      "author": "Sindre Sorhus",
-      "name": "shebang-regex",
-      "version": "3.0.0",
-      "description": "Regular expression for matching a shebang line",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/shebang-regex@3.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/shebang-regex#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/shebang-regex/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/shebang-regex.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/which@2.0.2",
-      "author": "Isaac Z. Schlueter",
-      "name": "which",
-      "version": "2.0.2",
-      "description": "Like which(1) unix command. Find the first instance of an executable in the PATH.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/which@2.0.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-which#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-which/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/node-which.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/isexe@2.0.0",
-      "author": "Isaac Z. Schlueter",
-      "name": "isexe",
-      "version": "2.0.0",
-      "description": "Minimal module to check if a file is executable.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/isexe@2.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/isexe#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/isexe/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/isexe.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/signal-exit@4.1.0",
-      "author": "Ben Coe",
-      "name": "signal-exit",
-      "version": "4.1.0",
-      "description": "when you want to fire an event no matter how a process exits.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/signal-exit@4.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/tapjs/signal-exit#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/tapjs/signal-exit/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/tapjs/signal-exit.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/jackspeak@3.4.3",
-      "author": "Isaac Z. Schlueter",
-      "name": "jackspeak",
-      "version": "3.4.3",
-      "description": "A very strict and proper argument parser.",
-      "licenses": [
-        {
-          "license": {
-            "id": "BlueOak-1.0.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/jackspeak@3.4.3",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/jackspeak#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/jackspeak/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/jackspeak.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/%40isaacs/cliui@8.0.2",
-      "author": "Ben Coe",
-      "group": "@isaacs",
-      "name": "cliui",
-      "version": "8.0.2",
-      "description": "easily create complex multi-column command-line-interfaces",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40isaacs/cliui@8.0.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/yargs/cliui#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/yargs/cliui/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/yargs/cliui.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/string-width@5.1.2",
-      "author": "Sindre Sorhus",
-      "name": "string-width",
-      "version": "5.1.2",
-      "description": "Get the visual width of a string - the number of columns required to display it",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/string-width@5.1.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/string-width#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/string-width/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/string-width.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/eastasianwidth@0.2.0",
-      "author": "Masaki Komagata",
-      "name": "eastasianwidth",
-      "version": "0.2.0",
-      "description": "Get East Asian Width from a character.",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/eastasianwidth@0.2.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/komagata/eastasianwidth#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/komagata/eastasianwidth/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/komagata/eastasianwidth.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/emoji-regex@9.2.2",
-      "author": "Mathias Bynens",
-      "name": "emoji-regex",
-      "version": "9.2.2",
-      "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/emoji-regex@9.2.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://mths.be/emoji-regex"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/mathiasbynens/emoji-regex/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/mathiasbynens/emoji-regex.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/strip-ansi@7.1.0",
-      "author": "Sindre Sorhus",
-      "name": "strip-ansi",
-      "version": "7.1.0",
-      "description": "Strip ANSI escape codes from a string",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/strip-ansi@7.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/strip-ansi#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/strip-ansi/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/strip-ansi.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/ansi-regex@6.1.0",
-      "author": "Sindre Sorhus",
-      "name": "ansi-regex",
-      "version": "6.1.0",
-      "description": "Regular expression for matching ANSI escape codes",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ansi-regex@6.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/ansi-regex#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/ansi-regex/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/ansi-regex.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/string-width@4.2.3",
-      "author": "Sindre Sorhus",
-      "name": "string-width",
-      "version": "4.2.3",
-      "description": "Get the visual width of a string - the number of columns required to display it",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/string-width@4.2.3",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/string-width#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/string-width/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/string-width.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/emoji-regex@8.0.0",
-      "author": "Mathias Bynens",
-      "name": "emoji-regex",
-      "version": "8.0.0",
-      "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/emoji-regex@8.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://mths.be/emoji-regex"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/mathiasbynens/emoji-regex/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/mathiasbynens/emoji-regex.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/is-fullwidth-code-point@3.0.0",
-      "author": "Sindre Sorhus",
-      "name": "is-fullwidth-code-point",
-      "version": "3.0.0",
-      "description": "Check if the character represented by a given Unicode code point is fullwidth",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/is-fullwidth-code-point@3.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/is-fullwidth-code-point#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/is-fullwidth-code-point/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/is-fullwidth-code-point.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/strip-ansi@6.0.1",
-      "author": "Sindre Sorhus",
-      "name": "strip-ansi",
-      "version": "6.0.1",
-      "description": "Strip ANSI escape codes from a string",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/strip-ansi@6.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/strip-ansi#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/strip-ansi/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/strip-ansi.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/ansi-regex@5.0.1",
-      "author": "Sindre Sorhus",
-      "name": "ansi-regex",
-      "version": "5.0.1",
-      "description": "Regular expression for matching ANSI escape codes",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ansi-regex@5.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/ansi-regex#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/ansi-regex/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/ansi-regex.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/wrap-ansi@8.1.0",
-      "author": "Sindre Sorhus",
-      "name": "wrap-ansi",
-      "version": "8.1.0",
-      "description": "Wordwrap a string with ANSI escape codes",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/wrap-ansi@8.1.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/wrap-ansi#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/wrap-ansi/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/wrap-ansi.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/ansi-styles@6.2.1",
-      "author": "Sindre Sorhus",
-      "name": "ansi-styles",
-      "version": "6.2.1",
-      "description": "ANSI escape codes for styling strings in the terminal",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ansi-styles@6.2.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/ansi-styles#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/ansi-styles/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/ansi-styles.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/wrap-ansi@7.0.0",
-      "author": "Sindre Sorhus",
-      "name": "wrap-ansi",
-      "version": "7.0.0",
-      "description": "Wordwrap a string with ANSI escape codes",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/wrap-ansi@7.0.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/wrap-ansi#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/wrap-ansi/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/wrap-ansi.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/ansi-styles@4.3.0",
-      "author": "Sindre Sorhus",
-      "name": "ansi-styles",
-      "version": "4.3.0",
-      "description": "ANSI escape codes for styling strings in the terminal",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ansi-styles@4.3.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/ansi-styles#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/ansi-styles/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/ansi-styles.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-convert@2.0.1",
-      "author": "Heather Arthur",
-      "name": "color-convert",
-      "version": "2.0.1",
-      "description": "Plain color conversion functions",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-convert@2.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/Qix-/color-convert#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/Qix-/color-convert/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/Qix-/color-convert.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/color-name@1.1.4",
-      "author": "DY",
-      "name": "color-name",
-      "version": "1.1.4",
-      "description": "A list of color names and its values",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/color-name@1.1.4",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/colorjs/color-name"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/colorjs/color-name/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/colorjs/color-name.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/minimatch@9.0.5",
-      "author": "Isaac Z. Schlueter",
-      "name": "minimatch",
-      "version": "9.0.5",
-      "description": "a glob matcher in javascript",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/minimatch@9.0.5",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/minimatch#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/minimatch/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/minimatch.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/brace-expansion@2.0.1",
-      "author": "Julian Gruber",
-      "name": "brace-expansion",
-      "version": "2.0.1",
-      "description": "Brace expansion as known from sh/bash",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/brace-expansion@2.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/juliangruber/brace-expansion"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/juliangruber/brace-expansion/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/juliangruber/brace-expansion.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/balanced-match@1.0.2",
-      "author": "Julian Gruber",
-      "name": "balanced-match",
-      "version": "1.0.2",
-      "description": "Match balanced character pairs, like \"{\" and \"}\"",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/balanced-match@1.0.2",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/juliangruber/balanced-match"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/juliangruber/balanced-match/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/juliangruber/balanced-match.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/package-json-from-dist@1.0.1",
-      "author": "Isaac Z. Schlueter",
-      "name": "package-json-from-dist",
-      "version": "1.0.1",
-      "description": "Load the local package.json from either src or dist folder",
-      "licenses": [
-        {
-          "license": {
-            "id": "BlueOak-1.0.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/package-json-from-dist@1.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/package-json-from-dist#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/package-json-from-dist/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/package-json-from-dist.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/path-scurry@1.11.1",
-      "author": "Isaac Z. Schlueter",
-      "name": "path-scurry",
-      "version": "1.11.1",
-      "description": "walk paths fast and efficiently",
-      "licenses": [
-        {
-          "license": {
-            "id": "BlueOak-1.0.0"
-          }
-        }
-      ],
-      "purl": "pkg:npm/path-scurry@1.11.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/path-scurry#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/path-scurry/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/path-scurry.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/lru-cache@10.4.3",
-      "author": "Isaac Z. Schlueter",
-      "name": "lru-cache",
-      "version": "10.4.3",
-      "description": "A cache object that deletes the least-recently-used items.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ],
-      "purl": "pkg:npm/lru-cache@10.4.3",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-lru-cache#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-lru-cache/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/isaacs/node-lru-cache.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/mkdirp@3.0.1",
-      "name": "mkdirp",
-      "version": "3.0.1",
-      "description": "Recursively mkdir, like `mkdir -p`",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/mkdirp@3.0.1",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/isaacs/node-mkdirp#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/isaacs/node-mkdirp/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/isaacs/node-mkdirp.git"
         }
       ]
     },
@@ -1759,10 +709,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/lodash@4.17.21",
+      "bom-ref": "pkg:npm/lodash@4.17.23",
       "author": "John-David Dalton",
       "name": "lodash",
-      "version": "4.17.21",
+      "version": "4.17.23",
       "description": "Lodash modular utilities.",
       "licenses": [
         {
@@ -1771,7 +721,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/lodash@4.17.21",
+      "purl": "pkg:npm/lodash@4.17.23",
       "externalReferences": [
         {
           "type": "website",
@@ -2029,10 +979,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/validator@13.15.20",
+      "bom-ref": "pkg:npm/validator@13.15.23",
       "author": "Chris O'Hara",
       "name": "validator",
-      "version": "13.15.20",
+      "version": "13.15.23",
       "description": "String validation and sanitization",
       "licenses": [
         {
@@ -2041,7 +991,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/validator@13.15.20",
+      "purl": "pkg:npm/validator@13.15.23",
       "externalReferences": [
         {
           "type": "website",
@@ -6450,10 +5400,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@5.3.2",
+      "bom-ref": "pkg:npm/fast-xml-parser@5.3.6",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "5.3.2",
+      "version": "5.3.6",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -6462,7 +5412,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@5.3.2",
+      "purl": "pkg:npm/fast-xml-parser@5.3.6",
       "externalReferences": [
         {
           "type": "website",
@@ -6480,10 +5430,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/strnum@2.1.0",
+      "bom-ref": "pkg:npm/strnum@2.1.2",
       "author": "Amit Gupta",
       "name": "strnum",
-      "version": "2.1.0",
+      "version": "2.1.2",
       "description": "Parse String to Number based on configuration",
       "licenses": [
         {
@@ -6492,7 +5442,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/strnum@2.1.0",
+      "purl": "pkg:npm/strnum@2.1.2",
       "externalReferences": [
         {
           "type": "website",
@@ -6510,9 +5460,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.3.0",
+      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.4.0",
       "name": "geostyler-openlayers-parser",
-      "version": "5.3.0",
+      "version": "5.4.0",
       "description": "GeoStyler Style Parser implementation for OpenLayers styles",
       "licenses": [
         {
@@ -6521,7 +5471,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-openlayers-parser@5.3.0",
+      "purl": "pkg:npm/geostyler-openlayers-parser@5.4.0",
       "externalReferences": [
         {
           "type": "website",
@@ -6569,9 +5519,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-style@10.3.0",
+      "bom-ref": "pkg:npm/geostyler-style@11.0.1",
       "name": "geostyler-style",
-      "version": "10.3.0",
+      "version": "11.0.1",
       "description": "[![Lint & Docs (main)](https://github.com/geostyler/geostyler-style/actions/workflows/on-push-main.yml/badge.svg)](https://github.com/geostyler/geostyler-style/actions/workflows/on-push-main.yml) [![Create & publish versioned documentation](https://github.com/geostyler/geostyler-style/actions/workflows/on-publish.yml/badge.svg)](https://github.com/geostyler/geostyler-style/actions/workflows/on-publish.yml) [![License](https://img.shields.io/github/license/geostyler/geostyler-style)](https://github.com/geostyler/geostyler-style/blob/main/LICENSE)",
       "licenses": [
         {
@@ -6580,7 +5530,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-style@10.3.0",
+      "purl": "pkg:npm/geostyler-style@11.0.1",
       "externalReferences": [
         {
           "type": "website",
@@ -6993,10 +5943,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/minimatch@5.1.6",
+      "bom-ref": "pkg:npm/minimatch@5.1.7",
       "author": "Isaac Z. Schlueter",
       "name": "minimatch",
-      "version": "5.1.6",
+      "version": "5.1.7",
       "description": "a glob matcher in javascript",
       "licenses": [
         {
@@ -7005,7 +5955,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/minimatch@5.1.6",
+      "purl": "pkg:npm/minimatch@5.1.7",
       "externalReferences": [
         {
           "type": "website",
@@ -7018,6 +5968,66 @@
         {
           "type": "vcs",
           "url": "git://github.com/isaacs/minimatch.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/brace-expansion@2.0.1",
+      "author": "Julian Gruber",
+      "name": "brace-expansion",
+      "version": "2.0.1",
+      "description": "Brace expansion as known from sh/bash",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/brace-expansion@2.0.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/juliangruber/brace-expansion"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/juliangruber/brace-expansion/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/juliangruber/brace-expansion.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/balanced-match@1.0.2",
+      "author": "Julian Gruber",
+      "name": "balanced-match",
+      "version": "1.0.2",
+      "description": "Match balanced character pairs, like \"{\" and \"}\"",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/balanced-match@1.0.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/juliangruber/balanced-match"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/juliangruber/balanced-match/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/juliangruber/balanced-match.git"
         }
       ]
     },
@@ -7197,11 +6207,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40petamoriken/float16@3.9.1",
+      "bom-ref": "pkg:npm/%40petamoriken/float16@3.9.3",
       "author": "Kenta Moriuchi",
       "group": "@petamoriken",
       "name": "float16",
-      "version": "3.9.1",
+      "version": "3.9.3",
       "description": "IEEE 754 half-precision floating-point for JavaScript",
       "licenses": [
         {
@@ -7210,7 +6220,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40petamoriken/float16@3.9.1",
+      "purl": "pkg:npm/%40petamoriken/float16@3.9.3",
       "externalReferences": [
         {
           "type": "website",
@@ -7223,36 +6233,6 @@
         {
           "type": "vcs",
           "url": "git+https://github.com/petamoriken/float16.git"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "bom-ref": "pkg:npm/%40pkgjs/parseargs@0.11.0",
-      "group": "@pkgjs",
-      "name": "parseargs",
-      "version": "0.11.0",
-      "description": "Polyfill of future proposal for `util.parseArgs()`",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40pkgjs/parseargs@0.11.0",
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://github.com/pkgjs/parseargs#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/pkgjs/parseargs/issues"
-        },
-        {
-          "type": "vcs",
-          "url": "git+ssh://git@github.com/pkgjs/parseargs.git"
         }
       ]
     },
@@ -7288,6 +6268,140 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:npm/%40zarrita/storage@0.1.4",
+      "group": "@zarrita",
+      "name": "storage",
+      "version": "0.1.4",
+      "description": "[![NPM](https://img.shields.io/npm/v/@zarrita/storage/next.svg?color=black)](https://www.npmjs.com/package/zarrita) [![License](https://img.shields.io/npm/l/zarrita.svg?color=black)](https://github.com/manzt/zarrita.js/raw/main/LICENSE)",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40zarrita/storage@0.1.4",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/manzt/zarrita.js#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/manzt/zarrita.js/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/manzt/zarrita.js.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/reference-spec-reader@0.2.0",
+      "author": "manzt",
+      "name": "reference-spec-reader",
+      "version": "0.2.0",
+      "description": "Experimental parser for [`ReferenceFileSystem` description](https://github.com/intake/fsspec-reference-maker). This repository also provides a `ReferenceStore` implementation, a storage backend for [`Zarr.js`](https://github.com/gzuidhof/zarr.js). An example of the V1 specification (JSON) is shown below:",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/reference-spec-reader@0.2.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/unzipit@1.4.3",
+      "name": "unzipit",
+      "version": "1.4.3",
+      "description": "random access unzip library for JavaScript",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/unzipit@1.4.3",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://greggman.github.io/unzipit"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/greggman/unzipit/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/greggman/unzipit.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/uzip-module@1.0.3",
+      "name": "uzip-module",
+      "version": "1.0.3",
+      "description": "Module version of UZIP.js",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/uzip-module@1.0.3",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/greggman/uzip-module#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/greggman/uzip-module/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/greggman/uzip-module.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fflate@0.8.2",
+      "author": "Arjun Barrett",
+      "name": "fflate",
+      "version": "0.8.2",
+      "description": "High performance (de)compression in an 8kB package",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/fflate@0.8.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://101arrowz.github.io/fflate"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/101arrowz/fflate/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/101arrowz/fflate.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/lerc@3.0.0",
       "author": "Esri",
       "name": "lerc",
@@ -7318,10 +6432,40 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/parse-headers@2.0.5",
+      "bom-ref": "pkg:npm/numcodecs@0.3.2",
+      "author": "Trevor Manz",
+      "name": "numcodecs",
+      "version": "0.3.2",
+      "description": "Buffer compression and transformation codecs for use in data storage and communication applications.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/numcodecs@0.3.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/manzt/numcodecs.js#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/manzt/numcodecs.js/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/manzt/numcodecs.js.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/parse-headers@2.0.6",
       "author": "David Björklund",
       "name": "parse-headers",
-      "version": "2.0.5",
+      "version": "2.0.6",
       "description": "Parse http headers, works with browserify/xhr",
       "licenses": [
         {
@@ -7330,7 +6474,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/parse-headers@2.0.5",
+      "purl": "pkg:npm/parse-headers@2.0.6",
       "externalReferences": [
         {
           "type": "website",
@@ -7467,10 +6611,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/xml-utils@1.10.1",
+      "bom-ref": "pkg:npm/xml-utils@1.10.2",
       "author": "Daniel J. Dufour",
       "name": "xml-utils",
-      "version": "1.10.1",
+      "version": "1.10.2",
       "description": "Parse XML without Blowing Up Your Bundle Size",
       "licenses": [
         {
@@ -7479,7 +6623,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/xml-utils@1.10.1",
+      "purl": "pkg:npm/xml-utils@1.10.2",
       "externalReferences": [
         {
           "type": "website",
@@ -7497,10 +6641,39 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/zstddec@0.1.0",
+      "bom-ref": "pkg:npm/zarrita@0.6.1",
+      "name": "zarrita",
+      "version": "0.6.1",
+      "description": "[![NPM](https://img.shields.io/npm/v/zarrita/next.svg?color=black)](https://www.npmjs.com/package/zarrita) [![License](https://img.shields.io/npm/l/zarrita.svg?color=black)](https://github.com/manzt/zarrita.js/raw/main/LICENSE) ![GitHub Actions](https://github.com/manzt/zarrita.js/actions/workflows/ci.yml/badge.svg)",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/zarrita@0.6.1",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/manzt/zarrita.js#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/manzt/zarrita.js/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/manzt/zarrita.js.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/zstddec@0.2.0",
       "author": "Don McCurdy",
       "name": "zstddec",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "description": "ZSTD (Zstandard) decoder for Web and Node.js, using WebAssembly",
       "licenses": [
         {
@@ -7509,7 +6682,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/zstddec@0.1.0",
+      "purl": "pkg:npm/zstddec@0.2.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7557,10 +6730,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geotiff@2.1.3",
+      "bom-ref": "pkg:npm/geotiff@3.0.3",
       "author": "Fabian Schindler",
       "name": "geotiff",
-      "version": "2.1.3",
+      "version": "3.0.3",
       "description": "GeoTIFF image decoding in JavaScript",
       "licenses": [
         {
@@ -7569,7 +6742,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geotiff@2.1.3",
+      "purl": "pkg:npm/geotiff@3.0.3",
       "externalReferences": [
         {
           "type": "website",
@@ -7616,9 +6789,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/ol@10.7.0",
+      "bom-ref": "pkg:npm/ol@10.8.0",
       "name": "ol",
-      "version": "10.7.0",
+      "version": "10.8.0",
       "description": "OpenLayers mapping library",
       "licenses": [
         {
@@ -7627,7 +6800,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/ol@10.7.0",
+      "purl": "pkg:npm/ol@10.8.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7748,7 +6921,7 @@
       "ref": "pkg:npm/ms@2.1.3"
     },
     {
-      "ref": "pkg:npm/debug@4.4.1",
+      "ref": "pkg:npm/debug@4.4.3",
       "dependsOn": [
         "pkg:npm/ms@2.1.3"
       ]
@@ -7757,7 +6930,7 @@
       "ref": "pkg:npm/https-proxy-agent@7.0.6",
       "dependsOn": [
         "pkg:npm/agent-base@7.1.3",
-        "pkg:npm/debug@4.4.1"
+        "pkg:npm/debug@4.4.3"
       ]
     },
     {
@@ -7804,197 +6977,17 @@
       "ref": "pkg:npm/chownr@3.0.0"
     },
     {
-      "ref": "pkg:npm/path-key@3.1.1"
-    },
-    {
-      "ref": "pkg:npm/shebang-regex@3.0.0"
-    },
-    {
-      "ref": "pkg:npm/shebang-command@2.0.0",
-      "dependsOn": [
-        "pkg:npm/shebang-regex@3.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/isexe@2.0.0"
-    },
-    {
-      "ref": "pkg:npm/which@2.0.2",
-      "dependsOn": [
-        "pkg:npm/isexe@2.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/cross-spawn@7.0.6",
-      "dependsOn": [
-        "pkg:npm/path-key@3.1.1",
-        "pkg:npm/shebang-command@2.0.0",
-        "pkg:npm/which@2.0.2"
-      ]
-    },
-    {
-      "ref": "pkg:npm/signal-exit@4.1.0"
-    },
-    {
-      "ref": "pkg:npm/foreground-child@3.3.1",
-      "dependsOn": [
-        "pkg:npm/cross-spawn@7.0.6",
-        "pkg:npm/signal-exit@4.1.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/eastasianwidth@0.2.0"
-    },
-    {
-      "ref": "pkg:npm/emoji-regex@9.2.2"
-    },
-    {
-      "ref": "pkg:npm/ansi-regex@6.1.0"
-    },
-    {
-      "ref": "pkg:npm/strip-ansi@7.1.0",
-      "dependsOn": [
-        "pkg:npm/ansi-regex@6.1.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/string-width@5.1.2",
-      "dependsOn": [
-        "pkg:npm/eastasianwidth@0.2.0",
-        "pkg:npm/emoji-regex@9.2.2",
-        "pkg:npm/strip-ansi@7.1.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/emoji-regex@8.0.0"
-    },
-    {
-      "ref": "pkg:npm/is-fullwidth-code-point@3.0.0"
-    },
-    {
-      "ref": "pkg:npm/ansi-regex@5.0.1"
-    },
-    {
-      "ref": "pkg:npm/strip-ansi@6.0.1",
-      "dependsOn": [
-        "pkg:npm/ansi-regex@5.0.1"
-      ]
-    },
-    {
-      "ref": "pkg:npm/string-width@4.2.3",
-      "dependsOn": [
-        "pkg:npm/emoji-regex@8.0.0",
-        "pkg:npm/is-fullwidth-code-point@3.0.0",
-        "pkg:npm/strip-ansi@6.0.1"
-      ]
-    },
-    {
-      "ref": "pkg:npm/ansi-styles@6.2.1"
-    },
-    {
-      "ref": "pkg:npm/wrap-ansi@8.1.0",
-      "dependsOn": [
-        "pkg:npm/ansi-styles@6.2.1"
-      ]
-    },
-    {
-      "ref": "pkg:npm/color-name@1.1.4"
-    },
-    {
-      "ref": "pkg:npm/color-convert@2.0.1",
-      "dependsOn": [
-        "pkg:npm/color-name@1.1.4"
-      ]
-    },
-    {
-      "ref": "pkg:npm/ansi-styles@4.3.0",
-      "dependsOn": [
-        "pkg:npm/color-convert@2.0.1"
-      ]
-    },
-    {
-      "ref": "pkg:npm/wrap-ansi@7.0.0",
-      "dependsOn": [
-        "pkg:npm/ansi-styles@4.3.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/%40isaacs/cliui@8.0.2",
-      "dependsOn": [
-        "pkg:npm/string-width@5.1.2",
-        "pkg:npm/string-width@4.2.3",
-        "pkg:npm/wrap-ansi@8.1.0",
-        "pkg:npm/wrap-ansi@7.0.0"
-      ]
-    },
-    {
-      "ref": "pkg:npm/jackspeak@3.4.3",
-      "dependsOn": [
-        "pkg:npm/%40isaacs/cliui@8.0.2"
-      ]
-    },
-    {
-      "ref": "pkg:npm/balanced-match@1.0.2"
-    },
-    {
-      "ref": "pkg:npm/brace-expansion@2.0.1",
-      "dependsOn": [
-        "pkg:npm/balanced-match@1.0.2"
-      ]
-    },
-    {
-      "ref": "pkg:npm/minimatch@9.0.5",
-      "dependsOn": [
-        "pkg:npm/brace-expansion@2.0.1"
-      ]
-    },
-    {
-      "ref": "pkg:npm/package-json-from-dist@1.0.1"
-    },
-    {
-      "ref": "pkg:npm/lru-cache@10.4.3"
-    },
-    {
-      "ref": "pkg:npm/path-scurry@1.11.1",
-      "dependsOn": [
-        "pkg:npm/lru-cache@10.4.3"
-      ]
-    },
-    {
-      "ref": "pkg:npm/glob@10.4.5",
-      "dependsOn": [
-        "pkg:npm/foreground-child@3.3.1",
-        "pkg:npm/jackspeak@3.4.3",
-        "pkg:npm/minimatch@9.0.5",
-        "pkg:npm/package-json-from-dist@1.0.1",
-        "pkg:npm/path-scurry@1.11.1"
-      ]
-    },
-    {
-      "ref": "pkg:npm/rimraf@5.0.10",
-      "dependsOn": [
-        "pkg:npm/glob@10.4.5"
-      ]
-    },
-    {
-      "ref": "pkg:npm/minizlib@3.0.1",
-      "dependsOn": [
-        "pkg:npm/rimraf@5.0.10"
-      ]
-    },
-    {
-      "ref": "pkg:npm/mkdirp@3.0.1"
+      "ref": "pkg:npm/minizlib@3.1.0"
     },
     {
       "ref": "pkg:npm/yallist@5.0.0"
     },
     {
-      "ref": "pkg:npm/tar@7.4.3",
+      "ref": "pkg:npm/tar@7.5.6",
       "dependsOn": [
         "pkg:npm/%40isaacs/fs-minipass@4.0.1",
         "pkg:npm/chownr@3.0.0",
-        "pkg:npm/minizlib@3.0.1",
-        "pkg:npm/mkdirp@3.0.1",
+        "pkg:npm/minizlib@3.1.0",
         "pkg:npm/yallist@5.0.0"
       ]
     },
@@ -8007,14 +7000,14 @@
         "pkg:npm/node-fetch@2.7.0",
         "pkg:npm/nopt@8.1.0",
         "pkg:npm/semver@7.7.1",
-        "pkg:npm/tar@7.4.3"
+        "pkg:npm/tar@7.5.6"
       ]
     },
     {
       "ref": "pkg:npm/%40ungap/url-search-params@0.2.2"
     },
     {
-      "ref": "pkg:npm/lodash@4.17.21"
+      "ref": "pkg:npm/lodash@4.17.23"
     },
     {
       "ref": "pkg:npm/loglevel@1.9.2"
@@ -8050,17 +7043,17 @@
       ]
     },
     {
-      "ref": "pkg:npm/validator@13.15.20"
+      "ref": "pkg:npm/validator@13.15.23"
     },
     {
       "ref": "pkg:npm/%40terrestris/base-util@4.0.0",
       "dependsOn": [
         "pkg:npm/%40ungap/url-search-params@0.2.2",
-        "pkg:npm/lodash@4.17.21",
+        "pkg:npm/lodash@4.17.23",
         "pkg:npm/loglevel@1.9.2",
         "pkg:npm/query-string@9.1.1",
         "pkg:npm/url-parse@1.5.10",
-        "pkg:npm/validator@13.15.20"
+        "pkg:npm/validator@13.15.23"
       ]
     },
     {
@@ -8733,25 +7726,25 @@
       ]
     },
     {
-      "ref": "pkg:npm/strnum@2.1.0"
+      "ref": "pkg:npm/strnum@2.1.2"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@5.3.2",
+      "ref": "pkg:npm/fast-xml-parser@5.3.6",
       "dependsOn": [
-        "pkg:npm/strnum@2.1.0"
+        "pkg:npm/strnum@2.1.2"
       ]
     },
     {
       "ref": "pkg:npm/css-font-parser@2.0.1"
     },
     {
-      "ref": "pkg:npm/geostyler-style@10.3.0"
+      "ref": "pkg:npm/geostyler-style@11.0.1"
     },
     {
-      "ref": "pkg:npm/geostyler-openlayers-parser@5.3.0",
+      "ref": "pkg:npm/geostyler-openlayers-parser@5.4.0",
       "dependsOn": [
         "pkg:npm/css-font-parser@2.0.1",
-        "pkg:npm/geostyler-style@10.3.0"
+        "pkg:npm/geostyler-style@11.0.1"
       ]
     },
     {
@@ -8803,7 +7796,19 @@
       "ref": "pkg:npm/inherits@2.0.4"
     },
     {
-      "ref": "pkg:npm/minimatch@5.1.6"
+      "ref": "pkg:npm/balanced-match@1.0.2"
+    },
+    {
+      "ref": "pkg:npm/brace-expansion@2.0.1",
+      "dependsOn": [
+        "pkg:npm/balanced-match@1.0.2"
+      ]
+    },
+    {
+      "ref": "pkg:npm/minimatch@5.1.7",
+      "dependsOn": [
+        "pkg:npm/brace-expansion@2.0.1"
+      ]
     },
     {
       "ref": "pkg:npm/glob@8.1.0",
@@ -8811,7 +7816,7 @@
         "pkg:npm/fs.realpath@1.0.0",
         "pkg:npm/inflight@1.0.6",
         "pkg:npm/inherits@2.0.4",
-        "pkg:npm/minimatch@5.1.6"
+        "pkg:npm/minimatch@5.1.7"
       ]
     },
     {
@@ -8848,19 +7853,41 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40petamoriken/float16@3.9.1"
-    },
-    {
-      "ref": "pkg:npm/%40pkgjs/parseargs@0.11.0"
+      "ref": "pkg:npm/%40petamoriken/float16@3.9.3"
     },
     {
       "ref": "pkg:npm/%40types/rbush@4.0.0"
     },
     {
+      "ref": "pkg:npm/reference-spec-reader@0.2.0"
+    },
+    {
+      "ref": "pkg:npm/uzip-module@1.0.3"
+    },
+    {
+      "ref": "pkg:npm/unzipit@1.4.3",
+      "dependsOn": [
+        "pkg:npm/uzip-module@1.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:npm/%40zarrita/storage@0.1.4",
+      "dependsOn": [
+        "pkg:npm/reference-spec-reader@0.2.0",
+        "pkg:npm/unzipit@1.4.3"
+      ]
+    },
+    {
+      "ref": "pkg:npm/fflate@0.8.2"
+    },
+    {
       "ref": "pkg:npm/lerc@3.0.0"
     },
     {
-      "ref": "pkg:npm/parse-headers@2.0.5"
+      "ref": "pkg:npm/numcodecs@0.3.2"
+    },
+    {
+      "ref": "pkg:npm/parse-headers@2.0.6"
     },
     {
       "ref": "pkg:npm/protocol-buffers-schema@3.6.0"
@@ -8875,10 +7902,13 @@
       "ref": "pkg:npm/web-worker@1.5.0"
     },
     {
-      "ref": "pkg:npm/xml-utils@1.10.1"
+      "ref": "pkg:npm/xml-utils@1.10.2"
     },
     {
-      "ref": "pkg:npm/zstddec@0.1.0"
+      "ref": "pkg:npm/zarrita@0.6.1"
+    },
+    {
+      "ref": "pkg:npm/zstddec@0.2.0"
     },
     {
       "ref": "pkg:npm/pbf@4.0.1"
@@ -8887,7 +7917,7 @@
       "ref": "pkg:npm/pako@2.1.0"
     },
     {
-      "ref": "pkg:npm/geotiff@2.1.3",
+      "ref": "pkg:npm/geotiff@3.0.3",
       "dependsOn": [
         "pkg:npm/pako@2.1.0"
       ]
@@ -8905,37 +7935,40 @@
       ]
     },
     {
-      "ref": "pkg:npm/ol@10.7.0",
+      "ref": "pkg:npm/ol@10.8.0",
       "dependsOn": [
         "pkg:npm/earcut@3.0.1",
         "pkg:npm/rbush@4.0.1"
       ]
     },
     {
-      "ref": "pkg:npm/%40terrestris/ol-util@21.3.0",
+      "ref": "pkg:npm/%40terrestris/ol-util@21.3.1",
       "dependsOn": [
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.3",
         "pkg:npm/%40terrestris/base-util@4.0.0",
         "pkg:npm/%40turf/turf@7.3.1",
-        "pkg:npm/fast-xml-parser@5.3.2",
-        "pkg:npm/geostyler-openlayers-parser@5.3.0",
+        "pkg:npm/fast-xml-parser@5.3.6",
+        "pkg:npm/geostyler-openlayers-parser@5.4.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.20.2",
         "pkg:npm/shpjs@6.2.0",
-        "pkg:npm/%40petamoriken/float16@3.9.1",
-        "pkg:npm/%40pkgjs/parseargs@0.11.0",
+        "pkg:npm/%40petamoriken/float16@3.9.3",
         "pkg:npm/%40types/rbush@4.0.0",
+        "pkg:npm/%40zarrita/storage@0.1.4",
+        "pkg:npm/fflate@0.8.2",
         "pkg:npm/lerc@3.0.0",
-        "pkg:npm/parse-headers@2.0.5",
+        "pkg:npm/numcodecs@0.3.2",
+        "pkg:npm/parse-headers@2.0.6",
         "pkg:npm/protocol-buffers-schema@3.6.0",
         "pkg:npm/quick-lru@6.1.2",
         "pkg:npm/resolve-protobuf-schema@2.1.0",
         "pkg:npm/web-worker@1.5.0",
-        "pkg:npm/xml-utils@1.10.1",
-        "pkg:npm/zstddec@0.1.0",
+        "pkg:npm/xml-utils@1.10.2",
+        "pkg:npm/zarrita@0.6.1",
+        "pkg:npm/zstddec@0.2.0",
         "pkg:npm/pbf@4.0.1",
-        "pkg:npm/geotiff@2.1.3",
-        "pkg:npm/ol@10.7.0"
+        "pkg:npm/geotiff@3.0.3",
+        "pkg:npm/ol@10.8.0"
       ]
     }
   ]
