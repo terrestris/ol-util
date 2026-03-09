@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:f6b251e6-2683-444a-9ab0-43fe1cc5aa9e",
+  "serialNumber": "urn:uuid:0827ec93-f328-4564-a442-fff14997f8c1",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-02-25T07:57:19.293Z",
+    "timestamp": "2026-03-09T08:11:36.060Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -5400,10 +5400,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@5.3.6",
+      "bom-ref": "pkg:npm/fast-xml-parser@5.3.8",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "5.3.6",
+      "version": "5.3.8",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -5412,7 +5412,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@5.3.6",
+      "purl": "pkg:npm/fast-xml-parser@5.3.8",
       "externalReferences": [
         {
           "type": "website",
@@ -7729,7 +7729,7 @@
       "ref": "pkg:npm/strnum@2.1.2"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@5.3.6",
+      "ref": "pkg:npm/fast-xml-parser@5.3.8",
       "dependsOn": [
         "pkg:npm/strnum@2.1.2"
       ]
@@ -7947,7 +7947,7 @@
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.3",
         "pkg:npm/%40terrestris/base-util@4.0.0",
         "pkg:npm/%40turf/turf@7.3.1",
-        "pkg:npm/fast-xml-parser@5.3.6",
+        "pkg:npm/fast-xml-parser@5.3.8",
         "pkg:npm/geostyler-openlayers-parser@5.4.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.20.2",
