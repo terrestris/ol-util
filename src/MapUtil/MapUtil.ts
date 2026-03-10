@@ -23,7 +23,7 @@ import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import LayerUtil from '../LayerUtil/LayerUtil';
-import { isWmsLayer, WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
+import { isWmsLayer, isWmtsLayer, WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
 
 export interface LayerPositionInfo {
   position?: number;
@@ -169,7 +169,8 @@ export class MapUtil {
     name: string
   ): WmsLayer | undefined {
     const layer =  MapUtil.getAllLayers(map, l => {
-      return isWmsLayer(l) && l.getSource()?.getParams().LAYERS === name;
+      return (((isWmsLayer(l) && l.getSource()?.getParams().LAYERS === name) ||
+      (isWmtsLayer(l) && l.getSource()?.getLayer() === name)));
     })[0];
     return layer as WmsLayer;
   }
@@ -187,7 +188,7 @@ export class MapUtil {
     const featureTypeName = FeatureUtil.getFeatureTypeName(feature);
 
     for (const namespace of namespaces) {
-      const qualifiedFeatureTypeName = `${namespace}:${featureTypeName}`;
+      const qualifiedFeatureTypeName = namespace !== '' ? `${namespace}:${featureTypeName}` : `${featureTypeName}`;
       const layer = MapUtil.getLayerByNameParam(map, qualifiedFeatureTypeName);
       if (layer) {
         return layer;
