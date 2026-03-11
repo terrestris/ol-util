@@ -161,18 +161,18 @@ export class MapUtil {
    *
    * @param {OlMap} map The map to use for lookup.
    * @param {string} name The name to get the layer by.
-   * @return {WmsLayer|undefined}
+   * @return {WmsLayer|WmtsLayer|undefined}
    * The result layer or undefined if the layer could not be found.
    */
   static getLayerByNameParam(
     map: OlMap,
     name: string
-  ): WmsLayer | undefined {
+  ): WmsLayer | WmtsLayer | undefined {
     const layer =  MapUtil.getAllLayers(map, l => {
       return (((isWmsLayer(l) && l.getSource()?.getParams().LAYERS === name) ||
       (isWmtsLayer(l) && l.getSource()?.getLayer() === name)));
     })[0];
-    return layer as WmsLayer;
+    return layer as WmsLayer | WmtsLayer;
   }
 
   /**
