@@ -23,7 +23,7 @@ import UrlUtil from '@terrestris/base-util/dist/UrlUtil/UrlUtil';
 
 import FeatureUtil from '../FeatureUtil/FeatureUtil';
 import LayerUtil from '../LayerUtil/LayerUtil';
-import { isWmsLayer, WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
+import { isWmsLayer, isWmtsLayer, WmsLayer, WmtsLayer } from '../typeUtils/typeUtils';
 
 export interface LayerPositionInfo {
   position?: number;
@@ -161,17 +161,18 @@ export class MapUtil {
    *
    * @param {OlMap} map The map to use for lookup.
    * @param {string} name The name to get the layer by.
-   * @return {WmsLayer|undefined}
+   * @return {WmsLayer|WmtsLayer|undefined}
    * The result layer or undefined if the layer could not be found.
    */
   static getLayerByNameParam(
     map: OlMap,
     name: string
-  ): WmsLayer | undefined {
+  ): WmsLayer | WmtsLayer | undefined {
     const layer =  MapUtil.getAllLayers(map, l => {
-      return isWmsLayer(l) && l.getSource()?.getParams().LAYERS === name;
+      return (((isWmsLayer(l) && l.getSource()?.getParams().LAYERS === name) ||
+      (isWmtsLayer(l) && l.getSource()?.getLayer() === name)));
     })[0];
-    return layer as WmsLayer;
+    return layer as WmsLayer | WmtsLayer;
   }
 
   /**
@@ -187,7 +188,7 @@ export class MapUtil {
     const featureTypeName = FeatureUtil.getFeatureTypeName(feature);
 
     for (const namespace of namespaces) {
-      const qualifiedFeatureTypeName = `${namespace}:${featureTypeName}`;
+      const qualifiedFeatureTypeName = namespace !== '' ? `${namespace}:${featureTypeName}` : `${featureTypeName}`;
       const layer = MapUtil.getLayerByNameParam(map, qualifiedFeatureTypeName);
       if (layer) {
         return layer;
