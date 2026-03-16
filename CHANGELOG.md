@@ -1,3 +1,10 @@
+## [21.3.2](https://github.com/terrestris/ol-util/compare/v21.3.1...v21.3.2) (2026-03-16)
+
+
+### Bug Fixes
+
+* add release info to readme ([4d0a0b7](https://github.com/terrestris/ol-util/commit/4d0a0b71f61034af324b1929559a01d9fd29c0a3))
+
 ## [21.3.1](https://github.com/terrestris/ol-util/compare/v21.3.0...v21.3.1) (2026-02-18)
 
 
