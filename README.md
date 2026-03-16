@@ -30,6 +30,10 @@ Be aware that ol-util uses a ESM build, so make sure your downstream application
 npm run watch:buildto ../react-geo/node_modules/@terrestris/ol-util
 ```
 
+## Release
+
+A new version is released automatically for new commits to the main branch using [semantic release](https://github.com/semantic-release/semantic-release).
+
 ## Software Bill of Materials
 
 You find the SBOM (Software Bill of Materials) in `sbom.json` at root level of the project.
