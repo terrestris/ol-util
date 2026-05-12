@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:67fd06dd-9639-4cfd-9abe-49fd3f49de4a",
+  "serialNumber": "urn:uuid:ea454cb9-b996-4789-9aa4-992458bc1ec9",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-05-12T07:03:54.962Z",
+    "timestamp": "2026-05-12T09:51:06.774Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -5483,10 +5483,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@5.7.3",
+      "bom-ref": "pkg:npm/fast-xml-parser@5.8.0",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "5.7.3",
+      "version": "5.8.0",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -5495,7 +5495,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@5.7.3",
+      "purl": "pkg:npm/fast-xml-parser@5.8.0",
       "externalReferences": [
         {
           "type": "website",
@@ -5544,10 +5544,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-builder@1.1.8",
+      "bom-ref": "pkg:npm/fast-xml-builder@1.2.0",
       "author": "Amit Gupta",
       "name": "fast-xml-builder",
-      "version": "1.1.8",
+      "version": "1.2.0",
       "description": "Build XML from JSON without C/C++ based libraries",
       "licenses": [
         {
@@ -5556,7 +5556,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-builder@1.1.8",
+      "purl": "pkg:npm/fast-xml-builder@1.2.0",
       "externalReferences": [
         {
           "type": "website",
@@ -5604,10 +5604,40 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/strnum@2.2.3",
+      "bom-ref": "pkg:npm/xml-naming@0.1.0",
+      "author": "Amit Gupta",
+      "name": "xml-naming",
+      "version": "0.1.0",
+      "description": "Validates XML name productions — Name, NCName, QName, NMToken, NMTokens — for XML 1.0 and 1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/xml-naming@0.1.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/NaturalIntelligence/xml-naming#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/NaturalIntelligence/xml-naming/issues"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/NaturalIntelligence/xml-naming.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/strnum@2.3.0",
       "author": "Amit Gupta",
       "name": "strnum",
-      "version": "2.2.3",
+      "version": "2.3.0",
       "description": "Parse String to Number based on configuration",
       "licenses": [
         {
@@ -5616,7 +5646,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/strnum@2.2.3",
+      "purl": "pkg:npm/strnum@2.3.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7893,20 +7923,24 @@
       "ref": "pkg:npm/path-expression-matcher@1.5.0"
     },
     {
-      "ref": "pkg:npm/fast-xml-builder@1.1.8",
+      "ref": "pkg:npm/xml-naming@0.1.0"
+    },
+    {
+      "ref": "pkg:npm/fast-xml-builder@1.2.0",
       "dependsOn": [
-        "pkg:npm/path-expression-matcher@1.5.0"
+        "pkg:npm/path-expression-matcher@1.5.0",
+        "pkg:npm/xml-naming@0.1.0"
       ]
     },
     {
-      "ref": "pkg:npm/strnum@2.2.3"
+      "ref": "pkg:npm/strnum@2.3.0"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@5.7.3",
+      "ref": "pkg:npm/fast-xml-parser@5.8.0",
       "dependsOn": [
         "pkg:npm/%40nodable/entities@2.1.0",
-        "pkg:npm/fast-xml-builder@1.1.8",
-        "pkg:npm/strnum@2.2.3"
+        "pkg:npm/fast-xml-builder@1.2.0",
+        "pkg:npm/strnum@2.3.0"
       ]
     },
     {
@@ -8116,7 +8150,7 @@
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.3",
         "pkg:npm/%40terrestris/base-util@4.0.2",
         "pkg:npm/%40turf/turf@7.3.5",
-        "pkg:npm/fast-xml-parser@5.7.3",
+        "pkg:npm/fast-xml-parser@5.8.0",
         "pkg:npm/geostyler-openlayers-parser@5.7.0",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.20.8",
