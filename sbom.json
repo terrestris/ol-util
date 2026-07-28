@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:8cef817f-5d3a-47e6-bc46-f6b792d2fd79",
+  "serialNumber": "urn:uuid:be779c9f-7641-4e38-9245-2879f77cf8bb",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-09T08:11:57.461Z",
+    "timestamp": "2026-07-28T14:37:33.512Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -466,10 +466,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/tar@7.5.11",
+      "bom-ref": "pkg:npm/tar@7.5.16",
       "author": "Isaac Z. Schlueter",
       "name": "tar",
-      "version": "7.5.11",
+      "version": "7.5.16",
       "description": "tar for node",
       "licenses": [
         {
@@ -478,7 +478,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/tar@7.5.11",
+      "purl": "pkg:npm/tar@7.5.16",
       "externalReferences": [
         {
           "type": "website",
@@ -7158,7 +7158,7 @@
       "ref": "pkg:npm/yallist@5.0.0"
     },
     {
-      "ref": "pkg:npm/tar@7.5.11",
+      "ref": "pkg:npm/tar@7.5.16",
       "dependsOn": [
         "pkg:npm/%40isaacs/fs-minipass@4.0.1",
         "pkg:npm/chownr@3.0.0",
@@ -7175,7 +7175,7 @@
         "pkg:npm/node-fetch@2.7.0",
         "pkg:npm/nopt@8.1.0",
         "pkg:npm/semver@7.7.1",
-        "pkg:npm/tar@7.5.11"
+        "pkg:npm/tar@7.5.16"
       ]
     },
     {
