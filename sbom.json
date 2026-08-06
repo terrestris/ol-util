@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:f0cc6cff-7d4c-4812-aee9-46dcbcbefc6c",
+  "serialNumber": "urn:uuid:bacf01f5-09f7-44cc-bbb6-95091d2c4ab8",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-08-06T07:22:52.900Z",
+    "timestamp": "2026-08-06T07:29:19.537Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -5724,9 +5724,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.7.0",
+      "bom-ref": "pkg:npm/geostyler-openlayers-parser@5.7.1",
       "name": "geostyler-openlayers-parser",
-      "version": "5.7.0",
+      "version": "5.7.1",
       "description": "GeoStyler Style Parser implementation for OpenLayers styles",
       "licenses": [
         {
@@ -5735,7 +5735,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geostyler-openlayers-parser@5.7.0",
+      "purl": "pkg:npm/geostyler-openlayers-parser@5.7.1",
       "externalReferences": [
         {
           "type": "website",
@@ -8020,7 +8020,7 @@
       "ref": "pkg:npm/geostyler-style@11.1.0"
     },
     {
-      "ref": "pkg:npm/geostyler-openlayers-parser@5.7.0",
+      "ref": "pkg:npm/geostyler-openlayers-parser@5.7.1",
       "dependsOn": [
         "pkg:npm/css-font-parser@2.0.1",
         "pkg:npm/geostyler-style@11.1.0"
@@ -8221,7 +8221,7 @@
         "pkg:npm/%40terrestris/base-util@4.0.2",
         "pkg:npm/%40turf/turf@7.3.5",
         "pkg:npm/fast-xml-parser@5.9.0",
-        "pkg:npm/geostyler-openlayers-parser@5.7.0",
+        "pkg:npm/geostyler-openlayers-parser@5.7.1",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.20.9",
         "pkg:npm/shpjs@6.2.0",
