@@ -3,6 +3,11 @@
   "extends": [
     "config:best-practices",
     ":prHourlyLimitNone",
-    ":prConcurrentLimit20"
-  ]
+    ":prConcurrentLimit20",
+    ":automergeDigest",
+    ":automergeMinor",
+    ":automergeTesters",
+    ":automergeTypes"
+  ],
+  "labels": ["renovate"]
 }
