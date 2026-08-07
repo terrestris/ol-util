@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:ac814a6a-cba1-4f27-a749-bd2ad93a0693",
+  "serialNumber": "urn:uuid:bb3276b7-ac78-4bd3-a19e-8e1c86f03d98",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-08-07T09:53:00.823Z",
+    "timestamp": "2026-08-07T09:56:47.125Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -6996,10 +6996,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/pbf@4.0.1",
+      "bom-ref": "pkg:npm/pbf@5.1.2",
       "author": "Konstantin Kaefer",
       "name": "pbf",
-      "version": "4.0.1",
+      "version": "5.1.2",
       "description": "a low-level, lightweight protocol buffers implementation in JavaScript",
       "licenses": [
         {
@@ -7008,7 +7008,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/pbf@4.0.1",
+      "purl": "pkg:npm/pbf@5.1.2",
       "externalReferences": [
         {
           "type": "website",
@@ -7026,10 +7026,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/geotiff@3.0.5",
+      "bom-ref": "pkg:npm/geotiff@3.1.0-beta.0",
       "author": "Fabian Schindler",
       "name": "geotiff",
-      "version": "3.0.5",
+      "version": "3.1.0-beta.0",
       "description": "GeoTIFF image decoding in JavaScript",
       "licenses": [
         {
@@ -7038,7 +7038,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/geotiff@3.0.5",
+      "purl": "pkg:npm/geotiff@3.1.0-beta.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7085,9 +7085,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/ol@10.9.0",
+      "bom-ref": "pkg:npm/ol@10.10.0",
       "name": "ol",
-      "version": "10.9.0",
+      "version": "10.10.0",
       "description": "OpenLayers mapping library",
       "licenses": [
         {
@@ -7096,7 +7096,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/ol@10.9.0",
+      "purl": "pkg:npm/ol@10.10.0",
       "externalReferences": [
         {
           "type": "website",
@@ -7114,10 +7114,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/earcut@3.0.1",
-      "author": "Vladimir Agafonkin",
+      "bom-ref": "pkg:npm/earcut@3.2.3",
+      "author": "Volodymyr Agafonkin",
       "name": "earcut",
-      "version": "3.0.1",
+      "version": "3.2.3",
       "description": "The fastest and smallest JavaScript polygon triangulation library for your WebGL apps",
       "licenses": [
         {
@@ -7126,7 +7126,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/earcut@3.0.1",
+      "purl": "pkg:npm/earcut@3.2.3",
       "externalReferences": [
         {
           "type": "website",
@@ -8251,19 +8251,19 @@
       "ref": "pkg:npm/zstddec@0.2.0"
     },
     {
-      "ref": "pkg:npm/pbf@4.0.1"
+      "ref": "pkg:npm/pbf@5.1.2"
     },
     {
       "ref": "pkg:npm/pako@2.1.0"
     },
     {
-      "ref": "pkg:npm/geotiff@3.0.5",
+      "ref": "pkg:npm/geotiff@3.1.0-beta.0",
       "dependsOn": [
         "pkg:npm/pako@2.1.0"
       ]
     },
     {
-      "ref": "pkg:npm/earcut@3.0.1"
+      "ref": "pkg:npm/earcut@3.2.3"
     },
     {
       "ref": "pkg:npm/quickselect@3.0.0"
@@ -8275,9 +8275,9 @@
       ]
     },
     {
-      "ref": "pkg:npm/ol@10.9.0",
+      "ref": "pkg:npm/ol@10.10.0",
       "dependsOn": [
-        "pkg:npm/earcut@3.0.1",
+        "pkg:npm/earcut@3.2.3",
         "pkg:npm/rbush@4.0.1"
       ]
     },
@@ -8306,9 +8306,9 @@
         "pkg:npm/xml-utils@1.10.2",
         "pkg:npm/zarrita@0.7.1",
         "pkg:npm/zstddec@0.2.0",
-        "pkg:npm/pbf@4.0.1",
-        "pkg:npm/geotiff@3.0.5",
-        "pkg:npm/ol@10.9.0"
+        "pkg:npm/pbf@5.1.2",
+        "pkg:npm/geotiff@3.1.0-beta.0",
+        "pkg:npm/ol@10.10.0"
       ]
     }
   ]
