@@ -34,7 +34,7 @@ jobs:
       run: npm test
 
     - name: Publish to coveralls ⭐
-      uses: coverallsapp/github-action@main
+      uses: coverallsapp/github-action@87358ce5dd9575c3762db828a00998c10283087a # main
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -76,7 +76,7 @@ jobs:
           echo "VERSION=$(node -pe "require('./package.json').version")" >> $GITHUB_ENV
 
       - name: Deploy (v${{ env.VERSION }}) 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
@@ -84,7 +84,7 @@ jobs:
           target-folder: v${{ env.VERSION }}
 
       - name: Deploy docs (latest) 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
@@ -97,7 +97,7 @@ jobs:
         run: npx semantic-release
 
       - name: Generate JSON SBOM 🏛️
-        uses: CycloneDX/gh-node-module-generatebom@v1
+        uses: CycloneDX/gh-node-module-generatebom@27e13c2bf0fae78d66387b35ca9749d8cc853060 # v1
         with:
           output: sbom.json
 
