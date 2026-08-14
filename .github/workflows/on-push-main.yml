@@ -34,7 +34,7 @@ jobs:
       run: npm test
 
     - name: Publish to coveralls ⭐
-      uses: coverallsapp/github-action@87358ce5dd9575c3762db828a00998c10283087a # main
+      uses: coverallsapp/github-action@0a06e5d0e3a95fd364e0bdbcd2a62b4b4d18aa57 # main
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
