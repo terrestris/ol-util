@@ -54,9 +54,9 @@
     "shpjs": "^6.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.29.7",
-    "@babel/preset-env": "7.29.7",
-    "@babel/preset-typescript": "7.29.7",
+    "@babel/core": "8.0.1",
+    "@babel/preset-env": "8.0.2",
+    "@babel/preset-typescript": "8.0.1",
     "@commitlint/cli": "21.0.2",
     "@commitlint/config-conventional": "21.2.0",
     "@eslint/eslintrc": "3.3.6",
