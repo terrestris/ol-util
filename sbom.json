@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:d7b9a018-68a9-40ab-9f66-a840aa723b9b",
+  "serialNumber": "urn:uuid:3e4cfe3b-1df0-4f22-b9e6-97db36a0c5ad",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-08-15T18:06:22.133Z",
+    "timestamp": "2026-08-19T17:03:04.128Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -5514,10 +5514,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@5.10.1",
+      "bom-ref": "pkg:npm/fast-xml-parser@5.11.0",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "5.10.1",
+      "version": "5.11.0",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -5526,7 +5526,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@5.10.1",
+      "purl": "pkg:npm/fast-xml-parser@5.11.0",
       "externalReferences": [
         {
           "type": "website",
@@ -5695,10 +5695,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/strnum@2.4.1",
+      "bom-ref": "pkg:npm/strnum@2.4.2",
       "author": "Amit Gupta",
       "name": "strnum",
-      "version": "2.4.1",
+      "version": "2.4.2",
       "description": "Parse String to Number based on configuration",
       "licenses": [
         {
@@ -5707,7 +5707,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/strnum@2.4.1",
+      "purl": "pkg:npm/strnum@2.4.2",
       "externalReferences": [
         {
           "type": "website",
@@ -8062,7 +8062,7 @@
       "ref": "pkg:npm/anynum@1.0.1"
     },
     {
-      "ref": "pkg:npm/strnum@2.4.1",
+      "ref": "pkg:npm/strnum@2.4.2",
       "dependsOn": [
         "pkg:npm/anynum@1.0.1"
       ]
@@ -8071,12 +8071,12 @@
       "ref": "pkg:npm/xml-naming@0.3.0"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@5.10.1",
+      "ref": "pkg:npm/fast-xml-parser@5.11.0",
       "dependsOn": [
         "pkg:npm/%40nodable/entities@3.0.0",
         "pkg:npm/fast-xml-builder@1.2.0",
         "pkg:npm/is-unsafe@2.0.0",
-        "pkg:npm/strnum@2.4.1",
+        "pkg:npm/strnum@2.4.2",
         "pkg:npm/xml-naming@0.3.0"
       ]
     },
@@ -8287,7 +8287,7 @@
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.3",
         "pkg:npm/%40terrestris/base-util@4.0.2",
         "pkg:npm/%40turf/turf@7.4.0",
-        "pkg:npm/fast-xml-parser@5.10.1",
+        "pkg:npm/fast-xml-parser@5.11.0",
         "pkg:npm/geostyler-openlayers-parser@5.7.1",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.21.0",
