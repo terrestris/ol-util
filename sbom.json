@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.3",
-  "serialNumber": "urn:uuid:ffb6b02e-e805-4615-9469-c6abb1782d78",
+  "serialNumber": "urn:uuid:d2dfe26f-ef7b-4c76-a186-58eb5b8261b4",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-10-01T21:05:46.986Z",
+    "timestamp": "2026-10-02T12:42:20.193Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -5514,10 +5514,10 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/fast-xml-parser@5.11.1",
+      "bom-ref": "pkg:npm/fast-xml-parser@5.11.2",
       "author": "Amit Gupta",
       "name": "fast-xml-parser",
-      "version": "5.11.1",
+      "version": "5.11.2",
       "description": "Validate XML, Parse XML, Build XML without C/C++ based libraries",
       "licenses": [
         {
@@ -5526,7 +5526,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-xml-parser@5.11.1",
+      "purl": "pkg:npm/fast-xml-parser@5.11.2",
       "externalReferences": [
         {
           "type": "website",
@@ -5544,11 +5544,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:npm/%40nodable/entities@3.0.0",
+      "bom-ref": "pkg:npm/%40nodable/entities@3.1.0",
       "author": "Amit Gupta",
       "group": "@nodable",
       "name": "entities",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "description": "Entity parser for XML, HTML, External entites with security and NCR control",
       "licenses": [
         {
@@ -5557,7 +5557,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40nodable/entities@3.0.0",
+      "purl": "pkg:npm/%40nodable/entities@3.1.0",
       "externalReferences": [
         {
           "type": "website",
@@ -8040,7 +8040,7 @@
       ]
     },
     {
-      "ref": "pkg:npm/%40nodable/entities@3.0.0"
+      "ref": "pkg:npm/%40nodable/entities@3.1.0"
     },
     {
       "ref": "pkg:npm/path-expression-matcher@1.6.2"
@@ -8071,9 +8071,9 @@
       "ref": "pkg:npm/xml-naming@0.3.0"
     },
     {
-      "ref": "pkg:npm/fast-xml-parser@5.11.1",
+      "ref": "pkg:npm/fast-xml-parser@5.11.2",
       "dependsOn": [
-        "pkg:npm/%40nodable/entities@3.0.0",
+        "pkg:npm/%40nodable/entities@3.1.0",
         "pkg:npm/fast-xml-builder@1.2.0",
         "pkg:npm/is-unsafe@2.0.0",
         "pkg:npm/strnum@2.4.2",
@@ -8287,7 +8287,7 @@
         "pkg:npm/%40mapbox/node-pre-gyp@2.0.3",
         "pkg:npm/%40terrestris/base-util@4.0.2",
         "pkg:npm/%40turf/turf@7.4.0",
-        "pkg:npm/fast-xml-parser@5.11.1",
+        "pkg:npm/fast-xml-parser@5.11.2",
         "pkg:npm/geostyler-openlayers-parser@5.7.1",
         "pkg:npm/polygon-splitter@0.0.11",
         "pkg:npm/proj4@2.22.0",
