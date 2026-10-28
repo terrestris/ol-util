@@ -16,7 +16,7 @@ jobs:
     - name: Use Node.js 22.x
       uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
       with:
-        node-version: 24.x
+        node-version: 26.x
 
     - name: Cache Node.js modules 💾
       uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
@@ -51,7 +51,7 @@ jobs:
       - name: Setup Node.js 22 🧮
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
-          node-version: 24
+          node-version: 26
 
       - name: Cache Node.js modules 💾
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
