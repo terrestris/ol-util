@@ -54,7 +54,7 @@
     "shpjs": "^6.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.29.7",
+    "@babel/core": "7.29.13",
     "@babel/preset-env": "7.29.7",
     "@babel/preset-typescript": "7.29.7",
     "@commitlint/cli": "21.0.2",
